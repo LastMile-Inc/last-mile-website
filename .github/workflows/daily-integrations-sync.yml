@@ -1,8 +1,7 @@
 name: Daily Integrations Sync
 
 on:
-  schedule:
-    - cron: "0 11 * * *"
+  # Phase 0 safety gate: production publishing is manual during ecosystem reconciliation.
   workflow_dispatch:
 
 permissions:
