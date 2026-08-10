@@ -40,10 +40,7 @@ export const router = createBrowserRouter([
       { path: "solutions", loader: redirectTo("/platform") },
       { path: "ecosystem", lazy: lazyPage(() => import("./pages/EcosystemPage"), "EcosystemPage") },
       { path: "integrations", loader: redirectTo("/ecosystem") },
-      {
-        path: "integrations/:vendorSlug/:productSlug",
-        lazy: lazyPage(() => import("./pages/IntegrationDetailPage"), "IntegrationDetailPage"),
-      },
+      { path: "integrations/:vendorSlug/:productSlug", loader: redirectTo("/ecosystem") },
       { path: "about", lazy: lazyPage(() => import("./pages/AboutPage"), "AboutPage") },
       { path: "company", loader: redirectTo("/about") },
       { path: "company/newsroom", lazy: lazyPage(() => import("./pages/NewsroomPage"), "NewsroomPage") },
