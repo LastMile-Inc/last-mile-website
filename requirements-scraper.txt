@@ -1,7 +1,0 @@
-beautifulsoup4
-google-auth
-gspread
-lxml
-PyYAML
-python-dotenv
-requests

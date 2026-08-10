@@ -5,9 +5,6 @@
   "type": "module",
   "scripts": {
     "content:validate": "node scripts/validate-content.mjs",
-    "integrations:validate": "node scripts/generate-integrations-json.mjs --validate-only",
-    "integrations:generate": "node scripts/generate-integrations-json.mjs",
-    "integrations:sync-sheet": "node scripts/generate-integrations-json.mjs --config data/integrations-source.json --save-source",
     "build": "npm run content:validate && npm run newsroom:generate && npm run sitemap:generate && vite build",
     "dev": "vite",
     "typecheck": "tsc -p tsconfig.json --noEmit",
@@ -51,7 +48,6 @@
     "class-variance-authority": "0.7.1",
     "clsx": "2.1.1",
     "cmdk": "1.1.1",
-    "csv-parse": "^6.2.1",
     "embla-carousel-react": "8.6.0",
     "input-otp": "1.4.2",
     "lucide-react": "0.487.0",
