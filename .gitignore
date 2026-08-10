@@ -23,6 +23,8 @@ Thumbs.db
 # Local scraper outputs
 data/scraped/
 temp/
+tmp/
+*.zip
 
 # Python cache
 __pycache__/

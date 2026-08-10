@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "platformRelease": "r1.3-review-baseline",
+  "releaseStatus": "UNDER_REVIEW",
+  "claims": [
+    {
+      "contentId": "LM-WEB-PLATFORM-001",
+      "status": "approved-for-review-site",
+      "claim": "Last Mile is an independent physical operations platform designed to connect operating conditions, coordinated work, and verified physical outcomes."
+    },
+    {
+      "contentId": "LM-WEB-PRODUCTS-001",
+      "status": "approved-for-review-site",
+      "claim": "The platform model comprises Infinit-Signal, Singularity, Infinit-Flow, and Infinit-Control."
+    },
+    {
+      "contentId": "LM-WEB-DATA-001",
+      "status": "approved-for-review-site",
+      "claim": "Operational records are created once as canonical records and consumed through governed product contracts."
+    },
+    {
+      "contentId": "LM-WEB-AUTHORITY-001",
+      "status": "approved-for-review-site",
+      "claim": "Consequential physical actions remain governed by customer policy and human authority."
+    },
+    {
+      "contentId": "LM-WEB-PROOF-001",
+      "status": "approved-for-review-site",
+      "claim": "Recovery is evaluated from return telemetry and operating evidence rather than ticket closure alone."
+    }
+  ]
+}

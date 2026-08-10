@@ -1,28 +1,24 @@
 
-  # Last Mile Inc.
+# Last Mile Inc.
 
-  Official website for Last Mile Inc.
+Official website for Last Mile Inc.
 
-  ## Running the code
+## Canonical website branch
 
-  Run `npm i` to install the dependencies.
+The active reconciliation baseline is the `makeover` lineage. The default branch remains protected until the platform-first site passes founder review and is deliberately promoted.
 
-  Run `npm run dev` to start the development server.
+## Running the code
 
-  ## Production deployment automation
+Run `npm ci` to install dependencies and `npm run dev` to start the development server.
 
-  The nightly integrations sync now verifies whether the live production catalog matches the generated catalog.
+Run `npm run validate` before opening or updating a pull request.
 
-  If production is behind, GitHub Actions deploys `dist/` directly to cPanel over explicit FTPS.
+## Content control
 
-  Required GitHub Actions secrets:
+Public product claims and vocabulary are governed by `/content-source`. `npm run content:validate` rejects retired product names, unclassified ServiceNow-era material, committed QA artifacts, and any workflow that can publish the site.
 
-  - `CPANEL_FTP`
+The architecture review baseline is not automatically an approved public release. The website uses only the conservative claims registered in `content-source/public-claims.json`.
 
-  Optional GitHub Actions secrets for non-default cPanel environments:
+## Production deployment
 
-  - `CPANEL_FTP_HOST` default `lastmileinc.ai`
-  - `CPANEL_FTP_USERNAME` default `rodney@lastmileinc.ai`
-  - `CPANEL_DEPLOY_PATH` default `.` when the FTP account is already rooted at `public_html`
-  - `CPANEL_FTP_PORT` optional, defaults to `21`
-  
+There is no active GitHub Actions production deployment workflow. Production publishing requires a separately approved release procedure after founder review. Do not add scheduled synchronization, repository-writing automation, FTP mirroring, or deployment secrets to validation workflows.
