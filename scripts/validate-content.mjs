@@ -30,7 +30,7 @@ for (const file of files) {
       if (text.toLowerCase().includes(term.toLowerCase())) errors.push(`${file}: retired term \"${term}\"`);
     }
   }
-  if (/service\s*now/i.test(text) && !isAllowed(file, [...control.serviceNowArchiveAllowlist, ...control.pendingPhase4ArchiveAllowlist])) {
+  if (/service\s*now/i.test(text) && !isAllowed(file, control.serviceNowArchiveAllowlist)) {
     errors.push(`${file}: ServiceNow-era content is not classified as historical/archive material`);
   }
 }
@@ -52,6 +52,28 @@ async function exists(relative) {
   try { await readFile(path.join(root, relative)); return true; } catch { return false; }
 }
 if (await exists(".github/workflows/daily-integrations-sync.yml")) errors.push("legacy daily integration workflow still exists");
+
+const retiredCatalogPaths = [
+  "data/integration-details",
+  "data/integrations.csv",
+  "data/integrations-source.json",
+  "public/integration-details",
+  "public/manufactured-openapi",
+  "public/integrations.json",
+  "public/integrations.md",
+  "src/app/pages/IntegrationDetailPage.tsx",
+  "src/app/pages/OurIntegrationsPage.tsx",
+  "scripts/generate-integrations-json.mjs",
+  "scripts/vendor_portal_scraper.py",
+];
+for (const retiredPath of retiredCatalogPaths) {
+  try {
+    await readdir(path.join(root, retiredPath));
+    errors.push(`${retiredPath}: retired integration catalog path still exists`);
+  } catch {
+    if (await exists(retiredPath)) errors.push(`${retiredPath}: retired integration catalog path still exists`);
+  }
+}
 
 const workflows = await readdir(path.join(root, ".github", "workflows"), { withFileTypes: true }).catch(() => []);
 for (const workflow of workflows.filter((entry) => entry.isFile())) {

@@ -29,21 +29,5 @@
     "public/press-releases/",
     "public/audio/",
     "data/press-releases/"
-  ],
-  "pendingPhase4ArchiveAllowlist": [
-    "data/integration-details/",
-    "data/integrations.csv",
-    "data/integrations-source.json",
-    "data/integrations-source.example.json",
-    "data/spec-artifact-policy.json",
-    "public/integration-details/",
-    "public/manufactured-openapi/",
-    "public/integrations.json",
-    "public/integrations.md",
-    "src/app/pages/IntegrationDetailPage.tsx",
-    "src/app/pages/OurIntegrationsPage.tsx",
-    "scripts/compare-live-catalog.mjs",
-    "scripts/generate-integrations-json.mjs"
-    ,"scripts/vendor-scraper-servicechannel.json"
   ]
 }

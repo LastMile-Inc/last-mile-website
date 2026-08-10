@@ -19,6 +19,10 @@ Public product claims and vocabulary are governed by `/content-source`. `npm run
 
 The architecture review baseline is not automatically an approved public release. The website uses only the conservative claims registered in `content-source/public-claims.json`.
 
+## Historical integration catalog
+
+The earlier ServiceNow-focused vendor catalog, generated API artifacts, and scraper utilities were removed from the active website tree in Phase 4. Their disposition and recovery controls are recorded in `docs/archive/legacy-integration-catalog.md`; Git history and a dated recovery package preserve the underlying material.
+
 ## Production deployment
 
 There is no active GitHub Actions production deployment workflow. Production publishing requires a separately approved release procedure after founder review. Do not add scheduled synchronization, repository-writing automation, FTP mirroring, or deployment secrets to validation workflows.
