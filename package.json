@@ -5,11 +5,12 @@
   "type": "module",
   "scripts": {
     "content:validate": "node scripts/validate-content.mjs",
+    "governance:validate": "node scripts/validate-governance.mjs",
     "build": "npm run content:validate && npm run newsroom:generate && npm run sitemap:generate && vite build",
     "dev": "vite",
     "typecheck": "tsc -p tsconfig.json --noEmit",
     "lint": "eslint src",
-    "validate": "npm run content:validate && npm run typecheck && npm run lint && npm run build",
+    "validate": "npm run governance:validate && npm run content:validate && npm run typecheck && npm run lint && npm run build",
     "newsroom:generate": "node scripts/generate-newsroom-content.mjs",
     "sitemap:generate": "node scripts/generate-sitemap.mjs"
   },

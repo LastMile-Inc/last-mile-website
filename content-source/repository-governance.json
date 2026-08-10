@@ -1,0 +1,26 @@
+{
+  "schemaVersion": 1,
+  "repository": {
+    "stableId": 1147329489,
+    "fullName": "LastMile-Inc/Thesite",
+    "defaultBranch": "main",
+    "reconciliationLineage": "makeover"
+  },
+  "approvalGates": {
+    "mergeToDefaultBranch": "FOUNDER_APPROVAL_REQUIRED",
+    "productionDeployment": "FOUNDER_APPROVAL_REQUIRED",
+    "gcpMutation": "FOUNDER_APPROVAL_REQUIRED",
+    "repositoryOwnershipOrVisibility": "FOUNDER_APPROVAL_REQUIRED",
+    "releaseUnderReviewArchitecture": "FOUNDER_APPROVAL_REQUIRED",
+    "reviveLegacyIntegrationCatalog": "FOUNDER_APPROVAL_REQUIRED"
+  },
+  "canonicalSources": [
+    "content-source/control.json",
+    "content-source/public-claims.json",
+    "content-source/repository-governance.json",
+    "docs/founder-os/CURRENT_STATE.md",
+    "docs/founder-os/IP_REGISTER.md",
+    "docs/founder-os/DECISION_LOG.md",
+    "docs/founder-os/LATEST_HANDOFF.md"
+  ]
+}
