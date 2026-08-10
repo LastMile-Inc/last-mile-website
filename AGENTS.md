@@ -63,3 +63,17 @@ Before completing any visual change:
 - Keep edits scoped to the requested outcome and do not redesign unrelated routes.
 - Reuse established components and styles before creating page-specific alternatives.
 - Do not overwrite unrelated work in a dirty worktree.
+
+## Founder OS Workflow
+
+Before changing product language, architecture claims, repository policy, publishing behavior, or ownership:
+
+1. Read `docs/founder-os/CURRENT_STATE.md`, `docs/founder-os/IP_REGISTER.md`, `docs/founder-os/DECISION_LOG.md`, and `docs/founder-os/LATEST_HANDOFF.md`.
+2. Read `content-source/control.json`, `content-source/public-claims.json`, and `content-source/repository-governance.json`.
+3. Identify the canonical source for the proposed change and update it before any derivative page, generated artifact, or presentation.
+4. Run `npm run validate`; do not bypass the content or governance validators.
+5. Update the decision log and latest handoff when a decision, source-of-truth relationship, approval state, or unresolved blocker changes.
+
+Founder approval is required before merging to the protected default branch, publishing or deploying the website, mutating GCP or production infrastructure, changing repository ownership or visibility, releasing architecture marked `UNDER_REVIEW`, or reviving the retired integration catalog. A task-scoped approval may authorize review branches and draft pull requests, but it does not imply approval for those gated actions.
+
+Historical material must stay clearly labeled as historical. Do not turn archive content into a current claim or active product requirement without an explicit decision and source review.
