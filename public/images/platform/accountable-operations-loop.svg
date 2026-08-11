@@ -1,0 +1,69 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="3840" height="2160" viewBox="0 0 1600 900" role="img" aria-labelledby="title description">
+  <title id="title">The Accountable Operations Loop</title>
+  <desc id="description">A continuous six-stage engineered ring on the left moves from Evidence through Understand, Decide, Coordinate, Act, and Verify before returning to Evidence. Six concise definitions are aligned on the right.</desc>
+  <defs>
+    <pattern id="grid" width="32" height="32" patternUnits="userSpaceOnUse"><path d="M32 0H0V32" fill="none" stroke="#A8BCCB" stroke-opacity=".14"/></pattern>
+    <linearGradient id="g0" x1="360" y1="185" x2="680" y2="300" gradientUnits="userSpaceOnUse"><stop stop-color="#315F91"/><stop offset="1" stop-color="#4C86C6"/></linearGradient>
+    <linearGradient id="g1" x1="690" y1="310" x2="735" y2="590" gradientUnits="userSpaceOnUse"><stop stop-color="#4C86C6"/><stop offset="1" stop-color="#5E8FAF"/></linearGradient>
+    <linearGradient id="g2" x1="730" y1="600" x2="520" y2="735" gradientUnits="userSpaceOnUse"><stop stop-color="#5E8FAF"/><stop offset="1" stop-color="#8BB4CF"/></linearGradient>
+    <linearGradient id="g3" x1="500" y1="735" x2="280" y2="590" gradientUnits="userSpaceOnUse"><stop stop-color="#8BB4CF"/><stop offset="1" stop-color="#A8BCCB"/></linearGradient>
+    <linearGradient id="g4" x1="275" y1="580" x2="300" y2="315" gradientUnits="userSpaceOnUse"><stop stop-color="#A8BCCB"/><stop offset="1" stop-color="#5E8FAF"/></linearGradient>
+    <linearGradient id="g5" x1="310" y1="300" x2="500" y2="185" gradientUnits="userSpaceOnUse"><stop stop-color="#5E8FAF"/><stop offset="1" stop-color="#315F91"/></linearGradient>
+    <filter id="shadow" x="-30%" y="-30%" width="160%" height="160%"><feDropShadow dx="0" dy="12" stdDeviation="14" flood-color="#263244" flood-opacity=".15"/></filter>
+    <filter id="soft" x="-30%" y="-30%" width="160%" height="160%"><feGaussianBlur stdDeviation="9"/></filter>
+  </defs>
+
+  <rect width="1600" height="900" fill="#F1F3F6"/>
+  <rect width="1600" height="900" fill="url(#grid)"/>
+  <circle cx="430" cy="420" r="390" fill="#8BB4CF" fill-opacity=".08"/>
+  <rect x="58" y="48" width="1484" height="804" rx="28" fill="#FFFFFF" fill-opacity=".88" stroke="#A8BCCB" stroke-opacity=".55"/>
+
+  <text x="110" y="108" fill="#315F91" font-family="Arial, sans-serif" font-size="15" font-weight="700" letter-spacing="2">THE PHYSICAL OPERATIONS PLATFORM</text>
+  <text x="110" y="153" fill="#263244" font-family="Arial, sans-serif" font-size="34" font-weight="700">The Accountable Operations Loop</text>
+  <text x="110" y="184" fill="#58687A" font-family="Arial, sans-serif" font-size="16">From physical evidence to verified outcome. Then back to evidence.</text>
+
+  <g aria-label="Continuous six-stage loop" transform="translate(0 20)">
+    <circle cx="510" cy="470" r="290" fill="none" stroke="#A8BCCB" stroke-opacity=".28" stroke-dasharray="2 10"/>
+    <circle cx="510" cy="470" r="252" fill="none" stroke="#4C86C6" stroke-opacity=".14" stroke-width="96" filter="url(#soft)"/>
+    <circle cx="510" cy="470" r="252" fill="none" stroke="#FFFFFF" stroke-width="84" filter="url(#shadow)"/>
+    <path d="M510 218 A252 252 0 0 1 728.24 344" fill="none" stroke="url(#g0)" stroke-width="74"/>
+    <path d="M728.24 344 A252 252 0 0 1 728.24 596" fill="none" stroke="url(#g1)" stroke-width="74"/>
+    <path d="M728.24 596 A252 252 0 0 1 510 722" fill="none" stroke="url(#g2)" stroke-width="74"/>
+    <path d="M510 722 A252 252 0 0 1 291.76 596" fill="none" stroke="url(#g3)" stroke-width="74"/>
+    <path d="M291.76 596 A252 252 0 0 1 291.76 344" fill="none" stroke="url(#g4)" stroke-width="74"/>
+    <path d="M291.76 344 A252 252 0 0 1 510 218" fill="none" stroke="url(#g5)" stroke-width="74"/>
+
+    <g fill="none" stroke="#FFFFFF" stroke-opacity=".72" stroke-width="3" stroke-linejoin="round">
+      <path d="M755.2 328.4L699.66 360.5L755.2 359.6"/><path d="M755.2 580.4L699.66 580.4L728.2 628"/>
+      <path d="M537.4 738L510 688L482.6 738"/><path d="M264.8 611.6L320.34 579.5L264.8 580.4"/>
+      <path d="M264.8 359.6L320.34 359.6L291.8 312"/><path d="M482.6 202L510 252L537.4 202"/>
+    </g>
+
+    <circle cx="510" cy="470" r="177" fill="#FFFFFF" stroke="#A8BCCB" stroke-opacity=".55" stroke-width="2"/>
+    <text x="510" y="442" fill="#315F91" font-family="Arial, sans-serif" font-size="19" font-weight="700" letter-spacing="2.5" text-anchor="middle">THE LAST MILE</text>
+    <text x="510" y="484" fill="#263244" font-family="Arial, sans-serif" font-size="20" font-weight="700" text-anchor="middle">Condition → Response → Outcome</text>
+    <text x="510" y="518" fill="#58687A" font-family="Arial, sans-serif" font-size="14" text-anchor="middle">One accountable operational cycle</text>
+
+    <g font-family="Arial, sans-serif" font-size="11" font-weight="700" text-anchor="middle">
+      <g transform="translate(636 252)"><rect x="-68" y="-18" width="136" height="36" rx="18" fill="#FFFFFF" stroke="#315F91" stroke-opacity=".3"/><text y="4" fill="#263244"><tspan fill="#315F91">01</tspan> EVIDENCE</text></g>
+      <g transform="translate(762 470)"><rect x="-72" y="-18" width="144" height="36" rx="18" fill="#FFFFFF" stroke="#315F91" stroke-opacity=".3"/><text y="4" fill="#263244"><tspan fill="#315F91">02</tspan> UNDERSTAND</text></g>
+      <g transform="translate(636 688)"><rect x="-65" y="-18" width="130" height="36" rx="18" fill="#FFFFFF" stroke="#315F91" stroke-opacity=".3"/><text y="4" fill="#263244"><tspan fill="#315F91">03</tspan> DECIDE</text></g>
+      <g transform="translate(384 688)"><rect x="-72" y="-18" width="144" height="36" rx="18" fill="#FFFFFF" stroke="#315F91" stroke-opacity=".3"/><text y="4" fill="#263244"><tspan fill="#315F91">04</tspan> COORDINATE</text></g>
+      <g transform="translate(258 470)"><rect x="-53" y="-18" width="106" height="36" rx="18" fill="#FFFFFF" stroke="#315F91" stroke-opacity=".3"/><text y="4" fill="#263244"><tspan fill="#315F91">05</tspan> ACT</text></g>
+      <g transform="translate(384 252)"><rect x="-62" y="-18" width="124" height="36" rx="18" fill="#FFFFFF" stroke="#315F91" stroke-opacity=".3"/><text y="4" fill="#263244"><tspan fill="#315F91">06</tspan> VERIFY</text></g>
+    </g>
+    <path d="M350 216C408 166 566 158 650 218" fill="none" stroke="#315F91" stroke-width="2" stroke-dasharray="3 8" stroke-linecap="round" opacity=".5"/>
+  </g>
+
+  <line x1="885" y1="122" x2="885" y2="770" stroke="#A8BCCB" stroke-opacity=".5"/>
+  <g font-family="Arial, sans-serif">
+    <g transform="translate(930 154)"><circle cx="20" cy="20" r="20" fill="#E7EDF3"/><text x="20" y="24" fill="#315F91" font-size="10" font-weight="700" text-anchor="middle">01</text><text x="58" y="12" fill="#315F91" font-size="10" font-weight="700" letter-spacing="1">EVIDENCE</text><text x="58" y="35" fill="#263244" font-size="16" font-weight="700">Know what actually happened.</text><text x="58" y="58" fill="#58687A" font-size="12">Trustworthy physical evidence with source, time, quality,</text><text x="58" y="76" fill="#58687A" font-size="12">lineage and provenance.</text></g>
+    <g transform="translate(930 256)"><circle cx="20" cy="20" r="20" fill="#E7EDF3"/><text x="20" y="24" fill="#315F91" font-size="10" font-weight="700" text-anchor="middle">02</text><text x="58" y="12" fill="#315F91" font-size="10" font-weight="700" letter-spacing="1">UNDERSTAND</text><text x="58" y="35" fill="#263244" font-size="16" font-weight="700">Know what it means here.</text><text x="58" y="58" fill="#58687A" font-size="12">Connect the Condition to assets, process, topology, history</text><text x="58" y="76" fill="#58687A" font-size="12">and current operating state.</text></g>
+    <g transform="translate(930 358)"><circle cx="20" cy="20" r="20" fill="#E7EDF3"/><text x="20" y="24" fill="#315F91" font-size="10" font-weight="700" text-anchor="middle">03</text><text x="58" y="12" fill="#315F91" font-size="10" font-weight="700" letter-spacing="1">DECIDE</text><text x="58" y="35" fill="#263244" font-size="16" font-weight="700">Determine what should happen next.</text><text x="58" y="58" fill="#58687A" font-size="12">Evaluate context, policy and consequence: AUTO, ASSIST</text><text x="58" y="76" fill="#58687A" font-size="12">or no action.</text><rect x="58" y="86" width="500" height="26" rx="6" fill="#E7EDF3"/><text x="70" y="104" fill="#263244" font-size="11" font-weight="700">Not every Condition requires maintenance. Not every Condition requires action.</text></g>
+    <g transform="translate(930 482)"><circle cx="20" cy="20" r="20" fill="#E7EDF3"/><text x="20" y="24" fill="#315F91" font-size="10" font-weight="700" text-anchor="middle">04</text><text x="58" y="12" fill="#315F91" font-size="10" font-weight="700" letter-spacing="1">COORDINATE</text><text x="58" y="35" fill="#263244" font-size="16" font-weight="700">Bring the right participants together.</text><text x="58" y="58" fill="#58687A" font-size="12">Orchestrate operators, controls, CMMS, MES, QMS, ERP</text><text x="58" y="76" fill="#58687A" font-size="12">and other systems already in place.</text></g>
+    <g transform="translate(930 584)"><circle cx="20" cy="20" r="20" fill="#E7EDF3"/><text x="20" y="24" fill="#315F91" font-size="10" font-weight="700" text-anchor="middle">05</text><text x="58" y="12" fill="#315F91" font-size="10" font-weight="700" letter-spacing="1">ACT</text><text x="58" y="35" fill="#263244" font-size="16" font-weight="700">Execute through the right system.</text><text x="58" y="58" fill="#58687A" font-size="12">Initiate maintenance, inspection, operator action, production</text><text x="58" y="76" fill="#58687A" font-size="12">change, approved control action or another governed response.</text></g>
+    <g transform="translate(930 686)"><circle cx="20" cy="20" r="20" fill="#E7EDF3"/><text x="20" y="24" fill="#315F91" font-size="10" font-weight="700" text-anchor="middle">06</text><text x="58" y="12" fill="#315F91" font-size="10" font-weight="700" letter-spacing="1">VERIFY</text><text x="58" y="35" fill="#263244" font-size="16" font-weight="700">Prove that it worked.</text><text x="58" y="58" fill="#58687A" font-size="12">Observe until physical evidence confirms whether the intended</text><text x="58" y="76" fill="#58687A" font-size="12">outcome was achieved.</text><rect x="58" y="86" width="352" height="27" rx="6" fill="#315F91"/><text x="70" y="105" fill="#FFFFFF" font-size="11" font-weight="700">Work completed is not the same as problem solved.</text></g>
+  </g>
+
+  <g transform="translate(110 803)" font-family="Arial, sans-serif"><path d="M0 0h26" stroke="#4C86C6" stroke-width="3"/><text x="42" y="6" fill="#263244" font-size="17" font-weight="700">Every verified outcome becomes evidence for the next operational decision.</text><text x="785" y="6" fill="#315F91" font-size="13" font-weight="700">Every operational decision should be better informed than the one before it.</text></g>
+</svg>

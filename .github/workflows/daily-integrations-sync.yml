@@ -32,6 +32,12 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
+      - name: Validate canonical content control
+        run: npm run content:validate
+
+      - name: Test canonical outcome logic
+        run: npm test
+
       - name: Sync published integrations sheet
         shell: bash
         run: |

@@ -1,0 +1,98 @@
+{
+  "documentation": "Each concept has exactly one full article route. A compact_summary usage may contain the approved short summary but must link to the article. A link_only usage may name the concept only in link text and must not publish a competing explanation.",
+  "concepts": [
+    {
+      "contentId": "CONCEPT-UNS-001",
+      "articleRoute": "/resources/industrial-concepts/uns-and-ssom",
+      "collectionIndex": 1,
+      "usages": [
+        { "route": "/infinit-signal", "mode": "compact_summary", "sourceFile": "src/app/pages/InfinitSignalPage.tsx" },
+        { "route": "/singularity", "mode": "compact_summary", "sourceFile": "src/app/pages/SSOMPage.tsx" },
+        { "route": "/ecosystem", "mode": "compact_summary", "sourceFile": "src/app/pages/EcosystemPage.tsx" }
+      ]
+    },
+    {
+      "contentId": "CONCEPT-SEMANTIC-001",
+      "articleRoute": "/resources/industrial-concepts/semantic-interoperability",
+      "collectionIndex": 2,
+      "usages": [
+        { "route": "/singularity", "mode": "compact_summary", "sourceFile": "src/app/pages/SSOMPage.tsx" },
+        { "route": "/ecosystem", "mode": "link_only", "sourceFile": "src/app/pages/EcosystemPage.tsx" }
+      ]
+    },
+    {
+      "contentId": "CONCEPT-OPCUA-001",
+      "articleRoute": "/resources/industrial-concepts/opc-ua",
+      "collectionIndex": 3,
+      "usages": [
+        { "route": "/infinit-signal", "mode": "link_only", "sourceFile": "src/app/pages/InfinitSignalPage.tsx" },
+        { "route": "/ecosystem", "mode": "link_only", "sourceFile": "src/app/pages/EcosystemPage.tsx" }
+      ]
+    },
+    {
+      "contentId": "CONCEPT-TWIN-001",
+      "articleRoute": "/resources/industrial-concepts/digital-twins",
+      "collectionIndex": 4,
+      "usages": [
+        { "route": "/singularity", "mode": "link_only", "sourceFile": "src/app/pages/SSOMPage.tsx" }
+      ]
+    },
+    {
+      "contentId": "CONCEPT-THREAD-001",
+      "articleRoute": "/resources/industrial-concepts/operational-outcome-thread",
+      "collectionIndex": 5,
+      "usages": [
+        { "route": "/platform", "mode": "link_only", "sourceFile": "src/app/pages/PlatformOverviewPage.tsx" },
+        { "route": "/use-cases/data-center-cooling", "mode": "link_only", "sourceFile": "src/app/pages/OperatingUseCasePage.tsx" },
+        { "route": "/use-cases/municipal-wastewater", "mode": "link_only", "sourceFile": "src/app/pages/OperatingUseCasePage.tsx" },
+        { "route": "/use-cases/manufacturing-compressed-air", "mode": "link_only", "sourceFile": "src/app/pages/OperatingUseCasePage.tsx" },
+        { "route": "/use-cases/cold-storage-refrigeration", "mode": "link_only", "sourceFile": "src/app/pages/OperatingUseCasePage.tsx" }
+      ]
+    },
+    {
+      "contentId": "CONCEPT-INDUSTRIAL-AI-001",
+      "articleRoute": "/resources/industrial-concepts/industrial-ai",
+      "collectionIndex": 6,
+      "usages": [
+        { "route": "/singularity", "mode": "link_only", "sourceFile": "src/app/pages/SSOMPage.tsx" },
+        { "route": "/infinit-flow", "mode": "link_only", "sourceFile": "src/app/pages/InfinitFlowPage.tsx" }
+      ]
+    },
+    {
+      "contentId": "CONCEPT-I50-001",
+      "articleRoute": "/resources/industrial-concepts/industry-5-0",
+      "collectionIndex": 7,
+      "usages": [
+        { "route": "/about", "mode": "link_only", "sourceFile": "src/app/pages/AboutPage.tsx" }
+      ]
+    },
+    {
+      "contentId": "CONCEPT-OTSEC-001",
+      "articleRoute": "/resources/industrial-concepts/ot-security",
+      "collectionIndex": 8,
+      "usages": [
+        { "route": "/ecosystem", "mode": "link_only", "sourceFile": "src/app/pages/EcosystemPage.tsx" }
+      ]
+    },
+    {
+      "contentId": "CONCEPT-DATASPACE-001",
+      "articleRoute": "/resources/industrial-concepts/data-spaces",
+      "collectionIndex": 9,
+      "usages": [
+        { "route": "/singularity", "mode": "compact_summary", "sourceFile": "src/app/pages/SSOMPage.tsx" }
+      ]
+    },
+    {
+      "contentId": "CONCEPT-COMPOSABLE-001",
+      "articleRoute": "/resources/industrial-concepts/composable-manufacturing",
+      "collectionIndex": 10,
+      "usages": []
+    },
+    {
+      "contentId": "CONCEPT-LIGHTSOUT-001",
+      "articleRoute": "/resources/industrial-concepts/lights-out-operations",
+      "collectionIndex": 11,
+      "usages": []
+    }
+  ]
+}
