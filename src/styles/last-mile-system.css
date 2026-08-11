@@ -17,6 +17,16 @@
   --lm-shadow: 0 14px 38px rgba(38, 50, 68, .08);
   --lm-radius: 16px;
   --lm-panel-gap: 40px;
+  --lm-rag-critical: var(--lm-blue-dark);
+  --lm-rag-critical-wash: var(--lm-wash);
+  --lm-rag-warning: var(--lm-teal);
+  --lm-rag-warning-wash: var(--lm-canvas);
+  --lm-rag-normal: var(--lm-blue);
+  --lm-rag-normal-wash: var(--lm-wash);
+  --lm-rag-unknown: var(--lm-copy);
+  --lm-rag-unknown-wash: var(--lm-canvas);
+  --lm-rag-info: var(--lm-blue-dark);
+  --lm-rag-info-wash: var(--lm-wash);
 }
 
 html { scroll-padding-top: 92px; }
@@ -40,7 +50,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
 .lm-nav__item > a, .lm-nav__item > button { min-height: 42px; display: flex; align-items: center; gap: 6px; padding: 0 13px; border-bottom: 2px solid transparent; color: var(--lm-copy); font-size: 12px; font-weight: 650; }
 .lm-nav__item > a:hover, .lm-nav__item > button:hover, .lm-nav__item > a.is-active, .lm-nav__item > button.is-active { border-color: var(--lm-mint); color: var(--lm-ink); }
 .lm-nav__item svg { width: 14px; }
-.lm-nav__dropdown { position: absolute; top: calc(100% + 8px); left: 0; min-width: 230px; display: grid; padding: 8px; border: 1px solid var(--lm-line); border-radius: var(--lm-radius); background: var(--lm-surface); box-shadow: var(--lm-shadow); }
+.lm-nav__dropdown { position: absolute; top: calc(100% + 8px); left: 0; min-width: 280px; max-width: min(420px,calc(100vw - 32px)); max-height: calc(100vh - 120px); overflow-y: auto; display: grid; padding: 8px; border: 1px solid var(--lm-line); border-radius: var(--lm-radius); background: var(--lm-surface); box-shadow: var(--lm-shadow); }
 .lm-nav__dropdown a { padding: 11px 12px; border-radius: 4px; color: var(--lm-copy); font-size: 12px; }
 .lm-nav__dropdown a:hover, .lm-nav__dropdown a.is-active { background: var(--lm-wash); color: var(--lm-ink); }
 .lm-nav__cta { min-height: 42px; display: inline-flex; align-items: center; padding: 0 17px; border-radius: 4px; background: var(--lm-cta); color: var(--lm-cta-text); font-size: 12px; font-weight: 750; white-space: nowrap; }
@@ -236,6 +246,10 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
   .lm-nav__mobile a, .lm-nav__mobile strong { min-height: 42px; display: flex; align-items: center; padding: 0 12px; color: var(--lm-copy); font-size: 13px; }
   .lm-nav__mobile strong { color: var(--lm-teal); font-size: 9px; text-transform: uppercase; }
   .lm-nav__mobile a.is-active { background: var(--lm-wash); color: var(--lm-ink); }
+  .lm-nav__mobile-group { display: grid; }
+  .lm-nav__mobile-group > button { min-height: 44px; display: flex; align-items: center; justify-content: space-between; padding: 0 12px; color: var(--lm-blue-dark); font-size: 11px; font-weight: 800; text-transform: uppercase; }
+  .lm-nav__mobile-group > button svg { width: 15px; }
+  .lm-nav__mobile-group > div { display: grid; padding-left: 12px; border-left: 2px solid var(--lm-wash); }
   .lm-hero--split { grid-template-columns: 1fr; }
   .lm-hero__visual { max-width: 760px; }
   .lm-loop { grid-template-columns: repeat(3, 1fr); }

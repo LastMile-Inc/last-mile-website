@@ -1,6 +1,6 @@
 # Current state
 
-Updated: 2026-08-10
+Updated: 2026-08-11
 
 ## Platform and public narrative
 
@@ -16,6 +16,9 @@ Updated: 2026-08-10
 - Phase 3 is open as draft PR #8; production is unchanged.
 - Phase 4 is open as stacked draft PR #9; the legacy catalog is removed from its branch and preserved in Git history plus a dated recovery archive.
 - No active website workflow deploys or writes catalog content.
+- The governed parallel website refresh has been reconciled onto normalized `origin/main` at `358327618a7b6bbd7cccc5ea66a686c3a02608e9` on `integration/website-parallel-refresh-2026-08-11`.
+- Superseded scenario and architecture imagery was excluded. The integration uses accessible, code-native process maps and a code-native product contract that preserves the approved product ownership boundaries.
+- Automated validation and desktop/mobile Playwright visual QA pass for the homepage, platform, four product routes, four operating scenarios, resources, contact, navigation, and footer. Production remains unchanged.
 
 ## Foundation dependency
 

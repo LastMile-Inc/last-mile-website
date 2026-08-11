@@ -6,7 +6,7 @@ import { trackEvent } from "@/app/lib/analytics";
 
 interface FormData { firstname: string; lastname: string; email: string; company: string; roleResponsibility: string; industry: string; intent: string; operatingIssue: string; systemsInvolved: string; recoveryMeasurement: string; businessConsequence: string; }
 const intents = [
-  ["operation", "Discuss a physical operations use case"], ["data-center-cooling", "Explore Data Center Cooling"], ["design-partnership", "Explore a design partnership"], ["partner", "Discuss an ecosystem relationship"], ["architecture", "Technical or architecture inquiry"], ["media", "Media or Signal 2 Action inquiry"],
+  ["operation", "Discuss a physical operations use case"], ["data-center-cooling", "Discuss cooling redundancy"], ["partner", "Discuss an ecosystem relationship"], ["architecture", "Technical or architecture inquiry"], ["media", "Media or Signal 2 Action inquiry"],
 ] as const;
 const industries = ["Data centers / mission-critical facilities", "Manufacturing", "Water / wastewater", "Cold storage / food operations", "Utilities / infrastructure", "Distributed facilities", "Other"];
 

@@ -1,5 +1,5 @@
 import { SEO } from "@/app/components/SEO";
-import { EditorialHero, EditorialSection, NextStep } from "@/app/components/NarrativeComponents";
+import { EditorialHero, EditorialSection, InlineLink, NextStep } from "@/app/components/NarrativeComponents";
 import { companyStage } from "@/app/content/siteContent";
 import { createBreadcrumbSchema } from "@/app/lib/structuredData";
 
@@ -15,14 +15,15 @@ export function AboutPage() {
         <div className="lm-founder-v2"><div className="lm-founder-v2__identity"><span className="lm-v2-card-label">Founder and CEO</span><h3>Rodney Runolfson</h3></div><div className="lm-founder-v2__copy"><p>Rodney Runolfson brings three decades of experience across enterprise platforms, including roles as a customer, ServiceNow employee, and founder of Deloitte’s U.S. ServiceNow practice. That experience demonstrated what shared platforms can accomplish—and where physical operations remain fundamentally different.</p><p>Last Mile applies those lessons without depending on ServiceNow or any other single enterprise vendor. The company is building an operations-native platform on GCP for the cross-system work that established platforms leave unresolved.</p></div></div>
       </EditorialSection>
 
-      <EditorialSection eyebrow="Working principles" title="Evidence earns authority." tone="dark">
+      <EditorialSection eyebrow="Working principles" title="Evidence earns authority." tone="grid">
         <ul className="lm-principles-v2">{principles.map((principle) => <li key={principle}>{principle}</li>)}</ul>
+        <InlineLink to="/resources/industrial-concepts/industry-5-0">Industry 5.0 and human authority</InlineLink>
       </EditorialSection>
 
       <EditorialSection eyebrow={companyStage.label} title="Clear about the stage. Serious about the proof.">
         <div className="lm-v2-columns-2"><p className="lm-v2-large-copy">{companyStage.summary}</p><p className="lm-v2-large-copy">{companyStage.evidence}</p></div>
       </EditorialSection>
-      <NextStep title="Bring the operational handoff your team cannot make accountable." copy="We will start with what happens today, who holds authority, and which live measurements would establish recovery." label="Discuss Your Operation" to="/contact?intent=operation" secondary={{ label: "See What We Are Proving", to: "/data-center-cooling" }} />
+      <NextStep title="Bring the operational handoff your team cannot make accountable." copy="We will start with what happens today, who holds authority, and which live measurements would establish recovery." label="Discuss Your Operation" to="/contact?intent=operation" secondary={{ label: "See What We Are Proving", to: "/use-cases/data-center-cooling" }} />
     </div>
   </>;
 }

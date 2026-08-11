@@ -3,8 +3,8 @@ import { EditorialHero, EditorialSection, InlineLink, NextStep } from "@/app/com
 import { createBreadcrumbSchema } from "@/app/lib/structuredData";
 
 const resourceGroups = [
-  { title: "Build and Proof", copy: "Demonstration milestones, architecture briefs, reference-use-case updates, and product progress.", link: ["Review the cooling proof", "/data-center-cooling"] },
-  { title: "Perspectives", copy: "Operational intelligence, OT semantics, cross-vendor coordination, and governed AI in industry.", link: ["Explore the platform point of view", "/platform"] },
+  { title: "Build and Proof", copy: "Demonstration milestones, architecture briefs, reference-use-case updates, and product progress.", link: ["Review the cooling proof", "/use-cases/data-center-cooling"] },
+  { title: "Industrial Concepts", copy: "Canonical explanations of UNS and SSOM, interoperability, OPC UA, operational memory, industrial AI, OT security, and related architectures.", link: ["Explore Industrial Concepts", "/resources/industrial-concepts"] },
   { title: "Signal 2 Action", copy: "Current episodes, the editorial thesis, and an invitation for practitioners with a useful operating perspective.", link: ["Visit Signal 2 Action", "/signal-to-action"] },
   { title: "Company News", copy: "Current milestones, partnerships, corporate updates, and a clearly labeled historical record.", link: ["Read News and Updates", "/company/newsroom"] },
 ] as const;

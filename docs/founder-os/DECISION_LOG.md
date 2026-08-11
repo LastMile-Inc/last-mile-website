@@ -1,5 +1,9 @@
 # Decision log
 
+## 2026-08-11 — governed parallel website integration
+
+Decision: transplant only checkpoint commit `be9b7c6b5f2cd90abd3df6a8b6a93e0d6099bf50` onto normalized main `358327618a7b6bbd7cccc5ea66a686c3a02608e9`, while retaining normalized governance and publishing authority. Exclude the superseded off-palette scenario and architecture images, keep the legacy catalog retired, and express scenario flow and product ownership through accessible code-native maps. Carry the result on `integration/website-parallel-refresh-2026-08-11` as a draft review change only; no merge or deployment is authorized.
+
 ## 2026-08-10 — platform-first canonical narrative
 
 Decision: govern the website around Infinit-Signal, Singularity, Infinit-Flow, and Infinit-Control. Architecture r1.3 remains `UNDER_REVIEW`, and only registered conservative claims may be published.
