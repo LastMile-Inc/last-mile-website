@@ -10,7 +10,7 @@ used_by: [all]
 
 # Claims Registry
 
-The registry approves language and constrains maturity. Empty evidence fields are not permission to publish at a higher state.
+This registry is the canonical detailed claim authority beneath the review-site release gate in `content-source/public-claims.json`. It approves language, maturity, evidence scope, and prohibited inference. `data/content-control/route-claims.json` is a derivative route-use manifest, and every listed use must name a rendered source consumer whose published wording matches exactly. Empty evidence fields are not permission to publish at a higher state, and `do_not_publish` claims may never enter the route manifest.
 
 ## Category and platform
 

@@ -3,6 +3,7 @@ import path from "node:path";
 import process from "node:process";
 import { fileURLToPath, pathToFileURL } from "node:url";
 import { spawnSync } from "node:child_process";
+import { validateClaimUseTraceability } from "./claim-traceability.mjs";
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const failures = [];
@@ -126,6 +127,19 @@ for (const filePath of scanRoots) {
   }
 }
 
+const publicClaims = JSON.parse(fs.readFileSync(path.join(contentRoot, "public-claims.json"), "utf8"));
+if (publicClaims.schemaVersion !== 2) fail("public-claims.json must use claims authority schemaVersion 2");
+const expectedClaimsAuthority = {
+  releaseGate: "content-source/public-claims.json",
+  detailedRegistry: "content-source/claims/claims-registry.md",
+  routeUseManifest: "data/content-control/route-claims.json",
+};
+for (const [key, expected] of Object.entries(expectedClaimsAuthority)) {
+  if (publicClaims.claimsAuthority?.[key] !== expected) fail(`public-claims.json claims authority ${key} must be ${expected}`);
+}
+if (publicClaims.releaseStatus !== "UNDER_REVIEW") fail("public-claims.json must preserve the UNDER_REVIEW release gate");
+if ((publicClaims.claimsAuthority?.authorityOrder ?? []).join(",") !== "releaseGate,detailedRegistry,routeUseManifest,renderedConsumer") fail("public-claims.json has an invalid claims authority order");
+
 const claimsRegistry = fs.readFileSync(path.join(contentRoot, "claims", "claims-registry.md"), "utf8");
 const registryClaims = new Map();
 for (const line of claimsRegistry.split(/\r?\n/)) {
@@ -133,7 +147,9 @@ for (const line of claimsRegistry.split(/\r?\n/)) {
   if (/^CLM-[A-Z0-9-]+$/.test(cells[1] ?? "")) registryClaims.set(cells[1], { wording: cells[2], maturity: cells[3].toLowerCase().replaceAll(" ", "_") });
 }
 const routeClaims = JSON.parse(fs.readFileSync(path.join(root, "data", "content-control", "route-claims.json"), "utf8"));
+if (routeClaims.schemaVersion !== 2) fail("route-claims.json must use traceable route-use schemaVersion 2");
 const claimIds = new Set();
+let tracedClaimUses = 0;
 const staticRoutes = new Set(["/", "/platform", "/use-cases", "/use-cases/data-center-cooling", "/use-cases/municipal-wastewater", "/use-cases/manufacturing-compressed-air", "/use-cases/cold-storage-refrigeration", "/infinit-signal", "/singularity", "/infinit-flow", "/infinit-control", "/ecosystem", "/about", "/resources", "/resources/industrial-concepts", "/contact", "/signal-to-action", "/company/newsroom"]);
 for (const object of objects.filter((item) => item.rel.startsWith("content-source/concepts/"))) {
   const articleRoute = object.usedBy.find((value) => value.startsWith("/resources/industrial-concepts/"));
@@ -150,7 +166,8 @@ for (const claim of routeClaims.claims ?? []) {
   for (const use of claim.uses ?? []) {
     if (!allowedRoutes.has(use.route)) fail(`${claim.claimId} is used on disallowed route ${use.route}`);
     if (!staticRoutes.has(use.route)) fail(`${claim.claimId} refers to unresolved route ${use.route}`);
-    if (!use.wording?.trim()) fail(`${claim.claimId} has empty rendered wording on ${use.route}`);
+    for (const error of validateClaimUseTraceability({ root, claimId: claim.claimId, use })) fail(error);
+    tracedClaimUses += 1;
     if (["designed", "reference_architecture", "perspective"].includes(claim.approvedMaturity) && /\b(?:implemented|certified|production[- ]proven|validated connector|currently operates)\b/i.test(use.wording)) fail(`${claim.claimId} wording elevates ${claim.approvedMaturity} maturity on ${use.route}`);
   }
 }
@@ -256,4 +273,4 @@ if (failures.length) {
   for (const message of failures) console.error(`- ${message}`);
   process.exit(1);
 }
-console.log(`Canonical content validation passed: ${objects.length} objects, ${registryClaims.size} claims, ${canonicalConcepts.length} concepts, ${platformData.operatingScenarioList.length} scenarios, and ${measurements.length} rendered measurements checked.`);
+console.log(`Canonical content validation passed: ${objects.length} objects, ${registryClaims.size} claims, ${tracedClaimUses} traced route uses, ${canonicalConcepts.length} concepts, ${platformData.operatingScenarioList.length} scenarios, and ${measurements.length} rendered measurements checked.`);

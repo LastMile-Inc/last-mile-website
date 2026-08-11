@@ -8,19 +8,18 @@ Updated: 2026-08-11
 - Retained normalized governance and publishing controls, kept the legacy catalog retired, and replaced the excluded scenario/architecture imagery with accessible code-native maps.
 - Passed `npm ci`, `npm run validate`, `npm test`, `npm run build`, `git diff --check`, canonical content checks, and desktop/mobile Playwright visual QA across the required route matrix, navigation, and footer.
 - Prepared `integration/website-parallel-refresh-2026-08-11` for a draft PR against `main`; no merge or deployment is included.
-- Transferred `Thesite` to `LastMile-Inc` under its existing name.
-- Opened Phase 3 website reconciliation as draft PR #8 after full validation.
+- Renamed stable repository ID 1147329489 to `LastMile-Inc/last-mile-website` after its transfer to the company organization.
+- Merged Phase 3 website reconciliation PR #8 after full validation.
 - Preserved the legacy integration catalog in a dated recovery archive.
-- Opened Phase 4 retirement as stacked draft PR #9 after full validation.
+- Merged Phase 4 retirement PR #9 after full validation.
 - Added Phase 5 Founder OS rules, records, approval gates, PR evidence checklist, and validation on the current stacked branch.
+- Merged `LastMile-Inc/P0_GCP_Foundation` PR #17 and Build Readiness PR #23; PR #23 merged at `da5a49fc82448c2e2c95be2c8c3d1efeffa0b09f`.
 
 ## Awaiting review or approval
 
-1. Review the draft PR from `integration/website-parallel-refresh-2026-08-11` against normalized `main`; founder approval is still required before merge.
-2. Supply one approving review with write access on `LastMile-Inc/P0_GCP_Foundation` PR #17; then the already-approved squash merge can proceed.
-3. Review website draft PR #8, then stacked Phase 4 and Phase 5 drafts in order.
-4. Decide separately whether the private historical `rrunolfson/Last-Mile-Integrations` repository should be transferred to the company and formally archived.
-5. Approve a production release procedure before any website deployment.
+1. Review draft PR #12 from `integration/website-parallel-refresh-2026-08-11` against normalized `main`; founder approval is still required before merge.
+2. Decide separately whether the private historical `rrunolfson/Last-Mile-Integrations` repository should be transferred to the company and formally archived.
+3. Approve a production release procedure before any website deployment.
 
 ## Do not do implicitly
 

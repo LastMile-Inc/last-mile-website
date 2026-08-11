@@ -1,6 +1,28 @@
 import assert from "node:assert/strict";
 import test from "node:test";
+import { fileURLToPath } from "node:url";
 import { deriveOutcomeStatus, deriveRag, outcomes } from "../src/app/pages/platformReferenceData.ts";
+import { validateClaimUseTraceability } from "../scripts/claim-traceability.mjs";
+
+const root = fileURLToPath(new URL("..", import.meta.url));
+
+test("claim traceability accepts wording published by the registered route consumer", () => {
+  const errors = validateClaimUseTraceability({
+    root,
+    claimId: "CLM-CAT-001",
+    use: { route: "/", sourceFile: "src/app/pages/HomePage.tsx", wording: "The Physical Operations Platform" },
+  });
+  assert.deepEqual(errors, []);
+});
+
+test("claim traceability rejects registered wording that drifts from the published consumer", () => {
+  const errors = validateClaimUseTraceability({
+    root,
+    claimId: "CLM-CAT-001",
+    use: { route: "/", sourceFile: "src/app/pages/HomePage.tsx", wording: "The Physical Operations Platform — drifted" },
+  });
+  assert.ok(errors.some((error) => /does not exactly match/.test(error)));
+});
 
 test("recovery established requires all valid measurements and the complete stability window", () => {
   assert.equal(deriveOutcomeStatus(outcomes.recovery), "normal");
