@@ -101,14 +101,14 @@ export function Root() {
       },
       {
         name: "open_data_center_cooling",
-        description: "Open the Data Center Cooling reference use case and design-partnership path.",
+        description: "Open the Data Center Cooling controlled reference use case.",
         inputSchema: {
           type: "object",
           additionalProperties: false,
           properties: {},
         },
         execute: async () => {
-          const url = `${baseUrl}/data-center-cooling`;
+          const url = `${baseUrl}/use-cases/data-center-cooling`;
           window.location.assign(url);
 
           return {

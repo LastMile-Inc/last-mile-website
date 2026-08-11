@@ -1,7 +1,19 @@
 {
-  "schemaVersion": 1,
+  "schemaVersion": 2,
   "platformRelease": "r1.3-review-baseline",
   "releaseStatus": "UNDER_REVIEW",
+  "claimsAuthority": {
+    "releaseGate": "content-source/public-claims.json",
+    "detailedRegistry": "content-source/claims/claims-registry.md",
+    "routeUseManifest": "data/content-control/route-claims.json",
+    "renderTraceability": "Every route use must identify its rendered source consumer and match the published wording exactly.",
+    "authorityOrder": [
+      "releaseGate",
+      "detailedRegistry",
+      "routeUseManifest",
+      "renderedConsumer"
+    ]
+  },
   "claims": [
     {
       "contentId": "LM-WEB-PLATFORM-001",

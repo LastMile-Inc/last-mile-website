@@ -7,7 +7,9 @@ const requiredFiles = [
   ".github/pull_request_template.md",
   "content-source/control.json",
   "content-source/public-claims.json",
+  "content-source/claims/claims-registry.md",
   "content-source/repository-governance.json",
+  "data/content-control/route-claims.json",
   "docs/founder-os/CURRENT_STATE.md",
   "docs/founder-os/IP_REGISTER.md",
   "docs/founder-os/DECISION_LOG.md",
@@ -29,13 +31,13 @@ if (governanceText) {
   try {
     const governance = JSON.parse(governanceText);
     if (governance.repository?.stableId !== 1147329489) errors.push("repository-governance.json: unexpected stable repository ID");
-    if (governance.repository?.fullName !== "LastMile-Inc/Thesite") errors.push("repository-governance.json: repository must remain company-owned");
+    if (governance.repository?.fullName !== "LastMile-Inc/last-mile-website") errors.push("repository-governance.json: repository identity must match stable ID 1147329489");
     if (governance.repository?.defaultBranch !== "main") errors.push("repository-governance.json: expected protected default branch main");
     for (const [gate, state] of Object.entries(governance.approvalGates ?? {})) {
       if (state !== "FOUNDER_APPROVAL_REQUIRED") errors.push(`repository-governance.json: ${gate} must require founder approval`);
     }
     if (Object.keys(governance.approvalGates ?? {}).length !== 6) errors.push("repository-governance.json: expected six approval gates");
-    for (const file of requiredFiles.filter((file) => file.includes("content-source/") || file.includes("docs/founder-os/"))) {
+    for (const file of requiredFiles.filter((file) => file.includes("content-source/") || file.includes("data/content-control/") || file.includes("docs/founder-os/"))) {
       if (!governance.canonicalSources?.includes(file)) errors.push(`repository-governance.json: missing canonical source ${file}`);
     }
   } catch (error) {

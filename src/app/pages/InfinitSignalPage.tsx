@@ -1,38 +1,70 @@
-import { ArrowRight } from "lucide-react";
 import { SEO } from "@/app/components/SEO";
-import { EditorialHero, EditorialSection, NextStep } from "@/app/components/NarrativeComponents";
+import { EditorialHero, EditorialSection, InlineLink, NextStep } from "@/app/components/NarrativeComponents";
+import { EvidenceEnvelope } from "@/app/components/OperatingScenarioComponents";
 import { createBreadcrumbSchema, createProductSchema } from "@/app/lib/structuredData";
 
-const signalStates = ["Fresh event", "Duplicate", "Retained message", "Replay", "Late arrival", "Bad-quality measurement", "Unknown asset", "Qualified operating issue"] as const;
 const pipeline = [
-  { title: "Enters", items: ["MQTT and Sparkplug B", "OPC UA", "Approved UNS topics", "Historian or data-platform outputs", "REST APIs and webhooks", "Source-system metadata"] },
-  { title: "Checked", items: ["Source identity and authority", "Source time and receipt time", "Freshness and quality", "Duplicate and replay classification", "Mapping version", "Asset and topology resolution", "Policy eligibility"] },
-  { title: "Leaves", items: ["SSOM-conformant observations and events", "Qualified issues", "Asset and relationship references", "Quality and confidence", "Provenance and lineage", "Quarantine or rejection evidence", "Replay and forensic references"] },
+  {
+    title: "What enters",
+    items: [
+      "MQTT and customer UNS subscriptions",
+      "Sparkplug and OPC UA",
+      "SCADA, BMS, and MES outputs",
+      "Historians and industrial data platforms",
+      "APIs, files, and service-system records",
+    ],
+  },
+  {
+    title: "What is checked",
+    items: [
+      "Source authority, schema, and evidence integrity",
+      "Event time, receive time, freshness, and quality",
+      "Units, retained-message context, duplication, and replay",
+      "Asset mapping, policy, and destination eligibility",
+    ],
+  },
+  {
+    title: "What leaves",
+    items: [
+      "SSOM-conformant canonical operational records",
+      "Original source identity, time, quality, and mapping version",
+      "Lineage and evidence references accepted once for Singularity",
+      "Explicit quarantine or rejection evidence when acceptance fails",
+    ],
+  },
 ] as const;
 
+const qualityStates = ["Accepted", "Warning", "Quarantined", "Rejected", "Duplicate", "Replay / backfill"] as const;
+
 export function InfinitSignalPage() {
-  const description = "Infinit-Signal acquires approved operational data, evaluates source time and quality, resolves affected assets, and creates trusted records for the Last Mile Platform.";
-  return <><SEO title="Infinit-Signal | Know Which Signals Deserve a Response" description={description} canonicalPath="/infinit-signal" jsonLd={[createProductSchema("Infinit-Signal", "/infinit-signal", description), createBreadcrumbSchema([{ name: "Home", path: "/" }, { name: "Infinit-Signal", path: "/infinit-signal" }])]} />
+  const description = "Infinit-Signal preserves and qualifies configured industrial evidence before creating SSOM-conformant canonical operational records for Singularity.";
+  return <>
+    <SEO title="Infinit-Signal | Know Which Industrial Evidence Is Fit to Act On" description={description} canonicalPath="/infinit-signal" jsonLd={[createProductSchema("Infinit-Signal", "/infinit-signal", description), createBreadcrumbSchema([{ name: "Home", path: "/" }, { name: "Infinit-Signal", path: "/infinit-signal" }])]} />
     <div className="lm-v2-page">
-      <EditorialHero eyebrow="Infinit-Signal · Trust the input" title="Know which signals deserve a response." intro="Infinit-Signal acquires approved outputs from operational systems, preserves source authority, evaluates time and quality, resolves the affected asset, and creates trusted records for the rest of the Last Mile Platform." primary={{ label: "Discuss Your Source Environment", to: "/contact?intent=architecture" }} secondary={{ label: "See the Cooling Use Case", to: "/data-center-cooling" }} />
+      <EditorialHero eyebrow="INFINIT-SIGNAL · OBSERVE" title="Know what actually happened—and which evidence is fit to act on." intro="Infinit-Signal continuously acquires configured outputs from the systems you already operate, preserves their original evidence, and classifies time, quality, duplication, replay, and identity before data enters the Last Mile operating model." primary={{ label: "Discuss Your Source Environment", to: "/contact?intent=architecture" }} secondary={{ label: "See the Cooling Use Case", to: "/use-cases/data-center-cooling" }} visual={<EvidenceEnvelope />} />
 
-      <EditorialSection title="Raw telemetry can look authoritative and still be wrong." intro="A measurement may be current, stale, repeated, replayed, delayed, incomplete, or disconnected from the asset it appears to describe." tone="grid">
-        <div className="lm-signal-states">{signalStates.map((state, index) => <article key={state}><span>{String(index + 1).padStart(2, "0")}</span><h3>{state}</h3></article>)}</div>
-      </EditorialSection>
-
-      <EditorialSection title="What enters. What is checked. What leaves.">
+      <EditorialSection title="What enters. What is checked. What leaves." tone="grid">
         <div className="lm-pipeline">{pipeline.map((stage) => <article key={stage.title}><h3>{stage.title}</h3><ul className="lm-v2-list">{stage.items.map((item) => <li key={item}>{item}</li>)}</ul></article>)}</div>
-        <p className="lm-v2-caveat">These are supported connection patterns, not a claim that every protocol or customer environment has already been production-validated.</p>
+        <p className="lm-v2-caveat">Source families and named products are representative architecture patterns, not claims of certified or validated production integrations.</p>
+        <InlineLink to="/resources/industrial-concepts/opc-ua">How OPC UA and Companion Specification source meaning is preserved</InlineLink>
       </EditorialSection>
 
-      <EditorialSection eyebrow="Cooling example" title="The same apparent failure can produce three responsible decisions." tone="dark">
-        <div className="lm-example-decision"><article><h3>Reject</h3><p>A known replay duplicates evidence already processed.</p></article><ArrowRight /><article><h3>Quarantine</h3><p>Fresh data names equipment that cannot be resolved confidently.</p></article><ArrowRight /><article><h3>Accept</h3><p>Fresh, good-quality evidence resolves to the approved pump and indicates command ON with run feedback OFF.</p></article></div>
+      <EditorialSection eyebrow="UNIFIED NAMESPACE" title="Keep the real-time fabric. Add the operational contract.">
+        <p className="lm-v2-large-copy">A Unified Namespace makes current operational information discoverable and available across systems. Infinit-Signal consumes configured UNS subscriptions while preserving the original publisher, topic, timestamp, quality, QoS, retained-message flag, and session context. It then classifies freshness, duplicates, replay, and unresolved assets before the information enters Singularity.</p>
+        <div className="lm-v2-note"><span>Boundary</span><h3>The UNS remains the customer&apos;s communication and discovery fabric.</h3><p>Singularity&apos;s SSOM contract supplies canonical identity, relationships, evidence, provenance, history, and lifecycle continuity. A topic path remains a source address—it does not automatically become the identity of the asset. MQTT is not synonymous with a UNS, and broker publication does not automatically constitute accepted operational truth.</p></div>
+        <InlineLink to="/resources/industrial-concepts/uns-and-ssom">Read: UNS and SSOM—moving industrial data is not the same as making it accountable</InlineLink>
       </EditorialSection>
 
-      <EditorialSection eyebrow="Ecosystem maturity" title="Support labels should say what is actually known.">
-        <div className="lm-v2-columns-3">{["Profiled", "Validated", "Reference Architecture", "Partner-Supported", "Customer-Specific"].map((label) => <article key={label}><h3>{label}</h3><p>A precise maturity category—not an implied certification or production claim.</p></article>)}</div>
+      <EditorialSection title="Preserve what arrived. Make every acceptance decision visible." tone="grid">
+        <p className="lm-v2-large-copy">Accepted, warning, quarantined, rejected, duplicate, and replayed records retain reason codes and evidence. A stale or unresolved value may remain available for diagnosis without being allowed to influence a live Condition or verified Outcome.</p>
+        <div className="lm-signal-states">{qualityStates.map((state, index) => <article key={state}><span>{String(index + 1).padStart(2, "0")}</span><h3>{state}</h3></article>)}</div>
       </EditorialSection>
-      <NextStep title="Bring one consequential signal into focus." copy="Start with the source, its timing and quality, the affected equipment, and the decision your team must make when the evidence arrives." label="Discuss Your Source Environment" to="/contact?intent=architecture" secondary={{ label: "Continue to Singularity", to: "/singularity" }} />
+
+      <EditorialSection title="Software-defined at the customer boundary.">
+        <p className="lm-v2-large-copy">Where customer architecture requires local collection or store-and-forward, Infinit-Signal is designed to run as customer-approved software on a VM, container, Kubernetes/OpenShift environment, private cloud, or existing edge compute. Last Mile does not require proprietary hardware.</p>
+      </EditorialSection>
+
+      <NextStep title="Turn source data into governed operational evidence." copy="See how Singularity gives qualified records durable identity, meaning, evidence, and history." label="Explore Singularity" to="/singularity" secondary={{ label: "Discuss Your Source Environment", to: "/contact?intent=architecture" }} />
     </div>
   </>;
 }

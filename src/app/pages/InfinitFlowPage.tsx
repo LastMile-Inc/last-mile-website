@@ -1,30 +1,40 @@
 import { SEO } from "@/app/components/SEO";
-import { EditorialHero, EditorialSection, NextStep } from "@/app/components/NarrativeComponents";
+import { EditorialHero, EditorialSection, InlineLink, NextStep } from "@/app/components/NarrativeComponents";
+import { ResponseTimeline } from "@/app/components/OperatingScenarioComponents";
+import { operatingScenarios } from "@/app/pages/platformReferenceData";
 import { createBreadcrumbSchema, createProductSchema } from "@/app/lib/structuredData";
 
+const runtimeCapabilities = ["Durable timers", "Acknowledgement targets", "Approvals", "Retries and idempotency", "External commands and receipts", "Provider handoffs", "Compensation and exceptions", "Pinned workflow versions"] as const;
+const resultStates = ["Recovery established", "Partial recovery", "Failed intervention", "Recurrence detected", "Insufficient return data"] as const;
+
 export function InfinitFlowPage() {
-  const description = "Infinit-Flow coordinates ownership, approvals, escalation, enterprise-system actions, provider participation, and return measurements across an operational response.";
-  return <><SEO title="Infinit-Flow | Keep the Response Moving" description={description} canonicalPath="/infinit-flow" jsonLd={[createProductSchema("Infinit-Flow", "/infinit-flow", description), createBreadcrumbSchema([{ name: "Home", path: "/" }, { name: "Infinit-Flow", path: "/infinit-flow" }])]} />
+  const description = "Infinit-Flow coordinates durable, asset-aware condition-to-work-to-verified-outcome response while preserving customer authority.";
+  return <>
+    <SEO title="Infinit-Flow | Coordinate the Operating Response" description={description} canonicalPath="/infinit-flow" jsonLd={[createProductSchema("Infinit-Flow", "/infinit-flow", description), createBreadcrumbSchema([{ name: "Home", path: "/" }, { name: "Infinit-Flow", path: "/infinit-flow" }])]} />
     <div className="lm-v2-page">
-      <EditorialHero eyebrow="Infinit-Flow · Move the response" title="Keep work moving across teams, systems, and service providers." intro="Infinit-Flow connects the operating issue to ownership, assignments, approvals, escalation, enterprise-system actions, provider participation, and the measurements required to determine whether the intervention worked." primary={{ label: "Discuss Your Response Path", to: "/contact?intent=operation" }} secondary={{ label: "See the Cooling Use Case", to: "/data-center-cooling" }} />
+      <EditorialHero eyebrow="INFINIT-FLOW · DECIDE + COORDINATE + ACT" title="The operational decision and orchestration engine." intro="Infinit-Flow determines what should happen next and creates one durable Response across operators, work systems, providers, approvals, evidence, and return measurements. It executes only the digital steps policy allows and keeps physical authority where operations require it." primary={{ label: "Discuss Your Response Path", to: "/contact?intent=operation" }} secondary={{ label: "See the Cooling Use Case", to: "/use-cases/data-center-cooling" }} visual={<div className="lm-product-artifact"><span>Cooling Loop B response</span><ResponseTimeline scenario={operatingScenarios.cooling} /></div>} />
 
-      <EditorialSection title="From fragmented handoffs to one response." tone="grid">
-        <div className="lm-before-after"><article><span>Before</span><h3>Alarm → manual interpretation → chat message → ticket → phone call → provider dispatch → ticket closure</h3></article><article><span>With Infinit-Flow</span><h3>Qualified issue → response plan → owner acknowledgement → policy gate → coordinated work → return measurements → proven result</h3></article></div>
+      <EditorialSection title="Start with the kind of asset and response—not an empty box." tone="grid">
+        <p className="lm-v2-large-copy">Choose an operational object type and intent. Infinit-Flow returns only assets compatible with the required SSOM class, capability, tenant, site, role, quality, and freshness. Simple controls appear first; expert semantic and lineage detail remains available when needed.</p>
+        <InlineLink to="/resources/industrial-concepts/semantic-interoperability">Why semantic interoperability matters for governed workflow binding</InlineLink>
       </EditorialSection>
 
-      <EditorialSection eyebrow="Human and machine authority" title="The response advances only as far as customer policy allows.">
-        <div className="lm-authority-modes"><article><span>01</span><h3>Assist</h3><p>Prepare information and recommended actions; a person executes.</p></article><article><span>02</span><h3>Approve</h3><p>Automation pauses at a defined authority gate.</p></article><article><span>03</span><h3>Execute</h3><p>A previously authorized enterprise-system action runs with idempotency, audit, and failure handling.</p></article></div>
-        <p className="lm-v2-caveat">Baseline operation does not imply direct control of PLC, SCADA, SIS, or BMS environments.</p>
+      <EditorialSection title="Built for the hours, days, retries, and handoffs of real work.">
+        <p className="lm-v2-large-copy">Durable execution preserves timers, acknowledgement targets, approvals, retries, idempotency, external commands, receipts, provider handoffs, and exceptions. Workflow versions stay pinned so a live response does not change underneath the operator.</p>
+        <div className="lm-planned"><ul className="lm-v2-list lm-planned-grid">{runtimeCapabilities.map((item) => <li key={item}>{item}</li>)}</ul></div>
       </EditorialSection>
 
-      <EditorialSection eyebrow="Current proof scope" title="A predefined governed response comes first." tone="dark">
-        <p className="lm-v2-large-copy lm-v2-large-copy--dark">The Data Center Cooling reference implementation uses a predefined governed response. General visual authoring, reusable workflow objects, and broader workflow-building capabilities follow customer validation.</p>
+      <EditorialSection eyebrow="AUTHORITY" title="The response advances only as far as customer policy allows." tone="grid">
+        <div className="lm-authority-modes"><article><span>01</span><h3>AUTO</h3><p>Execute an authorized digital step.</p></article><article><span>02</span><h3>ASSIST</h3><p>Assemble evidence or recommend the response.</p></article><article><span>03</span><h3>HUMAN AUTHORITY</h3><p>Retain physical-work, safety, LOTO, and control authority under customer policy.</p></article></div>
+        <InlineLink to="/resources/industrial-concepts/industrial-ai">Industrial AI must know what it is allowed to do—and whether it worked</InlineLink>
       </EditorialSection>
 
-      <EditorialSection eyebrow="Planned authoring experience" title="Build only from approved operational objects." tone="grid">
-        <div className="lm-planned"><span className="lm-planned__label">Planned · not presented as currently available</span><ul className="lm-v2-list lm-planned-grid">{["Asset-aware drag-and-drop canvas", "Approved operational object packs", "Valid asset selection based on SSOM", "Condition triggers", "Human tasks", "Timers and escalation", "Policy gates", "Evidence checkpoints", "Return-telemetry checks", "Simulation before publication"].map((item) => <li key={item}>{item}</li>)}</ul></div>
+      <EditorialSection title="Work completed is not the same as problem solved.">
+        <p className="lm-v2-large-copy">When the field task or work order closes, Infinit-Flow asks Singularity to evaluate the configured return measurements. Work-system state is contextual evidence only; it cannot set the physical result.</p>
+        <div className="lm-result-states">{resultStates.map((state, index) => <article key={state}><span>{String(index + 1).padStart(2, "0")}</span><h3>{state}</h3></article>)}</div>
       </EditorialSection>
-      <NextStep title="Map one response that keeps breaking at the handoffs." copy="Start with the trigger, accountable owner, approval boundaries, systems of work, provider participation, and measurements required after intervention." label="Discuss Your Response Path" to="/contact?intent=operation" secondary={{ label: "Continue to Infinit-Control", to: "/infinit-control" }} />
+
+      <NextStep title="Put one accountable case in front of every role." copy="Infinit-Control presents the current state, evidence, ownership, authority, work, and verified outcome without becoming a second truth store." label="Explore Infinit-Control" to="/infinit-control" secondary={{ label: "Discuss Your Response Path", to: "/contact?intent=operation" }} />
     </div>
   </>;
 }

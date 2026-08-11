@@ -1,0 +1,219 @@
+{
+  "schemaVersion": 2,
+  "documentation": "Derivative route-use manifest in the claims authority chain declared by content-source/public-claims.json. To add or change a consequential public claim: update the canonical detailed claims registry first, then add the route to allowedRoutes and add or revise a uses entry with the exact rendered wording and its sourceFile consumer. Validation fails if the source consumer does not contain that wording. Never use do_not_publish maturity.",
+  "claims": [
+    {
+      "claimId": "CLM-CAT-001",
+      "approvedMaturity": "designed",
+      "allowedRoutes": ["/", "/platform", "/about"],
+      "uses": [
+        { "route": "/", "sourceFile": "src/app/pages/HomePage.tsx", "wording": "The Physical Operations Platform" },
+        { "route": "/platform", "sourceFile": "src/app/pages/PlatformOverviewPage.tsx", "wording": "Last Mile Platform" }
+      ]
+    },
+    {
+      "claimId": "CLM-CAT-002",
+      "approvedMaturity": "designed",
+      "allowedRoutes": ["/", "/platform", "/ecosystem", "/about"],
+      "uses": [
+        { "route": "/", "sourceFile": "src/app/pages/HomePage.tsx", "wording": "Turn fragmented operational evidence into coordinated action and verified outcomes without replacing the systems already running your business." },
+        { "route": "/ecosystem", "sourceFile": "src/app/pages/EcosystemPage.tsx", "wording": "Last Mile consumes configured outputs from existing OT, data, work, facilities, and service platforms. It preserves their identities and responsibilities while creating one condition-to-outcome thread across them." }
+      ]
+    },
+    {
+      "claimId": "CLM-CAT-003",
+      "approvedMaturity": "designed",
+      "allowedRoutes": ["/", "/platform", "/infinit-flow", "/infinit-control", "/use-cases", "/use-cases/data-center-cooling", "/use-cases/municipal-wastewater", "/use-cases/manufacturing-compressed-air", "/use-cases/cold-storage-refrigeration"],
+      "uses": [
+        { "route": "/", "sourceFile": "src/app/pages/HomePage.tsx", "wording": "From physical evidence to verified outcome. Then back to evidence." },
+        { "route": "/platform", "sourceFile": "src/app/pages/PlatformOverviewPage.tsx", "wording": "One accountable operating condition—from first evidence to verified outcome." }
+      ]
+    },
+    {
+      "claimId": "CLM-OUTCOME-001",
+      "approvedMaturity": "designed",
+      "allowedRoutes": ["/", "/platform", "/singularity", "/infinit-flow", "/infinit-control", "/use-cases", "/use-cases/data-center-cooling", "/use-cases/municipal-wastewater", "/use-cases/manufacturing-compressed-air", "/use-cases/cold-storage-refrigeration"],
+      "uses": [
+        { "route": "/", "sourceFile": "src/app/pages/HomePage.tsx", "wording": "Work completed is not the same as problem solved." },
+        { "route": "/platform", "sourceFile": "src/app/pages/PlatformOverviewPage.tsx", "wording": "The work order can close before the operating condition is recovered." },
+        { "route": "/infinit-flow", "sourceFile": "src/app/pages/InfinitFlowPage.tsx", "wording": "When the field task or work order closes, Infinit-Flow asks Singularity to evaluate the configured return measurements. Work-system state is contextual evidence only; it cannot set the physical result." },
+        { "route": "/infinit-control", "sourceFile": "src/app/pages/InfinitControlPage.tsx", "wording": "Stale, quarantined, unresolved, or missing inputs are shown as No valid data and cannot support a recovered result." },
+        { "route": "/use-cases/data-center-cooling", "sourceFile": "src/app/pages/platformReferenceData.ts", "wording": "Recovery requires Running status, 17.5–20.5 A motor current, 9.0–15.0 psid pressure, temperature in range, and a complete 15-minute stability window." },
+        { "route": "/use-cases/municipal-wastewater", "sourceFile": "src/app/pages/platformReferenceData.ts", "wording": "Pumping capacity restored over three complete wet-well cycles; no overflow occurred in the reference event." },
+        { "route": "/use-cases/manufacturing-compressed-air", "sourceFile": "src/app/pages/platformReferenceData.ts", "wording": "Infinit-Signal qualifies return evidence; Singularity establishes the canonical Outcome from flow, pressure, power, specific power, and stability; Infinit-Control presents the live state." },
+        { "route": "/use-cases/cold-storage-refrigeration", "sourceFile": "src/app/pages/platformReferenceData.ts", "wording": "Refrigeration and product-protection criteria recover in the reference event. OTIF remains a downstream logistics KPI, not a claimed result of this event." }
+      ]
+    },
+    {
+      "claimId": "CLM-SIG-001",
+      "approvedMaturity": "designed",
+      "allowedRoutes": ["/", "/platform", "/infinit-signal", "/ecosystem"],
+      "uses": [
+        { "route": "/infinit-signal", "sourceFile": "src/app/pages/InfinitSignalPage.tsx", "wording": "Infinit-Signal continuously acquires configured outputs from the systems you already operate, preserves their original evidence, and classifies time, quality, duplication, replay, and identity before data enters the Last Mile operating model." },
+        { "route": "/platform", "sourceFile": "src/app/pages/PlatformOverviewPage.tsx", "wording": "Consumes configured operational sources, preserves source evidence, qualifies time and quality, resolves mappings, and creates SSOM-conformant canonical operational records." }
+      ]
+    },
+    {
+      "claimId": "CLM-SIG-002",
+      "approvedMaturity": "reference_architecture",
+      "allowedRoutes": ["/infinit-signal", "/ecosystem"],
+      "uses": [
+        { "route": "/infinit-signal", "sourceFile": "src/app/pages/InfinitSignalPage.tsx", "wording": "Source families and named products are representative architecture patterns" }
+      ]
+    },
+    {
+      "claimId": "CLM-SIG-003",
+      "approvedMaturity": "designed",
+      "allowedRoutes": ["/infinit-signal", "/ecosystem", "/resources/industrial-concepts/uns-and-ssom"],
+      "uses": [
+        { "route": "/infinit-signal", "sourceFile": "src/app/pages/InfinitSignalPage.tsx", "wording": "The UNS remains the customer's communication and discovery fabric." },
+        { "route": "/ecosystem", "sourceFile": "src/app/pages/EcosystemPage.tsx", "wording": "Last Mile consumes configured source outputs and does not replace the broker or claim ownership of the customer's namespace." }
+      ]
+    },
+    {
+      "claimId": "CLM-SING-001",
+      "approvedMaturity": "designed",
+      "allowedRoutes": ["/", "/platform", "/singularity", "/infinit-signal"],
+      "uses": [
+        { "route": "/singularity", "sourceFile": "src/app/pages/SSOMPage.tsx", "wording": "Singularity is Last Mile's governed operational-memory and OT world-model product implementing the open SSOM semantic and evidence contract." }
+      ]
+    },
+    {
+      "claimId": "CLM-SSOM-001",
+      "approvedMaturity": "designed",
+      "allowedRoutes": ["/singularity", "/infinit-signal", "/resources/industrial-concepts/uns-and-ssom"],
+      "uses": [
+        { "route": "/singularity", "sourceFile": "src/app/pages/SSOMPage.tsx", "wording": "The Standardized Semantic Object Model defines portable operational meaning, identity, relationships, temporal semantics, quality, evidence, provenance, conformance, and profiles." }
+      ]
+    },
+    {
+      "claimId": "CLM-SING-002",
+      "approvedMaturity": "designed",
+      "allowedRoutes": ["/", "/platform", "/singularity", "/infinit-control"],
+      "uses": [
+        { "route": "/singularity", "sourceFile": "src/app/pages/SSOMPage.tsx", "wording": "Singularity creates the operational world model connecting assets, processes, observations, Conditions, evidence, decisions, Responses, return measurements, and Outcomes across the systems and sites that each see only part of the story." }
+      ]
+    },
+    {
+      "claimId": "CLM-SING-003",
+      "approvedMaturity": "reference_architecture",
+      "allowedRoutes": ["/singularity", "/infinit-signal", "/resources/industrial-concepts/uns-and-ssom"],
+      "uses": [
+        { "route": "/singularity", "sourceFile": "src/app/pages/SSOMPage.tsx", "wording": "SSOM conformance and MQTT/Sparkplug compatibility are separate conformance domains." }
+      ]
+    },
+    {
+      "claimId": "CLM-SING-004",
+      "approvedMaturity": "designed",
+      "allowedRoutes": ["/singularity", "/resources/industrial-concepts/data-spaces"],
+      "uses": [
+        { "route": "/singularity", "sourceFile": "src/app/pages/SSOMPage.tsx", "wording": "The architecture separates customer operations from cross-site learning. SSOM conformance does not grant contribution rights. Purpose, consent, minimization, transformation, provenance, retention, and model scope remain explicit, and aggregate learning cannot rewrite customer canonical facts." },
+        { "route": "/resources/industrial-concepts/data-spaces", "sourceFile": "src/app/content/industrialConcepts.generated.ts", "wording": "The boundary is essential. SSOM conformance does not grant contribution consent. A customer operational record is not available to a shared model merely because it is technically compatible. Customer operations must continue even when contribution is disabled, revoked, or delayed." }
+      ]
+    },
+    {
+      "claimId": "CLM-FLOW-001",
+      "approvedMaturity": "designed",
+      "allowedRoutes": ["/", "/platform", "/infinit-flow", "/infinit-control"],
+      "uses": [
+        { "route": "/infinit-flow", "sourceFile": "src/app/pages/InfinitFlowPage.tsx", "wording": "Infinit-Flow determines what should happen next and creates one durable Response across operators, work systems, providers, approvals, evidence, and return measurements. It executes only the digital steps policy allows and keeps physical authority where operations require it." }
+      ]
+    },
+    {
+      "claimId": "CLM-FLOW-002",
+      "approvedMaturity": "designed",
+      "allowedRoutes": ["/infinit-flow", "/resources/industrial-concepts/composable-manufacturing"],
+      "uses": [
+        { "route": "/infinit-flow", "sourceFile": "src/app/pages/InfinitFlowPage.tsx", "wording": "Choose an operational object type and intent. Infinit-Flow returns only assets compatible with the required SSOM class, capability, tenant, site, role, quality, and freshness. Simple controls appear first; expert semantic and lineage detail remains available when needed." }
+      ]
+    },
+    {
+      "claimId": "CLM-FLOW-003",
+      "approvedMaturity": "designed",
+      "allowedRoutes": ["/", "/platform", "/infinit-flow", "/resources/industrial-concepts/industrial-ai", "/resources/industrial-concepts/industry-5-0", "/resources/industrial-concepts/lights-out-operations"],
+      "uses": [
+        { "route": "/infinit-flow", "sourceFile": "src/app/pages/InfinitFlowPage.tsx", "wording": "Retain physical-work, safety, LOTO, and control authority under customer policy." }
+      ]
+    },
+    {
+      "claimId": "CLM-FLOW-004",
+      "approvedMaturity": "designed",
+      "allowedRoutes": ["/", "/platform", "/infinit-flow", "/infinit-control"],
+      "uses": [
+        { "route": "/infinit-flow", "sourceFile": "src/app/pages/InfinitFlowPage.tsx", "wording": "Work-system state is contextual evidence only; it cannot set the physical result." }
+      ]
+    },
+    {
+      "claimId": "CLM-CTRL-001",
+      "approvedMaturity": "designed",
+      "allowedRoutes": ["/", "/platform", "/infinit-control"],
+      "uses": [
+        { "route": "/infinit-control", "sourceFile": "src/app/pages/InfinitControlPage.tsx", "wording": "Infinit-Control gives each role a governed operational command surface for current state, canonical topology, evidence, ownership, work, system participation, authority, return measurements, and verified Outcomes. It is more than a dashboard because it keeps the complete accountable response in view." }
+      ]
+    },
+    {
+      "claimId": "CLM-CTRL-002",
+      "approvedMaturity": "designed",
+      "allowedRoutes": ["/platform", "/infinit-control", "/use-cases/data-center-cooling", "/use-cases/municipal-wastewater", "/use-cases/manufacturing-compressed-air", "/use-cases/cold-storage-refrigeration"],
+      "uses": [
+        { "route": "/infinit-control", "sourceFile": "src/app/pages/InfinitControlPage.tsx", "wording": "Important measurements show a numerical value, engineering unit, expected or reference band, state icon and text, and meaningful trend or freshness." }
+      ]
+    },
+    {
+      "claimId": "CLM-CTRL-003",
+      "approvedMaturity": "designed",
+      "allowedRoutes": ["/platform", "/infinit-control", "/use-cases/data-center-cooling", "/use-cases/municipal-wastewater", "/use-cases/manufacturing-compressed-air", "/use-cases/cold-storage-refrigeration"],
+      "uses": [
+        { "route": "/infinit-control", "sourceFile": "src/app/pages/InfinitControlPage.tsx", "wording": "Stale, quarantined, unresolved, or missing inputs are shown as No valid data and cannot support a recovered result." }
+      ]
+    },
+    {
+      "claimId": "CLM-CONCEPT-UNS",
+      "approvedMaturity": "perspective",
+      "allowedRoutes": ["/infinit-signal", "/singularity", "/ecosystem", "/resources/industrial-concepts/uns-and-ssom"],
+      "uses": [
+        { "route": "/resources/industrial-concepts/uns-and-ssom", "sourceFile": "src/app/content/industrialConcepts.generated.ts", "wording": "The result is not a choice between UNS and SSOM. The UNS makes industrial information available. SSOM makes that information portable, interpretable, governable, and accountable across systems and time." }
+      ]
+    },
+    {
+      "claimId": "CLM-CONCEPT-OPCUA",
+      "approvedMaturity": "perspective",
+      "allowedRoutes": ["/infinit-signal", "/ecosystem", "/resources/industrial-concepts/opc-ua"],
+      "uses": [
+        { "route": "/resources/industrial-concepts/opc-ua", "sourceFile": "src/app/content/industrialConcepts.generated.ts", "wording": "The correct architecture is therefore additive: keep OPC UA's source information model; map it through governed profiles; use Singularity/SSOM for cross-system operational continuity. Last Mile should never market SSOM as a reason to discard a customer's Companion Specification investment." }
+      ]
+    },
+    {
+      "claimId": "CLM-CONCEPT-AAS",
+      "approvedMaturity": "perspective",
+      "allowedRoutes": ["/singularity", "/resources/industrial-concepts/digital-twins"],
+      "uses": [
+        { "route": "/resources/industrial-concepts/digital-twins", "sourceFile": "src/app/content/industrialConcepts.generated.ts", "wording": "That distinction keeps the architecture honest. AAS and other digital-twin models can provide rich asset semantics. Singularity/SSOM provides the time-correct cross-system thread from evidence to verified outcome. Together they are stronger than a claim that one model replaces all others." }
+      ]
+    },
+    {
+      "claimId": "CLM-CONCEPT-I50",
+      "approvedMaturity": "perspective",
+      "allowedRoutes": ["/about", "/resources/industrial-concepts/industry-5-0"],
+      "uses": [
+        { "route": "/resources/industrial-concepts/industry-5-0", "sourceFile": "src/app/content/industrialConcepts.generated.ts", "wording": "Industry 4.0 helped focus industry on connectivity, cyber-physical systems, data, and automation. The European Commission's Industry 5.0 framing broadens the objective around three priorities: human-centricity, sustainability, and resilience." }
+      ]
+    },
+    {
+      "claimId": "CLM-CONCEPT-THREAD",
+      "approvedMaturity": "perspective",
+      "allowedRoutes": ["/platform", "/resources/industrial-concepts/operational-outcome-thread"],
+      "uses": [
+        { "route": "/resources/industrial-concepts/operational-outcome-thread", "sourceFile": "src/app/content/industrialConcepts.generated.ts", "wording": "The digital thread commonly connects information across design, manufacturing, quality, and product support. Last Mile contributes a focused operational outcome thread: condition, evidence, decision, authority, work, return measurement, verified result, and recurrence." }
+      ]
+    },
+    {
+      "claimId": "CLM-CONCEPT-OTSEC",
+      "approvedMaturity": "perspective",
+      "allowedRoutes": ["/ecosystem", "/resources/industrial-concepts/ot-security"],
+      "uses": [
+        { "route": "/resources/industrial-concepts/ot-security", "sourceFile": "src/app/content/industrialConcepts.generated.ts", "wording": "Industrial connectivity must preserve the performance, reliability, and safety requirements of OT. Last Mile applies least privilege, identity, segmentation-aware deployment, policy, audit, and bounded action without assuming enterprise IT controls can be copied into plant operations unchanged." }
+      ]
+    }
+  ]
+}

@@ -1,12 +1,28 @@
 # Last Mile
 
-Last Mile is the Physical Operations Platform: the independent operating layer above existing OT, data, work, and service systems. It turns trusted operational Conditions into governed action and verifies the physical outcome.
+Last Mile is the Physical Operations Platform: the independent operational intelligence and execution layer for physical operations.
 
-## Core category
+## Core position
 
-- The operating layer industry has been waiting for.
-- Unified visibility. Governed command. Verified physical outcomes.
-- Observe → Understand → Coordinate → Act → Verify → Learn
+- Close the Last Mile between operational evidence and verified outcomes.
+- Keep the systems you trust. Add the operational intelligence between them.
+- Existing controls, data platforms, CMMS, EAM, MES, QMS, ERP, and operator systems keep their established responsibilities.
+- No rip-and-replace. No new system of record. One accountable operational cycle across the enterprise.
+
+## The Accountable Operations Loop
+
+Evidence -> Understand -> Decide -> Coordinate -> Act -> Verify -> Evidence.
+
+The loop connects one Condition to one coordinated Response and one verified Outcome. A work order may be part of a Response; it is not the Response itself. Work completion starts result verification. Current, valid operational evidence establishes whether the physical outcome was achieved.
+
+Every operational decision should be better informed than the one before it.
+
+## Product family
+
+- Infinit-Signal observes, preserves, qualifies, and normalizes configured operational evidence.
+- Singularity understands the operation through a shared operational world model implementing SSOM.
+- Infinit-Flow decides, coordinates, and acts through governed AUTO, ASSIST, and explicit customer authority.
+- Infinit-Control provides role-based command surfaces to see, govern, and verify Conditions, Responses, system participation, and Outcomes.
 
 ## Primary resources
 
@@ -15,16 +31,9 @@ Last Mile is the Physical Operations Platform: the independent operating layer a
 - Singularity: https://lastmileinc.ai/singularity
 - Infinit-Flow: https://lastmileinc.ai/infinit-flow
 - Infinit-Control: https://lastmileinc.ai/infinit-control
-- About: https://lastmileinc.ai/about
-- Discuss an operation: https://lastmileinc.ai/contact
-- Signal 2 Action: https://lastmileinc.ai/signal-to-action
-- News and updates: https://lastmileinc.ai/company/newsroom
-
-## Platform doctrine
-
-- Infinit-Signal acquires and qualifies operational evidence.
-- Singularity is the SSOM-based operational memory and OT world model.
-- Infinit-Flow coordinates governed work and authorized enterprise-system action.
-- Infinit-Control shows the live Condition, response, evidence, and verified outcome.
-- Last Mile works above existing controls and systems of record; it does not replace safety-critical control.
-- A verified outcome requires live post-action telemetry, not only a closed ticket.
+- Operating use cases: https://lastmileinc.ai/use-cases
+- Cooling redundancy - data centers: https://lastmileinc.ai/use-cases/data-center-cooling
+- Pumping capacity - municipal wastewater: https://lastmileinc.ai/use-cases/municipal-wastewater
+- Compressed-air loss - manufacturing: https://lastmileinc.ai/use-cases/manufacturing-compressed-air
+- Refrigeration capacity - cold storage: https://lastmileinc.ai/use-cases/cold-storage-refrigeration
+- Contact: https://lastmileinc.ai/contact
