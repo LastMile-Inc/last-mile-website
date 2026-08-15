@@ -2,7 +2,7 @@
 content_id: PROD-SIGNAL-001
 status: approved
 owner: Infinit-Signal Product and Architecture
-last_reviewed: 2026-08-06
+last_reviewed: 2026-08-13
 claim_maturity: [designed, reference_architecture]
 depends_on: [GOV-DOCTRINE-001, GOV-VOCAB-001, PROD-SINGULARITY-001]
 used_by: [/platform, /infinit-signal, /ecosystem, use-cases]
@@ -17,6 +17,14 @@ Infinit-Signal is Last Mile's governed operational-evidence intake and qualifica
 ## Customer problem
 
 Industrial information arrives through brokers, UNS structures, SCADA/BMS/MES platforms, historians, gateways, APIs, files, and service systems with different identities, timestamps, quality conventions, session behavior, and replay characteristics. Connectivity alone does not determine which record is current, authoritative, duplicated, stale, replayed, unresolved, or fit to influence an operating decision.
+
+## Speed, power, and scale strategy
+
+Infinit-Signal is purpose-built to meet an existing production ecosystem where it is. Implementation begins by understanding the customer's source architecture, preserving strong source meaning, and selecting the smallest useful customer-approved path into Last Mile. Configured MQTT/UNS subscriptions, industrial platforms, controls, historians, APIs, and governed files can participate without requiring the customer to rename or replace the systems that already run the operation.
+
+The UNS remains a live communication and discovery fabric. JSON, repository-managed files, and spreadsheets may separately provide governed schemas, mappings, crosswalks, and configuration. These inputs help Infinit-Signal understand the environment, but they are not described as the UNS itself.
+
+Infinit-Signal is designed for priority-aware 24x7 ingestion, isolated backpressure, controlled store-and-forward, and recovery by declared workload class. Performance and stress testing use explicit sustained-rate, burst-rate, payload-size, source-concurrency, recovery, and store-and-forward profiles. Public language may describe that ongoing testing discipline and the designed scale controls. It must not imply a universal measured rate, production uptime, or production-grade scale without approved evidence.
 
 ## Owns
 
@@ -111,11 +119,11 @@ These are architecture targets, not implemented performance claims:
 
 ## Public copy kernel
 
-**Heading:** Keep the real-time fabric. Add the operational contract.
+**Heading:** One fast path from your plant floor into Last Mile.
 
-**Body:** A Unified Namespace can make current operational information discoverable across systems. Infinit-Signal consumes configured subscriptions while preserving publisher, topic, timestamp, quality, and session context. It then classifies freshness, duplicates, retained messages, replay, and unresolved assets before the information enters Singularity as governed, SSOM-conformant operational truth.
+**Body:** Infinit-Signal connects to the operational sources you already run, preserves where each reading came from, checks its time and quality, and prepares it for Singularity. It is designed to isolate priority traffic, absorb bursts, and recover safely without making the rest of the plant wait.
 
-**Boundary:** The UNS remains the customer's communication and discovery fabric. A topic path remains a source address—it does not automatically become the identity of the asset.
+**Boundary:** The UNS remains the customer's communication and discovery fabric. A topic path remains a source address. It does not automatically become the identity of the asset.
 
 ## Prohibited implications
 

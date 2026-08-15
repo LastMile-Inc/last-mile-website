@@ -1,29 +1,75 @@
 import { SEO } from "@/app/components/SEO";
-import { EditorialHero, EditorialSection, InlineLink, NextStep } from "@/app/components/NarrativeComponents";
+import { EditorialHero, EditorialSection, InlineLink } from "@/app/components/NarrativeComponents";
 import { companyStage } from "@/app/content/siteContent";
 import { createBreadcrumbSchema } from "@/app/lib/structuredData";
 
-const principles = ["Keep source authority visible.", "Create operational records once.", "Preserve uncertainty instead of hiding it.", "Put policy before consequential action.", "Treat work completion and physical recovery as different states.", "Make failure and degraded data visible.", "Earn the right to automate through evidence."] as const;
+const principles = [
+  "Keep source authority visible.",
+  "Create operational records once.",
+  "Preserve uncertainty instead of hiding it.",
+  "Put policy before consequential action.",
+  "Treat work completion and physical recovery as different states.",
+  "Make failure and degraded data visible.",
+  "Earn the right to automate through evidence.",
+] as const;
 
 export function AboutPage() {
-  const description = "Last Mile exists to make industrial response visible, coordinated, and measurable across the control, data, work, provider, and evidence systems already in place.";
-  return <><SEO title="About Last Mile | Built for the Operational Handoffs" description={description} canonicalPath="/about" markdownPath="/about.md" jsonLd={createBreadcrumbSchema([{ name: "Home", path: "/" }, { name: "About", path: "/about" }])} />
-    <div className="lm-v2-page">
-      <EditorialHero eyebrow="About Last Mile" title="We built Last Mile because industrial response still breaks at the handoffs." intro="Enterprise platforms transformed digital work. Physical operations still depend on disconnected control, data, work, provider, and evidence systems. Last Mile exists to make the complete response visible, coordinated, and measurable without forcing customers into another vendor silo." primary={{ label: "Discuss Your Operation", to: "/contact?intent=operation" }} />
+  const description = "Last Mile makes operational handoffs visible and accountable across the systems people already use.";
+  return (
+    <>
+      <SEO
+        title="About Last Mile | Built for the Operational Handoffs"
+        description={description}
+        canonicalPath="/about"
+        markdownPath="/about.md"
+        jsonLd={createBreadcrumbSchema([{ name: "Home", path: "/" }, { name: "About", path: "/about" }])}
+      />
 
-      <EditorialSection title="Built from decades of enterprise-platform experience—and its limits." tone="grid">
-        <div className="lm-founder-v2"><div className="lm-founder-v2__identity"><span className="lm-v2-card-label">Founder and CEO</span><h3>Rodney Runolfson</h3></div><div className="lm-founder-v2__copy"><p>Rodney Runolfson brings three decades of experience across enterprise platforms, including roles as a customer, ServiceNow employee, and founder of Deloitte’s U.S. ServiceNow practice. That experience demonstrated what shared platforms can accomplish—and where physical operations remain fundamentally different.</p><p>Last Mile applies those lessons without depending on ServiceNow or any other single enterprise vendor. The company is building an operations-native platform on GCP for the cross-system work that established platforms leave unresolved.</p></div></div>
-      </EditorialSection>
+      <div className="lm-v2-page">
+        <EditorialHero
+          eyebrow="About Last Mile"
+          title="Physical operations break when the handoff disappears."
+          intro="Operators, maintenance, and service teams already have good tools. Trouble starts when an alarm, work order, service call, and return reading stop connecting. Last Mile keeps that handoff together."
+          primary={{ label: "Discuss Your Operation", to: "/contact?intent=operation" }}
+        />
 
-      <EditorialSection eyebrow="Working principles" title="Evidence earns authority." tone="grid">
-        <ul className="lm-principles-v2">{principles.map((principle) => <li key={principle}>{principle}</li>)}</ul>
-        <InlineLink to="/resources/industrial-concepts/industry-5-0">Industry 5.0 and human authority</InlineLink>
-      </EditorialSection>
+        <EditorialSection title="Built from platform experience and operator reality." tone="grid">
+          <div className="lm-founder-v2">
+            <div className="lm-founder-v2__identity">
+              <span className="lm-v2-card-label">Founder and CEO</span>
+              <h3>Rodney Runolfson</h3>
+            </div>
+            <div className="lm-founder-v2__copy">
+              <p>
+                Rodney Runolfson brings three decades of enterprise platform experience, including work in roles at ServiceNow and within
+                Deloitte&apos;s U.S. ServiceNow practice. Those experiences showed what shared platforms can do well and where physical operations
+                need a different operating model.
+              </p>
+              <p>
+                Last Mile applies those lessons without dependence on a single vendor stack. We build an operations-native platform for
+                cross-system work that remains unresolved by traditional enterprise software patterns.
+              </p>
+            </div>
+          </div>
+        </EditorialSection>
 
-      <EditorialSection eyebrow={companyStage.label} title="Clear about the stage. Serious about the proof.">
-        <div className="lm-v2-columns-2"><p className="lm-v2-large-copy">{companyStage.summary}</p><p className="lm-v2-large-copy">{companyStage.evidence}</p></div>
-      </EditorialSection>
-      <NextStep title="Bring the operational handoff your team cannot make accountable." copy="We will start with what happens today, who holds authority, and which live measurements would establish recovery." label="Discuss Your Operation" to="/contact?intent=operation" secondary={{ label: "See What We Are Proving", to: "/use-cases/data-center-cooling" }} />
-    </div>
-  </>;
+        <EditorialSection eyebrow="Working principles" title="Evidence earns authority." tone="grid">
+          <ul className="lm-principles-v2">
+            {principles.map((principle) => (
+              <li key={principle}>{principle}</li>
+            ))}
+          </ul>
+          <InlineLink to="/resources/industrial-concepts/industry-5-0">Industry 5.0 and human authority</InlineLink>
+        </EditorialSection>
+
+        <EditorialSection eyebrow={companyStage.label} title="Clear about the stage. Focused on what can be demonstrated.">
+          <div className="lm-v2-columns-2">
+            <p className="lm-v2-large-copy">{companyStage.summary}</p>
+            <p className="lm-v2-large-copy">{companyStage.evidence}</p>
+          </div>
+        </EditorialSection>
+
+      </div>
+    </>
+  );
 }

@@ -60,6 +60,11 @@ This registry is the canonical detailed claim authority beneath the review-site 
 | CLM-CTRL-002 | Measurements display value, unit, reference, state, and operationally meaningful trend/freshness. | Designed; Demonstrated in reference datasets | Use-case contracts | Customer-specific thresholds |
 | CLM-CTRL-003 | No-valid-data states prevent a healthy or recovered presentation. | Designed | Result rules | Automatic repair of source data |
 
+## Continuous Improvement and Industrial AI
+
+| Claim ID | Approved language | Maturity | Scope/evidence | Prohibited inference |
+| --- | --- | --- | --- | --- |
+| CLM-AI-001 | Because Last Mile sees the full lifecycle from first signal through verified recovery, AI can compare the decisions, handoffs, actions, delays, and return readings that shaped the result. No useful learning is lost, proven resolution steps do not have to be rediscovered, and approved improvements can be applied automatically the next time a similar issue appears. | Designed | Singularity learning architecture and Industrial AI concept | Autonomous plant control, implemented production learning, or guaranteed MTTR reduction |
 ## Industrial concepts
 
 | Claim ID | Approved language | Maturity | Source |

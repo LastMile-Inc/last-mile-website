@@ -18,7 +18,7 @@ Protocol connectivity moves values. Semantic interoperability preserves what tho
 
 ### Connected is not yet interoperable
 
-Industrial integration often celebrates the moment a value can move from one system to another. That is necessary, but it is not the hard part. A pressure value without a stable asset identity, engineering meaning, time basis, quality, source authority, and relationship to the operating process is connected data—not dependable operational context.
+Industrial integration often celebrates the moment a value can move from one system to another. That is necessary, but it is not the hard part. A pressure value without a stable asset identity, engineering meaning, time basis, quality, source authority, and relationship to the operating process is connected data, not dependable operational context.
 
 Semantic interoperability means two systems can exchange information and preserve meaning well enough to use it correctly. In physical operations, that includes asset class and instance identity; units and quantity kind; topology and dependency; event and observation semantics; source and event time; quality and uncertainty; and the evidence required to explain a decision later.
 

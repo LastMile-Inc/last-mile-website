@@ -11,6 +11,7 @@ import {
   BreadcrumbSeparator,
 } from "@/app/components/ui/breadcrumb";
 import { getPressReleaseBySlug } from "@/app/content/newsroom";
+import { withoutEmDash } from "@/app/lib/publicCopy";
 import { NotFound } from "./NotFound";
 
 export function PressReleaseDetailPage() {
@@ -24,7 +25,7 @@ export function PressReleaseDetailPage() {
   return (
     <>
       <SEO
-        title={release.title}
+        title={withoutEmDash(release.title)}
         description={release.seoDescription}
         keywords="Last Mile press release, Last Mile newsroom, company news, product announcement"
         canonicalPath={`/company/newsroom/${release.slug}`}
@@ -33,7 +34,7 @@ export function PressReleaseDetailPage() {
         <div className="absolute inset-0 data-grid-bg opacity-20 pointer-events-none"></div>
 
         <div className="relative z-10">
-          <div className="lm-release__archive">Company Archive — Prior Strategic Chapter. This historical release is preserved as published; current inquiries should be directed to <a href="mailto:contact@lastmileinc.ai">contact@lastmileinc.ai</a>.</div>
+          <div className="lm-release__archive">Company Archive: Prior Strategic Chapter. This historical release is preserved as published; current inquiries should be directed to <a href="mailto:contact@lastmileinc.ai">contact@lastmileinc.ai</a>.</div>
           <section className="border-b border-slate-800/80 py-16">
             <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
               <motion.div
@@ -71,7 +72,7 @@ export function PressReleaseDetailPage() {
 
                 <div className="mx-auto max-w-4xl text-center">
                   <h1 className="text-4xl font-bold leading-tight text-white md:text-5xl">
-                    {release.title}
+                    {withoutEmDash(release.title)}
                   </h1>
                   <div className="mx-auto mt-8 h-px w-full max-w-3xl bg-gradient-to-r from-transparent via-slate-600 to-transparent" />
                 </div>
@@ -130,7 +131,7 @@ export function PressReleaseDetailPage() {
                 `}</style>
                 <div
                   className="job-content prose prose-invert max-w-none text-slate-300 prose-headings:text-white prose-p:text-slate-300 prose-p:leading-8 prose-li:text-slate-300 prose-strong:text-white prose-a:text-[#8bc2f7] prose-a:no-underline hover:prose-a:text-white prose-img:mx-auto prose-img:my-8 prose-img:max-w-full prose-img:rounded-2xl prose-img:border prose-img:border-slate-700 prose-img:bg-slate-950/60 prose-img:p-3 [&_strong]:text-white [&_b]:text-white"
-                  dangerouslySetInnerHTML={{ __html: release.content }}
+                  dangerouslySetInnerHTML={{ __html: withoutEmDash(release.content) }}
                 />
               </motion.article>
             </div>

@@ -4,9 +4,10 @@ import { Link } from "react-router";
 import { products } from "@/app/content/siteContent";
 import { CtaLink } from "./MarketingComponents";
 import { TrackedLink } from "./TrackedLink";
+import { OperationalIcon, type OperationalIconKind } from "./OperationalIcon";
 
 export function EditorialHero({ eyebrow, title, intro, support, primary, secondary, visual }: {
-  eyebrow: string;
+  eyebrow?: string;
   title: string;
   intro: string;
   support?: string;
@@ -16,7 +17,7 @@ export function EditorialHero({ eyebrow, title, intro, support, primary, seconda
 }) {
   return <header className={`lm-v2-hero${visual ? " lm-v2-hero--split" : ""}`}>
     <div className="lm-v2-hero__copy">
-      <p className="lm-eyebrow">{eyebrow}</p>
+      {eyebrow ? <p className="lm-eyebrow">{eyebrow}</p> : null}
       <h1>{title}</h1>
       <p className="lm-v2-hero__intro">{intro}</p>
       {support ? <p className="lm-v2-hero__support">{support}</p> : null}
@@ -63,9 +64,12 @@ export function NextStep({ eyebrow = "Next logical step", title, copy, label, to
   </div><div className="lm-actions"><CtaLink to={to}>{label}</CtaLink>{secondary ? <CtaLink to={secondary.to} variant="secondary">{secondary.label}</CtaLink> : null}</div></div></section>;
 }
 
+
+const statusIconKinds: readonly OperationalIconKind[] = ["evidence", "context", "decision", "verification"];
+
 export function StatusPanel({ items }: { items: ReadonlyArray<{ title: string; items: readonly string[] }> }) {
   return <div className="lm-v2-status">{items.map((group, index) => <article key={group.title}>
-    <span>{String(index + 1).padStart(2, "0")}</span><h3>{group.title}</h3>
+    <OperationalIcon kind={statusIconKinds[index % statusIconKinds.length]} /><h3>{group.title}</h3>
     <ul>{group.items.map((item) => <li key={item}><CircleDot aria-hidden="true" />{item}</li>)}</ul>
   </article>)}</div>;
 }
@@ -128,7 +132,7 @@ export function ProductThread({ expanded = false }: { expanded?: boolean }) {
     <ol className="lm-product-thread__products" aria-label="Four connected Last Mile products">
       {products.map((product, index) => <li key={product.name} className={index === activeProduct ? "is-active" : index < activeProduct || complete ? "is-complete" : ""}>
         <button type="button" onClick={() => setActiveProduct(index)} onFocus={() => setActiveProduct(index)} aria-pressed={index === activeProduct}>
-          <span>{product.number}</span><strong>{product.name}</strong><em>{product.shortTitle}</em><p>{product.copy}</p>
+          <OperationalIcon kind={(["signal", "context", "flow", "command"] as const)[index]} size="small" /><strong>{product.name}</strong><em>{product.shortTitle}</em><p>{product.copy}</p>
         </button>{index < products.length - 1 ? <ArrowRight aria-hidden="true" /> : null}
       </li>)}
     </ol>

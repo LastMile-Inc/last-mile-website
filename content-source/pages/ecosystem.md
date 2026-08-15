@@ -18,9 +18,9 @@ Show exactly what existing systems retain and what Last Mile adds. Vendor names 
 
 **Eyebrow:** OPEN INDUSTRIAL ECOSYSTEM
 
-**H1:** Keep the systems that run your operation. Connect the accountability between them.
+**H1:** Your systems stay in place. The handoffs stop disappearing.
 
-**Body:** Last Mile consumes configured outputs from existing OT, data, work, facilities, and service platforms. It preserves their identities and responsibilities while creating one condition-to-outcome thread across them.
+**Body:** Your control systems, historians, work systems, and service platforms already do important jobs. Last Mile keeps them in place and connects the problem, owner, work, and return readings between them.
 
 ## Ecosystem categories
 
@@ -44,9 +44,10 @@ Enterprise asset, work, CMMS, facilities, and related platforms retain their rec
 
 Integrators, OEMs, maintenance providers, and field teams retain execution and safety authority. Last Mile routes complete evidence, maintains a shared timeline, and verifies the return measurements after work.
 
-## Vendor qualification
+## Technology coverage
 
-**Disclosure:** Product and company names illustrate representative industrial ecosystems. Inclusion does not imply partnership, certification, or a validated production integration.
+Describe each system through its responsibility, handoff, and boundary. Do not add a standalone disclaimer or qualification box.
+
 
 ## Handoff matrix
 

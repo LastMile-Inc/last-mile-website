@@ -2,7 +2,7 @@
 content_id: USECASE-DC-COOLING-001
 status: approved
 owner: Use-Case Product and Domain Review
-last_reviewed: 2026-08-06
+last_reviewed: 2026-08-13
 claim_maturity: [demonstrated]
 depends_on: [PROD-SIGNAL-001, PROD-SINGULARITY-001, PROD-FLOW-001, PROD-CONTROL-001]
 used_by: [/platform, /use-cases/data-center-cooling, demos]
@@ -12,7 +12,7 @@ used_by: [/platform, /use-cases/data-center-cooling, demos]
 
 ## Public thesis
 
-**Cooling redundancy, verified.** One accountable cooling event—from first evidence to proven restoration of protection.
+**The Thermal Threat.** A stopped secondary chilled-water pump leaves the data hall one failure away from losing its cooling protection.
 
 ## Scenario identity
 

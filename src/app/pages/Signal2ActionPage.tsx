@@ -151,7 +151,7 @@ export function Signal2ActionPage() {
               )}
               {archiveEpisodes.length > 0 ? (
                 <div className="mt-14">
-                  <h2 className="lm-podcast__section-title font-bold">Archive — Prior ServiceNow Chapter</h2>
+                  <h2 className="lm-podcast__section-title font-bold">Archive: Prior ServiceNow Chapter</h2>
                   <div className="mt-8 space-y-4">
                     {archiveEpisodes.map((episode) => (
                       <EpisodeRow key={episode.guid} episode={episode} />

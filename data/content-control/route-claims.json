@@ -16,8 +16,8 @@
       "approvedMaturity": "designed",
       "allowedRoutes": ["/", "/platform", "/ecosystem", "/about"],
       "uses": [
-        { "route": "/", "sourceFile": "src/app/pages/HomePage.tsx", "wording": "Turn fragmented operational evidence into coordinated action and verified outcomes without replacing the systems already running your business." },
-        { "route": "/ecosystem", "sourceFile": "src/app/pages/EcosystemPage.tsx", "wording": "Last Mile consumes configured outputs from existing OT, data, work, facilities, and service platforms. It preserves their identities and responsibilities while creating one condition-to-outcome thread across them." }
+        { "route": "/", "sourceFile": "src/app/pages/HomePage.tsx", "wording": "Last Mile is the orchestration layer across the production systems already in place. It connects the alarm, equipment, readings, decisions, work, owner, and return telemetry so teams can act sooner and see whether the machine is actually running correctly again." },
+        { "route": "/ecosystem", "sourceFile": "src/app/pages/EcosystemPage.tsx", "wording": "Your control systems, historians, work systems, and service platforms already do important jobs. Last Mile keeps them in place and connects the problem, owner, work, and return readings between them." }
       ]
     },
     {
@@ -25,8 +25,8 @@
       "approvedMaturity": "designed",
       "allowedRoutes": ["/", "/platform", "/infinit-flow", "/infinit-control", "/use-cases", "/use-cases/data-center-cooling", "/use-cases/municipal-wastewater", "/use-cases/manufacturing-compressed-air", "/use-cases/cold-storage-refrigeration"],
       "uses": [
-        { "route": "/", "sourceFile": "src/app/pages/HomePage.tsx", "wording": "From physical evidence to verified outcome. Then back to evidence." },
-        { "route": "/platform", "sourceFile": "src/app/pages/PlatformOverviewPage.tsx", "wording": "One accountable operating condition—from first evidence to verified outcome." }
+        { "route": "/", "sourceFile": "src/app/pages/HomePage.tsx", "wording": "The loop keeps the problem, response, work, and return readings connected until the operation is stable again." },
+        { "route": "/platform", "sourceFile": "src/app/pages/PlatformOverviewPage.tsx", "wording": "It keeps the issue, owner, decisions, work, and physical result connected without taking control away from the systems and people that run the operation." }
       ]
     },
     {
@@ -35,7 +35,6 @@
       "allowedRoutes": ["/", "/platform", "/singularity", "/infinit-flow", "/infinit-control", "/use-cases", "/use-cases/data-center-cooling", "/use-cases/municipal-wastewater", "/use-cases/manufacturing-compressed-air", "/use-cases/cold-storage-refrigeration"],
       "uses": [
         { "route": "/", "sourceFile": "src/app/pages/HomePage.tsx", "wording": "Work completed is not the same as problem solved." },
-        { "route": "/platform", "sourceFile": "src/app/pages/PlatformOverviewPage.tsx", "wording": "The work order can close before the operating condition is recovered." },
         { "route": "/infinit-flow", "sourceFile": "src/app/pages/InfinitFlowPage.tsx", "wording": "When the field task or work order closes, Infinit-Flow asks Singularity to evaluate the configured return measurements. Work-system state is contextual evidence only; it cannot set the physical result." },
         { "route": "/infinit-control", "sourceFile": "src/app/pages/InfinitControlPage.tsx", "wording": "Stale, quarantined, unresolved, or missing inputs are shown as No valid data and cannot support a recovered result." },
         { "route": "/use-cases/data-center-cooling", "sourceFile": "src/app/pages/platformReferenceData.ts", "wording": "Recovery requires Running status, 17.5–20.5 A motor current, 9.0–15.0 psid pressure, temperature in range, and a complete 15-minute stability window." },
@@ -49,17 +48,14 @@
       "approvedMaturity": "designed",
       "allowedRoutes": ["/", "/platform", "/infinit-signal", "/ecosystem"],
       "uses": [
-        { "route": "/infinit-signal", "sourceFile": "src/app/pages/InfinitSignalPage.tsx", "wording": "Infinit-Signal continuously acquires configured outputs from the systems you already operate, preserves their original evidence, and classifies time, quality, duplication, replay, and identity before data enters the Last Mile operating model." },
-        { "route": "/platform", "sourceFile": "src/app/pages/PlatformOverviewPage.tsx", "wording": "Consumes configured operational sources, preserves source evidence, qualifies time and quality, resolves mappings, and creates SSOM-conformant canonical operational records." }
+        { "route": "/infinit-signal", "sourceFile": "src/app/pages/InfinitSignalPage.tsx", "wording": "Infinit-Signal connects to the operational sources you already run, preserves where each reading came from, checks its time and quality, and prepares it for Singularity." }
       ]
     },
     {
       "claimId": "CLM-SIG-002",
       "approvedMaturity": "reference_architecture",
       "allowedRoutes": ["/infinit-signal", "/ecosystem"],
-      "uses": [
-        { "route": "/infinit-signal", "sourceFile": "src/app/pages/InfinitSignalPage.tsx", "wording": "Source families and named products are representative architecture patterns" }
-      ]
+      "uses": []
     },
     {
       "claimId": "CLM-SIG-003",
@@ -68,6 +64,14 @@
       "uses": [
         { "route": "/infinit-signal", "sourceFile": "src/app/pages/InfinitSignalPage.tsx", "wording": "The UNS remains the customer's communication and discovery fabric." },
         { "route": "/ecosystem", "sourceFile": "src/app/pages/EcosystemPage.tsx", "wording": "Last Mile consumes configured source outputs and does not replace the broker or claim ownership of the customer's namespace." }
+      ]
+    },
+    {
+      "claimId": "CLM-SIG-005",
+      "approvedMaturity": "designed",
+      "allowedRoutes": ["/infinit-signal"],
+      "uses": [
+        { "route": "/infinit-signal", "sourceFile": "src/app/pages/InfinitSignalPage.tsx", "wording": "Infinit-Signal is designed for priority-aware 24x7 ingestion and backpressure isolation." }
       ]
     },
     {
@@ -91,16 +95,14 @@
       "approvedMaturity": "designed",
       "allowedRoutes": ["/", "/platform", "/singularity", "/infinit-control"],
       "uses": [
-        { "route": "/singularity", "sourceFile": "src/app/pages/SSOMPage.tsx", "wording": "Singularity creates the operational world model connecting assets, processes, observations, Conditions, evidence, decisions, Responses, return measurements, and Outcomes across the systems and sites that each see only part of the story." }
+        { "route": "/singularity", "sourceFile": "src/app/pages/SSOMPage.tsx", "wording": "Singularity preserves one durable identity for each asset, location, problem, response, and result as data and work move across sites." }
       ]
     },
     {
       "claimId": "CLM-SING-003",
       "approvedMaturity": "reference_architecture",
       "allowedRoutes": ["/singularity", "/infinit-signal", "/resources/industrial-concepts/uns-and-ssom"],
-      "uses": [
-        { "route": "/singularity", "sourceFile": "src/app/pages/SSOMPage.tsx", "wording": "SSOM conformance and MQTT/Sparkplug compatibility are separate conformance domains." }
-      ]
+      "uses": []
     },
     {
       "claimId": "CLM-SING-004",
@@ -140,7 +142,7 @@
       "approvedMaturity": "designed",
       "allowedRoutes": ["/", "/platform", "/infinit-flow", "/infinit-control"],
       "uses": [
-        { "route": "/infinit-flow", "sourceFile": "src/app/pages/InfinitFlowPage.tsx", "wording": "Work-system state is contextual evidence only; it cannot set the physical result." }
+        { "route": "/infinit-flow", "sourceFile": "src/app/pages/InfinitFlowPage.tsx", "wording": "When the field task or work order closes, Infinit-Flow asks Singularity to evaluate the configured return measurements. Work-system state is contextual evidence only; it cannot set the physical result." }
       ]
     },
     {
@@ -168,6 +170,15 @@
       ]
     },
     {
+      "claimId": "CLM-AI-001",
+      "approvedMaturity": "designed",
+      "allowedRoutes": ["/", "/platform", "/singularity", "/resources/industrial-concepts/industrial-ai"],
+      "uses": [
+        { "route": "/", "sourceFile": "src/app/pages/HomePage.tsx", "wording": "Because Last Mile sees the full lifecycle from first signal through verified recovery, AI can compare the decisions, handoffs, actions, delays, and return readings that shaped the result. No useful learning is lost, proven resolution steps do not have to be rediscovered, and approved improvements can be applied automatically the next time a similar issue appears." },
+        { "route": "/platform", "sourceFile": "src/app/pages/PlatformOverviewPage.tsx", "wording": "Because Last Mile sees the full lifecycle from first signal through verified recovery, AI can compare the decisions, handoffs, actions, delays, and return readings that shaped the result. No useful learning is lost, proven resolution steps do not have to be rediscovered, and approved improvements can be applied automatically the next time a similar issue appears." },
+        { "route": "/singularity", "sourceFile": "src/app/pages/SSOMPage.tsx", "wording": "Because Last Mile sees the full lifecycle from first signal through verified recovery, AI can compare the decisions, handoffs, actions, delays, and return readings that shaped the result. No useful learning is lost, proven resolution steps do not have to be rediscovered, and approved improvements can be applied automatically the next time a similar issue appears." }
+      ]
+    },    {
       "claimId": "CLM-CONCEPT-UNS",
       "approvedMaturity": "perspective",
       "allowedRoutes": ["/infinit-signal", "/singularity", "/ecosystem", "/resources/industrial-concepts/uns-and-ssom"],
@@ -202,7 +213,7 @@
     {
       "claimId": "CLM-CONCEPT-THREAD",
       "approvedMaturity": "perspective",
-      "allowedRoutes": ["/platform", "/resources/industrial-concepts/operational-outcome-thread"],
+      "allowedRoutes": ["/resources/industrial-concepts/operational-outcome-thread"],
       "uses": [
         { "route": "/resources/industrial-concepts/operational-outcome-thread", "sourceFile": "src/app/content/industrialConcepts.generated.ts", "wording": "The digital thread commonly connects information across design, manufacturing, quality, and product support. Last Mile contributes a focused operational outcome thread: condition, evidence, decision, authority, work, return measurement, verified result, and recurrence." }
       ]

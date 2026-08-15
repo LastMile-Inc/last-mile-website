@@ -5,7 +5,7 @@ owner: Product Strategy
 last_reviewed: 2026-08-06
 claim_maturity: [perspective, designed]
 depends_on: [PROD-SINGULARITY-001, PROD-FLOW-001]
-used_by: [/platform, /use-cases/data-center-cooling, /use-cases/municipal-wastewater, /use-cases/manufacturing-compressed-air, /use-cases/cold-storage-refrigeration, /resources/industrial-concepts/operational-outcome-thread]
+used_by: [/use-cases/data-center-cooling, /use-cases/municipal-wastewater, /use-cases/manufacturing-compressed-air, /use-cases/cold-storage-refrigeration, /resources/industrial-concepts/operational-outcome-thread]
 ---
 
 # Digital Thread and the Operational Outcome Thread

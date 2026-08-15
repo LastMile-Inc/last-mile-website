@@ -5,7 +5,7 @@ owner: Applied AI and Operational Assurance
 last_reviewed: 2026-08-06
 claim_maturity: [perspective]
 depends_on: [CONCEPT-INDUSTRIAL-AI-001, CONCEPT-I50-001]
-used_by: [/resources/industrial-concepts/lights-out-operations]
+used_by: [/singularity, /resources/industrial-concepts/lights-out-operations]
 ---
 
 # Lights-Out and Autonomous Operations
@@ -24,11 +24,11 @@ Autonomous operations magnify the cost of weak context. A stale retained message
 
 Last Mile's relevance is the accountability layer around that autonomy. Infinit-Signal qualifies evidence. Singularity maintains canonical identity, Conditions, and history. Infinit-Flow executes only bounded policy-authorized steps and routes exceptions to human authority. Infinit-Control makes the degraded state and response visible. Return telemetry determines the Outcome.
 
-This is not a claim that Last Mile can operate a factory without people. It is a design position: as routine human involvement decreases, evidence, semantic continuity, authority, safe failure, and outcome verification must become more rigorous—not less.
+This is not a claim that Last Mile can operate a factory without people. It is a design position: as routine human involvement decreases, evidence, semantic continuity, authority, safe failure, and outcome verification must become more rigorous, not less.
 
 ## What this looks like in an operating response
 
-An unattended off-shift compressed-air system can automatically detect 1,860 SCFM demand and 355 kW power while Zone 4 header pressure is only 88.6 psig. AUTO may qualify the evidence and create the case; ASSIST may assemble the affected-zone inspection; HUMAN AUTHORITY retains isolation and repair. The response succeeds only when the configured pressure, flow, power, specific-power, and 30-minute stability criteria pass—not when an agent or work task reports completion.
+An unattended off-shift compressed-air system can automatically detect 1,860 SCFM demand and 355 kW power while Zone 4 header pressure is only 88.6 psig. AUTO may qualify the evidence and create the case; ASSIST may assemble the affected-zone inspection; HUMAN AUTHORITY retains isolation and repair. The response succeeds only when the configured pressure, flow, power, specific-power, and 30-minute stability criteria pass, not when an agent or work task reports completion.
 
 ## Sources
 

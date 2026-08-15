@@ -9,14 +9,6 @@ const products = [
   ["/infinit-control", "Infinit-Control"],
 ] as const;
 
-const useCases = [
-  ["/use-cases", "All Operating Use Cases"],
-  ["/use-cases/data-center-cooling", "Cooling Redundancy — Data Centers"],
-  ["/use-cases/municipal-wastewater", "Pumping Capacity — Municipal Wastewater"],
-  ["/use-cases/manufacturing-compressed-air", "Compressed-Air Loss — Manufacturing"],
-  ["/use-cases/cold-storage-refrigeration", "Refrigeration Capacity — Cold Storage"],
-] as const;
-
 const resources = [
   ["/resources", "Build and Proof"],
   ["/resources/industrial-concepts", "Industrial Concepts"],
@@ -31,6 +23,7 @@ export function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [openMenu, setOpenMenu] = useState<string | null>(null);
   const navRef = useRef<HTMLElement>(null);
+  const mobileToggleRef = useRef<HTMLButtonElement>(null);
   const location = useLocation();
   const active = (to: string) => location.pathname === to;
 
@@ -42,23 +35,26 @@ export function Navbar() {
   }, []);
 
   return (
-    <nav ref={navRef} className="lm-nav" aria-label="Primary navigation" onMouseLeave={() => setOpenMenu(null)} onKeyDown={(event) => { if (event.key === "Escape" && mobileOpen) { setMobileOpen(false); } }}>
+    <nav ref={navRef} className="lm-nav" aria-label="Primary navigation" onMouseLeave={() => setOpenMenu(null)} onKeyDown={(event) => { if (event.key === "Escape" && mobileOpen) { event.preventDefault(); setMobileOpen(false); window.requestAnimationFrame(() => mobileToggleRef.current?.focus()); } }}>
       <div className="lm-nav__inner">
-        <Link to="/" className="lm-nav__brand"><img src="/logo.png" width="64" height="41" alt="" /><strong><span>Last</span> <span>Mile</span></strong></Link>
+        <Link to="/" className="lm-nav__brand">
+          <span className="lm-nav__brand-name"><img src="/logo.png" width="64" height="41" alt="" /><strong><span>Last</span> <span>Mile</span></strong></span>
+          <em>The Physical Operations Platform</em>
+        </Link>
         <div className="lm-nav__links">
           <NavLink to="/" label="Home" active={active("/")} />
           <NavLink to="/platform" label="Platform" active={active("/platform")} />
           <Dropdown id="products" label="Products" active={products.some(([to]) => active(to))} open={openMenu === "products"} setOpen={(open) => setOpenMenu(open ? "products" : null)} items={products} isActive={active} />
-          <Dropdown id="use-cases" label="Use Cases" active={location.pathname.startsWith("/use-cases")} open={openMenu === "use-cases"} setOpen={(open) => setOpenMenu(open ? "use-cases" : null)} items={useCases} isActive={active} />
+          <NavLink to="/use-cases" label="Use Cases" active={location.pathname.startsWith("/use-cases")} />
           <Dropdown id="resources" label="Resources" active={resources.some(([to]) => active(to)) || location.pathname.startsWith("/resources/")} open={openMenu === "resources"} setOpen={(open) => setOpenMenu(open ? "resources" : null)} items={resources} isActive={active} />
           <NavLink to="/about" label="About" active={active("/about")} />
         </div>
         <Link to="/contact?intent=operation" className="lm-nav__cta">Discuss Your Operation</Link>
-        <button type="button" className="lm-nav__toggle" aria-label={mobileOpen ? "Close navigation" : "Open navigation"} aria-expanded={mobileOpen} aria-controls="primary-mobile-menu" onClick={() => setMobileOpen((value) => !value)}>{mobileOpen ? <X aria-hidden="true" /> : <Menu aria-hidden="true" />}</button>
+        <button ref={mobileToggleRef} type="button" className="lm-nav__toggle" aria-label={mobileOpen ? "Close navigation" : "Open navigation"} aria-expanded={mobileOpen} aria-controls="primary-mobile-menu" onClick={() => setMobileOpen((value) => !value)}>{mobileOpen ? <X aria-hidden="true" /> : <Menu aria-hidden="true" />}</button>
         {mobileOpen ? <div id="primary-mobile-menu" className="lm-nav__mobile">
           <NavLink to="/" label="Home" active={active("/")} /><NavLink to="/platform" label="Platform" active={active("/platform")} />
           <MobileGroup label="Products" items={products} isActive={active} />
-          <MobileGroup label="Use Cases" items={useCases} isActive={active} />
+          <NavLink to="/use-cases" label="Use Cases" active={location.pathname.startsWith("/use-cases")} />
           <MobileGroup label="Resources" items={resources} isActive={active} />
           <NavLink to="/about" label="About" active={active("/about")} /><NavLink to="/contact?intent=operation" label="Discuss Your Operation" active={active("/contact")} />
         </div> : null}

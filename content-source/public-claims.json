@@ -39,6 +39,11 @@
       "contentId": "LM-WEB-PROOF-001",
       "status": "approved-for-review-site",
       "claim": "Recovery is evaluated from return telemetry and operating evidence rather than ticket closure alone."
+    },
+    {
+      "contentId": "LM-WEB-AI-001",
+      "status": "approved-for-review-site",
+      "claim": "Because Last Mile sees the full lifecycle from first signal through verified recovery, AI can compare the decisions, handoffs, actions, delays, and return readings that shaped the result. No useful learning is lost, proven resolution steps do not have to be rediscovered, and approved improvements can be applied automatically the next time a similar issue appears."
     }
   ]
 }

@@ -2,7 +2,7 @@
 content_id: USECASE-COLD-001
 status: approved
 owner: Use-Case Product and Domain Review
-last_reviewed: 2026-08-06
+last_reviewed: 2026-08-13
 claim_maturity: [demonstrated]
 depends_on: [PROD-SIGNAL-001, PROD-SINGULARITY-001, PROD-FLOW-001, PROD-CONTROL-001]
 used_by: [/platform, /use-cases/cold-storage-refrigeration, demos]
@@ -12,7 +12,7 @@ used_by: [/platform, /use-cases/cold-storage-refrigeration, demos]
 
 ## Public thesis
 
-**Protect product, prove recovery.** One accountable refrigeration event—from early capacity loss to verified product protection.
+**Protect the Product Before Temperatures Rise.** Refrigeration readings show capacity loss while the product probe is still inside its approved limit.
 
 ## Identity and ownership
 

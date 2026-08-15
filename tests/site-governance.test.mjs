@@ -66,17 +66,104 @@ test("every use case uses the code-native governed process map and required disc
   }
 });
 
-test("homepage proof is code-native and public concepts hide governance enums", () => {
+test("all use-case details share the compact story deck and scenario-specific photography", () => {
+  const page = read("src/app/pages/OperatingUseCasePage.tsx");
+  const visuals = read("src/app/pages/useCaseVisuals.ts");
+  const styles = read("src/styles/site-v2.css");
+  assert.equal([...page.matchAll(/<StoryCard/g)].length, 5);
+  for (const chapter of ["operating-condition", "response-map", "work-path", "recovery-contract", "measurements"]) {
+    assert.match(page, new RegExp(`id="${chapter}"`));
+  }
+  for (const component of ["SystemResponsibilityMap", "AccountableResponseRail", "OutcomeEvidenceMap", "StoryDetails"]) {
+    assert.match(page, new RegExp(component));
+  }
+  assert.doesNotMatch(page, /EditorialSection/);
+  assert.doesNotMatch(page, /lm-story-cue|storySteps/);
+  assert.doesNotMatch(page, /NextStep|Map the .* response in your environment/);
+  assert.match(page, /Keep scrolling to follow the entire resolution/);
+  assert.ok(styles.includes("position: sticky;"));
+  assert.ok(styles.includes("top: calc(126px + (var(--lm-card-index) * 7px));"));
+  assert.ok(styles.includes("min-height: 0;"));
+  assert.ok(styles.includes(".lm-scenario-measurements.is-compact { grid-template-columns: repeat(5"));
+  assert.ok(styles.includes(".lm-use-case-story-card { position: relative; top: auto; }"));
+  for (const asset of ["data-center-cooling-v2.webp", "municipal-wastewater-v2.webp", "manufacturing-compressed-air-v2.webp", "cold-storage-refrigeration-v2.webp"]) {
+    assert.match(visuals, new RegExp(asset.replace(".", "\\.")));
+  }
+  assert.deepEqual(operatingScenarioList.map((scenario) => scenario.thesis), [
+    "The Thermal Threat",
+    "Stop the Overflow Before It Starts",
+    "Find the Air Loss Before Production Does",
+    "Protect the Product Before Temperatures Rise",
+  ]);
+});
+
+test("Home owns the company story, Platform owns architecture, and public concepts hide governance enums", () => {
   const home = read("src/app/pages/HomePage.tsx");
+  const platform = read("src/app/pages/PlatformOverviewPage.tsx");
+  const architecture = read("src/app/components/PlatformArchitectureGraphic.tsx");
+  const accountableLoop = read("src/app/components/AccountableOperationsLoop.tsx");
   const article = read("src/app/pages/IndustrialConceptArticlePage.tsx");
-  assert.match(home, /PrecisionLoopGraphic/);
-  assert.match(home, /Accountable Operations Loop/);
-  assert.equal((home.match(/<EditorialSection/g) ?? []).length + (home.match(/<HomepageHero/g) ?? []).length + (home.match(/<AccountableOperationsLoop/g) ?? []).length + (home.match(/<NextStep/g) ?? []).length, 7);
+
+  assert.match(home, /AccountableOperationsLoop/);
+  const homepageSections = ["HomepageHero", "IndustryProblem", "MissingLastMile", "AccountableOperationsLoop", "IndustryValue"];
+  for (const section of homepageSections) assert.match(home, new RegExp("<" + section));
+  assert.equal(homepageSections.length, 5);
+  assert.doesNotMatch(home, /PlatformLoopMapping|IndustryUseCases|operatingScenarioList|CompanyClose|<NextStep|Brownfield by Design/);
+
+  const platformSections = ["PlatformHero", "AccountabilityGap", "ProductSystem", "AccountableOperationsLoop"];
+  for (const section of platformSections) assert.match(platform, new RegExp("<" + section));
+  assert.match(platform, /PlatformArchitectureGraphic/);
+  assert.match(platform, /const products/);
+  assert.doesNotMatch(platform, /OperatingArchitecture|PlatformNextStep|START WITH THE GAP|platformReferenceData|operatingScenarioList|Cooling Loop|USECASE-/);
+  for (const layer of ["LAST MILE PLATFORM", "EXISTING OT, DATA, WORK & SERVICE ECOSYSTEM", "PLANT \/ SITE \/ OT ENVIRONMENT"]) {
+    assert.match(architecture, new RegExp(layer));
+  }
+  assert.doesNotMatch(architecture, /WHAT LAST MILE ADDS|MISSING CONDITION-TO-OUTCOME ACCOUNTABILITY LAYER/i);
+  assert.match(accountableLoop, /PrecisionLoopGraphic/);
+  assert.match(accountableLoop, /Four products\. One Accountable Operations Loop\./);
+
   assert.doesNotMatch(home, /platform-core-blueprint|generic.*network.*hero/i);
   assert.doesNotMatch(article, /claimMaturity|reference_architecture|perspective\s*\//i);
 });
+test("Singularity centers persistent learning and a governed automation continuum", () => {
+  const singularity = read("src/app/pages/SSOMPage.tsx");
+  const curve = read("src/app/components/SingularityLearningCurve.tsx");
 
-test("primary navigation includes keyboard, outside-click, escape, and mobile disclosure behavior", () => {
+  for (const section of ["EditorialHero", "SingularityLearningCurve", "PERSISTENT OPERATIONAL MEMORY", "AUTOMATION MUST EARN ITS TRUST"]) {
+    assert.match(singularity, new RegExp(section));
+  }
+  assert.doesNotMatch(singularity, /NextStep|NEXT LOGICAL STEP|IdentityCrosswalk|lm-concept-comparison|lm-result-states/);
+  for (const stage of ["Manual Reaction", "Connected Visibility", "Contextual Assistance", "Governed Prediction", "Proactive Automation", "Lights-Out Manufacturing"]) {
+    assert.match(curve, new RegExp(stage));
+  }
+  assert.match(curve, /VALUE CAPTURE/);
+  assert.match(curve, /DEGREE OF AUTOMATION/);
+  assert.match(curve, /not a current Last Mile autonomous-plant capability/);
+  assert.match(curve, /L1072 620 H120 Z/);
+  for (const connector of ["M170 450 V507", "M340 391 V447", "M520 303 V359", "M705 335 V381", "M885 243 V289", "M1050 153 V199"]) assert.match(curve, new RegExp(connector));
+});
+test("Infinit-Signal centers existing-source compatibility and governed scale", () => {
+  const signal = read("src/app/pages/InfinitSignalPage.tsx");
+  const unsStart = signal.indexOf("function SignalUnsProgression");
+  const unsEnd = signal.indexOf("function SignalScaleRunway");
+  const unsVisual = signal.slice(unsStart, unsEnd);
+
+  for (const section of ["SPEED + SCALE", "THE FASTEST SAFE PATH IN", "YOUR UNS STAYS YOURS", "KEEP CURRENT OPERATIONS AHEAD OF BACKLOG", "SignalScaleRunway"]) {
+    assert.match(signal, new RegExp(section.replace(/[+]/g, "\\+")));
+  }
+  assert.match(signal, /priority-aware 24x7 ingestion and backpressure isolation/);
+  for (const source of ["MQTT + UNS", "INDUSTRIAL OT", "DATA PLATFORMS", "GOVERNED FILES"]) assert.match(signal, new RegExp(source.replace(/[+]/g, "\\+")));
+  assert.match(signal, /JSON, repository-managed files, and spreadsheets/);
+  assert.doesNotMatch(signal, /EvidenceEnvelope|Cooling Use Case|lm-signal-states|What enters\. What is checked\. What leaves\.|NextStep|START WITH ONE LIVE SOURCE/);
+  assert.doesNotMatch(signal, /LIVE SOURCE INTAKE|PRIORITY-AWARE INTAKE/);
+  assert.match(unsVisual, /viewBox="0 0 1000 560"/);
+  assert.match(unsVisual, /THE PLANT MODEL/);
+  assert.match(unsVisual, /PRESERVE/);
+  assert.match(unsVisual, /QUALIFY/);
+  assert.match(unsVisual, /DURABLE OPERATING/);
+  assert.doesNotMatch(unsVisual, /OperationalIcon|lm-signal-uns-journey/);
+});
+test("primary navigation includes keyboard, outside-click, escape, mobile disclosure behavior, and a direct use-case catalog link", () => {
   const navigation = read("src/app/components/Navbar.tsx");
   assert.match(navigation, /aria-haspopup="menu"/);
   assert.match(navigation, /ArrowDown/);
@@ -84,5 +171,7 @@ test("primary navigation includes keyboard, outside-click, escape, and mobile di
   assert.match(navigation, /event\.key === "Escape"/);
   assert.match(navigation, /pointerdown/);
   assert.match(navigation, /MobileGroup/);
-  for (const scenario of operatingScenarioList) assert.ok(navigation.includes(scenario.route));
+  assert.match(navigation, /NavLink to="\/use-cases" label="Use Cases"/);
+  assert.doesNotMatch(navigation, /Open Use Cases scenario menu/);
+  for (const scenario of operatingScenarioList) assert.ok(!navigation.includes(scenario.route));
 });

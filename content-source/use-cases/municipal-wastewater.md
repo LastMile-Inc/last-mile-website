@@ -2,7 +2,7 @@
 content_id: USECASE-WW-001
 status: approved
 owner: Use-Case Product and Domain Review
-last_reviewed: 2026-08-06
+last_reviewed: 2026-08-13
 claim_maturity: [demonstrated]
 depends_on: [PROD-SIGNAL-001, PROD-SINGULARITY-001, PROD-FLOW-001, PROD-CONTROL-001]
 used_by: [/platform, /use-cases/municipal-wastewater, demos]
@@ -12,7 +12,7 @@ used_by: [/platform, /use-cases/municipal-wastewater, demos]
 
 ## Public thesis
 
-**Stop the overflow before it starts.** One accountable station event—from developing impairment to verified pumping capacity.
+**Stop the Overflow Before It Starts.** A running pump is not enough when the wet well keeps rising and standby capacity is unavailable.
 
 ## Identity and ownership
 

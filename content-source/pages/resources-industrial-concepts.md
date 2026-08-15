@@ -18,9 +18,9 @@ Create one authoritative editorial home for industrial concepts that matter to L
 
 **Eyebrow:** INDUSTRIAL CONCEPTS
 
-**H1:** The architectures shaping connected, intelligent, accountable operations.
+**H1:** Understand what belongs where.
 
-**Body:** Clear explanations of the standards, operating models, and industrial ideas that influence Last Mile—where they help, where their boundaries remain, and how they connect to verified physical outcomes.
+**Body:** Plain-language guides explain the standards and operating models behind Last Mile, where each one helps, and where its responsibility ends.
 
 ## Collection order and card copy
 
@@ -39,7 +39,7 @@ Create one authoritative editorial home for industrial concepts that matter to L
 5. **The digital thread should not stop at the work order**
    Last Mile's operational outcome thread connects evidence, response, return measurements, and recurrence.
 
-6. **Industrial AI must know what it is allowed to do—and whether it worked**
+6. **Industrial AI must know what it is allowed to do, and whether it worked**
    Governed context, authority, exception handling, and verified outcomes are prerequisites for responsible agents.
 
 7. **Industry 5.0 and human authority**

@@ -10,7 +10,7 @@ const intents = [
 ] as const;
 const industries = ["Data centers / mission-critical facilities", "Manufacturing", "Water / wastewater", "Cold storage / food operations", "Utilities / infrastructure", "Distributed facilities", "Other"];
 
-function buildMessage(data: FormData) { return [`Type of conversation: ${data.intent}`, `Role: ${data.roleResponsibility}`, `Industry: ${data.industry}`, "", "Operating issue:", data.operatingIssue, "", "Systems involved:", data.systemsInvolved, "", "Measurement that would prove recovery:", data.recoveryMeasurement, "", "Business consequence:", data.businessConsequence].join("\n"); }
+function buildMessage(data: FormData) { return [`Type of conversation: ${data.intent}`, `Role: ${data.roleResponsibility}`, `Industry: ${data.industry}`, "", "Operating issue:", data.operatingIssue, "", "Systems involved:", data.systemsInvolved, "", "Return reading that shows recovery:", data.recoveryMeasurement, "", "Business consequence:", data.businessConsequence].join("\n"); }
 
 export function ContactLastMileForm() {
   const [params] = useSearchParams();
@@ -36,7 +36,7 @@ export function ContactLastMileForm() {
     <div className="lm-form__two"><Field label="Industry" error={errors.industry?.message}><select {...register("industry", { required: "Industry is required" })}><option value="">Select an industry</option>{industries.map((item) => <option key={item}>{item}</option>)}</select></Field><Field label="Type of conversation"><select {...register("intent", { onChange: (event) => trackEvent("form_conversation_type_selected", { intent: event.target.value }) })}>{intents.map(([value, label]) => <option key={value} value={value}>{label}</option>)}</select></Field></div>
     <Field label="Describe one operating issue" error={errors.operatingIssue?.message}><textarea rows={4} placeholder="What changes, and where does the response become disconnected?" {...register("operatingIssue", { required: "Describe one operating issue" })} /></Field>
     <Field label="Which systems hold the signal, asset context, work, approvals, or provider communication?" error={errors.systemsInvolved?.message}><textarea rows={3} {...register("systemsInvolved", { required: "List the systems involved" })} /></Field>
-    <Field label="What measurement would prove the operation recovered?" error={errors.recoveryMeasurement?.message}><textarea rows={3} {...register("recoveryMeasurement", { required: "Describe the recovery measurement" })} /></Field>
+    <Field label="What return reading shows the operation recovered?" error={errors.recoveryMeasurement?.message}><textarea rows={3} {...register("recoveryMeasurement", { required: "Describe the recovery measurement" })} /></Field>
     <Field label="What is the business consequence when the response fails or takes too long?" error={errors.businessConsequence?.message}><textarea rows={3} {...register("businessConsequence", { required: "Describe the business consequence" })} /></Field>
     <p className="lm-form__warning">Do not submit credentials, proprietary source data, regulated personal information, or sensitive facility details. By submitting, you agree to our <a href="/privacy">Privacy Policy</a> and <a href="/terms">Terms</a>.</p>
     {failed ? <p className="lm-form__error">Submission failed. Try again or email <a href="mailto:contact@lastmileinc.ai">contact@lastmileinc.ai</a>.</p> : null}

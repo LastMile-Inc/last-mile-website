@@ -65,7 +65,7 @@ export const industrialConcepts = [
     "articleTitle": "Connected is not yet interoperable",
     "canonicalPosition": "Protocol connectivity moves values. Semantic interoperability preserves what those values refer to, how they relate, what quality and time mean, and how they remain interpretable when systems, vendors, and sites disagree.",
     "paragraphs": [
-      "Industrial integration often celebrates the moment a value can move from one system to another. That is necessary, but it is not the hard part. A pressure value without a stable asset identity, engineering meaning, time basis, quality, source authority, and relationship to the operating process is connected data—not dependable operational context.",
+      "Industrial integration often celebrates the moment a value can move from one system to another. That is necessary, but it is not the hard part. A pressure value without a stable asset identity, engineering meaning, time basis, quality, source authority, and relationship to the operating process is connected data, not dependable operational context.",
       "Semantic interoperability means two systems can exchange information and preserve meaning well enough to use it correctly. In physical operations, that includes asset class and instance identity; units and quantity kind; topology and dependency; event and observation semantics; source and event time; quality and uncertainty; and the evidence required to explain a decision later.",
       "Last Mile does not attempt to erase strong source semantics. OPC UA information models, Companion Specifications, Sparkplug metrics, historian points, ISA-95 structures, equipment models, and customer naming conventions may all contain valuable meaning. Infinit-Signal preserves those source representations and maps them through governed profiles. Singularity/SSOM gives the resulting facts a portable operational contract and retains the crosswalk back to the source.",
       "This matters most when one physical asset has five names, when a functional relationship differs from a physical hierarchy, when equipment is replaced, when a source changes vendors, or when an AI system needs to understand whether two observations are comparable. The goal is not to force every source into one flattened taxonomy. It is to establish canonical continuity while keeping the original evidence and uncertainty visible.",
@@ -173,9 +173,9 @@ export const industrialConcepts = [
     "contentId": "CONCEPT-INDUSTRIAL-AI-001",
     "route": "/resources/industrial-concepts/industrial-ai",
     "slug": "industrial-ai",
-    "cardTitle": "Industrial AI must know what it is allowed to do—and whether it worked",
+    "cardTitle": "Industrial AI must know what it is allowed to do, and whether it worked",
     "cardCopy": "Governed context, authority, exception handling, and verified outcomes are prerequisites for responsible agents.",
-    "articleTitle": "Industrial AI must know what it is allowed to do—and whether it worked",
+    "articleTitle": "Industrial AI must know what it is allowed to do, and whether it worked",
     "canonicalPosition": "Industrial AI requires governed context, explicit authority, current valid evidence, and verified outcomes. Last Mile supports a progression from deterministic automation to assisted and bounded agent action without treating model output as operational truth.",
     "paragraphs": [
       "An industrial model can identify a pattern, summarize evidence, recommend a response, or plan a sequence. None of those outputs should become an operating fact simply because a model produced it. Physical operations add constraints that ordinary enterprise automation can avoid: stale sensors, uncertain identities, safety boundaries, degraded redundancy, physical work, and outcomes that must be measured after the action.",
@@ -203,7 +203,7 @@ export const industrialConcepts = [
     "cardTitle": "Industry 5.0 and human authority",
     "cardCopy": "Human-centricity, sustainability, and resilience require more than faster automation.",
     "articleTitle": "More automation is not the same as more industrial intelligence",
-    "canonicalPosition": "Industry 5.0 is a human-centric, sustainable, and resilient industrial vision—not a new automation version number. Last Mile supports it by keeping authority explicit, making degraded states and resilience visible, and verifying resource and operating outcomes.",
+    "canonicalPosition": "Industry 5.0 is a human-centric, sustainable, and resilient industrial vision, not a new automation version number. Last Mile supports it by keeping authority explicit, making degraded states and resilience visible, and verifying resource and operating outcomes.",
     "paragraphs": [
       "Industry 4.0 helped focus industry on connectivity, cyber-physical systems, data, and automation. The European Commission's Industry 5.0 framing broadens the objective around three priorities: human-centricity, sustainability, and resilience.",
       "That framing matters for Last Mile because operational intelligence is not simply the fastest automated response. A system must show who owns the condition, what authority is retained, what evidence supports the recommendation, how the response affects operating resilience, and whether the intended physical result occurred.",
@@ -318,10 +318,10 @@ export const industrialConcepts = [
       "Lights-out manufacturing imagines production continuing with little or no routine human presence. Robotics, machine vision, automated material movement, predictive systems, and software agents can reduce manual intervention in repeatable work. But removing a person from the line does not remove the need to know what happened, who or what had authority, and whether the physical result was achieved.",
       "Autonomous operations magnify the cost of weak context. A stale retained message can look current. One asset may have different identities across controls and maintenance. A task can complete without restoring capacity. A system can repeatedly clear and recreate the same alarm without learning that the impairment recurred.",
       "Last Mile's relevance is the accountability layer around that autonomy. Infinit-Signal qualifies evidence. Singularity maintains canonical identity, Conditions, and history. Infinit-Flow executes only bounded policy-authorized steps and routes exceptions to human authority. Infinit-Control makes the degraded state and response visible. Return telemetry determines the Outcome.",
-      "This is not a claim that Last Mile can operate a factory without people. It is a design position: as routine human involvement decreases, evidence, semantic continuity, authority, safe failure, and outcome verification must become more rigorous—not less."
+      "This is not a claim that Last Mile can operate a factory without people. It is a design position: as routine human involvement decreases, evidence, semantic continuity, authority, safe failure, and outcome verification must become more rigorous, not less."
     ],
     "operatingResponse": [
-      "An unattended off-shift compressed-air system can automatically detect 1,860 SCFM demand and 355 kW power while Zone 4 header pressure is only 88.6 psig. AUTO may qualify the evidence and create the case; ASSIST may assemble the affected-zone inspection; HUMAN AUTHORITY retains isolation and repair. The response succeeds only when the configured pressure, flow, power, specific-power, and 30-minute stability criteria pass—not when an agent or work task reports completion."
+      "An unattended off-shift compressed-air system can automatically detect 1,860 SCFM demand and 355 kW power while Zone 4 header pressure is only 88.6 psig. AUTO may qualify the evidence and create the case; ASSIST may assemble the affected-zone inspection; HUMAN AUTHORITY retains isolation and repair. The response succeeds only when the configured pressure, flow, power, specific-power, and 30-minute stability criteria pass, not when an agent or work task reports completion."
     ],
     "comparison": [],
     "sources": [

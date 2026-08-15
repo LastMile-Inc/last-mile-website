@@ -98,7 +98,7 @@ Last Mile is vendor-agnostic. Vendor names illustrate the ecosystems customers u
 
 The primary public promise is:
 
-> One accountable operating condition—from first evidence to verified physical outcome.
+> One accountable operating condition, from first evidence to verified physical outcome.
 
 The supporting category statement is:
 

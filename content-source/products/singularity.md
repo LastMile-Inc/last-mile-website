@@ -94,11 +94,19 @@ UNS distributes current information. Singularity/SSOM defines what that informat
 - Aggregate learning may create models, benchmarks, and recommendations; it cannot rewrite customer canonical facts.
 - Every model output carries model/version, inputs, confidence, applicability scope, and policy evidence.
 
+## Persistence and learning strategy
+
+Singularity makes operational knowledge cumulative. It preserves the identity, context, evidence, decisions, actions, authority, and measured result for each response so the next similar issue does not start from zero. That durable history can support pattern recognition, recommendations, governed response plans, and approved automated steps while preserving the difference between a model output and an operating fact.
+
+The longer an operation is observed end to end, the more complete its governed memory can become. That memory remains available when experts retire, teams reorganize, vendors change, or source systems are replaced. It reduces dependence on tribal knowledge without pretending that judgment, physical authority, or safety responsibility has transferred to software.
+
+Singularity supports a maturity progression from manual reaction through connected visibility, contextual assistance, governed prediction, and proactive automation. Lights-out manufacturing is a future operating horizon that requires the strongest evidence, policy, exception handling, and verified recovery. It is not a current Last Mile autonomous-plant capability claim.
+
 ## Public copy kernel
 
-**Heading:** Distribution is not the same as meaning.
+**Heading:** Your best operating knowledge should never walk out the door.
 
-**Body:** Singularity gives every asset, condition, decision, action, and result a durable operational identity. Its SSOM contract preserves the source, time, quality, evidence, and relationships needed to understand what happened—even when the data crossed brokers, plants, work systems, and providers.
+**Body:** People retire. Vendors change. Systems are replaced. Singularity keeps the history of what happened, what people decided, what fixed the problem, and whether the operation stayed healthy. Every complete response gives the next one a stronger starting point.
 
 ## Prohibited implications
 
