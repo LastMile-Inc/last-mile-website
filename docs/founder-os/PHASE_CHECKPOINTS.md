@@ -34,3 +34,12 @@ Status: validated stacked review branch; not merged or deployed.
 ## Global safety result
 
 No production website deployment, GCP mutation, branch-protection weakening, architecture release, or unapproved repository ownership change occurred during Phases 3–5.
+
+## 2026-08-16 website refinement checkpoint
+
+Status: Feature 003 validated on the existing website-refresh workstream; not merged or deployed.
+
+- Kept the approved Infinit-Control page structure and replaced only the static hero concept with an interactive light role portal.
+- Added executive, plant-manager, and operator views of one shared example operating case.
+- Preserved claims, customer and access boundaries, equipment-control authority, and safety responsibilities.
+- Passed the full local validation and desktop and phone browser checks before push.

@@ -85,3 +85,14 @@ Updated: 2026-08-15
 - Controlled claim validation, 23 content tests, governance, editorial, type checking, lint, the production build, published-output verification, and whitespace checks pass. Lint retains six existing Fast Refresh warnings and no errors.
 - Browser checks cover all seven primary routes at desktop and 390 by 844 phone widths with no horizontal overflow, broken images, missing image descriptions, unlabeled buttons, or heading overflow. Focus remains visible with the approved blue outline.
 - No merge, deployment, publishing, cloud resource, access expansion, or GCP change was performed.
+
+# 2026-08-16 interactive Infinit-Control portal handoff
+
+- Added Spec Kit Feature 003 as a focused enhancement of the approved light Infinit-Control hero. No other page section was rebuilt or removed.
+- Replaced the static portal image with click- and keyboard-controlled EXEC, PLANT MGR, and OPERATOR tabs. The central map, plant plan, or production-line drawing and four measurements update in place.
+- Kept one shared example case in every view: filler pressure variance, FIL-04 on Bottling Line 4, Line Operations, WO-18427, inside the approved band with a return check pending.
+- The executive map has exactly one illuminated selected site and states that its measurements apply only to that site. The plant view highlights Bottling Hall 4. The operator view highlights FIL-04.
+- All portal surfaces are white or light grey. Exact Corporate Blue `#1D7CD8` identifies active controls, data bars, paths, and selected points. Accessible active-tab text uses high-contrast ink with a blue selection bar.
+- Controlled content checks cover 35 objects, 33 claims, 41 route uses, 11 concepts, four scenarios, and 65 rendered measurements. All pass. Content tests pass 23 of 23; governance, editorial, concept, type, lint, production build, published-output, and whitespace checks also pass. Lint retains six existing Fast Refresh warnings and no errors.
+- Real-browser checks at 1440 by 900 and 390 by 844 confirm instant role updates, Arrow Left tab behavior, one executive glow point, useful accessible names, no horizontal overflow, and no console errors.
+- Local review remains available at http://127.0.0.1:5173/infinit-control. No merge, deployment, publishing, customer connection, cloud resource, access expansion, or GCP change was performed.

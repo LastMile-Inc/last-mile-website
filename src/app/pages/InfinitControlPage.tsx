@@ -1,7 +1,7 @@
 import { SEO } from "@/app/components/SEO";
 import { CtaLink } from "@/app/components/MarketingComponents";
 import { EditorialSection } from "@/app/components/NarrativeComponents";
-import { ControlCommandCenterVisual, ControlPriorityVisual, ControlRoleVisual } from "@/app/components/InfinitControlExperience";
+import { ControlCommandCenterVisual, ControlPortalExperience, ControlPriorityVisual, ControlRoleVisual } from "@/app/components/InfinitControlExperience";
 import { createBreadcrumbSchema, createProductSchema } from "@/app/lib/structuredData";
 
 export function InfinitControlPage() {
@@ -16,7 +16,7 @@ export function InfinitControlPage() {
 }
 
 function ControlMissionHero() {
-  return <header className="lm-control-mission-hero" aria-labelledby="control-mission-heading"><div className="lm-v2-container"><div className="lm-control-mission-hero__copy"><p className="lm-eyebrow">INFINIT-CONTROL · OPERATIONS COMMAND PORTAL</p><h1 id="control-mission-heading">One operating truth. Tuned for every role.</h1><p>Infinit-Control gives authorized teams one live view of operating impact, ownership, work, exceptions, and return measurements. Everyone sees the same case, from the C-suite to the shift worker, with only the detail their decision requires.</p><p>Current impact, owner, authority, work, exceptions, and return readings stay together as the case changes.</p><strong>Stale or missing readings stay visible and cannot close the case.</strong><div className="lm-actions"><CtaLink to="#role-views">See the Role Views</CtaLink><CtaLink to="#operating-state" variant="secondary">Review the Operating State</CtaLink></div></div><figure className="lm-control-mission-hero__visual"><img src="/images/products/infinit-control/mission-control-portal-v2.png" alt="A mission-control view places a live industrial facility model at the center, with role views for executives, plant managers, and operators around the same operating case." width="1672" height="941" fetchPriority="high" /><figcaption>Concept interface. Each authorized role sees the same condition, owner, work, and return measurements at the level needed for its decision.</figcaption></figure></div></header>;
+  return <header className="lm-control-mission-hero" aria-labelledby="control-mission-heading"><div className="lm-v2-container"><div className="lm-control-mission-hero__copy"><p className="lm-eyebrow">INFINIT-CONTROL · OPERATIONS COMMAND PORTAL</p><h1 id="control-mission-heading">One operating truth. Tuned for every role.</h1><p>Infinit-Control gives authorized teams one live view of operating impact, ownership, work, exceptions, and return measurements. Everyone sees the same case, from the C-suite to the shift worker, with only the detail their decision requires.</p><p>Current impact, owner, authority, work, exceptions, and return readings stay together as the case changes.</p><strong>Stale or missing readings stay visible and cannot close the case.</strong><div className="lm-actions"><CtaLink to="#control-role-panel">Explore the Role Views</CtaLink><CtaLink to="#operating-state" variant="secondary">Review the Operating State</CtaLink></div></div><ControlPortalExperience /></div></header>;
 }
 
 

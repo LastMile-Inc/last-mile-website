@@ -2,7 +2,7 @@
 content_id: PAGE-CONTROL-001
 status: approved
 owner: Infinit-Control Product Marketing
-last_reviewed: 2026-08-15
+last_reviewed: 2026-08-16
 claim_maturity: [designed, demonstrated]
 depends_on: [PROD-CONTROL-001, CLAIMS-REGISTRY-001]
 used_by: [/infinit-control]
@@ -26,7 +26,7 @@ One operating truth. Tuned for every role.
 
 - Major sections: five including the hero.
 - Narrative copy: 450-650 words.
-- Primary visual: a dark mission-control-inspired industrial command portal with real telemetry and facility context.
+- Primary visual: an interactive, light mission-control-inspired industrial command portal with executive, plant-manager, and operator views of one operating case.
 - Supporting visuals: the existing role-based view, one multi-signal architecture, one field supervisor image, and the response-continuity view.
 - Closing CTA: none.
 
@@ -48,7 +48,9 @@ One operating truth. Tuned for every role.
 
 **Support:** Executives, site leaders, and crews receive the detail appropriate to their decisions. No stale or missing reading can close the case.
 
-**Visual purpose:** Show a governed live state from qualified signal through owner, work, return measurement, and stable operation. Keep all required meaning in accessible HTML.
+**Visual purpose:** Show one operating case at three decision levels without changing its condition, affected asset, owner, work, or current state. EXEC uses one selected site on a regional map. PLANT MGR uses the whole facility and highlights the affected hall. OPERATOR uses the production-line drawing and highlights the affected filler station. Each tab updates the diagram and its four supporting measurements without a page refresh. Keep all required meaning in accessible HTML and identify the portal as a concept interface.
+
+**Interaction:** PLANT MGR is the starting view. EXEC, PLANT MGR, and OPERATOR are real tab controls with click, arrow-key, Home, and End behavior. The selected tab uses Corporate Blue `#1D7CD8`. Motion is brief and removed when the user requests reduced motion. Every view remains white or light grey; no dark-mode panel is allowed.
 
 ## Fragmentation and signal pressure
 

@@ -213,11 +213,23 @@ test("Infinit-Flow quantifies workflow value without repeating process diagrams"
   assert.doesNotMatch(page, /Synapse|99\.9%|6 to 18 months|2 to 4 hours/);
 });
 
-test("Infinit-Control uses a facility-based command view and clear operating priorities", () => {
+test("Infinit-Control uses an interactive light command portal and clear operating priorities", () => {
   const page = read("src/app/pages/InfinitControlPage.tsx");
   const visuals = read("src/app/components/InfinitControlExperience.tsx");
+  const styles = read("src/styles/technical-journal-refresh.css");
   for (const section of ["One operating truth. Tuned for every role", "END THE SWIVEL-CHAIR RESPONSE", "ONE CASE. EVERY DECISION LEVELS?", "BRING THE SIGNALS TO THE ISSUE", "GOVERN BY STATE, NOT SCREEN"]) assert.match(page, new RegExp(section));
-  assert.match(page, /mission-control-portal-v2\.png/);
+  assert.match(page, /ControlPortalExperience/);
+  assert.doesNotMatch(page, /mission-control-portal-v2\.png/);
+  for (const tab of ["EXEC", "PLANT MGR", "OPERATOR"]) assert.match(visuals, new RegExp(`tab: "${tab}"`));
+  for (const view of ["ExecutiveMap", "PlantSchematic", "OperatorLine"]) assert.match(visuals, new RegExp(`function ${view}`));
+  for (const fact of ["Filler pressure variance", "FIL-04 · Bottling Line 4", "Line Operations · WO-18427", "Return check pending"]) assert.match(visuals, new RegExp(fact));
+  assert.match(visuals, /role="tablist"/);
+  assert.match(visuals, /role="tabpanel"/);
+  assert.match(visuals, /aria-live="polite"/);
+  assert.match(visuals, /ArrowRight/);
+  assert.equal((visuals.match(/className="map-selected"/g) || []).length, 1);
+  assert.match(styles, /--lm-control-blue: #1d7cd8/);
+  assert.match(styles, /background: #fff/);
   for (const role of ["C-SUITE", "PLANT MANAGER", "SUPERVISOR", "SHIFT WORKER"]) assert.match(visuals, new RegExp(role));
   for (const visual of ["ControlRoleVisual", "ControlPriorityVisual", "ControlCommandCenterVisual", "field-command-v2.png"]) assert.match(page, new RegExp(visual.replace(/[.]/g, "\\.")));
   for (const scope of ["UTILITY PLANT", "ELECTRICAL SERVICE", "DATA HALL 1", "DATA HALL 2", "DATA HALL 3", "CHILLED WATER LOOP B"]) assert.match(visuals, new RegExp(scope));
