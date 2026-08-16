@@ -3,18 +3,19 @@ import { ChevronDown, Menu, X } from "lucide-react";
 import { Link, useLocation } from "react-router";
 
 const products = [
-  ["/infinit-signal", "Infinit-Signal"],
-  ["/singularity", "Singularity"],
-  ["/infinit-flow", "Infinit-Flow"],
-  ["/infinit-control", "Infinit-Control"],
+  ["/infinit-signal", "Infinit-Signal · Capture"],
+  ["/singularity", "Singularity · Remember"],
+  ["/infinit-flow", "Infinit-Flow · Coordinate"],
+  ["/infinit-control", "Infinit-Control · Govern"],
 ] as const;
 
-const resources = [
-  ["/resources", "Build and Proof"],
+const explore = [
+  ["/resources", "Engineering Briefs"],
+  ["/use-cases", "Reference Architectures"],
+  ["/use-cases/data-center-cooling", "Cooling Redundancy Proof"],
   ["/resources/industrial-concepts", "Industrial Concepts"],
-  ["/ecosystem", "Industrial Ecosystem"],
+  ["/ecosystem", "Ecosystem Integrations"],
   ["/signal-to-action", "Signal 2 Action"],
-  ["/company/newsroom", "News and Updates"],
 ] as const;
 
 type MenuItems = readonly (readonly [string, string])[];
@@ -46,17 +47,17 @@ export function Navbar() {
           <NavLink to="/platform" label="Platform" active={active("/platform")} />
           <Dropdown id="products" label="Products" active={products.some(([to]) => active(to))} open={openMenu === "products"} setOpen={(open) => setOpenMenu(open ? "products" : null)} items={products} isActive={active} />
           <NavLink to="/use-cases" label="Use Cases" active={location.pathname.startsWith("/use-cases")} />
-          <Dropdown id="resources" label="Resources" active={resources.some(([to]) => active(to)) || location.pathname.startsWith("/resources/")} open={openMenu === "resources"} setOpen={(open) => setOpenMenu(open ? "resources" : null)} items={resources} isActive={active} />
+          <Dropdown id="explore" label="Explore" active={explore.some(([to]) => active(to)) || location.pathname.startsWith("/resources/")} open={openMenu === "explore"} setOpen={(open) => setOpenMenu(open ? "explore" : null)} items={explore} isActive={active} />
           <NavLink to="/about" label="About" active={active("/about")} />
         </div>
-        <Link to="/contact?intent=operation" className="lm-nav__cta">Discuss Your Operation</Link>
+        <Link to="/contact?intent=architecture" className="lm-nav__cta">Assess Your Operations Loop</Link>
         <button ref={mobileToggleRef} type="button" className="lm-nav__toggle" aria-label={mobileOpen ? "Close navigation" : "Open navigation"} aria-expanded={mobileOpen} aria-controls="primary-mobile-menu" onClick={() => setMobileOpen((value) => !value)}>{mobileOpen ? <X aria-hidden="true" /> : <Menu aria-hidden="true" />}</button>
         {mobileOpen ? <div id="primary-mobile-menu" className="lm-nav__mobile">
           <NavLink to="/" label="Home" active={active("/")} /><NavLink to="/platform" label="Platform" active={active("/platform")} />
           <MobileGroup label="Products" items={products} isActive={active} />
           <NavLink to="/use-cases" label="Use Cases" active={location.pathname.startsWith("/use-cases")} />
-          <MobileGroup label="Resources" items={resources} isActive={active} />
-          <NavLink to="/about" label="About" active={active("/about")} /><NavLink to="/contact?intent=operation" label="Discuss Your Operation" active={active("/contact")} />
+          <MobileGroup label="Explore" items={explore} isActive={active} />
+          <NavLink to="/about" label="About" active={active("/about")} /><NavLink to="/contact?intent=architecture" label="Assess Your Operations Loop" active={active("/contact")} />
         </div> : null}
       </div>
     </nav>

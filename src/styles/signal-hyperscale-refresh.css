@@ -1,0 +1,153 @@
+.lm-signal-source-link {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+}
+/* Infinit-Signal hyperscale enterprise story. */
+.lm-signal-v4 .lm-v2-hero {
+  width: min(1460px,calc(100% - 48px));
+  max-width: 1460px;
+  min-height: 0;
+  margin: 28px auto 0;
+  padding: clamp(44px,4.5vw,68px);
+  grid-template-columns: minmax(420px,.88fr) minmax(580px,1.12fr);
+  gap: clamp(40px,5vw,72px);
+  border: 1px solid rgba(168,188,203,.58);
+  border-radius: 44px 8px 44px 8px;
+  background: var(--lm-surface);
+  box-shadow: 0 24px 62px rgba(38,50,68,.1);
+}
+.lm-signal-v4 .lm-v2-hero::before { inset: 0 54% 0 0; opacity: .65; }
+.lm-signal-v4 .lm-v2-hero__copy { max-width: 650px; }
+.lm-signal-v4 .lm-v2-hero h1 { max-width: 690px; font-size: clamp(48px,4.5vw,68px); line-height: .98; letter-spacing: -.046em; }
+.lm-signal-v4 .lm-v2-hero__visual { width: 100%; max-width: none; min-height: 0; padding: 0; border: 0; background: transparent; box-shadow: none; }
+
+.lm-signal-hyperscale-hero,
+.lm-signal-priority-image,
+.lm-signal-handoff-image { position: relative; margin: 0; overflow: hidden; isolation: isolate; border: 1px solid rgba(76,134,198,.34); background: var(--lm-wash); box-shadow: 0 24px 56px rgba(38,50,68,.13); }
+.lm-signal-hyperscale-hero::after,
+.lm-signal-priority-image::after,
+.lm-signal-handoff-image::after { content: ""; position: absolute; inset: 0; z-index: 1; pointer-events: none; background: rgba(76,134,198,.08); mix-blend-mode: color; }
+.lm-signal-hyperscale-hero { aspect-ratio: 16/10; border-radius: 34px 6px 34px 6px; }
+.lm-signal-hyperscale-hero img,
+.lm-signal-priority-image img,
+.lm-signal-handoff-image img { width: 100%; height: 100%; display: block; object-fit: cover; }
+.lm-signal-hyperscale-hero img { object-position: 62% center; }
+.lm-signal-hyperscale-hero figcaption { position: absolute; z-index: 2; left: 18px; right: 18px; bottom: 17px; padding: 13px 15px; display: grid; grid-template-columns: 1fr auto 1fr; gap: 14px; align-items: center; border: 1px solid rgba(76,134,198,.34); background: rgba(255,255,255,.92); box-shadow: 0 12px 28px rgba(38,50,68,.1); backdrop-filter: blur(12px); text-align: center; }
+.lm-signal-hyperscale-hero figcaption span,
+.lm-signal-priority-image figcaption span { color: var(--lm-blue-dark); font: 800 9px "Roboto Mono",monospace; letter-spacing: .08em; }
+.lm-signal-hyperscale-hero figcaption strong,
+.lm-signal-priority-image figcaption strong { color: var(--lm-ink); font-size: 12px; }
+
+.lm-signal-zettabyte-section { background: var(--lm-canvas); }
+.lm-signal-zettabyte-layout { display: grid; grid-template-columns: minmax(330px,.72fr) minmax(620px,1.28fr); gap: clamp(28px,4vw,54px); align-items: stretch; }
+.lm-signal-zettabyte-stat { padding: clamp(30px,3.6vw,52px); display: flex; flex-direction: column; justify-content: center; border: 1px solid rgba(76,134,198,.42); background: var(--lm-surface); box-shadow: 0 22px 48px rgba(38,50,68,.09); text-align: center; }
+.lm-signal-zettabyte-stat > span,
+.lm-signal-source-matrix header span,
+.lm-signal-handoff-steps b,
+.lm-signal-targets article > span,
+.lm-signal-test-profile header span { color: var(--lm-blue-dark); font: 800 10px "Roboto Mono",monospace; letter-spacing: .09em; }
+.lm-signal-zettabyte-stat > strong { display: block; margin-top: 15px; color: var(--lm-blue-dark); font-size: clamp(70px,8vw,116px); line-height: .9; letter-spacing: -.07em; }
+.lm-signal-zettabyte-stat h3 { margin: 17px 0 0; color: var(--lm-ink); font-size: clamp(25px,2.6vw,37px); line-height: 1.08; }
+.lm-signal-zettabyte-stat p { margin: 20px 0 0; color: var(--lm-copy); font-size: 15px; line-height: 1.65; }
+.lm-signal-zettabyte-stat a { margin: 22px auto 0; color: var(--lm-blue-dark); font-weight: 800; text-decoration: underline; text-underline-offset: 4px; }
+.lm-signal-source-matrix { padding: clamp(28px,3vw,42px); border: 1px solid var(--lm-line); background: var(--lm-wash); box-shadow: 0 20px 44px rgba(38,50,68,.08); }
+.lm-signal-source-matrix header { padding-bottom: 22px; border-bottom: 1px solid var(--lm-line); text-align: center; }
+.lm-signal-source-matrix header strong { display: block; margin-top: 9px; color: var(--lm-ink); font-size: clamp(24px,2.5vw,34px); }
+.lm-signal-source-matrix > article { padding: 16px 0; display: grid; grid-template-columns: 62px 1fr; gap: 16px; align-items: center; border-bottom: 1px solid rgba(168,188,203,.55); }
+.lm-signal-source-matrix > article .lm-operational-icon { width: 62px; height: 62px; }
+.lm-signal-source-matrix h3 { margin: 0; color: var(--lm-ink); font-size: 18px; }
+.lm-signal-source-matrix article p { margin: 5px 0 0; color: var(--lm-copy); line-height: 1.45; }
+.lm-signal-source-matrix > p { margin: 22px 0 0; padding: 15px 18px; border: 1px solid rgba(76,134,198,.32); background: var(--lm-surface); color: var(--lm-copy); font-size: 13px; line-height: 1.55; text-align: center; }
+
+.lm-signal-priority-section .lm-v2-section__head,
+.lm-signal-handoff-section .lm-v2-section__head,
+.lm-signal-target-section .lm-v2-section__head { max-width: 1080px; }
+.lm-signal-priority-image { aspect-ratio: 16/7.2; border-radius: 36px 6px 36px 6px; }
+.lm-signal-priority-image img { height: 122%; object-position: center top; }
+.lm-signal-priority-image figcaption { position: absolute; z-index: 2; left: 24px; right: 24px; bottom: 18px; padding: 14px 18px; display: grid; grid-template-columns: 1fr auto 1fr; gap: 16px; align-items: center; border: 1px solid rgba(76,134,198,.34); background: rgba(255,255,255,.94); box-shadow: 0 12px 30px rgba(38,50,68,.1); text-align: center; }
+.lm-signal-priority-section .lm-signal-scale-runway { margin-top: 26px; }
+
+.lm-signal-handoff-layout { display: grid; grid-template-columns: minmax(590px,1.2fr) minmax(350px,.8fr); gap: clamp(32px,4vw,58px); align-items: center; }
+.lm-signal-handoff-image { aspect-ratio: 16/10.4; border-radius: 36px 6px 36px 6px; }
+.lm-signal-handoff-image img { object-position: center; }
+.lm-signal-handoff-steps { display: grid; gap: 14px; }
+.lm-signal-handoff-steps article { padding: 18px; display: grid; grid-template-columns: 32px 64px 1fr; gap: 13px; align-items: center; border: 1px solid rgba(168,188,203,.7); background: var(--lm-surface); box-shadow: 0 10px 26px rgba(38,50,68,.06); }
+.lm-signal-handoff-steps article > span { color: var(--lm-steel); font: 800 11px "Roboto Mono",monospace; }
+.lm-signal-handoff-steps .lm-operational-icon { width: 64px; height: 64px; }
+.lm-signal-handoff-steps h3 { margin: 5px 0 0; color: var(--lm-ink); font-size: 20px; }
+.lm-signal-handoff-steps p { margin: 7px 0 0; color: var(--lm-copy); font-size: 13px; line-height: 1.52; }
+
+.lm-signal-v4 .lm-signal-uns-layout { grid-template-columns: minmax(610px,1.15fr) minmax(350px,.85fr); align-items: stretch; }
+.lm-signal-v4 .lm-signal-uns-copy { align-self: stretch; display: flex; flex-direction: column; justify-content: center; }
+
+.lm-signal-target-layout { display: grid; grid-template-columns: minmax(620px,1.2fr) minmax(350px,.8fr); gap: 24px; align-items: stretch; }
+.lm-signal-targets { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 14px; }
+.lm-signal-targets article { min-width: 0; padding: 26px 20px; border: 1px solid rgba(76,134,198,.34); background: var(--lm-surface); box-shadow: 0 16px 34px rgba(38,50,68,.07); text-align: center; }
+.lm-signal-targets article > strong { display: block; margin-top: 22px; color: var(--lm-blue-dark); font-size: clamp(37px,4.2vw,58px); line-height: .95; letter-spacing: -.05em; }
+.lm-signal-targets h3 { margin: 9px 0 0; color: var(--lm-ink); font-size: 18px; }
+.lm-signal-targets p { margin: 16px 0 0; color: var(--lm-copy); font-size: 13px; line-height: 1.58; }
+.lm-signal-test-profile { padding: 28px; border: 1px solid var(--lm-line); background: var(--lm-wash); }
+.lm-signal-test-profile header { display: grid; grid-template-columns: 82px 1fr; gap: 17px; align-items: center; text-align: center; }
+.lm-signal-test-profile .lm-operational-icon { width: 82px; height: 82px; }
+.lm-signal-test-profile h3 { margin: 7px 0 0; color: var(--lm-ink); font-size: 25px; line-height: 1.15; }
+.lm-signal-test-profile ul { margin: 24px 0 0; padding: 0; display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 9px; list-style: none; }
+.lm-signal-test-profile li { padding: 11px; border: 1px solid var(--lm-line); background: var(--lm-surface); color: var(--lm-ink); font-size: 12px; font-weight: 800; text-align: center; }
+.lm-signal-test-profile > p { margin: 20px 0 0; color: var(--lm-copy); font-size: 13px; line-height: 1.55; text-align: center; }
+
+.lm-signal-closing { padding: clamp(74px,8vw,112px) 0; border-top: 1px solid var(--lm-line); background: var(--lm-canvas); }
+.lm-signal-closing > div { max-width: 920px; text-align: center; }
+.lm-signal-closing h2 { margin: 13px 0 0; color: var(--lm-ink); font-size: clamp(40px,4.6vw,66px); line-height: 1.04; letter-spacing: -.04em; }
+.lm-signal-closing p:not(.lm-eyebrow) { max-width: 760px; margin: 22px auto 0; color: var(--lm-copy); font-size: 18px; line-height: 1.65; }
+.lm-signal-closing a { margin: 28px auto 0; }
+
+@media (max-width: 1180px) {
+  .lm-signal-v4 .lm-v2-hero { grid-template-columns: minmax(360px,.88fr) minmax(480px,1.12fr); padding: 44px 34px; }
+  .lm-signal-zettabyte-layout { grid-template-columns: minmax(310px,.8fr) minmax(480px,1.2fr); }
+  .lm-signal-handoff-layout,
+  .lm-signal-target-layout { grid-template-columns: 1fr; }
+  .lm-signal-handoff-steps { grid-template-columns: repeat(3,minmax(0,1fr)); }
+  .lm-signal-handoff-steps article { grid-template-columns: 1fr; text-align: center; }
+  .lm-signal-handoff-steps article > span { display: none; }
+  .lm-signal-handoff-steps .lm-operational-icon { margin-inline: auto; }
+  .lm-signal-v4 .lm-signal-uns-layout { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 900px) {
+  .lm-signal-v4 .lm-v2-hero { width: min(100% - 36px,760px); grid-template-columns: 1fr; }
+  .lm-signal-hyperscale-hero { max-height: 560px; }
+  .lm-signal-zettabyte-layout { grid-template-columns: 1fr; }
+  .lm-signal-zettabyte-stat { min-height: 500px; }
+  .lm-signal-handoff-steps { grid-template-columns: 1fr; }
+  .lm-signal-handoff-steps article { grid-template-columns: 32px 64px 1fr; text-align: left; }
+  .lm-signal-handoff-steps article > span { display: block; }
+  .lm-signal-targets { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 620px) {
+  .lm-signal-v4 .lm-v2-hero { width: calc(100% - 24px); margin-top: 12px; padding: 36px 16px; border-radius: 25px 5px; }
+  .lm-signal-v4 .lm-v2-hero h1 { font-size: clamp(40px,11.5vw,54px); }
+  .lm-signal-hyperscale-hero { aspect-ratio: 4/3; border-radius: 24px 5px; }
+  .lm-signal-hyperscale-hero img { object-position: 69% center; }
+  .lm-signal-hyperscale-hero figcaption,
+  .lm-signal-priority-image figcaption { left: 10px; right: 10px; bottom: 10px; grid-template-columns: 1fr; gap: 4px; }
+  .lm-signal-zettabyte-stat { min-height: 0; }
+  .lm-signal-source-matrix { padding: 22px 16px; }
+  .lm-signal-source-matrix > article { grid-template-columns: 56px 1fr; }
+  .lm-signal-source-matrix > article .lm-operational-icon { width: 56px; height: 56px; }
+  .lm-signal-priority-image { aspect-ratio: 1/1.05; border-radius: 24px 5px; }
+  .lm-signal-priority-image img { width: 190%; max-width: none; height: 120%; object-position: 48% top; transform: translateX(-24%); }
+  .lm-signal-handoff-image { aspect-ratio: 4/3; border-radius: 24px 5px; }
+  .lm-signal-handoff-image img { width: 148%; max-width: none; object-position: 58% center; transform: translateX(-15%); }
+  .lm-signal-handoff-steps article { padding: 17px 14px; grid-template-columns: 54px 1fr; }
+  .lm-signal-handoff-steps article > span { display: none; }
+  .lm-signal-handoff-steps .lm-operational-icon { width: 54px; height: 54px; }
+  .lm-signal-test-profile { padding: 22px 16px; }
+  .lm-signal-test-profile header { grid-template-columns: 1fr; }
+  .lm-signal-test-profile .lm-operational-icon { margin-inline: auto; }
+  .lm-signal-closing { padding-inline: 14px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .lm-signal-v4 img { animation: none !important; transform: none !important; }
+}

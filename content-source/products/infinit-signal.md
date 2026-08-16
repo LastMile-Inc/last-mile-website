@@ -24,13 +24,13 @@ Infinit-Signal is purpose-built to meet an existing production ecosystem where i
 
 The UNS remains a live communication and discovery fabric. JSON, repository-managed files, and spreadsheets may separately provide governed schemas, mappings, crosswalks, and configuration. These inputs help Infinit-Signal understand the environment, but they are not described as the UNS itself.
 
-Infinit-Signal is designed for priority-aware 24x7 ingestion, isolated backpressure, controlled store-and-forward, and recovery by declared workload class. Performance and stress testing use explicit sustained-rate, burst-rate, payload-size, source-concurrency, recovery, and store-and-forward profiles. Public language may describe that ongoing testing discipline and the designed scale controls. It must not imply a universal measured rate, production uptime, or production-grade scale without approved evidence.
+Infinit-Signal is designed for priority-aware continuous 24x7x365 intake, isolated backpressure, controlled store-and-forward, and recovery by declared workload class. The current engineering targets are millions of events per second at global enterprise scale and zero data loss for accepted P0 critical records inside a declared deployment profile. Performance and stress testing use explicit sustained-rate, burst-rate, payload-size, source-concurrency, recovery, and store-and-forward profiles. Public language must label these values as engineering targets until approved benchmark evidence exists.
 
 ## Owns
 
 - Source Platform Profiles and connection configuration.
 - Boundary-local software runtime where required; no proprietary Last Mile hardware.
-- MQTT, Sparkplug, OPC UA, historian, API, file, and platform adapter contracts.
+- MQTT, Sparkplug, OPC UA, BACnet, Modbus, historian, API, file, and platform adapter contracts through versioned Source Platform Profiles or customer-approved adapters.
 - Subscription, acquisition, source timestamp, receive timestamp, sequence, and session capture.
 - Source quality preservation, freshness, deduplication, retained-message handling, replay classification, quarantine, and dead-letter behavior.
 - Mapping-package registry, versioning, tests, signing, promotion, rollback, and drift detection.
@@ -54,6 +54,8 @@ Infinit-Signal is designed for priority-aware 24x7 ingestion, isolated backpress
 | MQTT / UNS | MQTT 3.1.1/5.0, configured topic subscriptions | broker identity, topic, QoS, retain flag, packet/session context, publisher/source identity where available |
 | Sparkplug | Sparkplug 3.0 topic/payload/session semantics | group, edge node, device, metric alias/name, birth/death state, sequence, timestamp, quality |
 | OPC UA | Client/server subscriptions, events, history, Companion Specification models | endpoint, namespace URI, NodeId, browse path, source/server time, status code, engineering metadata, model identity |
+| BACnet | Customer-approved building-automation adapter or gateway output | device and object identity, property, units, source time, quality, priority and override context where supplied |
+| Modbus | Customer-approved edge adapter or gateway output | device and register address, data type, scaling, units, poll/source time, gateway identity, and quality where supplied |
 | SCADA/BMS/MES | Ignition, building-management, production, supervisory outputs | source tag/path, source system, site scope, quality and timestamp semantics |
 | Historians/data platforms | PI/AVEVA, industrial data services, export APIs | point identity, interpolation/exception behavior, original time, revision/backfill status |
 | Enterprise/service systems | Customer-selected CMMS, EAM, and provider APIs | external record identity, lifecycle state, source authority, update time |
@@ -114,12 +116,15 @@ These are architecture targets, not implemented performance claims:
 - P1 operational state: preserve complete state changes subject to source contract.
 - P2 standard telemetry: controlled batching and backpressure allowed.
 - P3 high-rate/backfill: isolate from P0/P1 and schedule within capacity policy.
-- No downstream BigQuery, analytics, or learning delay may block current customer operational flow.
+- No downstream analytics or learning delay may block current customer operational flow.
+- Engineering target: millions of events per second at global enterprise scale.
+- Engineering objective: zero data loss for accepted P0 critical records inside a declared deployment profile.
+- Design objective: priority-aware continuous 24x7x365 intake with backpressure isolation and controlled recovery.
 - Every deployment declares sustained rate, burst rate, payload size, concurrent sources, store-and-forward window, and recovery target.
 
 ## Public copy kernel
 
-**Heading:** One fast path from your plant floor into Last Mile.
+**Heading:** Built for volume. Designed for velocity. Engineered for AI.
 
 **Body:** Infinit-Signal connects to the operational sources you already run, preserves where each reading came from, checks its time and quality, and prepares it for Singularity. It is designed to isolate priority traffic, absorb bursts, and recover safely without making the rest of the plant wait.
 
@@ -134,3 +139,4 @@ These are architecture targets, not implemented performance claims:
 - publication equals truth.
 - a broker is the permanent historical record.
 - Infinit-Signal directly controls equipment.
+- Engineering targets are achieved production benchmarks or universal guarantees.

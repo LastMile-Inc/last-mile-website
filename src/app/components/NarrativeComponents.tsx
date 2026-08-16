@@ -51,20 +51,6 @@ export function EditorialSection({ eyebrow, title, intro, tone = "white", id, ch
   </section>;
 }
 
-export function NextStep({ eyebrow = "Next logical step", title, copy, label, to, secondary }: {
-  eyebrow?: string;
-  title: string;
-  copy: string;
-  label: string;
-  to: string;
-  secondary?: { label: string; to: string };
-}) {
-  return <section className="lm-v2-next"><div className="lm-v2-container"><div>
-    <p className="lm-eyebrow">{eyebrow}</p><h2>{title}</h2><p>{copy}</p>
-  </div><div className="lm-actions"><CtaLink to={to}>{label}</CtaLink>{secondary ? <CtaLink to={secondary.to} variant="secondary">{secondary.label}</CtaLink> : null}</div></div></section>;
-}
-
-
 const statusIconKinds: readonly OperationalIconKind[] = ["evidence", "context", "decision", "verification"];
 
 export function StatusPanel({ items }: { items: ReadonlyArray<{ title: string; items: readonly string[] }> }) {

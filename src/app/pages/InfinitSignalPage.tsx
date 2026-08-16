@@ -1,4 +1,3 @@
-import { ArrowRight } from "lucide-react";
 import type { CSSProperties } from "react";
 import { OperationalIcon, type OperationalIconKind } from "@/app/components/OperationalIcon";
 import { SEO } from "@/app/components/SEO";
@@ -6,17 +5,12 @@ import { EditorialHero, EditorialSection, InlineLink } from "@/app/components/Na
 import { createBreadcrumbSchema, createProductSchema } from "@/app/lib/structuredData";
 
 const sourceFamilies: ReadonlyArray<{ label: string; detail: string; kind: OperationalIconKind }> = [
-  { label: "MQTT + UNS", detail: "Brokers, topics, sessions, and publisher context", kind: "signal" },
-  { label: "INDUSTRIAL OT", detail: "SCADA, BMS, MES, Sparkplug, and OPC UA", kind: "control-system" },
-  { label: "DATA PLATFORMS", detail: "Historians, Industrial IoT, APIs, and services", kind: "operational-data" },
+  { label: "MQTT + SPARKPLUG", detail: "Topics, payloads, sessions, and publisher context", kind: "signal" },
+  { label: "OPC UA", detail: "Information models, events, history, and source quality", kind: "control-system" },
+  { label: "BACNET + MODBUS", detail: "Customer-approved building and edge adapter outputs", kind: "production" },
+  { label: "HISTORIANS + APIs", detail: "Time-series history, industrial platforms, and services", kind: "operational-data" },
   { label: "GOVERNED FILES", detail: "JSON, repository-managed files, and spreadsheets", kind: "resource" },
-];
-
-const implementationSteps: ReadonlyArray<{ label: string; title: string; copy: string; kind: OperationalIconKind }> = [
-  { label: "UNDERSTAND", title: "Learn how the source works.", copy: "Start with the broker, platform, file, tag, topic, timing, and quality rules already in use.", kind: "context" },
-  { label: "MAP", title: "Keep the meaning you trust.", copy: "Preserve the source identity and map it through a governed, versioned profile instead of flattening it away.", kind: "evidence" },
-  { label: "MOVE", title: "Begin with the smallest useful path.", copy: "Connect one approved scope, confirm the flow, then expand without forcing a plant-wide rebuild.", kind: "flow" },
-];
+] as const;
 
 const priorityLanes = [
   { label: "P0", name: "Critical events", copy: "Advance immediately", action: "MOVE NOW", progress: "92%" },
@@ -25,91 +19,102 @@ const priorityLanes = [
   { label: "P3", name: "High-rate + backfill", copy: "Buffer and recover by policy", action: "WAIT SAFELY", progress: "28%" },
 ] as const;
 
-export function InfinitSignalPage() {
-  const description = "Infinit-Signal connects to existing industrial sources and provides a governed, scalable path for operational data to enter Last Mile.";
+const handoffSteps: ReadonlyArray<{ label: string; title: string; copy: string; kind: OperationalIconKind }> = [
+  { label: "PRESERVE", title: "Keep the source identity", copy: "Retain the broker, topic, endpoint, point, device, register, timestamp, session, and original quality context.", kind: "evidence" },
+  { label: "QUALIFY", title: "Check time and quality", copy: "Classify freshness, replay, duplicates, retained state, mapping status, and policy before a record can influence the operation.", kind: "signal" },
+  { label: "STRUCTURE", title: "Prepare one operating record", copy: "Map the accepted record for Singularity while keeping a reversible crosswalk to the source that produced it.", kind: "context" },
+] as const;
 
+const testProfile = ["Sustained rate", "Burst rate", "Payload size", "Source concurrency", "Recovery time", "Store-and-forward window"] as const;
+
+export function InfinitSignalPage() {
+  const description = "Infinit-Signal is the high-velocity industrial intake engine that preserves source meaning, protects critical traffic, and prepares trusted records for Singularity.";
   return <>
-    <SEO title="Infinit-Signal | Industrial Data Intake Built for Speed and Scale" description={description} canonicalPath="/infinit-signal" jsonLd={[createProductSchema("Infinit-Signal", "/infinit-signal", description), createBreadcrumbSchema([{ name: "Home", path: "/" }, { name: "Infinit-Signal", path: "/infinit-signal" }])]} />
-    <main className="lm-v2-page lm-product-story-page lm-product-story-page--signal lm-signal-story">
+    <SEO title="Infinit-Signal | Built for Volume and Industrial Data Velocity" description={description} canonicalPath="/infinit-signal" jsonLd={[createProductSchema("Infinit-Signal", "/infinit-signal", description), createBreadcrumbSchema([{ name: "Home", path: "/" }, { name: "Infinit-Signal", path: "/infinit-signal" }])]} />
+    <main className="lm-v2-page lm-product-story-page lm-product-story-page--signal lm-signal-story lm-signal-v5">
       <EditorialHero
-        eyebrow="INFINIT-SIGNAL · SPEED + SCALE"
-        title="One fast path from your plant floor into Last Mile."
-        intro="Infinit-Signal is built for the production ecosystem already in place. It learns how your sources are organized, connects through customer-approved paths, and gets useful data into Last Mile with as little disruption as your architecture allows."
-        support="Infinit-Signal connects to the operational sources you already run, preserves where each reading came from, checks its time and quality, and prepares it for Singularity."
-        primary={{ label: "Discuss Your Source Environment", to: "/contact?intent=architecture" }}
-        secondary={{ label: "See How Singularity Learns", to: "/singularity" }}
-        visual={<SignalIntakeHero />}
+        eyebrow="INFINIT-SIGNAL · HYPERSCALE INDUSTRIAL INTAKE"
+        title="Keep telemetry intact from the edge to the enterprise."
+        intro="Infinit-Signal takes in alarms, measurements, state changes, history, and replay without flattening them into anonymous values. The original source, timestamp, equipment identity, and quality stay attached as traffic moves upstream."
+        support="Configured OPC UA, Modbus, MQTT, Sparkplug, historian, API, and governed file sources enter one priority-aware intake path before accepted records move to Singularity."
+        primary={{ label: "Review the Intake Architecture", to: "/infinit-signal#intake-architecture" }}
+        secondary={{ label: "Review Engineering Targets", to: "/infinit-signal#scale-engineering" }}
+        visual={<SignalHyperscaleHero />}
       />
 
       <EditorialSection
-        eyebrow="THE FASTEST SAFE PATH IN"
-        title="Start with the systems that already know the plant."
-        intro="A faster implementation begins with understanding, not replacement. Infinit-Signal meets each source on its own terms, keeps its strongest meaning intact, and expands from a small approved scope as the architecture proves itself."
-        className="lm-signal-onramp-section"
+        id="intake-architecture"
+        eyebrow="THE DATA-VOLUME PROBLEM"
+        title="The plant is already producing the data. The hard part is moving it with meaning intact."
+        intro="A high-rate stream is useful only when the receiver still knows which machine produced it, when it happened, whether the value is current, and whether replay or duplication changed the story. Infinit-Signal is built around that intake problem."
+        className="lm-signal-zettabyte-section"
       >
-        <div className="lm-signal-onramp">
-          {implementationSteps.map((step, index) => <article key={step.label}>
-            <OperationalIcon kind={step.kind} size="medium" />
-            <div><span>{step.label}</span><h3>{step.title}</h3><p>{step.copy}</p></div>
-            {index < implementationSteps.length - 1 ? <ArrowRight aria-hidden="true" /> : null}
-          </article>)}
+        <div className="lm-signal-zettabyte-layout">
+          <article className="lm-signal-zettabyte-stat"><span>IDC 2019 FORECAST FOR 2025</span><strong>79.4 ZB</strong><h3>Roughly 80 zettabytes across connected IoT devices.</h3><p>IDC forecast that 41.6 billion connected IoT devices would generate 79.4 ZB of data in 2025. The figure covers IoT broadly, not industrial IoT alone. The operating lesson is still clear: volume without source context, time, and quality is not ready for an industrial decision.</p><a href="https://www.telecomtv.com/content/iot/the-growth-in-connected-iot-devices-is-expected-to-generate-79-4zb-of-data-in-2025-according-to-a-new-idc-forecast-35522/" target="_blank" rel="noreferrer">Review the IDC forecast summary</a></article>
+          <div className="lm-signal-source-matrix"><header><span>MEET THE SOURCES WHERE THEY ARE</span><strong>Preserve the plant model. Qualify the flow.</strong></header>{sourceFamilies.map((source) => <article key={source.label}><OperationalIcon kind={source.kind} size="medium" /><div><h3>{source.label}</h3><p>{source.detail}</p></div></article>)}<p>Infinit-Signal is designed for configured MQTT, Sparkplug, OPC UA, BACnet, Modbus, historian, industrial platform, API, and governed file source families through customer-approved adapters or versioned Source Platform Profiles.</p></div>
         </div>
-        <InlineLink to="/resources/industrial-concepts/opc-ua">See how Infinit-Signal preserves OPC UA source meaning</InlineLink>
+        <div className="lm-signal-source-link"><InlineLink to="/resources/industrial-concepts/opc-ua">See how Infinit-Signal preserves OPC UA source meaning</InlineLink></div>
+      </EditorialSection>
+
+      <EditorialSection
+        eyebrow="ZERO-BLOCK PRIORITY ROUTING"
+        title="Critical events move now. Backfill waits without freezing the current picture."
+        intro="A recovered connection can release a wall of historical traffic just as a new alarm arrives. Infinit-Signal separates those workloads so live critical records are not trapped behind replay."
+        tone="grid"
+        className="lm-signal-priority-section"
+      >
+        <figure className="lm-signal-priority-image">
+          <img src="/images/products/infinit-signal/zero-block-priority-routing-v2.png" alt="Four industrial data lanes route critical events ahead of buffered historical backfill while the control room remains active." width="1672" height="941" loading="lazy" />
+          <figcaption><span>P0 · CRITICAL</span><strong>Priority traffic bypasses the queue</strong><span>P3 · BACKFILL</span></figcaption>
+        </figure>
+        <SignalScaleRunway />
+      </EditorialSection>
+
+      <EditorialSection
+        eyebrow="AI-READY HANDOFF"
+        title="Industrial AI needs qualified operating records, not a larger pile of raw telemetry."
+        intro="Infinit-Signal preserves source meaning, aligns time, applies the configured quality rules, and creates a record Singularity can use. Customer-authorized enterprise workflow destinations can receive governed outputs without becoming the source of plant truth."
+        className="lm-signal-handoff-section"
+      >
+        <div className="lm-signal-handoff-layout">
+          <figure className="lm-signal-handoff-image"><img src="/images/products/infinit-signal/ai-ready-handoff-v2.png" alt="Plant telemetry passes through a governed Infinit-Signal qualification engine before entering Singularity and customer-authorized enterprise workflows." width="1672" height="941" loading="lazy" /></figure>
+          <div className="lm-signal-handoff-steps">{handoffSteps.map((step, index) => <article key={step.label}><span>{String(index + 1).padStart(2, "0")}</span><OperationalIcon kind={step.kind} size="medium" /><div><b>{step.label}</b><h3>{step.title}</h3><p>{step.copy}</p></div></article>)}</div>
+        </div>
       </EditorialSection>
 
       <EditorialSection
         eyebrow="YOUR UNS STAYS YOURS"
         title="Read the live fabric without taking it over."
-        intro="Building a useful UNS takes real time and hard-won plant knowledge. Teams learn the equipment, name the signals, establish topic structures, and keep that model working as the operation changes. Infinit-Signal is designed to respect that investment and carry it forward."
+        intro="Building a useful UNS takes real time and hard-won plant knowledge. Teams learn the equipment, name the signals, establish topic structures, and keep that model working as the operation changes. Infinit-Signal respects that investment and carries it forward."
         tone="grid"
         className="lm-signal-uns-section"
       >
         <div className="lm-signal-uns-layout">
           <SignalUnsProgression />
-          <div className="lm-signal-uns-copy">
-            <span>LIVE DATA + GOVERNED MAPPING</span>
-            <h3>The UNS remains the customer&apos;s communication and discovery fabric.</h3>
-            <p>Infinit-Signal consumes only the subscriptions you configure and preserves the broker, publisher, topic, session, timestamp, quality, retained state, and replay context your teams worked to establish. JSON, repository-managed files, and spreadsheets can separately supply schemas, mappings, and crosswalks in the format your teams already maintain. The source stays recognizable, and the plant does not have to start over around Last Mile.</p>
-            <div className="lm-signal-mapping-formats" aria-label="Supported mapping and configuration formats"><b>JSON</b><b>REPOSITORY</b><b>SPREADSHEET</b></div>
-          </div>
+          <div className="lm-signal-uns-copy"><span>LIVE DATA + GOVERNED MAPPING</span><h3>The UNS remains the customer&apos;s communication and discovery fabric.</h3><p>Infinit-Signal consumes only the subscriptions you configure and preserves the broker, publisher, topic, session, timestamp, quality, retained state, and replay context your teams worked to establish. JSON, repository-managed files, and spreadsheets can separately supply schemas, mappings, and crosswalks. The source stays recognizable, and the plant does not have to start over around Last Mile.</p><div className="lm-signal-mapping-formats" aria-label="Mapping and configuration formats"><b>JSON</b><b>REPOSITORY</b><b>SPREADSHEET</b></div></div>
         </div>
         <InlineLink to="/resources/industrial-concepts/uns-and-ssom">See how the UNS and Singularity work together</InlineLink>
       </EditorialSection>
 
       <EditorialSection
-        eyebrow="KEEP CURRENT OPERATIONS AHEAD OF BACKLOG"
-        title="Critical signals should never wait behind a data replay."
-        intro="When alarms burst, connections recover, or historical data returns, Infinit-Signal moves the work that matters now ahead of traffic that can wait. Lower-priority data is controlled and recovered without blocking the current operating picture."
-        className="lm-signal-scale-section"
+        id="scale-engineering"
+        eyebrow="UNRELENTING SCALE ENGINEERING"
+        title="Know exactly what the intake path can carry."
+        intro="Every deployment has a different mix of live traffic, bursts, and recovery load. The test plan must match that operation before the numbers mean anything."
+        className="lm-signal-target-section"
       >
-        <SignalScaleRunway />
-        <div className="lm-signal-test-discipline">
-          <OperationalIcon kind="command" size="large" />
-          <div><span>TEST THE LOAD BEFORE IT BECOMES THE LOAD</span><h3>Scale is a continuing engineering discipline.</h3><p>We continuously stress-test and performance-test the intake path against declared sustained rate, burst rate, payload size, source concurrency, recovery, and store-and-forward profiles. That work is designed to keep data timely, accurate, and reliable as each customer&apos;s scope grows.</p></div>
+        <div className="lm-signal-target-layout">
+          <div className="lm-signal-targets"><article><span>ENGINEERING TARGET</span><strong>Millions</strong><h3>Events per second</h3><p>The current engineering target is millions of events per second at global enterprise scale.</p></article><article><span>ENGINEERING OBJECTIVE</span><strong>Zero</strong><h3>Accepted P0 records lost</h3><p>The engineering objective is zero data loss for accepted P0 critical records inside a declared deployment profile.</p></article><article><span>DESIGN OBJECTIVE</span><strong>24×7×365</strong><h3>Continuous intake</h3><p>Infinit-Signal is designed for priority-aware continuous 24x7x365 intake with backpressure isolation and controlled recovery.</p></article></div>
+          <div className="lm-signal-test-profile"><header><OperationalIcon kind="command" size="large" /><div><span>DECLARED WORKLOAD PROFILE</span><h3>Test the exact load the deployment must carry.</h3></div></header><ul>{testProfile.map((item) => <li key={item}>{item}</li>)}</ul><p>Target values remain targets until the matching workload profile and repeatable benchmark evidence are approved.</p></div>
         </div>
       </EditorialSection>
-
     </main>
   </>;
 }
 
-function SignalIntakeHero() {
-  return <figure className="lm-signal-intake-hero" aria-labelledby="signal-intake-caption">
-    <div className="lm-signal-intake-hero__sources">
-      {sourceFamilies.map((source) => <article key={source.label}><OperationalIcon kind={source.kind} size="small" /><div><span>{source.label}</span><small>{source.detail}</small></div></article>)}
-    </div>
-    <div className="lm-signal-intake-hero__stream" aria-hidden="true"><i /><i /><i /><i /></div>
-    <div className="lm-signal-intake-hero__engine">
-      <OperationalIcon kind="signal" size="large" />
-      <span>INFINIT-SIGNAL</span>
-      <strong>Preserve the source. Qualify the flow.</strong>
-      <div><b>SOURCE</b><b>TIME</b><b>QUALITY</b></div>
-    </div>
-    <div className="lm-signal-intake-hero__output"><span>SINGULARITY READY</span><strong>One governed stream keeps moving forward.</strong></div>
-    <figcaption id="signal-intake-caption" className="lm-visually-hidden">Existing industrial sources flow through Infinit-Signal, where source, time, and quality are preserved before records move to Singularity.</figcaption>
-  </figure>;
+function SignalHyperscaleHero() {
+  return <figure className="lm-signal-hyperscale-hero"><img src="/images/products/infinit-signal/hyperscale-ingestion-hero-v2.png" alt="A high-volume industrial signal stream enters an engineered intake ring and leaves as ordered operating data." width="1672" height="941" fetchPriority="high" /><figcaption><span>RAW INDUSTRIAL TRAFFIC</span><strong>Preserve · Qualify · Prioritize · Structure</strong><span>SINGULARITY READY</span></figcaption></figure>;
 }
-
 function SignalUnsProgression() {
   return <figure className="lm-signal-uns-architecture" tabIndex={0} aria-label="Customer UNS knowledge progression. Scroll horizontally to inspect the architecture on a small screen." aria-labelledby="signal-uns-caption">
     <svg viewBox="0 0 1000 560" role="img" aria-labelledby="signal-uns-title signal-uns-description">

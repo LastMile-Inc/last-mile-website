@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useRef, useState, type CSSProperties } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 
 type LoopStage = {
   name: string;
@@ -86,91 +86,15 @@ export function AccountableOperationsLoop({ context = "home", introCopy, learnin
 }
 
 function PrecisionLoopGraphic({ activeStage, onSelect }: { activeStage: number; onSelect: (stage: number | null) => void }) {
-  return <figure className="lm-precision-loop" style={{ "--active-stage": activeStage } as CSSProperties} aria-labelledby="precision-loop-caption">
-    <svg viewBox="0 0 920 920" role="img" aria-labelledby="precision-loop-title precision-loop-desc">
-      <title id="precision-loop-title">The Accountable Operations Loop</title>
-      <desc id="precision-loop-desc">A continuous engineered ring moves clockwise through Evidence, Understand, Decide, Coordinate, Act, and Verify before returning to Evidence.</desc>
-      <defs>
-        <linearGradient id="loop-g0" x1="300" y1="120" x2="650" y2="170" gradientUnits="userSpaceOnUse"><stop stopColor="#315F91" /><stop offset="1" stopColor="#4C86C6" /></linearGradient>
-        <linearGradient id="loop-g1" x1="680" y1="170" x2="820" y2="520" gradientUnits="userSpaceOnUse"><stop stopColor="#4C86C6" /><stop offset="1" stopColor="#5E8FAF" /></linearGradient>
-        <linearGradient id="loop-g2" x1="820" y1="540" x2="620" y2="805" gradientUnits="userSpaceOnUse"><stop stopColor="#5E8FAF" /><stop offset="1" stopColor="#8BB4CF" /></linearGradient>
-        <linearGradient id="loop-g3" x1="600" y1="805" x2="275" y2="770" gradientUnits="userSpaceOnUse"><stop stopColor="#8BB4CF" /><stop offset="1" stopColor="#A8BCCB" /></linearGradient>
-        <linearGradient id="loop-g4" x1="240" y1="750" x2="105" y2="410" gradientUnits="userSpaceOnUse"><stop stopColor="#A8BCCB" /><stop offset="1" stopColor="#5E8FAF" /></linearGradient>
-        <linearGradient id="loop-g5" x1="110" y1="375" x2="300" y2="120" gradientUnits="userSpaceOnUse"><stop stopColor="#5E8FAF" /><stop offset="1" stopColor="#315F91" /></linearGradient>
-        <radialGradient id="loop-center" cx="50%" cy="42%" r="62%"><stop stopColor="#FFFFFF" /><stop offset="1" stopColor="#E7EDF3" /></radialGradient>
-        <filter id="loop-depth" x="-30%" y="-30%" width="160%" height="160%"><feDropShadow dx="0" dy="12" stdDeviation="13" floodColor="#263244" floodOpacity=".16" /></filter>
-      </defs>
-      <circle className="lm-precision-loop__halo" cx="460" cy="460" r="420" />
-      <circle className="lm-precision-loop__grid" cx="460" cy="460" r="398" />
-      <circle className="lm-precision-loop__orbit lm-precision-loop__orbit--outer" cx="460" cy="460" r="380" />
-      <circle className="lm-precision-loop__orbit lm-precision-loop__orbit--inner" cx="460" cy="460" r="258" />
-      <g className="lm-precision-loop__ticks" aria-hidden="true">
-        {Array.from({ length: 48 }, (_, index) => {
-          const angle = -90 + index * 7.5;
-          const inner = polar(460, 460, index % 8 === 0 ? 377 : 386, angle);
-          const outer = polar(460, 460, 399, angle);
-          return <line key={angle} x1={inner.x} y1={inner.y} x2={outer.x} y2={outer.y} />;
-        })}
-      </g>
-      <circle className="lm-precision-loop__rail-shadow" cx="460" cy="460" r="318" />
-      <circle className="lm-precision-loop__rail" cx="460" cy="460" r="318" />
-      {loopStages.map((stage, index) => {
-        const start = -90 + index * 60 + 3;
-        const end = -90 + (index + 1) * 60 - 1.5;
-        const segment = ringSegmentPath(460, 460, 366, 270, start, end);
-        return <g key={stage.name} className={"lm-precision-segment lm-precision-segment--" + index + (activeStage === index ? " is-active" : activeStage >= 0 ? " is-muted" : "")} onMouseEnter={() => onSelect(index)} onMouseLeave={() => onSelect(null)} onClick={() => onSelect(index)}>
-          <path className="lm-precision-segment__depth" d={segment} />
-          <path className="lm-precision-segment__face" d={segment} />
-          <path className="lm-precision-segment__edge" d={ringGuidePath(460, 460, 348, start + 3, end - 8)} />
-        </g>;
-      })}      {loopStages.map((stage, index) => {
-        const point = polar(460, 460, 318, -60 + index * 60);
-        return <circle key={`${stage.name}-node`} className={`lm-precision-loop__node${activeStage === index ? " is-active" : ""}`} cx={point.x} cy={point.y} r="7" />;
-      })}
-      <circle className="lm-precision-loop__center" cx="460" cy="460" r="218" />
-      <circle className="lm-precision-loop__center-rule" cx="460" cy="460" r="194" />
-      <path className="lm-precision-loop__center-trace" d="M322 504 C372 472 394 541 442 497 S526 454 596 490" />
-      <text className="lm-precision-loop__eyebrow" x="460" y="418" textAnchor="middle">THE LAST MILE</text>
-      <text className="lm-precision-loop__title" x="460" y="470" textAnchor="middle">Condition → Response → Outcome</text>
-      <text className="lm-precision-loop__sub" x="460" y="518" textAnchor="middle">One accountable operational cycle</text>
-      {loopStages.map((stage, index) => {
-        const angle = -60 + index * 60;
-        const lineStart = polar(460, 460, 354, angle);
-        const lineEnd = polar(460, 460, 371, angle);
-        const point = polar(460, 460, 394, angle);
-        return <g key={stage.name} className={`lm-precision-label lm-precision-label--${index}${activeStage === index ? " is-active" : activeStage >= 0 ? " is-muted" : ""}`} onMouseEnter={() => onSelect(index)} onMouseLeave={() => onSelect(null)}>
-          <line x1={lineStart.x} y1={lineStart.y} x2={lineEnd.x} y2={lineEnd.y} />
-          <text x={point.x} y={point.y} textAnchor="middle" dominantBaseline="middle">{stage.name.toUpperCase()}</text>
-        </g>;
-      })}
-      <text className="lm-precision-loop__return-label" x="460" y="45" textAnchor="middle">VERIFY RECONNECTS TO EVIDENCE</text>
-    </svg>
+  return <figure className="lm-precision-loop lm-precision-loop--generated" data-active-stage={activeStage} aria-labelledby="precision-loop-caption">
+    <img src="/images/platform/accountable-operations-loop-v3.png" alt="A continuous six-segment engineered ring reconnects the measured result to the next operating decision." width="1672" height="941" loading="lazy" />
+    <div className="lm-precision-loop__generated-core" aria-hidden="true"><span>THE LAST MILE</span><strong>Condition → Response → Outcome</strong><small>One accountable operational cycle</small></div>
+    <ol className="lm-precision-loop__generated-labels" aria-label="Accountable Operations Loop stages">
+      {loopStages.map((stage, index) => <li key={stage.name} className={`lm-precision-loop__generated-label lm-precision-loop__generated-label--${index}${activeStage === index ? " is-active" : activeStage >= 0 ? " is-muted" : ""}`}>
+        <button type="button" aria-pressed={activeStage === index} aria-label={`${stage.name}: ${stage.headline}`} onMouseEnter={() => onSelect(index)} onMouseLeave={() => onSelect(null)} onFocus={() => onSelect(index)} onBlur={() => onSelect(null)} onClick={() => onSelect(index)}><i aria-hidden="true" /><span>{stage.name}</span></button>
+      </li>)}
+    </ol>
+    <span className="lm-precision-loop__generated-return" aria-hidden="true">VERIFY RECONNECTS TO EVIDENCE</span>
     <figcaption id="precision-loop-caption" className="lm-visually-hidden">The return reading becomes the starting point for the next decision.</figcaption>
   </figure>;
-}
-
-function polar(cx: number, cy: number, radius: number, angle: number) {
-  const radians = angle * Math.PI / 180;
-  return { x: Number((cx + radius * Math.cos(radians)).toFixed(2)), y: Number((cy + radius * Math.sin(radians)).toFixed(2)) };
-}
-function ringGuidePath(cx: number, cy: number, radius: number, start: number, end: number) {
-  const a = polar(cx, cy, radius, start);
-  const b = polar(cx, cy, radius, end);
-  return "M " + a.x + " " + a.y + " A " + radius + " " + radius + " 0 0 1 " + b.x + " " + b.y;
-}
-
-function ringSegmentPath(cx: number, cy: number, outer: number, inner: number, start: number, end: number) {
-  const outerStart = polar(cx, cy, outer, start);
-  const outerShoulder = polar(cx, cy, outer, end - 8);
-  const tip = polar(cx, cy, (outer + inner) / 2, end);
-  const innerShoulder = polar(cx, cy, inner, end - 8);
-  const innerStart = polar(cx, cy, inner, start);
-  return [
-    "M " + outerStart.x + " " + outerStart.y,
-    "A " + outer + " " + outer + " 0 0 1 " + outerShoulder.x + " " + outerShoulder.y,
-    "L " + tip.x + " " + tip.y,
-    "L " + innerShoulder.x + " " + innerShoulder.y,
-    "A " + inner + " " + inner + " 0 0 0 " + innerStart.x + " " + innerStart.y,
-    "Z",
-  ].join(" ");
 }

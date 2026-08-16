@@ -2,7 +2,7 @@
 content_id: PAGE-HOME-001
 status: approved
 owner: Website Product Marketing
-last_reviewed: 2026-08-13
+last_reviewed: 2026-08-14
 claim_maturity: [designed]
 depends_on: [GOV-DOCTRINE-001, CLAIMS-REGISTRY-001, CONCEPT-INDUSTRIAL-AI-001]
 used_by: [/]
@@ -12,98 +12,99 @@ used_by: [/]
 
 ## Job
 
-Explain who Last Mile is, why the company exists, what is changing in industrial operations, how the platform closes the gap, and what operators gain. Home follows the concise logic of a pitch deck without becoming a slide deck or product catalog.
+Make the company value obvious in one visit: Last Mile keeps an industrial problem, its owner, the work, and the physical result connected across systems that were never designed to manage the whole response together.
+
+## Audience
+
+Plant managers, operations executives, reliability leaders, and IT/OT buyers who already have capable production systems but still reconstruct the response by hand when equipment fails.
 
 ## Five-second promise
 
-When operations break, Last Mile keeps the response from breaking with them.
+Everything was green. The line still failed.
 
 ## Brand mission
 
-Place **The Physical Operations Platform** beneath the corporate logo and Last Mile name in the primary brand lockup. Keep the established typeface and blue color, but render the mission smaller, centered, and italic. Do not repeat it as a hero eyebrow.
+Keep **The Physical Operations Platform** beneath the corporate logo and Last Mile name. Do not repeat it as a hero eyebrow.
 
 ## Narrative limits
 
-- Major sections: five, ending after the industry benefits.
-- Narrative copy: approximately 650-950 words, excluding navigation and loop definitions.
-- Primary visual idea: Last Mile spans the gap between established systems and keeps one problem connected through recovery.
-- Supporting visuals: a professional data-pressure composition, the existing-system architecture, and The Accountable Operations Loop.
+- Major sections: five.
+- Narrative copy: 550-750 words.
+- Primary visual: a bright industrial plant where one restrained technical overlay connects alarms, decisions, work, and return readings around real equipment.
+- Supporting visuals: one system-gap composition, one concise connected-product rail, and the exact shared Accountable Operations Loop.
+- Closing CTA: none. Keep conversion choices in the hero.
 
 ## Page order
 
-1. Company promise.
-2. The industrial problem and why it is urgent now.
-3. The Last Mile solution across existing systems.
-4. How the Last Mile Platform works through The Accountable Operations Loop.
-5. What Last Mile brings to industry.
-6. Company close and direct next step.
+1. Company promise and industrial consequence.
+2. The daily accountability problem and why more data increases the pressure.
+3. The Last Mile bridge across existing systems, with a concise four-product explanation.
+4. The Accountable Operations Loop and retained operating learning.
+5. Shared industrial value.
 
 ## Hero
 
-Do not use an eyebrow above the hero title.
+No eyebrow above the hero title.
 
-**Heading:** When operations break, Last Mile keeps the response from breaking with them.
+**Heading:** Everything was green. The line still failed.
 
-**Body:** Last Mile sits across the systems already running your plant and turns scattered alarms, readings, work updates, and decisions into one accountable operating picture.
+**Body:** A new bottling line cleared its startup checks. When product reached the capper, the bottles collapsed and cough syrup covered the floor. Every system showed its part. Nothing connected the settings, the work, and the physical result.
 
-**Proof line:** Know what changed. Put the right people in motion. Confirm the machine recovered.
+**Proof line:** That was not a dashboard problem. It was a missing orchestration layer.
 
-**Primary CTA:** See the Problem
+**Primary CTA:** Explore the Platform Architecture
 
-**Secondary CTA:** Explore the Platform
+**Secondary CTA:** Assess Your Operations Loop
 
-## The problem and why now
+**Visual purpose:** Show one active industrial environment with a restrained blue operating thread spanning separate physical assets. The image is illustrative, not a customer deployment.
+
+## The daily problem
 
 **Eyebrow:** THE PROBLEM WE SEE EVERY DAY
 
-**Heading:** Industrial teams are drowning in signals and still missing what matters.
+**Heading:** The plant produced the facts. Nobody had the whole answer.
 
-Explain the urgency in plain language. An operator may need to reconcile an alarm in SCADA, a trend in a historian, a work order in the CMMS, and a provider update in email before anyone can see the full issue. More automation creates more value only when teams can make sense of what the machines are reporting and act before a fault spreads or a fix fails.
+Explain the real operating burden. One issue may appear as an alarm in SCADA, a trend in the historian, a work order in the CMMS, and a provider update somewhere else. More sensors and automation create more fragments unless the operation can connect them quickly.
 
-Use a stylized data-pressure composition to connect machine signals, operating history, work activity, and human decisions into one operating picture. Do not add unsupported market statistics.
+Retain the founder-provided bottling-line lesson as a concise example. Do not present it as a customer deployment or Last Mile result.
 
-Use the founder-provided bottling-line startup account as a concise plant-floor story. Place **A REAL LESSON FROM THE PLANT FLOOR** at the top left of the story panel. Set **“Everything was green. The line still failed.”** in italic quotation styling:
+## The bridge and four products
 
-- A new cough syrup bottling system showed green indicators before its first product run.
-- The capper tightened caps hard enough to crush bottles and spill syrup.
-- The configuration looked correct inside each system, but the physical result was wrong.
-- The team lost days to delay and cleanup because no single operating view connected configuration to the actual line result.
+**Eyebrow:** THE MISSING ACCOUNTABLE LAYER
 
-Do not present the story as a named customer deployment or an achieved Last Mile result.
+**Heading:** Keep the systems you trust. Keep the issue intact between them.
 
-## The solution
+Use this registered platform wording exactly once: Last Mile is the orchestration layer across the production systems already in place. It connects the alarm, equipment, readings, decisions, work, owner, and return telemetry so teams can act sooner and see whether the machine is actually running correctly again.
 
-**Heading:** Your systems know their part. Last Mile connects the entire response.
+Show the direct product roles in one connected rail:
 
-Introduce Last Mile as the orchestration layer across the production systems already in place. Connect the alarm, equipment, readings, decisions, work, owner, and return telemetry so teams can act sooner and see whether the machine is actually running correctly again.
+- Infinit-Signal: Observe.
+- Singularity: Understand.
+- Infinit-Flow: Decide, Coordinate, Act.
+- Infinit-Control: See, Govern.
 
-Show Control, Operational Data, Execution, and People as established participants connected through one spanning Last Mile layer.
+Keep product copy to one sentence each. Verification is collective platform behavior.
 
-Show CMMS only as one participating execution system in the architecture. Do not add a separate CMMS explanation box.
+## Accountable Operations Loop
 
-## How the Last Mile Platform works
+Use the exact shared loop composition and exact stage order: Evidence, Understand, Decide, Coordinate, Act, Verify, then Evidence again.
 
-Use The Accountable Operations Loop name exactly, without trademark symbols or substitute frameworks.
-
-**Evidence -> Understand -> Decide -> Coordinate -> Act -> Verify -> Evidence**
-
-The loop is a concise operating-model explanation, not a detailed scenario. Introduce it in plain language: a closed ticket only says the task ended. The loop keeps the problem, response, work, and return readings connected until the operation is stable again.
-
-The interactive composition uses a continuous precision ring with integrated directional seams, large horizontal labels without stage numbers, and six accessible definitions outside the circle. The center contains only Last Mile and Condition -> Response -> Outcome.
-
-Use "Work completed is not the same as problem solved" only once. Beneath the loop, keep the centered heading "Every verified fix improves the next operating decision." Explain the governed AI learning value with this exact wording: Because Last Mile sees the full lifecycle from first signal through verified recovery, AI can compare the decisions, handoffs, actions, delays, and return readings that shaped the result. No useful learning is lost, proven resolution steps do not have to be rediscovered, and approved improvements can be applied automatically the next time a similar issue appears.
+Use "Work completed is not the same as problem solved" once. Keep the approved AI wording once after the loop. Use the commissioned six-stage ring as the visual surface while keeping every stage name, definition, selected state, and keyboard interaction in accessible HTML.
 
 ## What Last Mile brings to industry
 
-Explain four benefits in terms an operator or buyer would use:
+Explain four benefits in plain language:
 
-1. Keep ownership visible from the first alarm through stable operations.
-2. Carry equipment context, decisions, and responsibility across every handoff.
-3. Stay with the operation after work ends because work completed is not the same as problem solved.
-4. Continuous Improvement (Kaizen): The platform retains what each response taught the organization, exposes where time was lost, and gives teams a practical path to lower MTTR on the next issue.
+1. Keep ownership visible from the first warning through stable operations.
+2. Carry equipment context and responsibility through each handoff.
+3. Stay with the equipment after the work order closes.
+4. Retain what each response taught the organization so the next response can improve.
 
-Do not insert industry use cases here. This section explains the shared industrial value that applies across industries.
+## Research basis
+
+- NIST describes growing manufacturing data volume, variety, and uncertainty and the need for trusted, understandable information workflows. https://www.nist.gov/programs-projects/advanced-manufacturing-data-infrastructure-and-analytics-program
+- NIST explains that IT/OT integration can improve manufacturing processes while introducing cross-boundary integrity and monitoring demands. https://www.nist.gov/news-events/news/2022/03/protecting-information-and-system-integrity-industrial-control-system
 
 ## Exclusions
 
-No product directory, product mapping section, industry use-case cards, generic autonomous-AI claim, fabricated integration status, ROI, guaranteed savings, or unsupported production-performance metric. Product detail belongs on /platform and product routes. Industry narratives belong on /use-cases and its detail routes.
+No universal downtime cost, guaranteed MTTR reduction, guaranteed ROI, adoption percentage, partner logo wall, named unvalidated connector, unapproved architecture name, customer proof, industry use-case cards, or closing CTA panel. Keep all imagery in the approved light palette.

@@ -143,7 +143,7 @@ export function Root() {
   }, []);
 
   return (
-    <div className="lm-site">
+    <div className="lm-site lm-technical-journal">
       <Navbar />
       <NetworkBackground />
       <main key={location.pathname} className="lm-main"><Outlet /></main>

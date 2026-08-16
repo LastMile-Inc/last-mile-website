@@ -1,40 +1,69 @@
 import { SEO } from "@/app/components/SEO";
-import { EditorialHero, EditorialSection, InlineLink, NextStep } from "@/app/components/NarrativeComponents";
-import { ResponseTimeline } from "@/app/components/OperatingScenarioComponents";
-import { operatingScenarios } from "@/app/pages/platformReferenceData";
+import { EditorialHero, EditorialSection, InlineLink } from "@/app/components/NarrativeComponents";
+import { FlowArchitectureVisual, FlowImprovementVisual, FlowMeasurementVisual, FlowRecoveryVisual, FlowStudioVisual } from "@/app/components/InfinitFlowExperience";
 import { createBreadcrumbSchema, createProductSchema } from "@/app/lib/structuredData";
 
-const runtimeCapabilities = ["Durable timers", "Acknowledgement targets", "Approvals", "Retries and idempotency", "External commands and receipts", "Provider handoffs", "Compensation and exceptions", "Pinned workflow versions"] as const;
-const resultStates = ["Recovery established", "Partial recovery", "Failed intervention", "Recurrence detected", "Insufficient return data"] as const;
-
 export function InfinitFlowPage() {
-  const description = "Infinit-Flow coordinates durable, asset-aware condition-to-work-to-verified-outcome response while preserving customer authority.";
+  const description = "Infinit-Flow keeps operating context intact as work crosses systems, approvals, people, and authorized digital actions.";
   return <>
-    <SEO title="Infinit-Flow | Coordinate the Operating Response" description={description} canonicalPath="/infinit-flow" jsonLd={[createProductSchema("Infinit-Flow", "/infinit-flow", description), createBreadcrumbSchema([{ name: "Home", path: "/" }, { name: "Infinit-Flow", path: "/infinit-flow" }])]} />
-    <div className="lm-v2-page">
-      <EditorialHero eyebrow="INFINIT-FLOW · DECIDE + COORDINATE + ACT" title="The operational decision and orchestration engine." intro="Infinit-Flow determines what should happen next and creates one durable Response across operators, work systems, providers, approvals, evidence, and return measurements. It executes only the digital steps policy allows and keeps physical authority where operations require it." primary={{ label: "Discuss Your Response Path", to: "/contact?intent=operation" }} secondary={{ label: "See the Cooling Use Case", to: "/use-cases/data-center-cooling" }} visual={<div className="lm-product-artifact"><span>Cooling Loop B response</span><ResponseTimeline scenario={operatingScenarios.cooling} /></div>} />
+    <SEO title="Infinit-Flow | Closed-Loop Industrial Orchestration" description={description} canonicalPath="/infinit-flow" jsonLd={[createProductSchema("Infinit-Flow", "/infinit-flow", description), createBreadcrumbSchema([{ name: "Home", path: "/" }, { name: "Infinit-Flow", path: "/infinit-flow" }])]} />
+    <div className="lm-v2-page lm-product-story-page lm-product-story-page--flow lm-flow-v5">
+      <EditorialHero
+        eyebrow="INFINIT-FLOW · EXECUTION + ORCHESTRATION"
+        title="Closed-loop accountability across disconnected systems."
+        intro="At Last Mile, manual is a dirty word. If a response lives in someone's head, inbox, spreadsheet, or whiteboard, it is hard to run the same way twice. Infinit-Flow maps the real work and keeps its context attached as the response crosses systems and teams."
+        support="Policy, ownership, timing, approvals, digital actions, receipts, exceptions, and return readings remain part of one governed path."
+        visual={<FlowArchitectureHero />}
+      />
 
-      <EditorialSection title="Start with the kind of asset and response—not an empty box." tone="grid">
-        <p className="lm-v2-large-copy">Choose an operational object type and intent. Infinit-Flow returns only assets compatible with the required SSOM class, capability, tenant, site, role, quality, and freshness. Simple controls appear first; expert semantic and lineage detail remains available when needed.</p>
-        <InlineLink to="/resources/industrial-concepts/semantic-interoperability">Why semantic interoperability matters for governed workflow binding</InlineLink>
+      <EditorialSection
+        id="workflow-model"
+        eyebrow="SEE THE WHOLE RESPONSE"
+        title="Put the work on one page before you try to automate it."
+        intro="Map the condition, operating context, decision, owner, work system, deadline, approval, and return reading in one visible path. When a workflow needs an asset, owner, or reading, Infinit-Flow shows only the choices that match the site, role, data quality, and current operating state. Your controls, work systems, and people keep doing their jobs. Infinit-Flow makes the work between them visible."
+      >
+        <FlowStudioVisual />
       </EditorialSection>
 
-      <EditorialSection title="Built for the hours, days, retries, and handoffs of real work.">
-        <p className="lm-v2-large-copy">Durable execution preserves timers, acknowledgement targets, approvals, retries, idempotency, external commands, receipts, provider handoffs, and exceptions. Workflow versions stay pinned so a live response does not change underneath the operator.</p>
-        <div className="lm-planned"><ul className="lm-v2-list lm-planned-grid">{runtimeCapabilities.map((item) => <li key={item}>{item}</li>)}</ul></div>
+      <EditorialSection
+        eyebrow="DOCUMENT ONCE. MEASURE EVERY RUN."
+        title="Find the waits and repeated work that stretch the response."
+        intro="Use your own operation as the baseline. Infinit-Flow can measure manual touches, time waiting for the next owner, total cycle time, exceptions, rework, completion against target, and the time from first condition to stable operation. That gives the team a practical answer to three questions: Where did the response stop? What had to be done twice? Did the change make the next run faster or cleaner?"
+        tone="grid"
+      >
+        <FlowMeasurementVisual />
       </EditorialSection>
 
-      <EditorialSection eyebrow="AUTHORITY" title="The response advances only as far as customer policy allows." tone="grid">
-        <div className="lm-authority-modes"><article><span>01</span><h3>AUTO</h3><p>Execute an authorized digital step.</p></article><article><span>02</span><h3>ASSIST</h3><p>Assemble evidence or recommend the response.</p></article><article><span>03</span><h3>HUMAN AUTHORITY</h3><p>Retain physical-work, safety, LOTO, and control authority under customer policy.</p></article></div>
-        <InlineLink to="/resources/industrial-concepts/industrial-ai">Industrial AI must know what it is allowed to do—and whether it worked</InlineLink>
+      <EditorialSection
+        eyebrow="GIVE THE CREW THE CONTEXT FIRST"
+        title="Spend the recovery window fixing the issue, not reconstructing it."
+        intro="Operators, work systems, service providers, and approvers share one case. Infinit-Flow automates only the steps policy allows, leaves physical authority with the right people, and follows the work through the return readings. The crew receives the asset, condition, recent readings, operating impact, owner, timing, and required return check together. They can focus on the equipment instead of chasing the story across calls, notes, and screens."
+      >
+        <FlowRecoveryVisual />
       </EditorialSection>
 
-      <EditorialSection title="Work completed is not the same as problem solved.">
-        <p className="lm-v2-large-copy">When the field task or work order closes, Infinit-Flow asks Singularity to evaluate the configured return measurements. Work-system state is contextual evidence only; it cannot set the physical result.</p>
-        <div className="lm-result-states">{resultStates.map((state, index) => <article key={state}><span>{String(index + 1).padStart(2, "0")}</span><h3>{state}</h3></article>)}</div>
+      <EditorialSection
+        id="orchestration-architecture"
+        eyebrow="ORCHESTRATE ACROSS WHAT YOU ALREADY RUN"
+        title="Keep your systems in place. Connect the work between them."
+        intro="Infinit-Flow coordinates the approved response across qualified signals, asset context, work systems, service providers, approvals, and return telemetry. It can qualify inputs, assign the owner, enforce timing, route approved digital work, request approval, record receipts, and raise exceptions. Consequential physical actions remain governed by customer policy and human authority."
+        tone="grid"
+      >
+        <FlowArchitectureVisual />
       </EditorialSection>
 
-      <NextStep title="Put one accountable case in front of every role." copy="Infinit-Control presents the current state, evidence, ownership, authority, work, and verified outcome without becoming a second truth store." label="Explore Infinit-Control" to="/infinit-control" secondary={{ label: "Discuss Your Response Path", to: "/contact?intent=operation" }} />
+      <EditorialSection
+        eyebrow="IMPROVE THE NEXT RESPONSE"
+        title="Every completed workflow leaves a better starting point."
+        intro="A closed work order is not the same as a stable operation. Infinit-Flow keeps the actual path, waits, decisions, exceptions, actions, and return readings together. Last Mile can use that record to find recurring delays, failed handoffs, unnecessary steps, and candidates for approved automation. Teams can compare the current run with the baseline, make one controlled change, and see whether MTTR, rework, or on-time completion improved."
+      >
+        <FlowImprovementVisual />
+        <InlineLink to="/resources/industrial-concepts/industrial-ai">See how governed industrial AI supports continuous improvement</InlineLink>
+      </EditorialSection>
     </div>
   </>;
+}
+
+function FlowArchitectureHero() {
+  return <figure className="lm-enterprise-product-hero-image lm-enterprise-product-hero-image--flow"><img src="/images/products/infinit-flow/orchestration-routing-v3.png" alt="One operating record passes through policy and decision logic, crosses plant, work, and human approval paths, then converges on a measured result." width="1672" height="941" fetchPriority="high" /></figure>;
 }
