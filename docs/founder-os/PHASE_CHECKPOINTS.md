@@ -72,3 +72,12 @@ Status: Feature 007 implemented on the existing website-refresh workstream; not 
 - Replaced them with six smooth masked SVG light rails and path-based pointer and keyboard targets.
 - Matched each active definition background to the same Corporate Blue glass gradient.
 - Preserved the one-pass opening sequence, neutral completion, reduced-motion behavior, phase copy, and three-column layout.
+
+## 2026-08-16 production link-preview checkpoint
+
+Status: Feature 008 implemented on the existing website-refresh workstream; not deployed by this task.
+
+- Confirmed production Open Graph and Twitter metadata still referenced the legacy architecture image.
+- Reused the approved 1408 by 736 blue and grey infinity-loop logo without modification.
+- Updated static crawler metadata and route-level SEO defaults together.
+- Added a regression test that rejects the retired preview image and description.

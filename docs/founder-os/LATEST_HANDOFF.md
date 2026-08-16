@@ -137,3 +137,12 @@ Updated: 2026-08-15
 - Browser review passed at 1440 by 900 and 390 by 844 with six smooth glass rails, six accessible path targets, synchronized activation in both directions, no horizontal overflow, and no console errors.
 - Governance, editorial, generated-concept, content, controlled-content, type, published-output, and whitespace checks pass. Content tests pass 23 of 23. Lint has zero errors and six existing Fast Refresh warnings. The production build transforms 2,127 modules successfully.
 - No image replacement, page teardown, claim change, data change, customer connection, access expansion, equipment-control change, safety change, merge, deployment, cloud resource, or GCP change is included.
+
+# 2026-08-16 infinity-logo link preview handoff
+
+- Added Spec Kit Feature 008 after production inspection confirmed Apple Messages was receiving `https://lastmileinc.ai/images/last-mile-og.jpg` from the page's explicit Open Graph metadata.
+- Repointed static Open Graph, Twitter, and route-level SEO defaults to the approved `https://lastmileinc.ai/logo.png` blue and grey infinity loop.
+- Published the exact 1408 by 736 source dimensions, PNG type, secure URL, and accurate logo alt text.
+- Added a regression test that rejects the retired architecture preview path and description.
+- The generated `dist/index.html` exposes the logo metadata before JavaScript. Governance, editorial, content, controlled-content, type, published-output, and whitespace checks pass; tests pass 24 of 24; lint has zero errors and six existing warnings; and the production build transforms 2,127 modules successfully.
+- No logo redesign, page UI change, application behavior change, hosting change, DNS change, merge, or deployment is included.

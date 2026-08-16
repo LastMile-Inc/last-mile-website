@@ -277,6 +277,20 @@ test("primary navigation includes keyboard, outside-click, escape, mobile disclo
   assert.match(navigation, /Cooling Redundancy Proof/);
 });
 
+test("link previews use the approved infinity-loop logo instead of legacy architecture", () => {
+  const document = read("index.html");
+  const seo = read("src/app/components/SEO.tsx");
+  assert.ok(fs.existsSync(path.join(root, "public/logo.png")));
+  assert.match(document, /property="og:image" content="https:\/\/lastmileinc\.ai\/logo\.png"/);
+  assert.match(document, /property="og:image:secure_url" content="https:\/\/lastmileinc\.ai\/logo\.png"/);
+  assert.match(document, /property="og:image:width" content="1408"/);
+  assert.match(document, /property="og:image:height" content="736"/);
+  assert.match(document, /Last Mile blue and grey infinity-loop logo/);
+  assert.match(seo, /ogImage = 'https:\/\/lastmileinc\.ai\/logo\.png'/);
+  assert.match(seo, /ogImageAlt = 'Last Mile blue and grey infinity-loop logo'/);
+  assert.doesNotMatch(`${document}\n${seo}`, /last-mile-og|Physical Operations Platform architecture/);
+});
+
 test("Resources is a podcast-led technical intelligence hub with governed proof boundaries", () => {
   const page = read("src/app/pages/ResourcesPage.tsx");
   const styles = read("src/styles/resources-intelligence-hub.css");

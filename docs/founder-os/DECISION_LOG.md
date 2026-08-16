@@ -116,3 +116,7 @@ Decision: use the supplied dark Infinit-Control image as a density and layout re
 ## 2026-08-16: Replace loop wedges with inner-glass light
 
 Decision: keep the approved Infinit-Control portal untouched and correct only the Home loop rendering regression. Remove all clipped full-image wedges and polygon hit areas. Use six smooth SVG paths, feathered masks, and a shared `#DFF6FF` to `#70C8FF` to `#1D7CD8` gradient to reveal light inside the glass rails. Apply the same gradient to the matching active definition while preserving the opening sequence, neutral finish, pointer and keyboard linkage, and reduced-motion behavior. Record the correction as Spec Kit Feature 007.
+
+## 2026-08-16: Use the infinity logo for shared-link previews
+
+Decision: replace the legacy architecture preview referenced by the production domain's Open Graph and Twitter metadata with the approved `logo.png` blue and grey infinity loop. Keep the static HTML and route-level SEO defaults identical, publish exact 1408 by 736 dimensions and descriptive alt text, and add a regression test preventing `last-mile-og` from returning to active preview metadata. Record the correction as Spec Kit Feature 008.

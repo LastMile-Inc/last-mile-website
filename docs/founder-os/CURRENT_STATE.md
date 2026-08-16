@@ -40,6 +40,7 @@ Updated: 2026-08-16
 - The local Infinit-Control route now applies mission-control discipline to a credible, interactive light command view. Its hero opens on a facility plan and can switch to an executive portfolio map or operator production-line drawing while keeping one operating case fixed. The lower story retains its four-role cooling example, connects signals to operating impact, and keeps the response visible while existing control and safety systems retain their responsibilities.
 - Active public page source no longer uses the generic NextStep closing component. The design standard and regression tests now prohibit bottom-of-page closing CTA panels unless the founder explicitly requests a route-specific close.
 - Feature 007 corrects only the Home loop illumination: six feathered SVG paths now light the inner glass rails and synchronize the matching definition gradient. The approved Infinit-Control portal and all controlled operating boundaries remain unchanged.
+- Feature 008 replaces the production domain's legacy architecture link-preview metadata with the approved blue and grey infinity-loop logo. Page content and application behavior are unchanged.
 
 ## Foundation dependency
 
