@@ -48,9 +48,11 @@ One operating truth. Tuned for every role.
 
 **Support:** Executives, site leaders, and crews receive the detail appropriate to their decisions. No stale or missing reading can close the case.
 
-**Visual purpose:** Show one operating case at three decision levels without changing its condition, affected asset, owner, work, or current state. EXEC uses one selected site on a regional map. PLANT MGR uses the whole facility and highlights the affected hall. OPERATOR uses the production-line drawing and highlights the affected filler station. Each tab updates the diagram and its four supporting measurements without a page refresh. Keep all required meaning in accessible HTML and identify the portal as a concept interface.
+**Visual purpose:** Show one operating case at three decision levels without changing its condition, affected asset, owner, work, or current state. EXEC uses a detailed geographic portfolio plate with exactly one illuminated selected site. PLANT MGR uses a dense industrial facility drawing with structural detail, active nodes, and data paths. OPERATOR uses an intricate Bottling Line 4 drawing with discernible equipment and a highlighted filler station. Each tab updates the engineering plate and four dense supporting panels without a page refresh. Panels include status, a micro-trend, a current-level band, and compact comparison rows. Keep all required meaning in accessible HTML and identify the portal as a concept interface.
 
 **Interaction:** PLANT MGR is the starting view. EXEC, PLANT MGR, and OPERATOR are real tab controls with click, arrow-key, Home, and End behavior. The selected tab uses Corporate Blue `#1D7CD8`. Motion is brief and removed when the user requests reduced motion. Every view remains white or light grey; no dark-mode panel is allowed.
+
+**Illustrative role measurements:** EXEC includes Portfolio Asset Health at 94%, Regional Throughput in MT/h, and Supply Chain Latency. PLANT MGR includes 14 Active Process Alarms, Line 4 OEE at 82%, and Facility MTTR. OPERATOR includes Filler Station Temp at 180°C, Units/Min at 450, and Current Shift Yield. These values belong to the concept interface and are not published customer results.
 
 ## Fragmentation and signal pressure
 

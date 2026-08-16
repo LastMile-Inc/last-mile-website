@@ -105,3 +105,13 @@ Updated: 2026-08-15
 - Added a dedicated Flexbox center column. At 1440 pixels, the image has equal 128.5-pixel space above and below inside the 575-pixel row; no padding or positional offset is used.
 - Browser checks confirm the 1672 by 941 source image loads, the desktop grid remains three columns, the phone layout remains one column, and neither width has horizontal overflow or console errors.
 - Local review remains available at http://127.0.0.1:5173/#accountable-operations-loop. No merge or deployment was performed.
+
+# 2026-08-16 Home loop and Infinit-Control fidelity correction handoff
+
+- Added Spec Kit Feature 005 as a contained correction. It does not rebuild either page.
+- Removed the Home loop figure's grey fill, white frame, shadow, center oval, and overlapping copy while preserving the original v3 image, three-column structure, definition spacing, and Flexbox centering.
+- Preserved the Infinit-Control EXEC, PLANT MGR, and OPERATOR tab logic and replaced only the low-detail role drawings with three original light engineering plates at native 1672 by 941 resolution.
+- Added four dense measurement panels per role with status, sparklines, current-level bands, and compact comparison rows. The founder-specified Executive, Plant Manager, and Operator values are present.
+- Real-browser checks confirm every role image loads at full native resolution, Executive has exactly one selected site, keyboard navigation works, and desktop and 390-pixel phone layouts have no horizontal overflow.
+- Governance, editorial, concept-data, content, controlled-content, type, published-output, and whitespace checks pass. Content tests pass 23 of 23. Lint has zero errors and six existing Fast Refresh warnings. The production build transforms 2,127 modules successfully.
+- The command portal remains a concept interface. No live customer data, calculation, access, equipment-control, safety, merge, deployment, cloud, or GCP change is included.

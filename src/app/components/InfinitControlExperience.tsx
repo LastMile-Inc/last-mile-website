@@ -7,6 +7,9 @@ type PortalMetric = {
   value: string;
   detail: string;
   level: number;
+  status: string;
+  trend: readonly number[];
+  rows: readonly { label: string; value: string }[];
 };
 
 type PortalView = {
@@ -14,6 +17,9 @@ type PortalView = {
   scope: string;
   title: string;
   summary: string;
+  image: string;
+  imageAlt: string;
+  tags: readonly { label: string; value: string; x: string; y: string }[];
   metrics: readonly [PortalMetric, PortalMetric, PortalMetric, PortalMetric];
 };
 
@@ -25,11 +31,18 @@ const portalViews: Record<PortalRole, PortalView> = {
     scope: "CENTRAL OPERATIONS · NORTH RIDGE PLANT",
     title: "Portfolio view",
     summary: "The highlighted site is the only location included in these surrounding measurements.",
+    image: "/images/products/infinit-control/portal-executive-v3.png",
+    imageAlt: "A high-detail light technical map of the North American operating portfolio. Fine geographic and infrastructure lines connect quiet grey locations to exactly one illuminated blue selected site.",
+    tags: [
+      { label: "SELECTED SITE", value: "NORTH RIDGE PLANT", x: "61%", y: "47%" },
+      { label: "OPERATING CASE", value: "FIL-04 · ACTIVE", x: "72%", y: "66%" },
+      { label: "REGIONAL PATH", value: "CENTRAL · QUALIFIED", x: "27%", y: "29%" },
+    ],
     metrics: [
-      { label: "REGIONAL PERFORMANCE", value: "94.8%", detail: "Selected site performance", level: 95 },
-      { label: "PORTFOLIO ASSET HEALTH", value: "96.1%", detail: "Assets available at this site", level: 96 },
-      { label: "LOCAL MARKET DEMAND", value: "87%", detail: "Current demand against plan", level: 87 },
-      { label: "HIGH-LEVEL OEE", value: "91.2%", detail: "Availability, speed, and quality", level: 91 },
+      { label: "PORTFOLIO ASSET HEALTH", value: "94%", detail: "Selected site assets available", level: 94, status: "STABLE", trend: [81,84,83,87,86,91,89,93,92,94], rows: [{ label: "TARGET", value: "92%" }, { label: "CHANGE", value: "+1.8%" }] },
+      { label: "REGIONAL THROUGHPUT (MT/h)", value: "12,450", detail: "Current selected-site output", level: 83, status: "ON PLAN", trend: [58,61,65,63,69,72,74,71,79,83], rows: [{ label: "PLAN", value: "12,300" }, { label: "DELTA", value: "+150" }] },
+      { label: "SUPPLY CHAIN LATENCY", value: "18 min", detail: "Current regional material delay", level: 72, status: "WATCH", trend: [41,38,44,49,45,57,53,64,61,72], rows: [{ label: "LIMIT", value: "25 min" }, { label: "TREND", value: "+3 min" }] },
+      { label: "HIGH-LEVEL OEE", value: "91.2%", detail: "Availability, speed, and quality", level: 91, status: "STABLE", trend: [77,79,82,80,85,87,86,90,89,91], rows: [{ label: "AVAIL", value: "94.1%" }, { label: "QUALITY", value: "98.2%" }] },
     ],
   },
   plant: {
@@ -37,11 +50,18 @@ const portalViews: Record<PortalRole, PortalView> = {
     scope: "NORTH RIDGE PLANT · BOTTLING HALL 4",
     title: "Facility view",
     summary: "The plant view connects the highlighted line to site capacity, alarms, and overall equipment effectiveness.",
+    image: "/images/products/infinit-control/portal-plant-manager-v3.png",
+    imageAlt: "A dense light industrial CAD wireframe of North Ridge Plant with processing towers, pipe racks, utilities, tanks, packaging halls, conveyors, sensor nodes, and active data paths.",
+    tags: [
+      { label: "BOTTLING HALL 4", value: "CONDITION ACTIVE", x: "69%", y: "48%" },
+      { label: "UTILITY HEADER", value: "PRESSURE STABLE", x: "30%", y: "56%" },
+      { label: "PROCESS CELL 08", value: "FLOW QUALIFIED", x: "48%", y: "24%" },
+    ],
     metrics: [
-      { label: "ASSET HEALTH", value: "92%", detail: "Facility assets inside plan", level: 92 },
-      { label: "PROCESS ALARMS", value: "3", detail: "One affects Bottling Line 4", level: 38 },
-      { label: "THROUGHPUT", value: "12,450 MT/h", detail: "Current plant output", level: 86 },
-      { label: "PLANT OEE", value: "87.6%", detail: "Availability, speed, and quality", level: 88 },
+      { label: "ACTIVE PROCESS ALARMS", value: "14", detail: "Three require owner review", level: 58, status: "ATTENTION", trend: [32,38,35,44,49,46,55,52,61,58], rows: [{ label: "P1", value: "0" }, { label: "P2 / P3", value: "3 / 11" }] },
+      { label: "LINE 4 OEE", value: "82%", detail: "Availability, speed, and quality", level: 82, status: "WATCH", trend: [72,74,71,76,78,77,80,79,83,82], rows: [{ label: "TARGET", value: "86%" }, { label: "GAP", value: "-4.0%" }] },
+      { label: "FACILITY MTTR", value: "24 min", detail: "Current mean repair time", level: 68, status: "IMPROVING", trend: [82,78,75,79,69,66,63,59,57,52], rows: [{ label: "30 DAY", value: "31 min" }, { label: "CHANGE", value: "-7 min" }] },
+      { label: "PLANT THROUGHPUT", value: "12,450 MT/h", detail: "Current plant output", level: 86, status: "ON PLAN", trend: [64,68,66,72,75,73,78,81,84,86], rows: [{ label: "PLAN", value: "12,300" }, { label: "CAPACITY", value: "83%" }] },
     ],
   },
   operator: {
@@ -49,11 +69,18 @@ const portalViews: Record<PortalRole, PortalView> = {
     scope: "BOTTLING LINE 4 · FILLER STATION FIL-04",
     title: "Line view",
     summary: "The line view narrows the same condition to the filler station, current production, and the next approved check.",
+    image: "/images/products/infinit-control/portal-operator-v3.png",
+    imageAlt: "A detailed light CAD blueprint of Bottling Line 4 with depalletizing, rinsing, rotary filling, capping, labeling, vision inspection, case packing, palletizing, process piping, controls, and live filler data paths.",
+    tags: [
+      { label: "FILLER FIL-04", value: "PRESSURE CHECK", x: "45%", y: "38%" },
+      { label: "VISION CELL", value: "99.8% ACCEPT", x: "72%", y: "42%" },
+      { label: "RETURN READING", value: "PENDING", x: "54%", y: "71%" },
+    ],
     metrics: [
-      { label: "THROUGHPUT", value: "428 units/min", detail: "Current line output", level: 86 },
-      { label: "LINE EFFICIENCY", value: "93.4%", detail: "Current run against plan", level: 93 },
-      { label: "ACTIVE ALARMS", value: "1", detail: "Filler pressure variance", level: 25 },
-      { label: "LINE MTTR", value: "18 min", detail: "Current mean repair time", level: 72 },
+      { label: "FILLER STATION TEMP", value: "180°C", detail: "FIL-04 current process reading", level: 88, status: "IN BAND", trend: [76,77,78,80,79,82,84,83,86,88], rows: [{ label: "BAND", value: "178–182°C" }, { label: "FRESH", value: "1.2 sec" }] },
+      { label: "UNITS/MIN", value: "450", detail: "Current Bottling Line 4 output", level: 90, status: "ON RATE", trend: [68,72,75,71,78,81,84,82,88,90], rows: [{ label: "TARGET", value: "450" }, { label: "REJECT", value: "0.2%" }] },
+      { label: "CURRENT SHIFT YIELD", value: "98.2%", detail: "Accepted units this shift", level: 98, status: "STABLE", trend: [91,92,94,93,95,96,95,97,98,98], rows: [{ label: "GOOD", value: "84,226" }, { label: "REJECT", value: "1,542" }] },
+      { label: "ACTIVE INTERLOCKS", value: "0", detail: "No line stops requested", level: 100, status: "CLEAR", trend: [98,98,98,99,99,99,100,100,100,100], rows: [{ label: "GUARDS", value: "CLOSED" }, { label: "E-STOP", value: "CLEAR" }] },
     ],
   },
 };
@@ -93,7 +120,7 @@ export function ControlPortalExperience() {
       <section className="lm-control-portal__center" aria-label={`${view.title}: ${view.scope}`}>
         <header><div><span>{view.title}</span><strong>{view.scope}</strong></div><small>ROLE-TUNED VIEW · SHARED FACTS</small></header>
         <div className="lm-control-portal__visual">
-          {activeRole === "executive" ? <ExecutiveMap /> : activeRole === "plant" ? <PlantSchematic /> : <OperatorLine />}
+          <RoleVisualization role={activeRole} view={view} />
         </div>
         <p className="lm-control-portal__view-summary" aria-live="polite">{view.summary}</p>
       </section>
@@ -113,69 +140,32 @@ export function ControlPortalExperience() {
 function MetricColumn({ metrics, side }: { metrics: readonly PortalMetric[]; side: "left" | "right" }) {
   return <aside className={`lm-control-portal__metrics lm-control-portal__metrics--${side}`} aria-label={`${side === "left" ? "Left" : "Right"} supporting measurements`}>
     {metrics.map(metric => <article key={metric.label}>
-      <span>{metric.label}</span><strong>{metric.value}</strong><small>{metric.detail}</small>
-      <i aria-hidden="true"><em style={{ width: `${metric.level}%` }} /></i>
+      <header><span>{metric.label}</span><b><i aria-hidden="true" />{metric.status}</b></header>
+      <strong>{metric.value}</strong><small>{metric.detail}</small>
+      <MetricSparkline points={metric.trend} level={metric.level} />
+      <dl>{metric.rows.map(row => <div key={row.label}><dt>{row.label}</dt><dd>{row.value}</dd></div>)}</dl>
     </article>)}
   </aside>;
 }
 
-function ExecutiveMap() {
-  return <svg className="lm-control-portal__map" viewBox="0 0 760 430" role="img" aria-labelledby="control-exec-title control-exec-desc">
-    <title id="control-exec-title">Executive portfolio map with North Ridge Plant selected</title>
-    <desc id="control-exec-desc">A light regional map shows several quiet portfolio locations and exactly one bright blue selected location. All surrounding measurements apply only to North Ridge Plant.</desc>
-    <defs><filter id="control-node-glow" x="-220%" y="-220%" width="540%" height="540%"><feGaussianBlur stdDeviation="12" result="blur" /><feMerge><feMergeNode in="blur" /><feMergeNode in="SourceGraphic" /></feMerge></filter></defs>
-    <g className="map-grid"><path d="M50 83H710M50 151H710M50 219H710M50 287H710M50 355H710" /><path d="M126 42V388M240 42V388M354 42V388M468 42V388M582 42V388M696 42V388" /></g>
-    <path className="map-land" d="M91 106l70-28 76 16 45-30 88 19 69-14 88 44 63-2 44 44-21 52 53 42-36 70-98 34-54-13-63 27-83-18-57 23-78-48-51-56 19-53-50-41 38-49-13-41z" />
-    <path className="map-route" d="M157 162L273 207 378 151 505 195 589 282M273 207L326 302 469 300 505 195M378 151L469 300" />
-    <g className="map-site"><circle cx="157" cy="162" r="6" /><path d="M157 174v17" /></g>
-    <g className="map-site"><circle cx="273" cy="207" r="6" /><path d="M273 219v17" /></g>
-    <g className="map-site"><circle cx="378" cy="151" r="6" /><path d="M378 163v17" /></g>
-    <g className="map-site"><circle cx="589" cy="282" r="6" /><path d="M589 294v17" /></g>
-    <g className="map-site"><circle cx="326" cy="302" r="6" /><path d="M326 314v17" /></g>
-    <g className="map-selected" transform="translate(505 195)"><circle className="map-selected__halo" r="27" filter="url(#control-node-glow)" /><circle className="map-selected__ring" r="16" /><circle className="map-selected__core" r="7" /></g>
-    <g className="map-label" transform="translate(525 164)"><rect width="168" height="54" rx="4" /><text x="14" y="22">NORTH RIDGE PLANT</text><text x="14" y="40">SELECTED SITE · LIVE</text></g>
-    <text className="map-caption" x="53" y="408">PORTFOLIO CONTEXT · ONE SELECTED SITE</text>
-  </svg>;
+function MetricSparkline({ points, level }: { points: readonly number[]; level: number }) {
+  const min = Math.min(...points);
+  const max = Math.max(...points);
+  const range = Math.max(1, max - min);
+  const plotted = points.map((point, index) => `${(index / (points.length - 1) * 100).toFixed(1)},${(22 - ((point - min) / range * 17)).toFixed(1)}`).join(" ");
+  const plottedPoints = plotted.split(" ");
+  const last = plottedPoints[plottedPoints.length - 1]?.split(",") ?? ["100", "12"];
+  return <div className="lm-control-portal__metric-chart" aria-label={`Current level ${level} percent`}><svg viewBox="0 0 100 24" preserveAspectRatio="none" aria-hidden="true"><path d="M0 6H100M0 12H100M0 18H100" /><polygon points={`0,24 ${plotted} 100,24`} /><polyline points={plotted} /><circle cx={last[0]} cy={last[1]} r="1.7" /></svg><i aria-hidden="true"><em style={{ width: `${level}%` }} /></i></div>;
 }
 
-function PlantSchematic() {
-  return <svg className="lm-control-portal__plant" viewBox="0 0 760 430" role="img" aria-labelledby="control-plant-title control-plant-desc">
-    <title id="control-plant-title">North Ridge Plant facility overview</title>
-    <desc id="control-plant-desc">A light architectural plant plan connects receiving, processing, utilities, packaging, warehouse, and four bottling halls. Bottling Hall 4 is highlighted as the affected area.</desc>
-    <g className="plan-grid"><path d="M48 55H712V374H48Z" /><path d="M48 146H712M48 258H712M211 55V374M412 55V374M590 55V374" /></g>
-    <g className="plan-zone"><rect x="66" y="74" width="127" height="54" rx="4" /><text x="82" y="98">RECEIVING</text><text x="82" y="116">RAW MATERIALS</text></g>
-    <g className="plan-zone"><rect x="229" y="74" width="165" height="54" rx="4" /><text x="245" y="98">PROCESSING</text><text x="245" y="116">MIX + HOLD</text></g>
-    <g className="plan-zone"><rect x="430" y="74" width="142" height="54" rx="4" /><text x="446" y="98">UTILITIES</text><text x="446" y="116">AIR + WATER</text></g>
-    <g className="plan-zone"><rect x="608" y="74" width="86" height="54" rx="4" /><text x="620" y="98">QA LAB</text><text x="620" y="116">READY</text></g>
-    <g className="plan-line"><rect x="66" y="169" width="310" height="30" rx="4" /><text x="82" y="189">BOTTLING LINE 1 · RUNNING</text></g>
-    <g className="plan-line"><rect x="66" y="211" width="310" height="30" rx="4" /><text x="82" y="231">BOTTLING LINE 2 · RUNNING</text></g>
-    <g className="plan-line"><rect x="430" y="169" width="264" height="30" rx="4" /><text x="446" y="189">BOTTLING LINE 3 · RUNNING</text></g>
-    <g className="plan-line plan-line--active"><rect x="430" y="211" width="264" height="30" rx="4" /><text x="446" y="231">BOTTLING HALL 4 · CONDITION ACTIVE</text><circle cx="672" cy="226" r="6" /></g>
-    <g className="plan-zone"><rect x="66" y="281" width="328" height="69" rx="4" /><text x="82" y="307">PACKAGING + PALLETIZING</text><path d="M83 328h278" /></g>
-    <g className="plan-zone"><rect x="430" y="281" width="264" height="69" rx="4" /><text x="446" y="307">FINISHED GOODS</text><path d="M447 328h214" /></g>
-    <path className="plan-flow" d="M193 101H229M311 128v41M376 184h54M562 199v12M562 241v40M394 315h36" />
-    <text className="plan-caption" x="50" y="405">NORTH RIDGE PLANT · FACILITY ORCHESTRATION</text>
-  </svg>;
-}
-
-function OperatorLine() {
-  const stations = [
-    { x: 65, width: 92, label: "DE-PAL", state: "READY" },
-    { x: 181, width: 92, label: "RINSE", state: "RUNNING" },
-    { x: 297, width: 118, label: "FILLER FIL-04", state: "CHECK", active: true },
-    { x: 439, width: 92, label: "CAP", state: "RUNNING" },
-    { x: 555, width: 92, label: "LABEL", state: "RUNNING" },
-  ];
-  return <svg className="lm-control-portal__line" viewBox="0 0 760 430" role="img" aria-labelledby="control-line-title control-line-desc">
-    <title id="control-line-title">Bottling Line 4 operator schematic</title>
-    <desc id="control-line-desc">A light technical line drawing shows the depalletizer, rinser, filler, capper, labeler, inspection, and palletizer. Filler station FIL-04 is the single highlighted point requiring an approved pressure check.</desc>
-    <g className="line-datum"><path d="M48 90H712M48 330H712" /><text x="50" y="76">BOTTLING LINE 4 · FLOW LEFT TO RIGHT</text></g>
-    <path className="line-conveyor" d="M48 252H712M48 265H712" />
-    {stations.map(station => <g key={station.label} className={station.active ? "line-station line-station--active" : "line-station"} transform={`translate(${station.x} 0)`}><rect x="0" y="152" width={station.width} height="92" rx="5" /><path d={`M12 174h${station.width - 24}M12 219h${station.width - 24}`} /><circle cx={station.width / 2} cy="197" r="14" /><text x={station.width / 2} y="292" textAnchor="middle">{station.label}</text><text x={station.width / 2} y="310" textAnchor="middle">{station.state}</text>{station.active && <><circle className="line-station__indicator" cx={station.width - 13} cy="164" r="6" /><path className="line-station__pointer" d={`M${station.width - 13} 148v-27h72`} /><text className="line-station__callout" x={station.width + 64} y="116">PRESSURE VARIANCE</text></>}</g>)}
-    <g className="line-end"><path d="M672 151h37v93h-37" /><text x="690" y="292" textAnchor="middle">INSPECT</text><text x="690" y="310" textAnchor="middle">READY</text></g>
-    <g className="line-reading" transform="translate(270 34)"><rect width="224" height="45" rx="4" /><text x="14" y="19">FIL-04 · FILL PRESSURE</text><text x="14" y="36">CURRENTLY INSIDE APPROVED BAND</text></g>
-    <text className="line-caption" x="50" y="405">APPROVED CHECK · CONFIRM PRESSURE + RECORD RETURN READING</text>
-  </svg>;
+function RoleVisualization({ role, view }: { role: PortalRole; view: PortalView }) {
+  return <div className={`lm-control-portal__engineering-plate lm-control-portal__engineering-plate--${role}`}>
+    <img src={view.image} alt={view.imageAlt} width="1672" height="941" loading="eager" />
+    <div className="lm-control-portal__scan-grid" aria-hidden="true" />
+    <div className="lm-control-portal__reticle" aria-hidden="true"><i /><i /><i /></div>
+    <div className="lm-control-portal__data-tags">{view.tags.map(tag => <article key={tag.label} style={{ left: tag.x, top: tag.y }}><span>{tag.label}</span><strong>{tag.value}</strong></article>)}</div>
+    <div className="lm-control-portal__coordinate-rail" aria-hidden="true"><span>LIVE MODEL</span><i /><span>QUALIFIED SOURCES</span><i /><span>RETURN CHECK ACTIVE</span></div>
+  </div>;
 }
 
 const heartbeat = [["COOLING", "NORMAL", "82%"], ["POWER", "NORMAL", "76%"], ["PRODUCTION", "CONSTRAINED", "63%"], ["RESPONSE", "ACTIVE", "88%"]] as const;

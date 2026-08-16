@@ -131,8 +131,9 @@ test("Home owns the company story, Platform owns architecture, and public concep
   assert.match(accountableLoop, /accountable-operations-loop-v3\.png/);
   assert.doesNotMatch(accountableLoop, /accountable-operations-loop-v4\.png/);
   assert.match(accountableLoop, /lm-premium-loop-center/);
+  assert.doesNotMatch(accountableLoop, /lm-precision-loop__generated-core|One accountable operational cycle/);
   assert.match(styles, /\.lm-premium-loop-composition--three-column \.lm-premium-loop-center \{[\s\S]*?display: flex;[\s\S]*?align-items: center;[\s\S]*?justify-content: center;/);
-  assert.match(accountableLoop, /Condition[\s\S]*Response[\s\S]*Outcome/);
+  assert.match(styles, /\.lm-premium-loop-section \.lm-precision-loop--generated \{[\s\S]*?border: 0;[\s\S]*?background: transparent;[\s\S]*?box-shadow: none;/);
 
   assert.doesNotMatch(home, /platform-core-blueprint|generic.*network.*hero/i);
   assert.doesNotMatch(article, /claimMaturity|reference_architecture|perspective\s*\//i);
@@ -225,13 +226,19 @@ test("Infinit-Control uses an interactive light command portal and clear operati
   assert.match(page, /ControlPortalExperience/);
   assert.doesNotMatch(page, /mission-control-portal-v2\.png/);
   for (const tab of ["EXEC", "PLANT MGR", "OPERATOR"]) assert.match(visuals, new RegExp(`tab: "${tab}"`));
-  for (const view of ["ExecutiveMap", "PlantSchematic", "OperatorLine"]) assert.match(visuals, new RegExp(`function ${view}`));
+  for (const asset of ["portal-executive-v3.png", "portal-plant-manager-v3.png", "portal-operator-v3.png"]) {
+    assert.match(visuals, new RegExp(asset.replace(/[.]/g, "\\.")));
+    assert.ok(fs.existsSync(path.join(root, "public/images/products/infinit-control", asset)), `${asset} must remain in the published asset set`);
+  }
+  for (const component of ["RoleVisualization", "MetricSparkline"]) assert.match(visuals, new RegExp(`function ${component}`));
+  assert.doesNotMatch(visuals, /function ExecutiveMap|function PlantSchematic|function OperatorLine/);
+  for (const metric of ["PORTFOLIO ASSET HEALTH", "REGIONAL THROUGHPUT (MT/h)", "SUPPLY CHAIN LATENCY", "ACTIVE PROCESS ALARMS", "LINE 4 OEE", "FACILITY MTTR", "FILLER STATION TEMP", "UNITS/MIN", "CURRENT SHIFT YIELD"]) assert.ok(visuals.includes(metric));
   for (const fact of ["Filler pressure variance", "FIL-04 · Bottling Line 4", "Line Operations · WO-18427", "Return check pending"]) assert.match(visuals, new RegExp(fact));
   assert.match(visuals, /role="tablist"/);
   assert.match(visuals, /role="tabpanel"/);
   assert.match(visuals, /aria-live="polite"/);
   assert.match(visuals, /ArrowRight/);
-  assert.equal((visuals.match(/className="map-selected"/g) || []).length, 1);
+  assert.equal((visuals.match(/label: "SELECTED SITE"/g) || []).length, 1);
   assert.match(styles, /--lm-control-blue: #1d7cd8/);
   assert.match(styles, /background: #fff/);
   for (const role of ["C-SUITE", "PLANT MANAGER", "SUPERVISOR", "SHIFT WORKER"]) assert.match(visuals, new RegExp(role));

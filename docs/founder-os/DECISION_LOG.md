@@ -104,3 +104,7 @@ Decision: evolve only the approved Infinit-Control hero visual into a code-nativ
 ## 2026-08-16: Restore and center the original Home loop image
 
 Decision: preserve Feature 002's approved three-column phase-definition structure and restore the exact original commissioned `accountable-operations-loop-v3.png` image. Remove the superseded v4 asset. Vertically center the original image with a dedicated Flexbox center column using `align-items: center` and `justify-content: center`; do not use padding or offsets to simulate alignment. Record the correction as Spec Kit Feature 004.
+
+## 2026-08-16: Remove Home loop framing and restore control-portal fidelity
+
+Decision: treat the fourth-round correction as a focused fidelity repair, not another redesign. Preserve the Home three-column layout, definition spacing, original loop asset, and structural centering while removing the frame, fill, shadow, center oval, and overlapping copy. Preserve the working Infinit-Control role tabs and shared case while replacing low-detail role drawings with three original light engineering plates and denser role-specific measurement panels. Keep the portal labeled as a concept, retain existing control and safety boundaries, and record the correction as Spec Kit Feature 005.

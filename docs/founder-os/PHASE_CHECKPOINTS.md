@@ -43,3 +43,12 @@ Status: Feature 003 validated on the existing website-refresh workstream; not me
 - Added executive, plant-manager, and operator views of one shared example operating case.
 - Preserved claims, customer and access boundaries, equipment-control authority, and safety responsibilities.
 - Passed the full local validation and desktop and phone browser checks before push.
+
+## 2026-08-16 visual-fidelity correction checkpoint
+
+Status: Feature 005 implemented on the existing website-refresh workstream; not merged or deployed.
+
+- Removed the Home loop's remaining decorative frame and image overlays without changing the approved three-column composition.
+- Restored detailed light engineering imagery and dense role-specific panels to the existing Infinit-Control role portal.
+- Preserved the concept label, tab and keyboard behavior, shared case facts, controlled claims, customer boundaries, equipment-control authority, and safety responsibilities.
+- Desktop and phone browser checks pass; complete repository validation is recorded in the Feature 005 final consistency review.
