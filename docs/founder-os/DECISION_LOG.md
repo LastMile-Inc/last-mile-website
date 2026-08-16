@@ -92,3 +92,7 @@ Decision: never weaken branch protection to complete a merge. Merges, deployment
 ## 2026-08-16: Plain-language refinement without redesign
 
 Decision: treat the founder readability request as a focused editorial and accessibility refinement of the approved website, not a new design cycle. Preserve page structure, calculations, controlled claims, source relationships, customer boundaries, and safety authority. Translate editable headline and helper wording first; where exact controlled product wording must remain, introduce it with a plain-English explanation. Record the work as Spec Kit Feature 001 because the repository contained no earlier numbered Spec Kit feature.
+
+## 2026-08-16: Enterprise narrative redesign on the approved light foundation
+
+Decision: the founder's later direct request supersedes Feature 001's no-redesign constraint and authorizes a structural and narrative redesign across the core sales journey. Preserve sound foundation work, controlled claims, customer authority, and safety boundaries. Home owns the complete Accountable Operations Loop; Platform owns the integration architecture and must not repeat the loop. Infinit-Control may use a mission-control concept, but it must be identified as conceptual rather than deployed customer UI. The initially commissioned dark visual set conflicted with the refreshed site's approved visual standard, so the founder's correction restores white, pale-grey, steel, and restrained-blue imagery and prohibits black or near-black sections. Record the work as Spec Kit Feature 002.

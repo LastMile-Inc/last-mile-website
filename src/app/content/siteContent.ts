@@ -36,7 +36,7 @@ export const products = [
     number: "04",
     name: "Infinit-Control",
     route: "/infinit-control",
-    shortTitle: "See + Govern.",
+    shortTitle: "See + Observe.",
     copy: "Gives each role a governed operational command surface for live state, ownership, evidence, work, authority, system participation, and verified Outcomes.",
     input: "Current context, active work, decisions, source health, and return measurements",
     responsibility: "Role-based visibility, governed projections, measurement credibility, status, and recurrence monitoring",

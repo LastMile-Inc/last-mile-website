@@ -20,13 +20,13 @@ Executives, plant managers, operations leaders, supervisors, operators, and line
 
 ## Five-second promise
 
-See one live operating state from first signal to stable equipment.
+One operating truth. Tuned for every role.
 
 ## Narrative limits
 
 - Major sections: five including the hero.
 - Narrative copy: 450-650 words.
-- Primary visual: a bright mission-control-inspired industrial command center with real telemetry, facility context, and video surfaces.
+- Primary visual: a dark mission-control-inspired industrial command portal with real telemetry and facility context.
 - Supporting visuals: the existing role-based view, one multi-signal architecture, one field supervisor image, and the response-continuity view.
 - Closing CTA: none.
 
@@ -40,11 +40,11 @@ See one live operating state from first signal to stable equipment.
 
 ## Hero
 
-**Eyebrow:** INFINIT-CONTROL · GOVERNANCE + VALIDATION
+**Eyebrow:** INFINIT-CONTROL · OPERATIONS COMMAND PORTAL
 
-**Heading:** See one live operating state from first signal to stable equipment.
+**Heading:** One operating truth. Tuned for every role.
 
-**Body:** This is not another dashboard. Current impact, owner, authority, work, exceptions, and return readings stay together as the case changes.
+**Body:** Infinit-Control gives authorized teams one live view of operating impact, ownership, work, exceptions, and return measurements. Everyone sees the same case, from the C-suite to the shift worker, with only the detail their decision requires.
 
 **Support:** Executives, site leaders, and crews receive the detail appropriate to their decisions. No stale or missing reading can close the case.
 
@@ -60,7 +60,7 @@ Explain how separate alarms, trends, maps, work updates, schedules, and media re
 
 ## Role-based command
 
-Use the existing three-view composition. Executives see exposure and capacity. Site leaders see affected areas and owners. Supervisors see the asset, readings, work, and next action. Everyone remains on the same operating case.
+Use a four-view composition. The C-suite sees enterprise exposure. Plant managers see affected areas and owners. Supervisors see response progress. Shift workers see the asset, readings, work, and next action. Everyone remains on the same operating case.
 
 ## Multi-signal operating case
 
@@ -84,4 +84,4 @@ Use the existing response-continuity composition. Stale, quarantined, unresolved
 
 ## Exclusions
 
-No universal 75-tool claim, 90-percent response improvement, guaranteed uptime, autonomous plant control, partner logo wall, named unvalidated connector, unapproved architecture name, deployed-customer command-center claim, dark section, or closing CTA panel.
+No universal 75-tool claim, 90-percent response improvement, guaranteed uptime, autonomous plant control, partner logo wall, named unvalidated connector, unapproved architecture name, deployed-customer command-center claim, or closing CTA panel. Label the command portal as a concept interface.

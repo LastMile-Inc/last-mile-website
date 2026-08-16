@@ -10,7 +10,7 @@ const productRoles: ReadonlyArray<{ name: string; role: string; copy: string; ro
   { name: "Infinit-Signal", role: "Observe", copy: "Brings current readings in with their source, time, quality, and equipment identity intact.", route: "/infinit-signal", kind: "signal" },
   { name: "Singularity", role: "Understand", copy: "Builds a durable record of the equipment, history, decisions, and measured results.", route: "/singularity", kind: "context" },
   { name: "Infinit-Flow", role: "Decide · Coordinate · Act", copy: "Moves the response across people, approvals, work systems, providers, and authorized actions.", route: "/infinit-flow", kind: "flow" },
-  { name: "Infinit-Control", role: "See · Govern", copy: "Gives each authorized role the current condition, owner, work, measurements, and result in one view.", route: "/infinit-control", kind: "command" },
+  { name: "Infinit-Control", role: "Observe", copy: "Gives each authorized role the current condition, owner, work, measurements, and result in one view.", route: "/infinit-control", kind: "command" },
 ] as const;
 
 const loopIntro = "A response is not finished when the task closes. The Accountable Operations Loop keeps the issue, decision, work, and return readings connected until the equipment is stable again.";
@@ -37,18 +37,8 @@ function HomepageHero() {
 }
 
 function IndustryProblem() {
-  const sources: ReadonlyArray<{ label: string; detail: string; kind: OperationalIconKind }> = [
-    { label: "Machine signals", detail: "Alarms and sensor readings", kind: "signal" },
-    { label: "Operating history", detail: "Trends and earlier events", kind: "operational-data" },
-    { label: "Work activity", detail: "Tasks, owners, and status", kind: "work" },
-    { label: "Human decisions", detail: "Calls, approvals, and handoffs", kind: "people-authority" },
-  ];
   return <section id="industry-problem" className="lm-home-problem-section" aria-labelledby="industry-problem-heading"><div className="lm-v2-container">
-    <header className="lm-home-section-head lm-home-section-head--centered"><p className="lm-eyebrow">THE PROBLEM WE SEE EVERY DAY</p><h2 id="industry-problem-heading">The plant produced the facts. Nobody had the whole answer.</h2><p>Modern operations create more alarms, readings, history, work, and service updates than any person can assemble while production is moving. The equipment problem crosses OT and IT boundaries, but the context, owner, and physical result rarely cross with it.</p></header>
-    <div className="lm-home-problem-grid lm-home-problem-grid--v4">
-      <article className="lm-home-signal-pressure"><header><span>WHY NOW</span><h3>More automation creates more signals, more handoffs, and less time to decide.</h3><p>People do not need another dashboard full of data. They need the affected asset, the consequence, the accountable person, and the immediate decision.</p></header><div className="lm-home-signal-field"><div className="lm-home-signal-field__sources">{sources.map((source) => <div key={source.label}><OperationalIcon kind={source.kind} size="medium" /><span><strong>{source.label}</strong><small>{source.detail}</small></span></div>)}</div><div className="lm-home-signal-field__focus"><OperationalIcon kind="context" size="large" /><span>ONE OPERATING PICTURE</span><strong>What changed? Who owns it? What happens next?</strong></div></div></article>
-      <aside className="lm-home-plant-story"><span className="lm-home-plant-story__eyebrow">THE ARCHITECTURAL FAILURE</span><OperationalIcon kind="flow" size="large" label="Disconnected operating response" /><h3>No system owned the result across the boundaries.</h3><p>The control system knew the configuration. The work system knew the task. People knew what they had tried. The machine knew whether the response worked.</p><p>The operating story broke each time it crossed from one system or team to the next.</p><strong>Last Mile keeps that story intact.</strong></aside>
-    </div>
+    <header className="lm-home-section-head lm-home-section-head--centered"><p className="lm-eyebrow">THE PROBLEM WE SEE EVERY DAY</p><h2 id="industry-problem-heading">The plant produced the facts. Nobody had the whole answer.</h2><p>Modern plants are built from capable systems that each see only part of the operation. In the bottling-line failure, controls knew the settings, the work system knew the tasks, people knew what they had tried, and the machine showed the physical result. The architectural failure was that no layer kept those facts, decisions, owners, and return measurements together while production was moving.</p></header>
   </div></section>;
 }
 

@@ -24,10 +24,10 @@ Industry is not failing at data collection. It is failing to keep the whole resp
 
 ## Narrative limits
 
-- Major sections: five.
+- Major sections: four.
 - Narrative copy: 650-850 words.
 - Primary visual: a bright multi-tier industrial stack with the Last Mile layer clearly above existing systems.
-- Supporting visuals: one focused operator composition, the reusable code-native architecture, the connected-product system, and the exact shared commissioned Accountable Operations Loop with accessible HTML controls.
+- Supporting visuals: one focused operator composition, one enterprise-integration architecture, and the connected-product system.
 - Closing CTA: none. Hero navigation may link to the accountability gap and products.
 
 ## Page order
@@ -36,7 +36,6 @@ Industry is not failing at data collection. It is failing to keep the whole resp
 2. Data pressure and the human breaking point.
 3. The accountability gap across existing systems.
 4. One platform, four responsibilities.
-5. The Accountable Operations Loop and governed learning.
 
 ## Hero
 
@@ -62,7 +61,7 @@ Explain that increasing data volume only helps when source, time, quality, equip
 
 **Heading:** The systems are connected. The operating outcome often is not.
 
-Reuse the approved code-native three-layer architecture and the existing accountability sidecar. Keep the five gap statements: asset identity, fragmented condition, lost impact, work status substituting for recovery, and lost learning.
+Use the approved enterprise-integration architecture and the existing accountability sidecar. Show legacy industrial connections entering the Last Mile orchestration layer, then clear two-way paths to modern enterprise systems. Keep the gap statements: asset identity, fragmented condition, lost impact, and work status substituting for recovery.
 
 Retain the What Stays with Your Systems and People and What Last Mile Adds comparison with substantial operational icons.
 
@@ -75,13 +74,9 @@ Preserve the direct roles:
 - Infinit-Signal: Observe.
 - Singularity: Understand.
 - Infinit-Flow: Decide, Coordinate, Act.
-- Infinit-Control: See, Govern.
+- Infinit-Control: Observe.
 
 Verification remains collective platform behavior.
-
-## Accountable Operations Loop and learning
-
-Use the exact shared Home loop image, HTML stage controls, interactions, definitions, keyboard behavior, and reduced-motion behavior. Explain how the four products advance the same issue through Evidence, Understand, Decide, Coordinate, Act, and Verify. Keep the approved AI wording once. Consequential physical actions remain governed by customer policy and human authority.
 
 ## Research basis
 
@@ -90,4 +85,4 @@ Use the exact shared Home loop image, HTML stage controls, interactions, definit
 
 ## Exclusions
 
-No 90-percent waste claim, automation-readiness percentage, universal alarm benchmark, partner logo wall, named unvalidated connector, unapproved architecture name, dark industrial section, use-case dashboard, closing CTA panel, or autonomous-plant claim.
+No 90-percent waste claim, automation-readiness percentage, universal alarm benchmark, partner logo wall, named unvalidated connector, unapproved architecture name, use-case dashboard, closing CTA panel, or autonomous-plant claim. Do not repeat the Home Accountable Operations Loop section on this route.

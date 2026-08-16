@@ -6,7 +6,7 @@ const products = [
   ["/infinit-signal", "Infinit-Signal · Capture"],
   ["/singularity", "Singularity · Remember"],
   ["/infinit-flow", "Infinit-Flow · Coordinate"],
-  ["/infinit-control", "Infinit-Control · Govern"],
+  ["/infinit-control", "Infinit-Control · Observe"],
 ] as const;
 
 const explore = [

@@ -36,7 +36,7 @@ export function InfinitSignalPage() {
         eyebrow="INFINIT-SIGNAL · HIGH-VOLUME INDUSTRIAL INTAKE"
         title="Keep telemetry intact from the edge to the enterprise."
         intro="Infinit-Signal takes in alarms, measurements, state changes, history, and replay without flattening them into anonymous values. The original source, timestamp, equipment identity, and quality stay attached as traffic moves upstream."
-        support="Configured OPC UA, Modbus, MQTT, Sparkplug, historian, API, and governed file sources enter one priority-aware intake path before accepted records move to Singularity."
+        support="Configured OPC UA, Modbus, MQTT, Sparkplug, historian, API, and managed file sources enter one priority-aware intake path. Each connection method keeps its recognizable source meaning before accepted records move to Singularity."
         primary={{ label: "Review the Intake Architecture", to: "/infinit-signal#intake-architecture" }}
         secondary={{ label: "Review Engineering Targets", to: "/infinit-signal#scale-engineering" }}
         visual={<SignalHyperscaleHero />}

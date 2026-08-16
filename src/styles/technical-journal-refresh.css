@@ -424,3 +424,314 @@
     transform: translate(-50%,-50%);
   }
 }
+
+/* 2026 enterprise narrative pass: compact sections, architectural media, and exact corporate-blue interaction states. */
+.lm-technical-journal .lm-v2-section,
+.lm-technical-journal .lm-home-problem-section,
+.lm-technical-journal .lm-home-solution-v4,
+.lm-technical-journal .lm-home-value-section,
+.lm-technical-journal .lm-premium-loop-section,
+.lm-technical-journal .lm-enterprise-split-section,
+.lm-technical-journal .lm-platform-gap-story,
+.lm-technical-journal .lm-platform-product-system {
+  padding-block: clamp(56px, 6vw, 86px);
+}
+
+.lm-home-v5 .lm-home-problem-section .lm-v2-container {
+  display: grid;
+  place-items: center;
+}
+
+.lm-home-v5 .lm-home-problem-section .lm-home-section-head {
+  max-width: 980px;
+  margin: 0;
+}
+
+.lm-premium-loop-section {
+  background: var(--lm-surface);
+  color: var(--lm-copy);
+}
+
+.lm-premium-loop-section .lm-premium-loop-section__head {
+  margin-bottom: clamp(24px, 3vw, 36px);
+}
+
+.lm-premium-loop-section .lm-premium-loop-section__head h2,
+.lm-premium-loop-section .lm-premium-loop-definitions strong,
+.lm-premium-loop-section .lm-premium-loop-payoff strong {
+  color: var(--lm-ink);
+}
+
+.lm-premium-loop-section .lm-premium-loop-section__head > p:last-of-type,
+.lm-premium-loop-section .lm-premium-loop-definitions,
+.lm-premium-loop-section .lm-premium-loop-definitions p {
+  color: var(--lm-copy);
+}
+
+.lm-premium-loop-composition--three-column {
+  grid-template-columns: minmax(220px, .78fr) minmax(420px, 1.44fr) minmax(220px, .78fr);
+  gap: clamp(18px, 2.2vw, 34px);
+  align-items: start;
+}
+
+.lm-premium-loop-composition--three-column .lm-premium-loop-definitions {
+  gap: 12px;
+}
+
+.lm-premium-loop-composition--three-column .lm-premium-loop-definitions button {
+  min-height: 0;
+  padding: 14px 12px;
+  grid-template-columns: 26px 1fr;
+  gap: 10px;
+  border: 1px solid color-mix(in srgb, var(--lm-blue) 28%, transparent);
+  border-left: 2px solid var(--lm-blue);
+  background: color-mix(in srgb, var(--lm-surface) 92%, var(--lm-wash));
+}
+
+.lm-premium-loop-composition--three-column .lm-premium-loop-definitions button > span {
+  width: 24px;
+  height: 24px;
+  border-color: var(--lm-blue);
+  background: var(--lm-surface);
+}
+
+.lm-premium-loop-composition--three-column .lm-premium-loop-definitions li.is-active button {
+  border-color: var(--lm-blue);
+  background: color-mix(in srgb, var(--lm-blue) 10%, var(--lm-surface));
+  box-shadow: 0 12px 28px color-mix(in srgb, var(--lm-blue) 14%, transparent);
+}
+
+.lm-premium-loop-composition--three-column .lm-premium-loop-definitions em,
+.lm-premium-loop-section .lm-premium-loop-definitions small,
+.lm-premium-loop-section .lm-premium-loop-payoff p {
+  color: var(--lm-blue-dark);
+}
+
+.lm-premium-loop-section .lm-precision-loop--generated {
+  aspect-ratio: 16 / 9;
+  border-color: color-mix(in srgb, var(--lm-blue) 42%, transparent);
+  border-radius: 18px;
+  background: var(--lm-surface);
+  box-shadow: 0 24px 58px rgba(38, 50, 68, .12);
+}
+
+.lm-premium-loop-section .lm-precision-loop--generated > img {
+  object-fit: contain;
+  filter: none;
+}
+
+.lm-premium-loop-section .lm-precision-loop__generated-core {
+  top: 50%;
+  width: 43%;
+  min-height: 29%;
+  border-color: color-mix(in srgb, var(--lm-blue) 55%, transparent);
+  background: color-mix(in srgb, var(--lm-surface) 94%, transparent);
+  box-shadow: 0 16px 38px rgba(38, 50, 68, .12);
+}
+
+.lm-premium-loop-section .lm-precision-loop__generated-core strong {
+  max-width: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: clamp(4px, .55vw, 9px);
+  color: var(--lm-ink);
+  font-size: clamp(12px, 1vw, 17px);
+  line-height: 1;
+  white-space: nowrap;
+}
+
+.lm-premium-loop-section .lm-precision-loop__generated-core strong b,
+.lm-premium-loop-section .lm-precision-loop__generated-core strong i {
+  font: inherit;
+}
+
+.lm-premium-loop-section .lm-precision-loop__generated-core strong i,
+.lm-premium-loop-section .lm-precision-loop__generated-core span {
+  color: var(--lm-blue-dark);
+}
+
+.lm-premium-loop-section .lm-precision-loop__generated-core small {
+  color: var(--lm-copy);
+}
+
+.lm-premium-loop-section .lm-premium-loop-payoff {
+  margin-top: clamp(26px, 3vw, 38px);
+  border-color: color-mix(in srgb, var(--lm-blue) 38%, transparent);
+  background: var(--lm-wash);
+}
+
+.lm-platform-accountability-visual {
+  position: relative;
+  min-width: 0;
+  margin: 0;
+  overflow: hidden;
+  border: 1px solid color-mix(in srgb, var(--lm-blue) 46%, transparent);
+  border-radius: 22px 4px;
+  background: var(--lm-surface);
+  box-shadow: 0 26px 64px rgba(38, 50, 68, .12);
+}
+
+.lm-platform-accountability-visual img {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: contain;
+}
+
+.lm-platform-accountability-visual figcaption {
+  padding: 14px 18px;
+  border-top: 1px solid color-mix(in srgb, var(--lm-blue) 32%, transparent);
+  background: var(--lm-wash);
+  color: var(--lm-copy);
+  font-size: 12px;
+  line-height: 1.5;
+  text-align: center;
+}
+
+.lm-control-mission-hero {
+  padding: clamp(42px, 5vw, 74px) 0 clamp(50px, 6vw, 86px);
+  overflow: hidden;
+  border-bottom: 1px solid var(--lm-steel);
+  background: var(--lm-surface);
+}
+
+.lm-control-mission-hero > .lm-v2-container {
+  width: min(1480px, calc(100% - 48px));
+  display: grid;
+  gap: clamp(30px, 4vw, 54px);
+}
+
+.lm-control-mission-hero__copy {
+  max-width: 1100px;
+}
+
+.lm-control-mission-hero__copy h1 {
+  max-width: 1000px;
+  margin: 14px 0 0;
+  color: var(--lm-ink);
+  font-size: clamp(52px, 6vw, 92px);
+  line-height: .94;
+  letter-spacing: -.055em;
+}
+
+.lm-control-mission-hero__copy > p:not(.lm-eyebrow) {
+  max-width: 900px;
+  margin: 22px 0 0;
+  color: var(--lm-copy);
+  font-size: clamp(18px, 1.5vw, 22px);
+  line-height: 1.6;
+}
+
+.lm-control-mission-hero__copy > strong {
+  display: block;
+  width: fit-content;
+  margin-top: 18px;
+  padding: 10px 14px;
+  border-left: 3px solid var(--lm-blue);
+  background: var(--lm-wash);
+  color: var(--lm-ink);
+}
+
+.lm-control-mission-hero__copy .lm-actions {
+  margin-top: 24px;
+}
+
+.lm-control-mission-hero__copy .lm-button--secondary {
+  border-color: var(--lm-steel);
+  background: var(--lm-surface);
+  color: var(--lm-ink);
+}
+
+.lm-control-mission-hero__visual {
+  margin: 0;
+  overflow: hidden;
+  border: 1px solid color-mix(in srgb, var(--lm-blue) 45%, transparent);
+  border-radius: 18px 4px;
+  background: var(--lm-surface);
+  box-shadow: 0 28px 68px rgba(38, 50, 68, .13);
+}
+
+.lm-control-mission-hero__visual img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.lm-control-mission-hero__visual figcaption {
+  padding: 12px 16px;
+  color: var(--lm-copy);
+  font-size: 12px;
+  line-height: 1.5;
+  text-align: center;
+}
+
+.lm-control-v5 .lm-control-roles > ol {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.lm-signal-zettabyte-stat > strong,
+.lm-signal-targets article:nth-child(3) > strong {
+  max-width: 100%;
+  white-space: nowrap;
+}
+
+.lm-signal-zettabyte-stat > strong {
+  font-size: clamp(52px, 6vw, 86px);
+}
+
+.lm-signal-targets article:nth-child(3) > strong {
+  font-size: clamp(25px, 2.65vw, 38px);
+  letter-spacing: -.07em;
+}
+
+@media (min-width: 921px) {
+  .lm-use-cases-hero-v2__layout { align-items: start; }
+  .lm-use-cases-hero-v2__copy { grid-column: 1; grid-row: 1; }
+  .lm-use-cases-hero-v2__visual { grid-column: 2; grid-row: 1; }
+}
+
+@media (max-width: 1180px) {
+  .lm-premium-loop-composition--three-column {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .lm-premium-loop-composition--three-column .lm-precision-loop {
+    grid-column: 1 / -1;
+    grid-row: 1;
+  }
+
+  .lm-control-v5 .lm-control-roles > ol {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 700px) {
+  .lm-control-mission-hero > .lm-v2-container {
+    width: min(100% - 24px, 1480px);
+  }
+
+  .lm-control-mission-hero__copy h1 {
+    font-size: clamp(42px, 13vw, 62px);
+  }
+
+  .lm-premium-loop-composition--three-column,
+  .lm-control-v5 .lm-control-roles > ol {
+    grid-template-columns: 1fr;
+  }
+
+  .lm-premium-loop-composition--three-column .lm-precision-loop {
+    grid-column: 1;
+  }
+
+  .lm-premium-loop-composition--three-column .lm-premium-loop-definitions:nth-of-type(1) { grid-row: 2; }
+  .lm-premium-loop-composition--three-column .lm-premium-loop-definitions:nth-of-type(2) { grid-row: 3; }
+
+  .lm-premium-loop-section .lm-precision-loop__generated-core {
+    width: 54%;
+  }
+
+  .lm-premium-loop-section .lm-precision-loop__generated-core strong {
+    font-size: clamp(10px, 3vw, 14px);
+  }
+}

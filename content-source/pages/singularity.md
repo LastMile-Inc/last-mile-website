@@ -42,11 +42,11 @@ One durable operating record for every physical asset.
 
 **Eyebrow:** SINGULARITY · SEMANTIC OPERATING MEMORY
 
-**Heading:** One durable operating record for every physical asset.
+**Heading:** The Standard Semantic Object Model for Physical Operations.
 
 **Body:** Raw telemetry does not explain the operation. Singularity connects each reading to the asset, location, history, decision, action, and measured result that give it meaning.
 
-**Support:** The record aligns with Unified Namespace architectures and uses the open Standardized Semantic Object Model to keep source identity, time, quality, relationships, and provenance intact.
+**Support:** Singularity aligns with Unified Namespace, or UNS, architectures. A UNS makes current plant information easier to find. Singularity gives that information durable identity and meaning while keeping source, time, quality, and equipment relationships intact.
 
 **Visual purpose:** Show several source-linked industrial records becoming one layered operating record. Do not depict a monolithic data vault, dark background, or autonomous control.
 

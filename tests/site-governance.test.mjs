@@ -111,7 +111,6 @@ test("active public pages do not use generic closing or next-step sections", () 
 test("Home owns the company story, Platform owns architecture, and public concepts hide governance enums", () => {
   const home = read("src/app/pages/HomePage.tsx");
   const platform = read("src/app/pages/PlatformOverviewPage.tsx");
-  const architecture = read("src/app/components/PlatformArchitectureGraphic.tsx");
   const accountableLoop = read("src/app/components/AccountableOperationsLoop.tsx");
   const article = read("src/app/pages/IndustrialConceptArticlePage.tsx");
 
@@ -121,17 +120,15 @@ test("Home owns the company story, Platform owns architecture, and public concep
   assert.equal(homepageSections.length, 5);
   assert.doesNotMatch(home, /PlatformLoopMapping|IndustryUseCases|operatingScenarioList|CompanyClose|<NextStep|Brownfield by Design/);
 
-  const platformSections = ["PlatformHero", "DataPressure", "AccountabilityGap", "ProductSystem", "AccountableOperationsLoop"];
+  const platformSections = ["PlatformHero", "DataPressure", "AccountabilityGap", "ProductSystem"];
   for (const section of platformSections) assert.match(platform, new RegExp("<" + section));
-  assert.match(platform, /PlatformArchitectureGraphic/);
+  assert.match(platform, /accountability-gap-v2\.png/);
   assert.match(platform, /const products/);
-  assert.doesNotMatch(platform, /OperatingArchitecture|PlatformNextStep|START WITH THE GAP|platformReferenceData|operatingScenarioList|Cooling Loop|USECASE-/);
-  for (const layer of ["LAST MILE PLATFORM", "EXISTING OT, DATA, WORK & SERVICE ECOSYSTEM", "PLANT \/ SITE \/ OT ENVIRONMENT"]) {
-    assert.match(architecture, new RegExp(layer));
-  }
-  assert.doesNotMatch(architecture, /WHAT LAST MILE ADDS|MISSING CONDITION-TO-OUTCOME ACCOUNTABILITY LAYER/i);
+  assert.doesNotMatch(platform, /AccountableOperationsLoop|THE LEARNING OPERATIONS PLATFORM|OperatingArchitecture|PlatformNextStep|START WITH THE GAP|platformReferenceData|operatingScenarioList|Cooling Loop|USECASE-/);
   assert.match(accountableLoop, /PrecisionLoopGraphic/);
-  assert.match(accountableLoop, /Four products\. One Accountable Operations Loop\./);
+  assert.match(accountableLoop, /lm-premium-loop-composition--three-column/);
+  assert.match(accountableLoop, /accountable-operations-loop-v4\.png/);
+  assert.match(accountableLoop, /Condition[\s\S]*Response[\s\S]*Outcome/);
 
   assert.doesNotMatch(home, /platform-core-blueprint|generic.*network.*hero/i);
   assert.doesNotMatch(article, /claimMaturity|reference_architecture|perspective\s*\//i);
@@ -196,16 +193,18 @@ test("main product workflow keeps retired specialist wording out of primary expl
   ]) {
     assert.ok(!primaryCopy.toLowerCase().includes(retiredPhrase), `Retired phrase returned: ${retiredPhrase}`);
   }
-
   const singularity = read("src/app/pages/SSOMPage.tsx");
   assert.doesNotMatch(singularity, /bounded digital steps/i);
-  assert.match(singularity, /Unified Namespace, the shared naming structure for current plant information/);
+  assert.match(singularity, /The Standard Semantic Object Model for Physical Operations\./);
+  assert.match(singularity, /aligns with Unified Namespace/);
+  assert.match(singularity, /Unified Namespace, or UNS, architectures/);
 });
 test("Infinit-Flow quantifies workflow value without repeating process diagrams", () => {
   const page = read("src/app/pages/InfinitFlowPage.tsx");
   const visuals = read("src/app/components/InfinitFlowExperience.tsx");
   const styles = read("src/styles/flow-control-redesign.css");
-  for (const section of ["At Last Mile, manual is a dirty word", "SEE THE WHOLE RESPONSE", "DOCUMENT ONCE", "GIVE THE CREW THE CONTEXT FIRST", "ORCHESTRATE ACROSS WHAT YOU ALREADY RUN", "IMPROVE THE NEXT RESPONSE"]) assert.match(page, new RegExp(section));
+  for (const section of ["execution engine for closed-loop accountability across disconnected systems", "SEE THE WHOLE RESPONSE", "DOCUMENT ONCE", "GIVE THE CREW THE CONTEXT FIRST", "ORCHESTRATE ACROSS WHAT YOU ALREADY RUN", "IMPROVE THE NEXT RESPONSE"]) assert.match(page, new RegExp(section));
+  assert.match(page, /Two-way connections with customer-approved CMMS and EAM work systems/);
   for (const visual of ["FlowArchitectureHero", "FlowStudioVisual", "FlowMeasurementVisual", "FlowRecoveryVisual", "FlowArchitectureVisual", "FlowImprovementVisual"]) assert.match(page, new RegExp(visual));
   for (const asset of ["infinit-flow-control-room.png", "infinit-flow-reliability-engineer.png", "infinit-flow-orchestration-architecture.png"]) assert.match(visuals, new RegExp(asset.replace(/[.]/g, "\\.")));
   for (const measure of ["MANUAL TOUCHES", "HANDOFF DELAY", "CYCLE TIME", "REWORK", "ON-TIME RATE", "MTTR"]) assert.match(visuals, new RegExp(measure));
@@ -217,8 +216,10 @@ test("Infinit-Flow quantifies workflow value without repeating process diagrams"
 test("Infinit-Control uses a facility-based command view and clear operating priorities", () => {
   const page = read("src/app/pages/InfinitControlPage.tsx");
   const visuals = read("src/app/components/InfinitControlExperience.tsx");
-  for (const section of ["See one live operating state from first signal to stable equipment", "END THE SWIVEL-CHAIR RESPONSE", "ONE CASE. THREE DECISION LEVELS", "BRING THE SIGNALS TO THE ISSUE", "GOVERN BY STATE, NOT SCREEN"]) assert.match(page, new RegExp(section));
-  for (const visual of ["ControlRoleVisual", "ControlPriorityVisual", "ControlContinuityVisual", "ControlCommandCenterVisual", "field-command-v2.png"]) assert.match(page, new RegExp(visual.replace(/[.]/g, "\\.")));
+  for (const section of ["One operating truth. Tuned for every role", "END THE SWIVEL-CHAIR RESPONSE", "ONE CASE. EVERY DECISION LEVELS?", "BRING THE SIGNALS TO THE ISSUE", "GOVERN BY STATE, NOT SCREEN"]) assert.match(page, new RegExp(section));
+  assert.match(page, /mission-control-portal-v2\.png/);
+  for (const role of ["C-SUITE", "PLANT MANAGER", "SUPERVISOR", "SHIFT WORKER"]) assert.match(visuals, new RegExp(role));
+  for (const visual of ["ControlRoleVisual", "ControlPriorityVisual", "ControlCommandCenterVisual", "field-command-v2.png"]) assert.match(page, new RegExp(visual.replace(/[.]/g, "\\.")));
   for (const scope of ["UTILITY PLANT", "ELECTRICAL SERVICE", "DATA HALL 1", "DATA HALL 2", "DATA HALL 3", "CHILLED WATER LOOP B"]) assert.match(visuals, new RegExp(scope));
   assert.doesNotMatch(visuals, /<image|avatar|OPERATING FOOTPRINT|NORTH AMERICA|chuck-operator/);
   assert.doesNotMatch(page, /Design Your Operating View|NextStep|BUILD THE RIGHT VIEW|ONE OPERATION, EVERY ALTITUDE|NOTHING IMPORTANT GOES UNSEEN|A VIEW TEAMS CAN TRUST/);
@@ -232,6 +233,8 @@ test("primary navigation includes keyboard, outside-click, escape, mobile disclo
   assert.match(navigation, /pointerdown/);
   assert.match(navigation, /MobileGroup/);
   assert.match(navigation, /NavLink to="\/use-cases" label="Use Cases"/);
+  assert.match(navigation, /Infinit-Control · Observe/);
+  assert.doesNotMatch(navigation, /Infinit-Control · Govern/);
   assert.doesNotMatch(navigation, /Open Use Cases scenario menu/);
   for (const scenario of operatingScenarioList.filter((scenario) => scenario.route !== "/use-cases/data-center-cooling")) assert.ok(!navigation.includes(scenario.route));
   assert.match(navigation, /Cooling Redundancy Proof/);

@@ -29,14 +29,14 @@ export function ControlCommandCenterVisual() {
   </figure>;
 }
 
-const roleViews = [{ label: "EXECUTIVE", question: "Where is operating risk?", facts: ["1 site constrained", "Production protected", "Owner assigned"] }, { label: "SITE LEADER", question: "What is affected?", facts: ["Data Hall 3", "Cooling Loop B", "N+1 unavailable"] }, { label: "SUPERVISOR", question: "What happens next?", facts: ["Inspect CHWP-02", "WO-18427 active", "Return readings due"] }] as const;
+const roleViews = [{ label: "C-SUITE", question: "Where is enterprise risk?", facts: ["1 site constrained", "Production protected", "Owner assigned"] }, { label: "PLANT MANAGER", question: "What is affected?", facts: ["Data Hall 3", "Cooling Loop B", "N+1 unavailable"] }, { label: "SUPERVISOR", question: "Is the response moving?", facts: ["Critical Facilities owns it", "WO-18427 active", "Return check pending"] }, { label: "SHIFT WORKER", question: "What happens next?", facts: ["Inspect CHWP-02", "Follow approved work", "Record return readings"] }] as const;
 
 export function ControlRoleVisual() {
-  return <figure className="lm-experience lm-control-roles" aria-labelledby="control-role-caption">
+  return <figure id="role-views" className="lm-experience lm-control-roles" aria-labelledby="control-role-caption">
     <header><span>ONE CONNECTED OPERATING CASE</span><strong>Cooling redundancy reduced · Data Hall 3</strong><small>Owner: Critical Facilities</small></header>
     <ol>{roleViews.map((view, index) => <li key={view.label}><div><i>{String(index + 1).padStart(2, "0")}</i><span>{view.label}</span></div><h3>{view.question}</h3><ul>{view.facts.map(fact => <li key={fact}>{fact}</li>)}</ul></li>)}</ol>
     <footer><span>ENTERPRISE</span><i /><span>SITE</span><i /><span>SYSTEM</span><i /><span>ASSET</span><i /><span>CONDITION</span></footer>
-    <figcaption id="control-role-caption" className="lm-visually-hidden">Executive, site-leader, and supervisor views answer different questions from the same connected cooling-redundancy case.</figcaption>
+    <figcaption id="control-role-caption" className="lm-visually-hidden">C-suite, plant-manager, supervisor, and shift-worker views answer different questions from the same connected cooling-redundancy case.</figcaption>
   </figure>;
 }
 

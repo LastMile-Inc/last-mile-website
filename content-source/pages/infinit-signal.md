@@ -57,7 +57,7 @@ The page ends on engineering targets. Do not add a generic closing CTA.
 
 **Body:** Infinit-Signal takes in alarms, measurements, state changes, history, and replay without flattening them into anonymous values. The original source, timestamp, equipment identity, and quality stay attached as traffic moves upstream.
 
-**Support:** Configured OPC UA, Modbus, MQTT, Sparkplug, historian, API, and governed file sources enter one priority-aware intake path before accepted records move to Singularity.
+**Support:** Configured OPC UA, Modbus, MQTT, Sparkplug, historian, API, and managed file sources enter one priority-aware intake path. Each connection method keeps its recognizable source meaning before accepted records move to Singularity.
 
 **Primary CTA:** Review the Intake Architecture
 

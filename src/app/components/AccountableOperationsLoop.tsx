@@ -62,39 +62,41 @@ export function AccountableOperationsLoop({ context = "home", introCopy, learnin
           <p>{introCopy ?? "A closed ticket only says the task ended. The loop keeps the problem, response, work, and return readings connected until the operation is stable again."}</p>
         </>}
       </header>
-      <div ref={rootRef} className="lm-premium-loop-composition">
-        <PrecisionLoopGraphic activeStage={activeStage} onSelect={setSelectedStage} />
-        <ol className="lm-premium-loop-definitions">
-          {loopStages.map((stage, index) => <li key={stage.name} className={activeStage === index ? "is-active" : activeStage >= 0 ? "is-muted" : ""}>
-            <button
-              type="button"
-              onMouseEnter={() => setSelectedStage(index)}
-              onMouseLeave={() => setSelectedStage(null)}
-              onFocus={() => setSelectedStage(index)}
-              onBlur={() => setSelectedStage(null)}
-              aria-label={`${stage.name}: ${stage.headline}`}
-            >
-              <span aria-hidden="true" />
-              <div><em>{stage.name}</em><strong>{stage.headline}</strong><p>{stage.copy}</p>{stage.note ? <small>{stage.note}</small> : null}</div>
-            </button>
-          </li>)}
-        </ol>
+      <div ref={rootRef} className="lm-premium-loop-composition lm-premium-loop-composition--three-column">
+        <StageDefinitions stages={loopStages.slice(0, 3)} startIndex={0} activeStage={activeStage} onSelect={setSelectedStage} />
+        <PrecisionLoopGraphic activeStage={activeStage} />
+        <StageDefinitions stages={loopStages.slice(3)} startIndex={3} activeStage={activeStage} onSelect={setSelectedStage} />
       </div>
       <div className="lm-premium-loop-payoff"><strong>{context === "platform" ? "A new kind of learning, automated operations platform." : "Every verified fix improves the next operating decision."}</strong><p>{learningCopy}{context === "platform" ? " Customer policy and human authority remain in control." : ""}</p></div>
     </div>
   </section>;
 }
 
-function PrecisionLoopGraphic({ activeStage, onSelect }: { activeStage: number; onSelect: (stage: number | null) => void }) {
+function StageDefinitions({ stages, startIndex, activeStage, onSelect }: { stages: readonly LoopStage[]; startIndex: number; activeStage: number; onSelect: (stage: number | null) => void }) {
+  return <ol className="lm-premium-loop-definitions">
+    {stages.map((stage, localIndex) => {
+      const index = startIndex + localIndex;
+      return <li key={stage.name} className={activeStage === index ? "is-active" : activeStage >= 0 ? "is-muted" : ""}>
+            <button
+              type="button"
+              onMouseEnter={() => onSelect(index)}
+              onMouseLeave={() => onSelect(null)}
+              onFocus={() => onSelect(index)}
+              onBlur={() => onSelect(null)}
+              aria-label={`${stage.name}: ${stage.headline}`}
+            >
+              <span aria-hidden="true" />
+              <div><em>{stage.name}</em><strong>{stage.headline}</strong><p>{stage.copy}</p>{stage.note ? <small>{stage.note}</small> : null}</div>
+            </button>
+          </li>;
+    })}
+  </ol>;
+}
+
+function PrecisionLoopGraphic({ activeStage }: { activeStage: number }) {
   return <figure className="lm-precision-loop lm-precision-loop--generated" data-active-stage={activeStage} aria-labelledby="precision-loop-caption">
-    <img src="/images/platform/accountable-operations-loop-v3.png" alt="A continuous six-segment engineered ring reconnects the measured result to the next operating decision." width="1672" height="941" loading="lazy" />
-    <div className="lm-precision-loop__generated-core" aria-hidden="true"><span>THE LAST MILE</span><strong>Condition → Response → Outcome</strong><small>One accountable operational cycle</small></div>
-    <ol className="lm-precision-loop__generated-labels" aria-label="Accountable Operations Loop stages">
-      {loopStages.map((stage, index) => <li key={stage.name} className={`lm-precision-loop__generated-label lm-precision-loop__generated-label--${index}${activeStage === index ? " is-active" : activeStage >= 0 ? " is-muted" : ""}`}>
-        <button type="button" aria-pressed={activeStage === index} aria-label={`${stage.name}: ${stage.headline}`} onMouseEnter={() => onSelect(index)} onMouseLeave={() => onSelect(null)} onFocus={() => onSelect(index)} onBlur={() => onSelect(null)} onClick={() => onSelect(index)}><i aria-hidden="true" /><span>{stage.name}</span></button>
-      </li>)}
-    </ol>
-    <span className="lm-precision-loop__generated-return" aria-hidden="true">VERIFY RECONNECTS TO EVIDENCE</span>
+    <img src="/images/platform/accountable-operations-loop-v4.png" alt="A continuous six-part engineered loop carries a blue signal through one complete operating cycle." width="1672" height="941" loading="lazy" />
+    <div className="lm-precision-loop__generated-core"><span>THE LAST MILE</span><strong><b>Condition</b><i aria-hidden="true">→</i><b>Response</b><i aria-hidden="true">→</i><b>Outcome</b></strong><small>One accountable operational cycle</small></div>
     <figcaption id="precision-loop-caption" className="lm-visually-hidden">The return reading becomes the starting point for the next decision.</figcaption>
   </figure>;
 }

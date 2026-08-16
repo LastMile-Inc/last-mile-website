@@ -1,7 +1,5 @@
 import { ArrowRight } from "lucide-react";
-import { AccountableOperationsLoop } from "@/app/components/AccountableOperationsLoop";
 import { OperationalIcon, type OperationalIconKind } from "@/app/components/OperationalIcon";
-import { PlatformArchitectureGraphic } from "@/app/components/PlatformArchitectureGraphic";
 import { SEO } from "@/app/components/SEO";
 import { TrackedLink } from "@/app/components/TrackedLink";
 import { createBreadcrumbSchema, createProductSchema } from "@/app/lib/structuredData";
@@ -10,7 +8,7 @@ const products: ReadonlyArray<{ name: string; role: string; copy: string; route:
   { name: "Infinit-Signal", role: "Observe", copy: "Qualifies current readings with their source, time, quality, and equipment identity intact.", route: "/infinit-signal", kind: "signal" },
   { name: "Singularity", role: "Understand", copy: "Keeps durable operating identity, context, history, and measured results together.", route: "/singularity", kind: "context" },
   { name: "Infinit-Flow", role: "Decide · Coordinate · Act", copy: "Carries the response through policy, people, work systems, providers, approvals, and authorized action.", route: "/infinit-flow", kind: "flow" },
-  { name: "Infinit-Control", role: "See · Govern", copy: "Shows authorized roles the current problem, owner, work, measurements, authority, and result.", route: "/infinit-control", kind: "command" },
+  { name: "Infinit-Control", role: "Observe", copy: "Shows authorized roles the current problem, owner, work, measurements, authority, and result.", route: "/infinit-control", kind: "command" },
 ];
 
 const accountabilityGaps: ReadonlyArray<{ title: string; copy: string; kind: OperationalIconKind }> = [
@@ -34,11 +32,9 @@ const added: ReadonlyArray<{ label: string; kind: OperationalIconKind }> = [
   { label: "One measured result", kind: "verification" },
 ];
 
-const platformLearningCopy = "Because Last Mile sees the full lifecycle from first signal through verified recovery, AI can compare the decisions, handoffs, actions, delays, and return readings that shaped the result. No useful learning is lost, successful resolution steps do not have to be rediscovered, and approved improvements can be applied automatically the next time a similar issue appears.";
-
 export function PlatformOverviewPage() {
   const description = "The accountable operating layer across the OT, data, work, service, and plant systems already in place.";
-  return <><SEO title="Last Mile Platform | Orchestration Across Industrial Operations" description={description} canonicalPath="/platform" jsonLd={[createProductSchema("Last Mile Platform", "/platform", description), createBreadcrumbSchema([{ name: "Home", path: "/" }, { name: "Platform", path: "/platform" }])]} /><main className="lm-platform-page lm-platform-story lm-platform-architecture-page lm-platform-v4"><PlatformHero /><DataPressure /><AccountabilityGap /><ProductSystem /><AccountableOperationsLoop context="platform" learningCopy={platformLearningCopy} /></main></>;
+  return <><SEO title="Last Mile Platform | Orchestration Across Industrial Operations" description={description} canonicalPath="/platform" jsonLd={[createProductSchema("Last Mile Platform", "/platform", description), createBreadcrumbSchema([{ name: "Home", path: "/" }, { name: "Platform", path: "/platform" }])]} /><main className="lm-platform-page lm-platform-story lm-platform-architecture-page lm-platform-v4"><PlatformHero /><DataPressure /><AccountabilityGap /><ProductSystem /></main></>;
 }
 
 function PlatformHero() {
@@ -52,7 +48,7 @@ function DataPressure() {
 function AccountabilityGap() {
   return <section id="accountability-gap" className="lm-platform-gap-story" aria-labelledby="accountability-gap-heading"><div className="lm-platform-container lm-platform-container--wide">
     <header className="lm-platform-section__head"><p className="lm-eyebrow">THE ACCOUNTABILITY GAP</p><h2 id="accountability-gap-heading">The systems are connected. The operating result often is not.</h2><p>Your production systems stay in place. Last Mile supplies the connective operating layer across their boundaries and keeps the issue moving to a measured completion.</p></header>
-    <div className="lm-platform-gap-story__composition"><PlatformArchitectureGraphic compact /><aside className="lm-platform-gap-sidecar" aria-label="What falls between otherwise capable systems"><header><span>WHAT FALLS BETWEEN SYSTEMS</span><strong>The missing operating context</strong></header><ol>{accountabilityGaps.map((gap) => <li key={gap.title}><OperationalIcon kind={gap.kind} size="small" /><div><strong>{gap.title}</strong><p>{gap.copy}</p></div></li>)}</ol></aside></div>
+    <div className="lm-platform-gap-story__composition"><figure className="lm-platform-accountability-visual"><img src="/images/platform/accountability-gap-v2.png" alt="Industrial data from legacy plant systems passes through the Last Mile orchestration layer and becomes clear, two-way paths to modern enterprise systems." width="1823" height="863" loading="lazy" /><figcaption>Legacy protocols and modern enterprise systems remain in place. Last Mile keeps identity, operating context, ownership, and measured results connected between them.</figcaption></figure><aside className="lm-platform-gap-sidecar" aria-label="What falls between otherwise capable systems"><header><span>WHAT FALLS BETWEEN SYSTEMS</span><strong>The missing operating context</strong></header><ol>{accountabilityGaps.map((gap) => <li key={gap.title}><OperationalIcon kind={gap.kind} size="small" /><div><strong>{gap.title}</strong><p>{gap.copy}</p></div></li>)}</ol></aside></div>
     <div className="lm-ownership-comparison lm-ownership-comparison--icons"><OwnershipColumn title="What stays with your systems and people" items={retained} /><OwnershipColumn title="What Last Mile adds" items={added} emphasized /></div>
   </div></section>;
 }

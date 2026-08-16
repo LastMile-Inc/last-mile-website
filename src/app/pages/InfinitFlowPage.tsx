@@ -11,8 +11,8 @@ export function InfinitFlowPage() {
       <EditorialHero
         eyebrow="INFINIT-FLOW · EXECUTION + ORCHESTRATION"
         title="Closed-loop accountability across disconnected systems."
-        intro="At Last Mile, manual is a dirty word. If a response lives in someone's head, inbox, spreadsheet, or whiteboard, it is hard to run the same way twice. Infinit-Flow maps the real work and keeps its context attached as the response crosses systems and teams."
-        support="Policy, ownership, timing, approvals, digital actions, receipts, exceptions, and return readings remain part of one governed path."
+        intro="Infinit-Flow is the execution engine for closed-loop accountability across disconnected systems. It maps the real work and keeps the condition, owner, decision, action, and measured result attached as the response crosses systems and teams."
+        support="Two-way connections with customer-approved CMMS and EAM work systems can send approved work and bring status, receipts, exceptions, and completion details back into the same response. Physical authority remains with customer policy and people."
         visual={<FlowArchitectureHero />}
       />
 
@@ -46,7 +46,7 @@ export function InfinitFlowPage() {
         id="orchestration-architecture"
         eyebrow="ORCHESTRATE ACROSS WHAT YOU ALREADY RUN"
         title="Keep your systems in place. Connect the work between them."
-        intro="Infinit-Flow coordinates the approved response across qualified signals, asset context, work systems, service providers, approvals, and return telemetry. It can qualify inputs, assign the owner, enforce timing, route approved digital work, request approval, record receipts, and raise exceptions. Consequential physical actions remain governed by customer policy and human authority."
+        intro="Infinit-Flow coordinates the approved response across qualified signals, asset context, CMMS and EAM work systems, service providers, approvals, and return telemetry. Its two-way path can send customer-approved work and receive status, receipts, exceptions, and completion details. It can qualify inputs, assign the owner, enforce timing, request approval, and raise exceptions. Consequential physical actions remain governed by customer policy and human authority."
         tone="grid"
       >
         <FlowArchitectureVisual />

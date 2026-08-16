@@ -38,7 +38,7 @@ Closed-loop accountability across disconnected systems.
 
 **Body:** At Last Mile, manual is a dirty word. If a response lives in someone's head, inbox, spreadsheet, or whiteboard, it is hard to run the same way twice. Infinit-Flow maps the real work and keeps its context attached as the response crosses systems and teams.
 
-**Support:** Policy, ownership, timing, approvals, digital actions, receipts, exceptions, and return readings remain part of one governed path.
+**Support:** Two-way connections with customer-approved CMMS and EAM work systems can send approved work and bring status, receipts, exceptions, and completion details back into the same response. Physical authority remains with customer policy and people.
 
 ## Workflow section
 
@@ -76,7 +76,7 @@ Closed-loop accountability across disconnected systems.
 
 **Heading:** Keep your systems in place. Connect the work between them.
 
-**Body:** Infinit-Flow participates in the approved operating path across qualified signals, asset context, work systems, service providers, approvals, and return telemetry. It does not claim a connector until that connector is validated. It does not move a consequential physical action unless customer policy and authority allow it.
+**Body:** Infinit-Flow participates in the approved operating path across qualified signals, asset context, CMMS and EAM work systems, service providers, approvals, and return telemetry. A customer-approved two-way path can send work and receive status, receipts, exceptions, and completion details. It does not claim a connector until that connector is validated. It does not move a consequential physical action unless customer policy and authority allow it.
 
 **Visual:** A light three-part architecture showing operating inputs, the governed workflow core, coordinated work, and return telemetry. Use generic system families, not customer or partner logos.
 

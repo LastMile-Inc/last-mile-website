@@ -205,7 +205,6 @@
       "allowedRoutes": ["/", "/platform", "/singularity", "/resources/industrial-concepts/industrial-ai"],
       "uses": [
         { "route": "/", "sourceFile": "src/app/pages/HomePage.tsx", "wording": "Because Last Mile sees the full lifecycle from first signal through verified recovery, AI can compare the decisions, handoffs, actions, delays, and return readings that shaped the result. No useful learning is lost, successful resolution steps do not have to be rediscovered, and approved improvements can be applied automatically the next time a similar issue appears." },
-        { "route": "/platform", "sourceFile": "src/app/pages/PlatformOverviewPage.tsx", "wording": "Because Last Mile sees the full lifecycle from first signal through verified recovery, AI can compare the decisions, handoffs, actions, delays, and return readings that shaped the result. No useful learning is lost, successful resolution steps do not have to be rediscovered, and approved improvements can be applied automatically the next time a similar issue appears." },
         { "route": "/singularity", "sourceFile": "src/app/pages/SSOMPage.tsx", "wording": "Because Last Mile sees the full lifecycle from first signal through verified recovery, AI can compare the decisions, handoffs, actions, delays, and return readings that shaped the result. No useful learning is lost, successful resolution steps do not have to be rediscovered, and approved improvements can be applied automatically the next time a similar issue appears." }
       ]
     },    {

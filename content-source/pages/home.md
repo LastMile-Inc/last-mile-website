@@ -64,7 +64,7 @@ No eyebrow above the hero title.
 
 **Heading:** The plant produced the facts. Nobody had the whole answer.
 
-Explain the real operating burden. One issue may appear as an alarm in SCADA, a trend in the historian, a work order in the CMMS, and a provider update somewhere else. More sensors and automation create more fragments unless the operation can connect them quickly.
+Explain the real operating burden in one text-only editorial section. Do not add supporting imagery here. One issue may appear as an alarm in SCADA, a trend in the historian, a work order in the CMMS, and a provider update somewhere else. More sensors and automation create more fragments unless the operation can connect them quickly.
 
 Retain the founder-provided bottling-line lesson as a concise example. Do not present it as a customer deployment or Last Mile result.
 
@@ -81,13 +81,13 @@ Show the direct product roles in one connected rail:
 - Infinit-Signal: Observe.
 - Singularity: Understand.
 - Infinit-Flow: Decide, Coordinate, Act.
-- Infinit-Control: See, Govern.
+- Infinit-Control: Observe.
 
 Keep product copy to one sentence each. Verification is collective platform behavior.
 
 ## Accountable Operations Loop
 
-Use the exact shared loop composition and exact stage order: Evidence, Understand, Decide, Coordinate, Act, Verify, then Evidence again.
+Use a three-column loop composition: Evidence, Understand, and Decide on the left; the commissioned loop in the center; Coordinate, Act, and Verify on the right. Keep Condition, Response, and Outcome in one horizontal sequence. Preserve the exact stage order: Evidence, Understand, Decide, Coordinate, Act, Verify, then Evidence again.
 
 Use "Work completed is not the same as problem solved" once. Keep the approved AI wording once after the loop. Use the commissioned six-stage ring as the visual surface while keeping every stage name, definition, selected state, and keyboard interaction in accessible HTML.
 
@@ -107,4 +107,4 @@ Explain four benefits in plain language:
 
 ## Exclusions
 
-No universal downtime cost, guaranteed MTTR reduction, guaranteed ROI, adoption percentage, partner logo wall, named unvalidated connector, unapproved architecture name, customer proof, industry use-case cards, or closing CTA panel. Keep all imagery in the approved light palette.
+No universal downtime cost, guaranteed MTTR reduction, guaranteed ROI, adoption percentage, partner logo wall, named unvalidated connector, unapproved architecture name, customer proof, industry use-case cards, or closing CTA panel.
