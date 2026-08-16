@@ -85,7 +85,7 @@ export function ControlSignalSpectrum() {
 }
 
 export function ControlBoundaryVisual() {
-  const items = [["SCADA + BMS","Deterministic control","Remain in place"],["SIS","Safety authority","Remains in place"],["WORK SYSTEMS","Records of work","Remain in place"],["MEDIA SYSTEMS","Authorized feeds","Remain in place"]] as const;
+  const items = [["SCADA + BMS","Direct equipment control","Remain in place"],["SIS","Safety authority","Remains in place"],["WORK SYSTEMS","Records of work","Remain in place"],["MEDIA SYSTEMS","Authorized feeds","Remain in place"]] as const;
   return <figure className="lm-product-art lm-product-art--boundary" aria-labelledby="control-boundary-caption">
     <svg className="lm-product-art__desktop" viewBox="0 0 1200 480" aria-hidden="true">
       <defs><linearGradient id="boundaryLayer" x1="0" x2="1"><stop stopColor="var(--lm-blue-dark)" /><stop offset="1" stopColor="var(--lm-blue)" /></linearGradient></defs>

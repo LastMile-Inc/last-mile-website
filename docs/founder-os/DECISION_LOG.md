@@ -89,3 +89,6 @@ Decision: remove the inactive ServiceNow-era catalog, generated API artifacts, c
 ## 2026-08-10 — protection boundaries
 
 Decision: never weaken branch protection to complete a merge. Merges, deployment, GCP mutation, ownership/visibility changes, release of under-review architecture, and catalog revival require explicit founder approval at the action boundary.
+## 2026-08-16: Plain-language refinement without redesign
+
+Decision: treat the founder readability request as a focused editorial and accessibility refinement of the approved website, not a new design cycle. Preserve page structure, calculations, controlled claims, source relationships, customer boundaries, and safety authority. Translate editable headline and helper wording first; where exact controlled product wording must remain, introduce it with a plain-English explanation. Record the work as Spec Kit Feature 001 because the repository contained no earlier numbered Spec Kit feature.

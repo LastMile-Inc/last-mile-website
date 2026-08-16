@@ -159,7 +159,7 @@ test("Infinit-Signal preserves source meaning while making scale targets explici
   const unsEnd = signal.indexOf("function SignalScaleRunway");
   const unsVisual = signal.slice(unsStart, unsEnd);
 
-  for (const section of ["Keep telemetry intact from the edge to the enterprise.", "THE DATA-VOLUME PROBLEM", "ZERO-BLOCK PRIORITY ROUTING", "AI-READY HANDOFF", "YOUR UNS STAYS YOURS", "UNRELENTING SCALE ENGINEERING", "SignalScaleRunway"]) {
+  for (const section of ["Keep telemetry intact from the edge to the enterprise.", "THE DATA-VOLUME PROBLEM", "PRIORITY ROUTING WITHOUT DELAYS", "AI-READY HANDOFF", "YOUR UNS STAYS YOURS", "UNRELENTING SCALE ENGINEERING", "SignalScaleRunway"]) {
     assert.match(signal, new RegExp(section.replace(/[+]/g, "\\+")));
   }
   assert.match(signal, /priority-aware 24x7 ingestion and backpressure isolation/);
@@ -176,6 +176,30 @@ test("Infinit-Signal preserves source meaning while making scale targets explici
   assert.match(unsVisual, /QUALIFY/);
   assert.match(unsVisual, /DURABLE OPERATING/);
   assert.doesNotMatch(unsVisual, /OperationalIcon|lm-signal-uns-journey/);
+});
+
+test("main product workflow keeps retired specialist wording out of primary explanations", () => {
+  const primaryCopy = [
+    read("src/app/pages/InfinitSignalPage.tsx"),
+    read("src/app/pages/ResourcesPage.tsx"),
+    read("src/app/components/InfinitControlExperience.tsx"),
+    read("src/app/components/InfinitControlArtwork.tsx"),
+  ].join("\n");
+
+  for (const retiredPhrase of [
+    "hyperscale industrial intake",
+    "zero-block priority routing",
+    "schemas, mappings, and crosswalks",
+    "tenant isolation",
+    "payload size",
+    "deterministic control",
+  ]) {
+    assert.ok(!primaryCopy.toLowerCase().includes(retiredPhrase), `Retired phrase returned: ${retiredPhrase}`);
+  }
+
+  const singularity = read("src/app/pages/SSOMPage.tsx");
+  assert.doesNotMatch(singularity, /bounded digital steps/i);
+  assert.match(singularity, /Unified Namespace, the shared naming structure for current plant information/);
 });
 test("Infinit-Flow quantifies workflow value without repeating process diagrams", () => {
   const page = read("src/app/pages/InfinitFlowPage.tsx");

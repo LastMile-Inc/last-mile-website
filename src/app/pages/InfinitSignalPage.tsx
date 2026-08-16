@@ -5,9 +5,9 @@ import { EditorialHero, EditorialSection, InlineLink } from "@/app/components/Na
 import { createBreadcrumbSchema, createProductSchema } from "@/app/lib/structuredData";
 
 const sourceFamilies: ReadonlyArray<{ label: string; detail: string; kind: OperationalIconKind }> = [
-  { label: "MQTT + SPARKPLUG", detail: "Topics, payloads, sessions, and publisher context", kind: "signal" },
+  { label: "MQTT + SPARKPLUG", detail: "Message topics, contents, connection sessions, and sending-system context", kind: "signal" },
   { label: "OPC UA", detail: "Information models, events, history, and source quality", kind: "control-system" },
-  { label: "BACNET + MODBUS", detail: "Customer-approved building and edge adapter outputs", kind: "production" },
+  { label: "BACNET + MODBUS", detail: "Customer-approved building and local connection outputs", kind: "production" },
   { label: "HISTORIANS + APIs", detail: "Time-series history, industrial platforms, and services", kind: "operational-data" },
   { label: "GOVERNED FILES", detail: "JSON, repository-managed files, and spreadsheets", kind: "resource" },
 ] as const;
@@ -25,7 +25,7 @@ const handoffSteps: ReadonlyArray<{ label: string; title: string; copy: string; 
   { label: "STRUCTURE", title: "Prepare one operating record", copy: "Map the accepted record for Singularity while keeping a reversible crosswalk to the source that produced it.", kind: "context" },
 ] as const;
 
-const testProfile = ["Sustained rate", "Burst rate", "Payload size", "Source concurrency", "Recovery time", "Store-and-forward window"] as const;
+const testProfile = ["Sustained rate", "Burst rate", "Message size", "Connected sources", "Recovery time", "Offline storage window"] as const;
 
 export function InfinitSignalPage() {
   const description = "Infinit-Signal is the high-velocity industrial intake engine that preserves source meaning, protects critical traffic, and prepares trusted records for Singularity.";
@@ -33,7 +33,7 @@ export function InfinitSignalPage() {
     <SEO title="Infinit-Signal | Built for Volume and Industrial Data Velocity" description={description} canonicalPath="/infinit-signal" jsonLd={[createProductSchema("Infinit-Signal", "/infinit-signal", description), createBreadcrumbSchema([{ name: "Home", path: "/" }, { name: "Infinit-Signal", path: "/infinit-signal" }])]} />
     <main className="lm-v2-page lm-product-story-page lm-product-story-page--signal lm-signal-story lm-signal-v5">
       <EditorialHero
-        eyebrow="INFINIT-SIGNAL · HYPERSCALE INDUSTRIAL INTAKE"
+        eyebrow="INFINIT-SIGNAL · HIGH-VOLUME INDUSTRIAL INTAKE"
         title="Keep telemetry intact from the edge to the enterprise."
         intro="Infinit-Signal takes in alarms, measurements, state changes, history, and replay without flattening them into anonymous values. The original source, timestamp, equipment identity, and quality stay attached as traffic moves upstream."
         support="Configured OPC UA, Modbus, MQTT, Sparkplug, historian, API, and governed file sources enter one priority-aware intake path before accepted records move to Singularity."
@@ -51,13 +51,13 @@ export function InfinitSignalPage() {
       >
         <div className="lm-signal-zettabyte-layout">
           <article className="lm-signal-zettabyte-stat"><span>IDC 2019 FORECAST FOR 2025</span><strong>79.4 ZB</strong><h3>Roughly 80 zettabytes across connected IoT devices.</h3><p>IDC forecast that 41.6 billion connected IoT devices would generate 79.4 ZB of data in 2025. The figure covers IoT broadly, not industrial IoT alone. The operating lesson is still clear: volume without source context, time, and quality is not ready for an industrial decision.</p><a href="https://www.telecomtv.com/content/iot/the-growth-in-connected-iot-devices-is-expected-to-generate-79-4zb-of-data-in-2025-according-to-a-new-idc-forecast-35522/" target="_blank" rel="noreferrer">Review the IDC forecast summary</a></article>
-          <div className="lm-signal-source-matrix"><header><span>MEET THE SOURCES WHERE THEY ARE</span><strong>Preserve the plant model. Qualify the flow.</strong></header>{sourceFamilies.map((source) => <article key={source.label}><OperationalIcon kind={source.kind} size="medium" /><div><h3>{source.label}</h3><p>{source.detail}</p></div></article>)}<p>Infinit-Signal is designed for configured MQTT, Sparkplug, OPC UA, BACnet, Modbus, historian, industrial platform, API, and governed file source families through customer-approved adapters or versioned Source Platform Profiles.</p></div>
+          <div className="lm-signal-source-matrix"><header><span>MEET THE SOURCES WHERE THEY ARE</span><strong>Keep the plant model. Check the incoming data.</strong></header>{sourceFamilies.map((source) => <article key={source.label}><OperationalIcon kind={source.kind} size="medium" /><div><h3>{source.label}</h3><p>{source.detail}</p></div></article>)}<p>These source types connect through customer-approved connection methods or versioned setup files. In exact product terms, Infinit-Signal is designed for configured MQTT, Sparkplug, OPC UA, BACnet, Modbus, historian, industrial platform, API, and governed file source families through customer-approved adapters or versioned Source Platform Profiles.</p></div>
         </div>
         <div className="lm-signal-source-link"><InlineLink to="/resources/industrial-concepts/opc-ua">See how Infinit-Signal preserves OPC UA source meaning</InlineLink></div>
       </EditorialSection>
 
       <EditorialSection
-        eyebrow="ZERO-BLOCK PRIORITY ROUTING"
+        eyebrow="PRIORITY ROUTING WITHOUT DELAYS"
         title="Critical events move now. Backfill waits without freezing the current picture."
         intro="A recovered connection can release a wall of historical traffic just as a new alarm arrives. Infinit-Signal separates those workloads so live critical records are not trapped behind replay."
         tone="grid"
@@ -91,7 +91,7 @@ export function InfinitSignalPage() {
       >
         <div className="lm-signal-uns-layout">
           <SignalUnsProgression />
-          <div className="lm-signal-uns-copy"><span>LIVE DATA + GOVERNED MAPPING</span><h3>The UNS remains the customer&apos;s communication and discovery fabric.</h3><p>Infinit-Signal consumes only the subscriptions you configure and preserves the broker, publisher, topic, session, timestamp, quality, retained state, and replay context your teams worked to establish. JSON, repository-managed files, and spreadsheets can separately supply schemas, mappings, and crosswalks. The source stays recognizable, and the plant does not have to start over around Last Mile.</p><div className="lm-signal-mapping-formats" aria-label="Mapping and configuration formats"><b>JSON</b><b>REPOSITORY</b><b>SPREADSHEET</b></div></div>
+          <div className="lm-signal-uns-copy"><span>LIVE DATA + MANAGED MAPPING</span><h3>The UNS remains the customer&apos;s communication and discovery fabric.</h3><p>A Unified Namespace, or UNS, is the shared naming structure that makes current plant information easier to find. Infinit-Signal reads only the subscriptions you configure and keeps the broker, sending system, topic, connection session, timestamp, quality, saved state, and replay details your teams established. JSON, repository-managed files, and spreadsheets can separately supply data formats, mappings, and name matches. The source stays recognizable, and the plant does not have to start over around Last Mile.</p><div className="lm-signal-mapping-formats" aria-label="Mapping and setup file formats"><b>JSON</b><b>REPOSITORY</b><b>SPREADSHEET</b></div></div>
         </div>
         <InlineLink to="/resources/industrial-concepts/uns-and-ssom">See how the UNS and Singularity work together</InlineLink>
       </EditorialSection>

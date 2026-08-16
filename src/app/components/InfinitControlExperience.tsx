@@ -56,7 +56,7 @@ const responseSteps = [["FIRST WARNING", "Pump command and feedback disagree"], 
 export function ControlContinuityVisual() {
   return <figure className="lm-experience lm-control-continuity" aria-labelledby="control-continuity-caption">
     <ol>{responseSteps.map(([label,detail],index) => <li key={label}><i>{String(index + 1).padStart(2, "0")}</i><span>{label}</span><strong>{detail}</strong></li>)}</ol>
-    <div className="lm-control-continuity__boundary"><header><span>INFINIT-CONTROL PRESENTS THE CROSS-SYSTEM RESPONSE</span><strong>Customer-authorized actions only</strong></header><div>{[["SCADA + BMS","Deterministic control"],["SIS","Safety authority"],["WORK SYSTEM","Record of work"],["LOCAL HMI","Equipment operation"]].map(([system,role]) => <article key={system}><strong>{system}</strong><span>{role} remains in place</span></article>)}</div></div>
+    <div className="lm-control-continuity__boundary"><header><span>INFINIT-CONTROL PRESENTS THE CROSS-SYSTEM RESPONSE</span><strong>Customer-authorized actions only</strong></header><div>{[["SCADA + BMS","Direct equipment control"],["SIS","Safety authority"],["WORK SYSTEM","Record of work"],["LOCAL HMI","Equipment operation"]].map(([system,role]) => <article key={system}><strong>{system}</strong><span>{role} remains in place</span></article>)}</div></div>
     <figcaption id="control-continuity-caption" className="lm-visually-hidden">The command view follows the issue through warning, ownership, work, return measurements, and current state while SCADA, BMS, SIS, work systems, and local HMIs retain their responsibilities.</figcaption>
   </figure>;
 }

@@ -66,3 +66,11 @@ Updated: 2026-08-15
 - Do not deploy the website or mutate GCP.
 - Do not publish architecture r1.3 as released.
 - Do not revive catalog syncs, manufactured OpenAPI, or ServiceNow Store delivery claims.
+# 2026-08-16 readability audit handoff
+
+- Added Spec Kit Feature 001 for a scoped plain-language readability audit; this is a refinement, not a redesign.
+- Updated visible wording on Infinit-Signal, Singularity, Infinit-Control, and Resources while preserving exact controlled claims and operating boundaries.
+- Added a product-workflow wording regression test. Content tests pass 23 of 23.
+- Governance, editorial, content-control, types, lint, production build, built-output verification, and whitespace checks pass. Lint retains the six existing Fast Refresh warnings and no errors.
+- Browser checks at 1440 by 900 and 390 by 844 found no horizontal overflow, missing image descriptions, unlabeled buttons, or console errors. Keyboard focus remained visible with the approved blue outline.
+- Local review remains available at http://127.0.0.1:5173/. No merge, deployment, publishing, cloud resource, or GCP change was performed.

@@ -1,6 +1,6 @@
 # Current state
 
-Updated: 2026-08-15
+Updated: 2026-08-16
 
 ## Platform and public narrative
 
@@ -10,6 +10,7 @@ Updated: 2026-08-15
 - The public website is governed by the conservative claims authority chain declared in `content-source/public-claims.json`: release gate, detailed claims registry, route-use manifest, then rendered consumer.
 
 ## Website
+- Feature 001 completed a scoped readability refinement across Infinit-Signal, Singularity, Infinit-Control, and Resources without redesigning the approved compositions or changing controlled claims. High-volume intake, priority handling, source setup, Unified Namespace, message-size testing, customer workspace separation, approved digital steps, and direct equipment control now lead with ordinary-language explanations. A focused governance test prevents the retired headline and helper phrases from returning to the main product workflow.
 - The current local redesign applies one technical-journal visual system across the public shell, Home, Platform, the four product routes, Use Cases, and Resources. The global product navigation now follows Infinit-Signal, Singularity, Infinit-Flow, then Infinit-Control. Home anchors the story on the bottling-line architectural failure and the shared Accountable Operations Loop. Product heroes lead with concrete technical capability and architecture rather than generic dashboards. Four original generated visuals use the approved pale-blue, steel, grey, white, and ink palette at their native 1672 by 941 resolution. Unsupported connector, benchmark, autonomous-control, data-vault, and absolute-performance claims remain excluded.
 - The local Resources route is now an enterprise technical-intelligence hub. Signal 2 Action is the primary editorial property, followed by governed UNS, SSOM, semantic interoperability, and open-protocol briefs; inspectable Infinit-Signal, OT-security, and cooling-reference paths; and a clearly separated historical archive. Three original light-theme industrial visuals support the page at their native 1672 by 941 output. The page does not revive an unapproved gateway name, market target throughput as an achieved benchmark, call the security model a private data vault, or treat historical vendor material as current proof.
 - The local Use Cases hub now presents one enterprise operating story: a concrete industrial hero, an accessible path from OPC UA, Modbus, BACnet, MQTT, and Sparkplug through the four canonical Last Mile Products, a searchable four-scenario catalog with equipment and official industry-reference context, and a source-linked operating record. It uses three original light-theme industrial images at their native 1672 by 941 output rather than publishing a false 4K upscale. The page does not introduce an unapproved gateway product, imply autonomous equipment control, guarantee compliance, name a privileged work-system vendor, or publish universal uptime and savings claims.
