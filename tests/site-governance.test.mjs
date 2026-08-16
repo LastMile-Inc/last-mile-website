@@ -134,6 +134,13 @@ test("Home owns the company story, Platform owns architecture, and public concep
   assert.doesNotMatch(accountableLoop, /lm-precision-loop__generated-core|One accountable operational cycle/);
   assert.match(styles, /\.lm-premium-loop-composition--three-column \.lm-premium-loop-center \{[\s\S]*?display: flex;[\s\S]*?align-items: center;[\s\S]*?justify-content: center;/);
   assert.match(styles, /\.lm-premium-loop-section \.lm-precision-loop--generated \{[\s\S]*?border: 0;[\s\S]*?background: transparent;[\s\S]*?box-shadow: none;/);
+  assert.match(accountableLoop, /setIntroPlaying\(true\)/);
+  assert.match(accountableLoop, /loopStages\.forEach[\s\S]*setAnimatedStage\(index\)/);
+  assert.match(accountableLoop, /setAnimatedStage\(-1\)[\s\S]*setIntroPlaying\(false\)/);
+  assert.match(accountableLoop, /lm-precision-loop__illuminations/);
+  assert.match(accountableLoop, /lm-precision-loop__hit-areas/);
+  assert.match(accountableLoop, /onMouseEnter[\s\S]*onFocus/);
+  for (let index = 0; index < 6; index += 1) assert.match(styles, new RegExp(`lm-precision-loop__illumination--${index}`));
 
   assert.doesNotMatch(home, /platform-core-blueprint|generic.*network.*hero/i);
   assert.doesNotMatch(article, /claimMaturity|reference_architecture|perspective\s*\//i);
@@ -230,21 +237,23 @@ test("Infinit-Control uses an interactive light command portal and clear operati
     assert.match(visuals, new RegExp(asset.replace(/[.]/g, "\\.")));
     assert.ok(fs.existsSync(path.join(root, "public/images/products/infinit-control", asset)), `${asset} must remain in the published asset set`);
   }
-  for (const component of ["RoleVisualization", "MetricSparkline"]) assert.match(visuals, new RegExp(`function ${component}`));
+  for (const component of ["RoleVisualization", "MiniTrend", "HealthPanel", "SystemsPanel", "AlertsPanel", "KpiPanel", "WorkPanel", "ReturnPanel", "SnapshotBar"]) assert.match(visuals, new RegExp(`function ${component}`));
   assert.doesNotMatch(visuals, /function ExecutiveMap|function PlantSchematic|function OperatorLine/);
-  for (const metric of ["PORTFOLIO ASSET HEALTH", "REGIONAL THROUGHPUT (MT/h)", "SUPPLY CHAIN LATENCY", "ACTIVE PROCESS ALARMS", "LINE 4 OEE", "FACILITY MTTR", "FILLER STATION TEMP", "UNITS/MIN", "CURRENT SHIFT YIELD"]) assert.ok(visuals.includes(metric));
+  for (const metric of ["Portfolio Asset Health", "REGIONAL THROUGHPUT (MT/h)", "SUPPLY CHAIN LATENCY", "12ms", "HIGH-LEVEL OEE", "88.4%", "Plant Health", "PROCESS", "UTILITIES", "ELECTRICAL", "12,450 TPH", "ENERGY INTENSITY", "WATER USAGE", "EMISSIONS", "FILLER STATION TEMP", "180°C", "UNITS/MIN", "450", "CURRENT SHIFT YIELD", "98.2%", "ACTIVE LINE ALARMS", "NEXT PM CYCLE", "4 hrs"]) assert.ok(visuals.includes(metric));
+  assert.match(visuals, /work: \{ total: "156"/);
+  for (const panel of ["Operational Condition", "Systems Overview", "Alerts & Notifications", "KPI Summary", "Current Scope", "Work", "Live Measurements"]) assert.ok(visuals.includes(panel));
   for (const fact of ["Filler pressure variance", "FIL-04 · Bottling Line 4", "Line Operations · WO-18427", "Return check pending"]) assert.match(visuals, new RegExp(fact));
   assert.match(visuals, /role="tablist"/);
   assert.match(visuals, /role="tabpanel"/);
   assert.match(visuals, /aria-live="polite"/);
   assert.match(visuals, /ArrowRight/);
-  assert.equal((visuals.match(/label: "SELECTED SITE"/g) || []).length, 1);
+  assert.equal((visuals.match(/label: "SELECTED SITE", value: "NORTH RIDGE PLANT", x:/g) || []).length, 1);
   assert.match(styles, /--lm-control-blue: #1d7cd8/);
   assert.match(styles, /background: #fff/);
   for (const role of ["C-SUITE", "PLANT MANAGER", "SUPERVISOR", "SHIFT WORKER"]) assert.match(visuals, new RegExp(role));
   for (const visual of ["ControlRoleVisual", "ControlPriorityVisual", "ControlCommandCenterVisual", "field-command-v2.png"]) assert.match(page, new RegExp(visual.replace(/[.]/g, "\\.")));
   for (const scope of ["UTILITY PLANT", "ELECTRICAL SERVICE", "DATA HALL 1", "DATA HALL 2", "DATA HALL 3", "CHILLED WATER LOOP B"]) assert.match(visuals, new RegExp(scope));
-  assert.doesNotMatch(visuals, /<image|avatar|OPERATING FOOTPRINT|NORTH AMERICA|chuck-operator/);
+  assert.doesNotMatch(visuals, /<image|avatar|OPERATING FOOTPRINT|chuck-operator/);
   assert.doesNotMatch(page, /Design Your Operating View|NextStep|BUILD THE RIGHT VIEW|ONE OPERATION, EVERY ALTITUDE|NOTHING IMPORTANT GOES UNSEEN|A VIEW TEAMS CAN TRUST/);
 });
 test("primary navigation includes keyboard, outside-click, escape, mobile disclosure behavior, and a direct use-case catalog link", () => {

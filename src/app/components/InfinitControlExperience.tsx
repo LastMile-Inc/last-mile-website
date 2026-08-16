@@ -1,15 +1,12 @@
-import { useState, type KeyboardEvent } from "react";
+import { useState, type KeyboardEvent, type ReactNode } from "react";
 
 type PortalRole = "executive" | "plant" | "operator";
 
 type PortalMetric = {
   label: string;
   value: string;
-  detail: string;
-  level: number;
-  status: string;
+  status?: string;
   trend: readonly number[];
-  rows: readonly { label: string; value: string }[];
 };
 
 type PortalView = {
@@ -20,7 +17,14 @@ type PortalView = {
   image: string;
   imageAlt: string;
   tags: readonly { label: string; value: string; x: string; y: string }[];
-  metrics: readonly [PortalMetric, PortalMetric, PortalMetric, PortalMetric];
+  health: { label: string; value: number; status: string; breakdown: readonly PortalMetric[] };
+  systems: readonly PortalMetric[];
+  alerts: readonly { label: string; value: string; action: string }[];
+  kpis: readonly PortalMetric[];
+  scopeRows: readonly { label: string; value: string }[];
+  work: { total: string; rows: readonly { label: string; value: string }[] };
+  returns: readonly PortalMetric[];
+  snapshot: readonly PortalMetric[];
 };
 
 const portalRoles: readonly PortalRole[] = ["executive", "plant", "operator"];
@@ -38,11 +42,48 @@ const portalViews: Record<PortalRole, PortalView> = {
       { label: "OPERATING CASE", value: "FIL-04 · ACTIVE", x: "72%", y: "66%" },
       { label: "REGIONAL PATH", value: "CENTRAL · QUALIFIED", x: "27%", y: "29%" },
     ],
-    metrics: [
-      { label: "PORTFOLIO ASSET HEALTH", value: "94%", detail: "Selected site assets available", level: 94, status: "STABLE", trend: [81,84,83,87,86,91,89,93,92,94], rows: [{ label: "TARGET", value: "92%" }, { label: "CHANGE", value: "+1.8%" }] },
-      { label: "REGIONAL THROUGHPUT (MT/h)", value: "12,450", detail: "Current selected-site output", level: 83, status: "ON PLAN", trend: [58,61,65,63,69,72,74,71,79,83], rows: [{ label: "PLAN", value: "12,300" }, { label: "DELTA", value: "+150" }] },
-      { label: "SUPPLY CHAIN LATENCY", value: "18 min", detail: "Current regional material delay", level: 72, status: "WATCH", trend: [41,38,44,49,45,57,53,64,61,72], rows: [{ label: "LIMIT", value: "25 min" }, { label: "TREND", value: "+3 min" }] },
-      { label: "HIGH-LEVEL OEE", value: "91.2%", detail: "Availability, speed, and quality", level: 91, status: "STABLE", trend: [77,79,82,80,85,87,86,90,89,91], rows: [{ label: "AVAIL", value: "94.1%" }, { label: "QUALITY", value: "98.2%" }] },
+    health: { label: "Portfolio Asset Health", value: 94, status: "STABLE", breakdown: [
+      { label: "RELIABILITY", value: "95.1%", trend: [78,81,80,84,86,85,89,91,90,94] },
+      { label: "AVAILABILITY", value: "96.2%", trend: [83,85,84,87,89,88,92,91,94,96] },
+      { label: "HIGH-LEVEL OEE", value: "88.4%", trend: [74,76,79,77,82,81,85,84,87,88] },
+    ] },
+    systems: [
+      { label: "NORTH AMERICA", value: "94.6%", status: "18 SITES", trend: [70,74,73,78,81,79,85,84,89,94] },
+      { label: "EUROPE", value: "92.1%", status: "11 SITES", trend: [68,71,75,74,79,82,80,86,89,92] },
+      { label: "APAC", value: "91.7%", status: "9 SITES", trend: [66,69,72,76,74,79,83,82,88,91] },
+    ],
+    alerts: [
+      { label: "PORTFOLIO ADVISORIES", value: "3", action: "ACKNOWLEDGED" },
+      { label: "SUPPLY WATCHES", value: "1", action: "ACTIVE" },
+      { label: "CRITICAL", value: "0", action: "CLEAR" },
+    ],
+    kpis: [
+      { label: "REGIONAL THROUGHPUT (MT/h)", value: "42,860", trend: [72,74,77,75,81,84,83,87,90,92] },
+      { label: "SUPPLY CHAIN LATENCY", value: "12ms", trend: [42,38,40,35,37,32,29,31,26,24] },
+      { label: "HIGH-LEVEL OEE", value: "88.4%", trend: [77,79,78,82,84,83,86,85,87,88] },
+      { label: "ACTIVE SITES", value: "38", trend: [34,34,35,35,36,36,37,37,38,38] },
+    ],
+    scopeRows: [
+      { label: "PORTFOLIO OWNER", value: "NORTH RIDGE INDUSTRIES" },
+      { label: "ACTIVE REGION", value: "CENTRAL OPERATIONS" },
+      { label: "SELECTED SITE", value: "NORTH RIDGE PLANT" },
+      { label: "REPORTING WINDOW", value: "CURRENT SHIFT" },
+    ],
+    work: { total: "483", rows: [
+      { label: "PLANNED", value: "212" }, { label: "IN PROGRESS", value: "148" }, { label: "PENDING", value: "91" }, { label: "ON HOLD", value: "32" },
+    ] },
+    returns: [
+      { label: "REGIONAL DEMAND", value: "87%", trend: [73,74,77,75,80,82,81,84,86,87] },
+      { label: "ENERGY INTENSITY", value: "0.89 GJ/t", trend: [89,87,86,84,83,81,80,78,76,74] },
+      { label: "SERVICE LEVEL", value: "98.1%", trend: [90,92,91,94,93,95,96,95,97,98] },
+      { label: "ORDER VARIANCE", value: "1.7%", trend: [39,37,34,33,30,28,27,24,22,20] },
+    ],
+    snapshot: [
+      { label: "TOTAL ASSETS", value: "18,462", trend: [80,81,82,83,84,86,87,88,89,90] },
+      { label: "ONLINE ASSETS", value: "17,354", trend: [78,79,81,82,83,84,86,87,88,89] },
+      { label: "UTILIZATION", value: "84.2%", trend: [74,76,75,78,80,79,82,81,83,84] },
+      { label: "REGIONAL OEE", value: "88.4%", trend: [77,79,78,82,84,83,86,85,87,88] },
+      { label: "SITES ON PLAN", value: "34 / 38", trend: [82,82,84,84,86,86,87,88,89,89] },
     ],
   },
   plant: {
@@ -57,11 +98,52 @@ const portalViews: Record<PortalRole, PortalView> = {
       { label: "UTILITY HEADER", value: "PRESSURE STABLE", x: "30%", y: "56%" },
       { label: "PROCESS CELL 08", value: "FLOW QUALIFIED", x: "48%", y: "24%" },
     ],
-    metrics: [
-      { label: "ACTIVE PROCESS ALARMS", value: "14", detail: "Three require owner review", level: 58, status: "ATTENTION", trend: [32,38,35,44,49,46,55,52,61,58], rows: [{ label: "P1", value: "0" }, { label: "P2 / P3", value: "3 / 11" }] },
-      { label: "LINE 4 OEE", value: "82%", detail: "Availability, speed, and quality", level: 82, status: "WATCH", trend: [72,74,71,76,78,77,80,79,83,82], rows: [{ label: "TARGET", value: "86%" }, { label: "GAP", value: "-4.0%" }] },
-      { label: "FACILITY MTTR", value: "24 min", detail: "Current mean repair time", level: 68, status: "IMPROVING", trend: [82,78,75,79,69,66,63,59,57,52], rows: [{ label: "30 DAY", value: "31 min" }, { label: "CHANGE", value: "-7 min" }] },
-      { label: "PLANT THROUGHPUT", value: "12,450 MT/h", detail: "Current plant output", level: 86, status: "ON PLAN", trend: [64,68,66,72,75,73,78,81,84,86], rows: [{ label: "PLAN", value: "12,300" }, { label: "CAPACITY", value: "83%" }] },
+    health: { label: "Plant Health", value: 92, status: "VERY GOOD", breakdown: [
+      { label: "RELIABILITY", value: "96.1%", trend: [78,81,80,84,86,85,89,91,90,96] },
+      { label: "AVAILABILITY", value: "93.4%", trend: [80,82,84,83,87,86,90,89,91,93] },
+      { label: "PERFORMANCE", value: "91.2%", trend: [74,77,76,81,79,84,83,88,87,91] },
+    ] },
+    systems: [
+      { label: "PROCESS", value: "98.6%", status: "ONLINE", trend: [84,85,87,86,90,89,93,92,96,98] },
+      { label: "UTILITIES", value: "95.4%", status: "ONLINE", trend: [79,82,81,85,87,86,90,92,91,95] },
+      { label: "ELECTRICAL", value: "97.2%", status: "ONLINE", trend: [82,84,86,85,89,91,90,94,93,97] },
+      { label: "INSTRUMENTATION", value: "94.1%", status: "ONLINE", trend: [75,78,80,79,83,85,84,89,91,94] },
+      { label: "SAFETY SYSTEMS", value: "100%", status: "ONLINE", trend: [98,98,99,99,99,100,100,100,100,100] },
+    ],
+    alerts: [
+      { label: "ADVISORIES", value: "3", action: "ACKNOWLEDGED" },
+      { label: "WARNINGS", value: "0", action: "CLEAR" },
+      { label: "CRITICAL", value: "0", action: "CLEAR" },
+    ],
+    kpis: [
+      { label: "THROUGHPUT", value: "12,450 TPH", trend: [70,73,76,74,80,82,81,85,88,91] },
+      { label: "ENERGY INTENSITY", value: "0.92 GJ/t", trend: [88,86,84,85,82,80,78,77,74,72] },
+      { label: "WATER USAGE", value: "18.7 m³/t", trend: [82,80,81,78,76,74,75,72,70,68] },
+      { label: "EMISSIONS", value: "0.21 kg/t", trend: [78,76,75,73,71,69,67,65,63,61] },
+    ],
+    scopeRows: [
+      { label: "ASSET OWNER", value: "NORTH RIDGE INDUSTRIES" },
+      { label: "PLANT", value: "NORTH RIDGE COMPLEX" },
+      { label: "LOCATION", value: "NR-01" },
+      { label: "OWNER TEAM", value: "OPERATIONS EXCELLENCE" },
+    ],
+    work: { total: "156", rows: [
+      { label: "PLANNED", value: "72" }, { label: "IN PROGRESS", value: "58" }, { label: "PENDING", value: "18" }, { label: "ON HOLD", value: "8" },
+    ] },
+    returns: [
+      { label: "PRODUCTION RATE", value: "12,450 TPH", trend: [70,73,76,74,80,82,81,85,88,91] },
+      { label: "YIELD", value: "96.8%", trend: [88,90,89,92,91,94,93,95,96,96] },
+      { label: "SPEC COMPLIANCE", value: "98.6%", trend: [90,91,93,92,95,94,96,97,98,98] },
+      { label: "ENERGY EFFICIENCY", value: "0.92 GJ/t", trend: [88,86,84,85,82,80,78,77,74,72] },
+      { label: "WATER EFFICIENCY", value: "18.7 m³/t", trend: [82,80,81,78,76,74,75,72,70,68] },
+      { label: "EMISSIONS INTENSITY", value: "0.21 kg/t", trend: [78,76,75,73,71,69,67,65,63,61] },
+    ],
+    snapshot: [
+      { label: "TOTAL ASSETS", value: "1,248", trend: [80,81,82,83,84,86,87,88,89,90] },
+      { label: "ONLINE ASSETS", value: "1,186", trend: [78,79,81,82,83,84,86,87,88,89] },
+      { label: "UTILIZATION", value: "87.6%", trend: [74,76,75,78,80,79,82,84,86,87] },
+      { label: "MAINT. COMPLIANCE", value: "98.2%", trend: [91,92,93,94,95,95,96,97,98,98] },
+      { label: "SAFE DAYS", value: "342", trend: [92,92,93,94,95,96,97,98,99,100] },
     ],
   },
   operator: {
@@ -76,11 +158,52 @@ const portalViews: Record<PortalRole, PortalView> = {
       { label: "VISION CELL", value: "99.8% ACCEPT", x: "72%", y: "42%" },
       { label: "RETURN READING", value: "PENDING", x: "54%", y: "71%" },
     ],
-    metrics: [
-      { label: "FILLER STATION TEMP", value: "180°C", detail: "FIL-04 current process reading", level: 88, status: "IN BAND", trend: [76,77,78,80,79,82,84,83,86,88], rows: [{ label: "BAND", value: "178–182°C" }, { label: "FRESH", value: "1.2 sec" }] },
-      { label: "UNITS/MIN", value: "450", detail: "Current Bottling Line 4 output", level: 90, status: "ON RATE", trend: [68,72,75,71,78,81,84,82,88,90], rows: [{ label: "TARGET", value: "450" }, { label: "REJECT", value: "0.2%" }] },
-      { label: "CURRENT SHIFT YIELD", value: "98.2%", detail: "Accepted units this shift", level: 98, status: "STABLE", trend: [91,92,94,93,95,96,95,97,98,98], rows: [{ label: "GOOD", value: "84,226" }, { label: "REJECT", value: "1,542" }] },
-      { label: "ACTIVE INTERLOCKS", value: "0", detail: "No line stops requested", level: 100, status: "CLEAR", trend: [98,98,98,99,99,99,100,100,100,100], rows: [{ label: "GUARDS", value: "CLOSED" }, { label: "E-STOP", value: "CLEAR" }] },
+    health: { label: "Current Shift Yield", value: 98.2, status: "ON TARGET", breakdown: [
+      { label: "AVAILABILITY", value: "97.6%", trend: [84,86,85,89,91,90,94,93,96,97] },
+      { label: "LINE PERFORMANCE", value: "93.8%", trend: [79,81,83,82,86,85,89,91,92,93] },
+      { label: "QUALITY", value: "98.2%", trend: [90,92,91,94,93,96,95,97,98,98] },
+    ] },
+    systems: [
+      { label: "FILLER FIL-04", value: "98.9%", status: "RUNNING", trend: [84,86,87,86,90,92,91,95,97,98] },
+      { label: "CAPPER CAP-04", value: "97.4%", status: "RUNNING", trend: [82,84,83,87,89,88,92,91,95,97] },
+      { label: "LABELER LAB-04", value: "99.1%", status: "RUNNING", trend: [90,91,93,92,95,96,95,97,98,99] },
+      { label: "VISION CELL", value: "99.8%", status: "RUNNING", trend: [94,95,96,96,97,97,98,98,99,99] },
+      { label: "PALLETIZER", value: "96.7%", status: "RUNNING", trend: [80,82,84,83,87,89,88,92,94,96] },
+    ],
+    alerts: [
+      { label: "ACTIVE LINE ALARMS", value: "2", action: "REVIEW" },
+      { label: "WARNINGS", value: "1", action: "ACKNOWLEDGED" },
+      { label: "CRITICAL", value: "0", action: "CLEAR" },
+    ],
+    kpis: [
+      { label: "FILLER STATION TEMP", value: "180°C", trend: [76,77,78,80,79,82,84,83,86,88] },
+      { label: "UNITS/MIN", value: "450", trend: [68,72,75,71,78,81,84,82,88,90] },
+      { label: "CURRENT SHIFT YIELD", value: "98.2%", trend: [91,92,94,93,95,96,95,97,98,98] },
+      { label: "NEXT PM CYCLE", value: "4 hrs", trend: [100,96,92,88,84,80,76,72,68,64] },
+    ],
+    scopeRows: [
+      { label: "LINE", value: "BOTTLING LINE 4" },
+      { label: "ACTIVE STATION", value: "FILLER FIL-04" },
+      { label: "SHIFT", value: "A · 06:00–14:00" },
+      { label: "OWNER", value: "LINE OPERATIONS" },
+    ],
+    work: { total: "7", rows: [
+      { label: "PLANNED", value: "3" }, { label: "IN PROGRESS", value: "2" }, { label: "PENDING", value: "2" }, { label: "ON HOLD", value: "0" },
+    ] },
+    returns: [
+      { label: "FILLER TEMPERATURE", value: "180°C", trend: [76,77,78,80,79,82,84,83,86,88] },
+      { label: "LINE RATE", value: "450 units/min", trend: [68,72,75,71,78,81,84,82,88,90] },
+      { label: "SHIFT YIELD", value: "98.2%", trend: [91,92,94,93,95,96,95,97,98,98] },
+      { label: "FILL PRESSURE", value: "42.6 psi", trend: [75,77,76,80,82,81,84,83,86,87] },
+      { label: "CAP TORQUE", value: "18.4 in-lb", trend: [82,83,85,84,87,86,89,91,90,92] },
+      { label: "REJECT RATE", value: "0.2%", trend: [42,40,38,36,37,33,31,29,27,25] },
+    ],
+    snapshot: [
+      { label: "GOOD UNITS", value: "84,226", trend: [72,75,77,80,82,84,87,89,92,94] },
+      { label: "UNITS/MIN", value: "450", trend: [68,72,75,71,78,81,84,82,88,90] },
+      { label: "SHIFT YIELD", value: "98.2%", trend: [91,92,94,93,95,96,95,97,98,98] },
+      { label: "ACTIVE ALARMS", value: "2", trend: [45,42,40,38,34,31,28,26,24,22] },
+      { label: "NEXT PM", value: "4 hrs", trend: [100,96,92,88,84,80,76,72,68,64] },
     ],
   },
 };
@@ -103,7 +226,7 @@ export function ControlPortalExperience() {
     const nextRole = portalRoles[nextIndex];
     setActiveRole(nextRole);
     const tabs = event.currentTarget.parentElement?.querySelectorAll<HTMLButtonElement>('[role="tab"]');
-    requestAnimationFrame(() => tabs?.[nextIndex]?.focus());
+    tabs?.[nextIndex]?.focus();
   }
 
   return <figure className="lm-control-portal" aria-labelledby="control-portal-caption">
@@ -116,15 +239,25 @@ export function ControlPortalExperience() {
     </header>
 
     <div id="control-role-panel" key={activeRole} className="lm-control-portal__workspace" role="tabpanel" aria-labelledby={`control-tab-${activeRole}`}>
-      <MetricColumn metrics={view.metrics.slice(0, 2)} side="left" />
+      <aside className="lm-control-portal__rail lm-control-portal__rail--left" aria-label="Operating condition and system measurements">
+        <HealthPanel health={view.health} />
+        <SystemsPanel systems={view.systems} />
+        <AlertsPanel alerts={view.alerts} />
+        <KpiPanel metrics={view.kpis} />
+      </aside>
       <section className="lm-control-portal__center" aria-label={`${view.title}: ${view.scope}`}>
         <header><div><span>{view.title}</span><strong>{view.scope}</strong></div><small>ROLE-TUNED VIEW · SHARED FACTS</small></header>
         <div className="lm-control-portal__visual">
           <RoleVisualization role={activeRole} view={view} />
         </div>
+        <SnapshotBar metrics={view.snapshot} />
         <p className="lm-control-portal__view-summary" aria-live="polite">{view.summary}</p>
       </section>
-      <MetricColumn metrics={view.metrics.slice(2)} side="right" />
+      <aside className="lm-control-portal__rail lm-control-portal__rail--right" aria-label="Scope, work, and return measurements">
+        <ScopePanel rows={view.scopeRows} />
+        <WorkPanel work={view.work} />
+        <ReturnPanel metrics={view.returns} />
+      </aside>
     </div>
 
     <div className="lm-control-portal__shared-context" aria-label="Operating facts shared by every role">
@@ -137,25 +270,52 @@ export function ControlPortalExperience() {
   </figure>;
 }
 
-function MetricColumn({ metrics, side }: { metrics: readonly PortalMetric[]; side: "left" | "right" }) {
-  return <aside className={`lm-control-portal__metrics lm-control-portal__metrics--${side}`} aria-label={`${side === "left" ? "Left" : "Right"} supporting measurements`}>
-    {metrics.map(metric => <article key={metric.label}>
-      <header><span>{metric.label}</span><b><i aria-hidden="true" />{metric.status}</b></header>
-      <strong>{metric.value}</strong><small>{metric.detail}</small>
-      <MetricSparkline points={metric.trend} level={metric.level} />
-      <dl>{metric.rows.map(row => <div key={row.label}><dt>{row.label}</dt><dd>{row.value}</dd></div>)}</dl>
-    </article>)}
-  </aside>;
+function Panel({ title, children, className = "" }: { title: string; children: ReactNode; className?: string }) {
+  return <section className={`lm-control-portal__panel ${className}`.trim()}><header><h3>{title}</h3><i aria-hidden="true" /></header>{children}</section>;
 }
 
-function MetricSparkline({ points, level }: { points: readonly number[]; level: number }) {
+function HealthPanel({ health }: { health: PortalView["health"] }) {
+  return <Panel title="Operational Condition" className="lm-control-portal__health"><div className="lm-control-portal__health-grid"><div className="lm-control-portal__health-ring" style={{ background: `conic-gradient(var(--lm-control-blue) ${health.value}%, #d9e3ec 0)` }}><div><strong>{health.value}</strong><span>%</span></div></div><div className="lm-control-portal__health-detail"><span>{health.label}</span><b>{health.status}</b></div><div className="lm-control-portal__health-breakdown">{health.breakdown.map(metric => <TrendRow key={metric.label} metric={metric} />)}</div></div></Panel>;
+}
+
+function SystemsPanel({ systems }: { systems: readonly PortalMetric[] }) {
+  return <Panel title="Systems Overview" className="lm-control-portal__systems">{systems.map(metric => <TrendRow key={metric.label} metric={metric} showStatus />)}</Panel>;
+}
+
+function AlertsPanel({ alerts }: { alerts: PortalView["alerts"] }) {
+  return <Panel title="Alerts & Notifications" className="lm-control-portal__alerts">{alerts.map(alert => <div key={alert.label}><i aria-hidden="true" /><strong>{alert.value}</strong><span>{alert.label}</span><b>{alert.action}</b></div>)}</Panel>;
+}
+
+function KpiPanel({ metrics }: { metrics: readonly PortalMetric[] }) {
+  return <Panel title="KPI Summary" className="lm-control-portal__kpis"><div>{metrics.map(metric => <article key={metric.label}><span>{metric.label}</span><strong>{metric.value}</strong><MiniTrend points={metric.trend} /></article>)}</div></Panel>;
+}
+
+function ScopePanel({ rows }: { rows: PortalView["scopeRows"] }) {
+  return <Panel title="Current Scope" className="lm-control-portal__scope"><dl>{rows.map(row => <div key={row.label}><dt>{row.label}</dt><dd>{row.value}</dd></div>)}</dl></Panel>;
+}
+
+function WorkPanel({ work }: { work: PortalView["work"] }) {
+  return <Panel title="Work" className="lm-control-portal__work"><div className="lm-control-portal__work-grid"><div className="lm-control-portal__work-ring"><div><strong>{work.total}</strong><span>TOTAL WORK ORDERS</span></div></div><dl>{work.rows.map(row => <div key={row.label}><dt>{row.value}</dt><dd>{row.label}</dd></div>)}</dl></div></Panel>;
+}
+
+function ReturnPanel({ metrics }: { metrics: readonly PortalMetric[] }) {
+  return <Panel title="Live Measurements" className="lm-control-portal__returns">{metrics.map(metric => <TrendRow key={metric.label} metric={metric} />)}</Panel>;
+}
+
+function SnapshotBar({ metrics }: { metrics: readonly PortalMetric[] }) {
+  return <div className="lm-control-portal__snapshot" aria-label="Current role summary">{metrics.map(metric => <div key={metric.label}><span>{metric.label}</span><strong>{metric.value}</strong></div>)}</div>;
+}
+
+function TrendRow({ metric, showStatus = false }: { metric: PortalMetric; showStatus?: boolean }) {
+  return <div className="lm-control-portal__trend-row"><div><span>{metric.label}</span>{showStatus && metric.status ? <small><i aria-hidden="true" />{metric.status}</small> : null}</div><MiniTrend points={metric.trend} /><strong>{metric.value}</strong></div>;
+}
+
+function MiniTrend({ points }: { points: readonly number[] }) {
   const min = Math.min(...points);
   const max = Math.max(...points);
   const range = Math.max(1, max - min);
-  const plotted = points.map((point, index) => `${(index / (points.length - 1) * 100).toFixed(1)},${(22 - ((point - min) / range * 17)).toFixed(1)}`).join(" ");
-  const plottedPoints = plotted.split(" ");
-  const last = plottedPoints[plottedPoints.length - 1]?.split(",") ?? ["100", "12"];
-  return <div className="lm-control-portal__metric-chart" aria-label={`Current level ${level} percent`}><svg viewBox="0 0 100 24" preserveAspectRatio="none" aria-hidden="true"><path d="M0 6H100M0 12H100M0 18H100" /><polygon points={`0,24 ${plotted} 100,24`} /><polyline points={plotted} /><circle cx={last[0]} cy={last[1]} r="1.7" /></svg><i aria-hidden="true"><em style={{ width: `${level}%` }} /></i></div>;
+  const plotted = points.map((point, index) => `${(index / (points.length - 1) * 100).toFixed(1)},${(18 - ((point - min) / range * 14)).toFixed(1)}`).join(" ");
+  return <svg className="lm-control-portal__mini-trend" viewBox="0 0 100 20" preserveAspectRatio="none" aria-hidden="true"><path d="M0 18H100" /><polyline points={plotted} /></svg>;
 }
 
 function RoleVisualization({ role, view }: { role: PortalRole; view: PortalView }) {

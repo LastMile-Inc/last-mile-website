@@ -52,3 +52,13 @@ Status: Feature 005 implemented on the existing website-refresh workstream; not 
 - Restored detailed light engineering imagery and dense role-specific panels to the existing Infinit-Control role portal.
 - Preserved the concept label, tab and keyboard behavior, shared case facts, controlled claims, customer boundaries, equipment-control authority, and safety responsibilities.
 - Desktop and phone browser checks pass; complete repository validation is recorded in the Feature 005 final consistency review.
+
+## 2026-08-16 dynamic command-view checkpoint
+
+Status: Feature 006 implemented on the existing website-refresh workstream; not merged or deployed.
+
+- Translated the supplied dense command-center structure into the approved light palette without replacing the Infinit-Control page or its working role tabs.
+- Added complete role-specific operating condition, system, alert, KPI, scope, work, live-measurement, and summary data around the existing detailed role images.
+- Connected all six Home loop definitions to six physical image-segment illumination layers for the first visible sequence and later pointer or keyboard interaction.
+- Preserved the concept label, shared case facts, controlled claims, customer boundaries, equipment-control authority, and safety responsibilities.
+- Complete validation is recorded in the Feature 006 final consistency review.

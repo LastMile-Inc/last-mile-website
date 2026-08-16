@@ -1,0 +1,23 @@
+# Checklist
+
+- [x] Existing page structure and role tabs preserved
+- [x] Supplied panel density translated into light mode
+- [x] Seven command-panel families present
+- [x] Plant Manager values present
+- [x] Operator values present
+- [x] Executive values present
+- [x] Exactly one Executive selected-site tag present
+- [x] Role images and surrounding data change together
+- [x] Original Home three-column layout preserved
+- [x] Original unframed ring preserved
+- [x] Six clipped illumination layers present
+- [x] Six image interaction targets present
+- [x] Initial six-phase sequence present
+- [x] Neutral post-sequence state present
+- [x] Image and definition hover linkage present
+- [x] Keyboard focus linkage present
+- [x] Reduced-motion path present
+- [x] Desktop and phone browser checks passed
+- [x] Full validation passed
+- [x] Final consistency review completed
+- [x] Validated change prepared for commit and push

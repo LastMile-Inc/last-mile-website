@@ -20,6 +20,7 @@ export function AccountableOperationsLoop({ context = "home", introCopy, learnin
   const timersRef = useRef<number[]>([]);
   const [animatedStage, setAnimatedStage] = useState(-1);
   const [selectedStage, setSelectedStage] = useState<number | null>(null);
+  const [introPlaying, setIntroPlaying] = useState(true);
 
   const clearTimers = useCallback(() => {
     timersRef.current.forEach((timer) => window.clearTimeout(timer));
@@ -28,10 +29,18 @@ export function AccountableOperationsLoop({ context = "home", introCopy, learnin
 
   const play = useCallback(() => {
     clearTimers();
-    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
-    loopStages.forEach((_, index) => timersRef.current.push(window.setTimeout(() => setAnimatedStage(index), 240 + index * 480)));
-    timersRef.current.push(window.setTimeout(() => setAnimatedStage(0), 240 + loopStages.length * 480));
-    timersRef.current.push(window.setTimeout(() => setAnimatedStage(-1), 240 + loopStages.length * 480 + 420));
+    setSelectedStage(null);
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      setAnimatedStage(-1);
+      setIntroPlaying(false);
+      return;
+    }
+    setIntroPlaying(true);
+    loopStages.forEach((_, index) => timersRef.current.push(window.setTimeout(() => setAnimatedStage(index), 220 + index * 560)));
+    timersRef.current.push(window.setTimeout(() => {
+      setAnimatedStage(-1);
+      setIntroPlaying(false);
+    }, 220 + loopStages.length * 560));
   }, [clearTimers]);
 
   useEffect(() => {
@@ -48,6 +57,9 @@ export function AccountableOperationsLoop({ context = "home", introCopy, learnin
   }, [clearTimers, play]);
 
   const activeStage = selectedStage ?? animatedStage;
+  const selectStage = (stage: number | null) => {
+    if (!introPlaying) setSelectedStage(stage);
+  };
 
   return <section id="accountable-operations-loop" className="lm-premium-loop-section" aria-labelledby="premium-loop-heading">
     <div className="lm-v2-container">
@@ -62,10 +74,10 @@ export function AccountableOperationsLoop({ context = "home", introCopy, learnin
           <p>{introCopy ?? "A closed ticket only says the task ended. The loop keeps the problem, response, work, and return readings connected until the operation is stable again."}</p>
         </>}
       </header>
-      <div ref={rootRef} className="lm-premium-loop-composition lm-premium-loop-composition--three-column">
-        <StageDefinitions stages={loopStages.slice(0, 3)} startIndex={0} activeStage={activeStage} onSelect={setSelectedStage} />
-        <div className="lm-premium-loop-center"><PrecisionLoopGraphic activeStage={activeStage} /></div>
-        <StageDefinitions stages={loopStages.slice(3)} startIndex={3} activeStage={activeStage} onSelect={setSelectedStage} />
+      <div ref={rootRef} className="lm-premium-loop-composition lm-premium-loop-composition--three-column" data-intro-playing={introPlaying}>
+        <StageDefinitions stages={loopStages.slice(0, 3)} startIndex={0} activeStage={activeStage} onSelect={selectStage} />
+        <div className="lm-premium-loop-center"><PrecisionLoopGraphic activeStage={activeStage} onSelect={selectStage} /></div>
+        <StageDefinitions stages={loopStages.slice(3)} startIndex={3} activeStage={activeStage} onSelect={selectStage} />
       </div>
       <div className="lm-premium-loop-payoff"><strong>{context === "platform" ? "A new kind of learning, automated operations platform." : "Every verified fix improves the next operating decision."}</strong><p>{learningCopy}{context === "platform" ? " Customer policy and human authority remain in control." : ""}</p></div>
     </div>
@@ -93,9 +105,15 @@ function StageDefinitions({ stages, startIndex, activeStage, onSelect }: { stage
   </ol>;
 }
 
-function PrecisionLoopGraphic({ activeStage }: { activeStage: number }) {
+function PrecisionLoopGraphic({ activeStage, onSelect }: { activeStage: number; onSelect: (stage: number | null) => void }) {
   return <figure className="lm-precision-loop lm-precision-loop--generated" data-active-stage={activeStage} aria-labelledby="precision-loop-caption">
-    <img src="/images/platform/accountable-operations-loop-v3.png" alt="A continuous six-segment engineered ring reconnects the measured result to the next operating decision." width="1672" height="941" loading="lazy" />
+    <img className="lm-precision-loop__base" src="/images/platform/accountable-operations-loop-v3.png" alt="A continuous six-segment engineered ring reconnects the measured result to the next operating decision." width="1672" height="941" loading="lazy" />
+    <div className="lm-precision-loop__illuminations" aria-hidden="true">
+      {loopStages.map((stage, index) => <img key={stage.name} className={`lm-precision-loop__illumination lm-precision-loop__illumination--${index}${activeStage === index ? " is-active" : ""}`} src="/images/platform/accountable-operations-loop-v3.png" alt="" width="1672" height="941" />)}
+    </div>
+    <div className="lm-precision-loop__hit-areas">
+      {loopStages.map((stage, index) => <button key={stage.name} className={`lm-precision-loop__hit lm-precision-loop__hit--${index}`} type="button" onMouseEnter={() => onSelect(index)} onMouseLeave={() => onSelect(null)} onFocus={() => onSelect(index)} onBlur={() => onSelect(null)} aria-label={`Highlight ${stage.name}: ${stage.headline}`}><span className="lm-visually-hidden">{stage.name}</span></button>)}
+    </div>
     <figcaption id="precision-loop-caption" className="lm-visually-hidden">The return reading becomes the starting point for the next decision.</figcaption>
   </figure>;
 }
