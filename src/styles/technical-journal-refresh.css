@@ -471,7 +471,19 @@
 .lm-premium-loop-composition--three-column {
   grid-template-columns: minmax(220px, .78fr) minmax(420px, 1.44fr) minmax(220px, .78fr);
   gap: clamp(18px, 2.2vw, 34px);
-  align-items: start;
+  align-items: stretch;
+}
+
+.lm-premium-loop-composition--three-column .lm-premium-loop-center {
+  min-width: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.lm-premium-loop-composition--three-column .lm-premium-loop-center .lm-precision-loop {
+  width: 100%;
+  margin: 0;
 }
 
 .lm-premium-loop-composition--three-column .lm-premium-loop-definitions {
@@ -1051,7 +1063,7 @@
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
-  .lm-premium-loop-composition--three-column .lm-precision-loop {
+  .lm-premium-loop-composition--three-column .lm-premium-loop-center {
     grid-column: 1 / -1;
     grid-row: 1;
   }
@@ -1178,7 +1190,7 @@
     grid-template-columns: 1fr;
   }
 
-  .lm-premium-loop-composition--three-column .lm-precision-loop {
+  .lm-premium-loop-composition--three-column .lm-premium-loop-center {
     grid-column: 1;
   }
 

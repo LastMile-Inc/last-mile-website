@@ -6,7 +6,7 @@ This file records adoption of the founder-approved art-direction standard. "Refe
 
 | Route family | Current state | Next design objective |
 | --- | --- | --- |
-| `/` | Reference implementation in local review | The bottling-line failure leads to a text-only architectural-failure section, accountable-layer bridge, connected product rail, and light-theme three-column Accountable Operations Loop. |
+| `/` | Reference implementation in local review | The bottling-line failure leads to a text-only architectural-failure section, accountable-layer bridge, connected product rail, and light-theme three-column Accountable Operations Loop with the original commissioned ring structurally centered between the definition columns. |
 | `/use-cases` and four detail routes | Reference implementation in local review | The hub hero now enforces text-left, image-right placement on desktop while the searchable catalog and detail routes retain their established behavior. |
 | `/platform` | Reference implementation in local review | Orchestration-led hero, human data-pressure story, light enterprise-integration architecture, accountability sidecar, and connected product system are implemented. The repeated Home loop is removed. |
 | `/singularity` | Reference implementation in local review | The hero positions Singularity as the Standard Semantic Object Model for Physical Operations and explains its alignment with Unified Namespace architectures before the existing memory, learning, and authority story. |

@@ -113,6 +113,7 @@ test("Home owns the company story, Platform owns architecture, and public concep
   const platform = read("src/app/pages/PlatformOverviewPage.tsx");
   const accountableLoop = read("src/app/components/AccountableOperationsLoop.tsx");
   const article = read("src/app/pages/IndustrialConceptArticlePage.tsx");
+  const styles = read("src/styles/technical-journal-refresh.css");
 
   assert.match(home, /AccountableOperationsLoop/);
   const homepageSections = ["HomepageHero", "IndustryProblem", "LastMileSolution", "AccountableOperationsLoop", "IndustryValue"];
@@ -127,7 +128,10 @@ test("Home owns the company story, Platform owns architecture, and public concep
   assert.doesNotMatch(platform, /AccountableOperationsLoop|THE LEARNING OPERATIONS PLATFORM|OperatingArchitecture|PlatformNextStep|START WITH THE GAP|platformReferenceData|operatingScenarioList|Cooling Loop|USECASE-/);
   assert.match(accountableLoop, /PrecisionLoopGraphic/);
   assert.match(accountableLoop, /lm-premium-loop-composition--three-column/);
-  assert.match(accountableLoop, /accountable-operations-loop-v4\.png/);
+  assert.match(accountableLoop, /accountable-operations-loop-v3\.png/);
+  assert.doesNotMatch(accountableLoop, /accountable-operations-loop-v4\.png/);
+  assert.match(accountableLoop, /lm-premium-loop-center/);
+  assert.match(styles, /\.lm-premium-loop-composition--three-column \.lm-premium-loop-center \{[\s\S]*?display: flex;[\s\S]*?align-items: center;[\s\S]*?justify-content: center;/);
   assert.match(accountableLoop, /Condition[\s\S]*Response[\s\S]*Outcome/);
 
   assert.doesNotMatch(home, /platform-core-blueprint|generic.*network.*hero/i);

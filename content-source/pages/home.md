@@ -2,7 +2,7 @@
 content_id: PAGE-HOME-001
 status: approved
 owner: Website Product Marketing
-last_reviewed: 2026-08-14
+last_reviewed: 2026-08-16
 claim_maturity: [designed]
 depends_on: [GOV-DOCTRINE-001, CLAIMS-REGISTRY-001, CONCEPT-INDUSTRIAL-AI-001]
 used_by: [/]
@@ -87,7 +87,7 @@ Keep product copy to one sentence each. Verification is collective platform beha
 
 ## Accountable Operations Loop
 
-Use a three-column loop composition: Evidence, Understand, and Decide on the left; the commissioned loop in the center; Coordinate, Act, and Verify on the right. Keep Condition, Response, and Outcome in one horizontal sequence. Preserve the exact stage order: Evidence, Understand, Decide, Coordinate, Act, Verify, then Evidence again.
+Use a three-column loop composition: Evidence, Understand, and Decide on the left; the original commissioned `accountable-operations-loop-v3.png` ring in the center; Coordinate, Act, and Verify on the right. Keep Condition, Response, and Outcome in one horizontal sequence. Preserve the exact stage order: Evidence, Understand, Decide, Coordinate, Act, Verify, then Evidence again. Vertically center the loop image through the center column's layout, not with spacing offsets.
 
 Use "Work completed is not the same as problem solved" once. Keep the approved AI wording once after the loop. Use the commissioned six-stage ring as the visual surface while keeping every stage name, definition, selected state, and keyboard interaction in accessible HTML.
 

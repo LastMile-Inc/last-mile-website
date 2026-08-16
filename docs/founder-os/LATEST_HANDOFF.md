@@ -96,3 +96,12 @@ Updated: 2026-08-15
 - Controlled content checks cover 35 objects, 33 claims, 41 route uses, 11 concepts, four scenarios, and 65 rendered measurements. All pass. Content tests pass 23 of 23; governance, editorial, concept, type, lint, production build, published-output, and whitespace checks also pass. Lint retains six existing Fast Refresh warnings and no errors.
 - Real-browser checks at 1440 by 900 and 390 by 844 confirm instant role updates, Arrow Left tab behavior, one executive glow point, useful accessible names, no horizontal overflow, and no console errors.
 - Local review remains available at http://127.0.0.1:5173/infinit-control. No merge, deployment, publishing, customer connection, cloud resource, access expansion, or GCP change was performed.
+
+# 2026-08-16 Home loop image correction handoff
+
+- Added Spec Kit Feature 004 as a contained correction to the Home Accountable Operations Loop.
+- Restored the exact previously used `accountable-operations-loop-v3.png` asset and removed the superseded v4 image.
+- Preserved the left Evidence, Understand, Decide column; right Coordinate, Act, Verify column; current wording; and corrected phase spacing.
+- Added a dedicated Flexbox center column. At 1440 pixels, the image has equal 128.5-pixel space above and below inside the 575-pixel row; no padding or positional offset is used.
+- Browser checks confirm the 1672 by 941 source image loads, the desktop grid remains three columns, the phone layout remains one column, and neither width has horizontal overflow or console errors.
+- Local review remains available at http://127.0.0.1:5173/#accountable-operations-loop. No merge or deployment was performed.

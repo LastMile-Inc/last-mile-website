@@ -64,7 +64,7 @@ export function AccountableOperationsLoop({ context = "home", introCopy, learnin
       </header>
       <div ref={rootRef} className="lm-premium-loop-composition lm-premium-loop-composition--three-column">
         <StageDefinitions stages={loopStages.slice(0, 3)} startIndex={0} activeStage={activeStage} onSelect={setSelectedStage} />
-        <PrecisionLoopGraphic activeStage={activeStage} />
+        <div className="lm-premium-loop-center"><PrecisionLoopGraphic activeStage={activeStage} /></div>
         <StageDefinitions stages={loopStages.slice(3)} startIndex={3} activeStage={activeStage} onSelect={setSelectedStage} />
       </div>
       <div className="lm-premium-loop-payoff"><strong>{context === "platform" ? "A new kind of learning, automated operations platform." : "Every verified fix improves the next operating decision."}</strong><p>{learningCopy}{context === "platform" ? " Customer policy and human authority remain in control." : ""}</p></div>
@@ -95,7 +95,7 @@ function StageDefinitions({ stages, startIndex, activeStage, onSelect }: { stage
 
 function PrecisionLoopGraphic({ activeStage }: { activeStage: number }) {
   return <figure className="lm-precision-loop lm-precision-loop--generated" data-active-stage={activeStage} aria-labelledby="precision-loop-caption">
-    <img src="/images/platform/accountable-operations-loop-v4.png" alt="A continuous six-part engineered loop carries a blue signal through one complete operating cycle." width="1672" height="941" loading="lazy" />
+    <img src="/images/platform/accountable-operations-loop-v3.png" alt="A continuous six-segment engineered ring reconnects the measured result to the next operating decision." width="1672" height="941" loading="lazy" />
     <div className="lm-precision-loop__generated-core"><span>THE LAST MILE</span><strong><b>Condition</b><i aria-hidden="true">→</i><b>Response</b><i aria-hidden="true">→</i><b>Outcome</b></strong><small>One accountable operational cycle</small></div>
     <figcaption id="precision-loop-caption" className="lm-visually-hidden">The return reading becomes the starting point for the next decision.</figcaption>
   </figure>;

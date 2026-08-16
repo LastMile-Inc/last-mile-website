@@ -100,3 +100,7 @@ Decision: the founder's later direct request supersedes Feature 001's no-redesig
 ## 2026-08-16: Interactive Infinit-Control role portal
 
 Decision: evolve only the approved Infinit-Control hero visual into a code-native three-role controller and preserve the rest of the page. PLANT MGR is the starting facility view; EXEC narrows portfolio measurements to one visibly selected site; OPERATOR narrows the same condition to Bottling Line 4 and FIL-04. Condition, asset, owner, work item, and current state remain identical across roles. Scope exact Corporate Blue `#1D7CD8` to active marks and controls while keeping all portal surfaces white or light grey. Keep the concept-interface label and existing permission, equipment-control, and safety boundaries. Record the work as Spec Kit Feature 003.
+
+## 2026-08-16: Restore and center the original Home loop image
+
+Decision: preserve Feature 002's approved three-column phase-definition structure and restore the exact original commissioned `accountable-operations-loop-v3.png` image. Remove the superseded v4 asset. Vertically center the original image with a dedicated Flexbox center column using `align-items: center` and `justify-content: center`; do not use padding or offsets to simulate alignment. Record the correction as Spec Kit Feature 004.
