@@ -2,9 +2,9 @@
 content_id: PAGE-HOME-001
 status: approved
 owner: Website Product Marketing
-last_reviewed: 2026-08-10
+last_reviewed: 2026-08-16
 claim_maturity: [designed]
-depends_on: [GOV-DOCTRINE-001, CLAIMS-REGISTRY-001]
+depends_on: [GOV-DOCTRINE-001, CLAIMS-REGISTRY-001, CONCEPT-INDUSTRIAL-AI-001]
 used_by: [/]
 ---
 
@@ -12,75 +12,101 @@ used_by: [/]
 
 ## Job
 
-Explain Last Mile once, demonstrate it through the Accountable Operations Loop, map the four products to that loop, show governed industrial references, establish enterprise fit, and stop. The page must contain no more than seven major narrative sections and approximately 750-1,000 words of narrative copy excluding navigation, product labels, and use-case detail.
+Make the company value obvious in one visit: Last Mile keeps an industrial problem, its owner, the work, and the physical result connected across systems that were never designed to manage the whole response together.
+
+## Audience
+
+Plant managers, operations executives, reliability leaders, and IT/OT buyers who already have capable production systems but still reconstruct the response by hand when equipment fails.
+
+## Five-second promise
+
+Everything was green. The line still failed.
+
+## Brand mission
+
+Keep **The Physical Operations Platform** beneath the corporate logo and Last Mile name. Do not repeat it as a hero eyebrow.
+
+## Narrative limits
+
+- Major sections: five.
+- Narrative copy: 550-750 words.
+- Primary visual: a bright industrial plant where one restrained technical overlay connects alarms, decisions, work, and return readings around real equipment.
+- Supporting visuals: one system-gap composition, one concise connected-product rail, and the exact shared Accountable Operations Loop.
+- Closing CTA: none. Keep conversion choices in the hero.
 
 ## Page order
 
-1. Hero.
-2. The Missing Last Mile.
-3. The Accountable Operations Loop.
-4. How the Last Mile Platform powers the loop.
-5. Industry use cases.
-6. Enterprise trust and existing systems.
-7. Final CTA.
+1. Company promise and industrial consequence.
+2. The daily accountability problem and why more data increases the pressure.
+3. The Last Mile bridge across existing systems, with a concise four-product explanation.
+4. The Accountable Operations Loop and retained operating learning.
+5. Shared industrial value.
 
 ## Hero
 
-**Eyebrow:** THE PHYSICAL OPERATIONS PLATFORM
+No eyebrow above the hero title.
 
-**Heading:** Close the Last Mile between operational evidence and verified outcomes.
+**Heading:** Everything was green. The line still failed.
 
-**Body:** Your operation already runs on SCADA, DCS, BMS, historians, CMMS, MES, controls and enterprise systems. Last Mile connects the operational context across them, determines what should happen next, coordinates the right response, and keeps watching until the physical outcome is verified.
+**Body:** A new bottling line cleared its startup checks. When product reached the capper, the bottles collapsed and cough syrup covered the floor. Every system showed its part. Nothing connected the settings, the work, and the physical result.
 
-**Proof line:** Keep the systems you trust. Add the operational intelligence between them.
+**Proof line:** That was not a dashboard problem. It was a missing orchestration layer.
 
-**Primary CTA:** See the Accountable Operations Loop
-**Secondary CTA:** Explore the Platform
+**Primary CTA:** Explore the Platform Architecture
 
-## The Missing Last Mile
+**Secondary CTA:** Assess Your Operations Loop
 
-**Heading:** Your systems know their part. Last Mile understands the operation.
+**Visual purpose:** Show one active industrial environment with a restrained blue operating thread spanning separate physical assets. The image is illustrative, not a customer deployment.
 
-Show Control, Operational Data, Execution, and People as established participants beneath one spanning Last Mile layer. Explain the architectural gap in no more than two short paragraphs.
+## The daily problem
 
-Include one concise CMMS distinction: a CMMS manages maintenance work; Last Mile determines when maintenance is the right response, coordinates everything else required, and verifies the operational outcome. Do not repeat CMMS positioning elsewhere on Home.
+**Eyebrow:** THE PROBLEM WE SEE EVERY DAY
 
-## The Accountable Operations Loop
+**Heading:** The plant produced the facts. Nobody had the whole answer.
 
-Use this name exactly, without trademark symbols or substitute frameworks.
+Explain the real operating burden in one text-only editorial section. Do not add supporting imagery here. One issue may appear as an alarm in SCADA, a trend in the historian, a work order in the CMMS, and a provider update somewhere else. More sensors and automation create more fragments unless the operation can connect them quickly.
 
-**Evidence -> Understand -> Decide -> Coordinate -> Act -> Verify -> Evidence**
+Retain the founder-provided bottling-line lesson as a concise example. Do not present it as a customer deployment or Last Mile result.
 
-The loop is the page's visual centerpiece. The interactive website composition and exported 4K composite use a continuous precision ring with integrated directional seams, horizontal labels, and six accessible definitions outside the circle. The center contains only Last Mile and Condition -> Response -> Outcome.
+## The bridge and four products
 
-Use “Work completed is not the same as problem solved” only within Verify. Directly beneath the loop, state that every verified outcome becomes evidence for the next operational decision and that every operational decision should be better informed than the one before it. Do not repeat this as a later section.
+**Eyebrow:** THE MISSING ACCOUNTABLE LAYER
 
-## Product mapping
+**Heading:** Keep the systems you trust. Keep the issue intact between them.
 
-- Infinit-Signal — Observe.
-- Singularity — Understand.
-- Infinit-Flow — Decide, Coordinate, Act.
-- Infinit-Control — See, Govern.
+Use this registered platform wording exactly once: Last Mile is the orchestration layer across the production systems already in place. It connects the alarm, equipment, readings, decisions, work, owner, and return telemetry so teams can act sooner and see whether the machine is actually running correctly again.
 
-Make clear that the four products collectively close the loop. Verification combines subsequent evidence, contextual evaluation, governed resolution criteria, and presentation of the resulting state; it does not belong exclusively to Infinit-Control.
+Show the direct product roles in one connected rail:
 
-## Use cases
+- Infinit-Signal: Observe.
+- Singularity: Understand.
+- Infinit-Flow: Decide, Coordinate, Act.
+- Infinit-Control: Observe.
 
-Consume the four canonical controlled references from the typed scenario registry. Each homepage summary contains only Condition, Response, Verified Outcome, and Business Metric. Do not invent customer results, ROI, savings, or unsupported industries.
+Keep product copy to one sentence each. Verification is collective platform behavior.
 
-## Enterprise trust
+## Accountable Operations Loop
 
-Show representative controls, operational data, maintenance/work, and enterprise-system categories concisely. Present evidence lineage, replay/deduplication, policy, AUTO/ASSIST, human authorization, audit, multi-tenant isolation, and verified outcome as one compact capability row.
+Use a three-column loop composition: Evidence, Understand, and Decide on the left; the original commissioned `accountable-operations-loop-v3.png` ring in the center; Coordinate, Act, and Verify on the right. Preserve the exact stage order: Evidence, Understand, Decide, Coordinate, Act, Verify. Vertically center the loop image through the center column's layout, not with spacing offsets. The image sits directly on the page background and uses the center column's available width. Do not add a panel fill, border, shadow, center oval, or overlapping copy.
 
-## Final CTA
+When the loop first becomes visible, illuminate the inner glass rail of one physical image section and its matching definition at a time from Evidence through Verify, then return the entire loop to neutral. Use smooth masked SVG light paths contained inside the glass; do not use clipped image wedges, polygons, or opaque blocks over the metal. The active definition uses the same light-to-dark blue gradient as the glass rail. After the sequence, hovering or focusing either a physical image section or its definition must illuminate and highlight both together. Skip the timed sequence when the user requests reduced motion, but retain the pointer and keyboard interaction.
 
-**Heading:** You already built the operation. Close the Last Mile.
+Use "Work completed is not the same as problem solved" once. Keep the approved AI wording once after the loop. Use the commissioned six-stage ring as the visual surface while keeping every stage name, definition, selected state, and keyboard interaction accessible.
 
-**Body:** Turn fragmented operational evidence into coordinated action and verified outcomes without replacing the systems already running your business.
+## What Last Mile brings to industry
 
-**Primary CTA:** See Last Mile in Action
-**Secondary CTA:** Explore the Platform
+Explain four benefits in plain language:
+
+1. Keep ownership visible from the first warning through stable operations.
+2. Carry equipment context and responsibility through each handoff.
+3. Stay with the equipment after the work order closes.
+4. Retain what each response taught the organization so the next response can improve.
+
+## Research basis
+
+- NIST describes growing manufacturing data volume, variety, and uncertainty and the need for trusted, understandable information workflows. https://www.nist.gov/programs-projects/advanced-manufacturing-data-infrastructure-and-analytics-program
+- NIST explains that IT/OT integration can improve manufacturing processes while introducing cross-boundary integrity and monitoring demands. https://www.nist.gov/news-events/news/2022/03/protecting-information-and-system-integrity-industrial-control-system
 
 ## Exclusions
 
-No standalone homepage sections for CMMS, Condition/Response/Outcome, operational history, system participation, or repeated architectural explanations. No replacement claim, generic AI category claim, autonomous-learning claim, fabricated integration status, customer result, ROI, savings, or production-performance metric.
+No universal downtime cost, guaranteed MTTR reduction, guaranteed ROI, adoption percentage, partner logo wall, named unvalidated connector, unapproved architecture name, customer proof, industry use-case cards, or closing CTA panel.

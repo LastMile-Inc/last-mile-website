@@ -1,55 +1,52 @@
 import { ArrowRight } from "lucide-react";
+import { OperationalIcon, type OperationalIconKind } from "@/app/components/OperationalIcon";
 import { SEO } from "@/app/components/SEO";
-import { EditorialHero, EditorialSection, InlineLink, NextStep } from "@/app/components/NarrativeComponents";
-import { IdentityCrosswalk } from "@/app/components/OperatingScenarioComponents";
+import { EditorialHero, EditorialSection, InlineLink } from "@/app/components/NarrativeComponents";
+import { SingularityLearningCurve } from "@/app/components/SingularityLearningCurve";
 import { createBreadcrumbSchema, createProductSchema } from "@/app/lib/structuredData";
 
-const identitySources = ["Source tag", "MQTT topic", "OPC UA NodeId", "Historian point", "SAP equipment", "Provider record"] as const;
-const outcomeStates = ["Recovery established", "Partial recovery", "Failed intervention", "Recurrence detected", "Insufficient return data"] as const;
+const platformLearningCopy = "Because Last Mile sees the full lifecycle from first signal through verified recovery, AI can compare the decisions, handoffs, actions, delays, and return readings that shaped the result. No useful learning is lost, successful resolution steps do not have to be rediscovered, and approved improvements can be applied automatically the next time a similar issue appears.";
+
+const memorySequence: ReadonlyArray<{ label: string; copy: string; kind: OperationalIconKind }> = [
+  { label: "What changed", copy: "Source, time, quality, asset, and operating condition", kind: "signal" },
+  { label: "What people decided", copy: "Context, recommendation, authority, and chosen response", kind: "decision" },
+  { label: "What the operation did", copy: "Work, approvals, digital actions, handoffs, and delays", kind: "flow" },
+  { label: "What happened next", copy: "Return readings, stability, recurrence, and measured result", kind: "verification" },
+];
+
+const authorityModes: ReadonlyArray<{ name: string; copy: string; kind: OperationalIconKind }> = [
+  { name: "ASSIST", copy: "AI assembles context, finds similar history, and recommends a response. A person decides.", kind: "context" },
+  { name: "AUTO", copy: "Infinit-Flow completes only the digital steps already approved by customer policy.", kind: "flow" },
+  { name: "HUMAN AUTHORITY", copy: "People retain control of safety, isolation, physical work, and customer-governed changes.", kind: "people-authority" },
+];
 
 export function SSOMPage() {
-  const description = "Singularity is Last Mile's governed operational-memory and OT world-model product implementing the open SSOM semantic and evidence contract.";
-  return <>
-    <SEO title="Singularity | One Durable Memory for Physical Operations" description={description} canonicalPath="/singularity" jsonLd={[createProductSchema("Singularity", "/singularity", description), createBreadcrumbSchema([{ name: "Home", path: "/" }, { name: "Singularity", path: "/singularity" }])]} />
-    <div className="lm-v2-page">
-      <EditorialHero eyebrow="SINGULARITY · UNDERSTAND" title="Give the physical operation one durable, shared context." intro="Singularity creates the operational world model connecting assets, processes, observations, Conditions, evidence, decisions, Responses, return measurements, and Outcomes across the systems and sites that each see only part of the story." support="Governed operational memory implementing the open SSOM contract." primary={{ label: "Discuss Your Operational Model", to: "/contact?intent=architecture" }} secondary={{ label: "Explore the Platform", to: "/platform" }} visual={<IdentityCrosswalk />} />
+  const description = "Singularity links readings, decisions, work, and results to the physical asset while preserving where each fact came from.";
+  return <><SEO title="Singularity | Source-Linked Industrial Knowledge" description={description} canonicalPath="/singularity" jsonLd={[createProductSchema("Singularity", "/singularity", description), createBreadcrumbSchema([{ name: "Home", path: "/" }, { name: "Singularity", path: "/singularity" }])]} /><main className="lm-v2-page lm-product-story-page lm-product-story-page--singularity lm-singularity-story lm-singularity-v5">
+    <EditorialHero eyebrow="SINGULARITY · THE SOURCE OF OPERATING TRUTH" title="The Standard Semantic Object Model for Physical Operations." intro="Raw measurements do not explain the operation. Singularity connects each reading to the asset, location, history, decision, action, and measured result that give it meaning." support="It aligns with Unified Namespace, or UNS, architectures. A UNS makes current plant information easier to find. Singularity gives that information durable identity and meaning while keeping each record's source, time, quality, and equipment relationships intact." primary={{ label: "Review How Records Connect", to: "/singularity#semantic-model" }} secondary={{ label: "Explore the Learning Path", to: "/singularity#learning-continuum" }} visual={<HeroImage />} />
+    <OperatingMemoryThreat />
+    <EditorialSection id="learning-continuum" eyebrow="THE OPERATIONAL LEARNING CONTINUUM" title="Move from reacting by hand to recognizing what comes next." intro="Every complete response adds usable history. As Last Mile follows an operation end to end, that record becomes a stronger foundation for earlier decisions, better response plans, and safely bounded automation." tone="grid" className="lm-singularity-continuum-section"><SingularityLearningCurve /><div className="lm-singularity-learning-payoff"><OperationalIcon kind="context" size="large" /><div><strong>Every response should make the next response smarter.</strong><p>{platformLearningCopy}</p></div></div></EditorialSection>
+    <EarlierRecognition />
+    <AuthorityBoundary />
+  </main></>;
+}
 
-      <EditorialSection title="An open semantic contract inside a governed Last Mile product." tone="grid">
-        <div className="lm-v2-columns-2"><article><h3>SSOM</h3><p>The Standardized Semantic Object Model defines portable operational meaning, identity, relationships, temporal semantics, quality, evidence, provenance, conformance, and profiles.</p></article><article><h3>Singularity</h3><p>Singularity implements that contract through canonical journals, identity and topology services, current-state projections, Condition and Outcome services, evidence, replay, policy, and preserved decision history.</p></article></div>
-        <InlineLink to="/resources/industrial-concepts/semantic-interoperability">Read the canonical semantic interoperability explanation</InlineLink>
-      </EditorialSection>
+function HeroImage() {
+  return <figure className="lm-enterprise-product-hero-image lm-enterprise-product-hero-image--semantic"><img src="/images/products/singularity/semantic-operating-record-v3.png" alt="Source-linked industrial records pass through semantic alignment and emerge as one durable equipment record." width="1672" height="941" fetchPriority="high" /></figure>;
+}
 
-      <EditorialSection title="One pump. Every scoped source identity. One shared operational asset.">
-        <p className="lm-v2-large-copy">Source tags, MQTT topics, OPC UA NodeIds, historian points, SAP equipment, and provider records remain visible as scoped external identities. Singularity connects them to one canonical asset without erasing their source meaning or history.</p>
-        <div className="lm-identity-map"><div className="lm-identity-map__sources">{identitySources.map((name) => <span key={name}>{name}</span>)}</div><ArrowRight aria-hidden="true" /><div className="lm-identity-map__resolved"><span>Canonical asset</span><strong>Cooling Loop B · CHWP-02</strong><p>Every source reference and validity period remains preserved.</p></div></div>
-        <InlineLink to="/resources/industrial-concepts/digital-twins">How digital twins, AAS, and operational memory complement one another</InlineLink>
-      </EditorialSection>
+function OperatingMemoryThreat() {
+  return <EditorialSection id="semantic-model" eyebrow="THE THREAT OF OPERATIONAL AMNESIA" title="If the reason behind the fix disappears, the next shift starts over." intro="A maintenance note may capture the task, but not the weak signal that started the investigation, the options the team rejected, or the return readings that showed the machine was stable. Singularity keeps that full operating story together so the next team inherits more than a ticket summary."><div className="lm-singularity-memory-layout"><PersistentMemoryHero /><div className="lm-singularity-memory-spine">{memorySequence.map((item, index) => <article key={item.label}><OperationalIcon kind={item.kind} size="medium" /><span>{String(index + 1).padStart(2, "0")}</span><div><h3>{item.label}</h3><p>{item.copy}</p></div>{index < memorySequence.length - 1 ? <ArrowRight aria-hidden="true" /> : null}</article>)}</div></div><div className="lm-singularity-foundation"><article><span>OPEN MEANING CONTRACT</span><h3>SSOM keeps the record portable.</h3><p>The Standardized Semantic Object Model defines portable operating meaning, identity, relationships, time, quality, evidence, provenance, conformance, and profiles.</p></article><article><span>GOVERNED LAST MILE RUNTIME</span><h3>Singularity keeps the memory useful.</h3><p>It preserves source identities, time-correct history, asset relationships, conditions, decisions, actions, and measured results without erasing where the information came from.</p></article></div></EditorialSection>;
+}
 
-      <EditorialSection title="Distribution is not the same as meaning." tone="grid">
-        <div className="lm-concept-comparison" role="table" aria-label="Unified Namespace and Singularity SSOM comparison">
-          <div role="row"><strong role="columnheader">Unified Namespace</strong><strong role="columnheader">Singularity / SSOM</strong></div>
-          <div role="row"><span>Distributes current information</span><span>Preserves governed operational memory</span></div>
-          <div role="row"><span>Uses topics and source identifiers</span><span>Resolves canonical asset identity</span></div>
-          <div role="row"><span>Carries payload and source metadata</span><span>Preserves quality, provenance, evidence, and lineage</span></div>
-          <div role="row"><span>Exposes state changes</span><span>Connects Conditions, decisions, actions, and Outcomes</span></div>
-          <div role="row"><span>Usually presents a navigable hierarchy</span><span>Represents many-to-many and time-varying relationships</span></div>
-        </div>
-        <p className="lm-v2-caveat">SSOM conformance and MQTT/Sparkplug compatibility are separate conformance domains.</p>
-        <InlineLink to="/resources/industrial-concepts/uns-and-ssom">Read the complete UNS and SSOM explanation</InlineLink>
-      </EditorialSection>
+function EarlierRecognition() {
+  return <EditorialSection eyebrow="RECOGNIZE THE PATTERN BEFORE THE FAILURE" title="Use the history to give the next crew a head start." intro="When a familiar vibration pattern, sequence of alarms, or operating condition appears again, Singularity can bring forward the earlier response and the measurements that followed. The team starts with relevant history instead of reconstructing the problem from scratch."><div className="lm-enterprise-split-story"><figure className="lm-enterprise-story-image"><img src="/images/products/singularity/pattern-anticipation-v2.png" alt="A reliability engineer compares current compressor vibration with earlier patterns and the later stable result." width="1536" height="1024" loading="lazy" /></figure><div className="lm-enterprise-split-story__points"><article><span>01</span><div><h3>See the earlier pattern</h3><p>Connect the current change to the same asset, operating state, and history.</p></div></article><article><span>02</span><div><h3>Bring forward what mattered</h3><p>Show the decision, action, authority, and measured result from the earlier response.</p></div></article><article><span>03</span><div><h3>Act sooner with clear limits</h3><p>Recommend or automate only the steps allowed by current evidence and customer policy.</p></div></article></div></div></EditorialSection>;
+}
 
-      <EditorialSection title="Remember what worked—not just what was attempted.">
-        <p className="lm-v2-large-copy">Singularity preserves the difference between a recommendation, an authorized action, a work-system receipt, and a verified physical result. Required result states remain distinct and evidence-backed.</p>
-        <div className="lm-result-states">{outcomeStates.map((state, index) => <article key={state}><span>{String(index + 1).padStart(2, "0")}</span><h3>{state}</h3></article>)}</div>
-      </EditorialSection>
+function AuthorityBoundary() {
+  return <EditorialSection eyebrow="AUTOMATION MUST EARN ITS TRUST" title="Learning can advance the response without taking authority away." intro="The goal is not automation for its own sake. The goal is to use retained operating knowledge to see problems earlier, choose a stronger response, and avoid preventable downtime while keeping clear authority over every consequential action." tone="grid" className="lm-singularity-governance-section"><div className="lm-singularity-authority">{authorityModes.map((mode) => <article key={mode.name}><OperationalIcon kind={mode.kind} size="medium" /><div><span>{mode.name}</span><p>{mode.copy}</p></div></article>)}</div><div className="lm-singularity-boundary"><div><OperationalIcon kind="security" size="large" /><span>THE NON-NEGOTIABLE BOUNDARY</span><h3>Current readings and customer authority remain in control.</h3><p>Models can identify patterns, assemble context, and recommend a response. They do not become operating truth simply because software produced them. Physical recovery still depends on current valid measurements.</p></div><div><span>DATA TRUST</span><h3>Learning persists. Customer facts stay protected.</h3><p>The architecture separates customer operations from cross-site learning. SSOM conformance does not grant contribution rights. Purpose, consent, minimization, transformation, provenance, retention, and model scope remain explicit, and aggregate learning cannot rewrite customer canonical facts.</p></div></div><nav className="lm-singularity-concept-links" aria-label="Related industrial concepts"><InlineLink to="/resources/industrial-concepts/industrial-ai">Read how governed industrial AI advances safely</InlineLink><InlineLink to="/resources/industrial-concepts/lights-out-operations">Understand the lights-out manufacturing horizon</InlineLink><InlineLink to="/resources/industrial-concepts/data-spaces">See how sovereign learning protects customer data</InlineLink></nav></EditorialSection>;
+}
 
-      <EditorialSection title="Inform future decisions without making consent implicit." tone="grid">
-        <p className="lm-v2-large-copy">The architecture separates customer operations from cross-site learning. SSOM conformance does not grant contribution rights. Purpose, consent, minimization, transformation, provenance, retention, and model scope remain explicit, and aggregate learning cannot rewrite customer canonical facts.</p>
-        <InlineLink to="/resources/industrial-concepts/data-spaces">Read about industrial data spaces and sovereign learning</InlineLink>
-        <InlineLink to="/resources/industrial-concepts/industrial-ai">Read the industrial AI authority and outcome boundary</InlineLink>
-      </EditorialSection>
-
-      <NextStep title="See how governed meaning becomes coordinated response." copy="Infinit-Flow references canonical facts while preserving work, authority, timers, receipts, and the result contract." label="Explore Infinit-Flow" to="/infinit-flow" secondary={{ label: "Discuss Your Operational Model", to: "/contact?intent=architecture" }} />
-    </div>
-  </>;
+function PersistentMemoryHero() {
+  return <figure className="lm-singularity-memory-hero" aria-labelledby="memory-hero-caption"><div className="lm-singularity-memory-hero__heading">SINGULARITY · PERSIST + LEARN</div><div className="lm-singularity-memory-hero__orbit" aria-hidden="true"><i /><i /><i /></div><ol><li><OperationalIcon kind="signal" size="medium" /><span>FIRST SIGNAL</span><strong>What changed?</strong></li><li><OperationalIcon kind="decision" size="medium" /><span>DECISION + ACTION</span><strong>What did we do?</strong></li><li><OperationalIcon kind="verification" size="medium" /><span>MEASURED RESULT</span><strong>What happened next?</strong></li></ol><div className="lm-singularity-memory-hero__core"><OperationalIcon kind="context" size="large" /><span>SINGULARITY</span><strong>One memory that keeps learning</strong><small>Asset · Condition · Decision · Action · Result</small></div><figcaption id="memory-hero-caption">The complete response becomes durable operating knowledge instead of leaving with the person, project, or source system.</figcaption></figure>;
 }

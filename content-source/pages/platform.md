@@ -2,9 +2,9 @@
 content_id: PAGE-PLATFORM-001
 status: approved
 owner: Platform Product Marketing
-last_reviewed: 2026-08-06
+last_reviewed: 2026-08-15
 claim_maturity: [designed, demonstrated]
-depends_on: [GOV-DOCTRINE-001, USECASE-DC-COOLING-001, CLAIMS-REGISTRY-001]
+depends_on: [GOV-DOCTRINE-001, CLAIMS-REGISTRY-001, CONCEPT-INDUSTRIAL-AI-001]
 used_by: [/platform]
 ---
 
@@ -12,96 +12,77 @@ used_by: [/platform]
 
 ## Job
 
-Show how the four products preserve one operating condition from evidence through verified outcome. Use the data-center cooling reference scenario to demonstrate measurement integrity. Do not turn the page into a general product directory or redesign the approved structure.
+Explain why capable industrial systems still lose the complete response between their boundaries, and how the Last Mile Platform connects condition, context, ownership, work, and measured recovery without replacing those systems.
+
+## Audience
+
+Enterprise IT/OT leaders, plant managers, reliability leaders, and operations executives managing increasing data volume across control, data, work, and service systems.
+
+## Five-second promise
+
+Industry is not failing at data collection. It is failing to keep the whole response connected.
+
+## Narrative limits
+
+- Major sections: four.
+- Narrative copy: 650-850 words.
+- Primary visual: a bright multi-tier industrial stack with the Last Mile layer clearly above existing systems.
+- Supporting visuals: one focused operator composition, one enterprise-integration architecture, and the connected-product system.
+- Closing CTA: none. Hero navigation may link to the accountability gap and products.
+
+## Page order
+
+1. The orchestration problem and platform position.
+2. Data pressure and the human breaking point.
+3. The accountability gap across existing systems.
+4. One platform, four responsibilities.
 
 ## Hero
 
-**Eyebrow:** LAST MILE PLATFORM
+**Eyebrow:** LAST MILE: THE PHYSICAL OPERATIONS PLATFORM
 
-**H1:** One accountable operating condition—from first evidence to verified outcome.
+**Heading:** Industry is not failing at data collection. It is failing at orchestration.
 
-**Body:** Last Mile sits above the systems that already run, record, and service physical operations. It qualifies their evidence, resolves one operational identity, coordinates the governed response, and proves recovery from live return measurements.
+**Body:** Your plant already collects alarms, readings, trends, work, schedules, approvals, and service updates. The failure happens between those systems, where the same issue loses its identity, owner, context, and physical result. Last Mile keeps that response connected without taking control away from the systems and people running the operation.
 
-### Operating-state panel
+**Visual purpose:** Show Last Mile as a distinct light-blue operating layer above dense but capable OT, data, work, service, and plant layers. Do not use dark backgrounds or unapproved product names.
 
-**Cooling Loop B · Reduced redundancy**
-**Critical · Pump CHWP-02 did not start**
-**Maya Chen · Critical Facilities · DC-03 / Hall 3**
+## Data pressure and the human limit
 
-| Measurement | Current | Reference | State |
-|---|---:|---:|---|
-| Commanded state | RUN | Requested at 14:32:18 | Commanded |
-| Pump status | Stopped | Expected: Running | Critical |
-| Motor current | 0.6 A | Running baseline*: 17.5-20.5 A | Critical |
-| Loop differential pressure | 4.2 psid | Approved band*: 9.0-15.0 psid | Critical · down 2.1 psid/5 min |
-| Rack inlet temperature | 73.6°F | Recommended: 64.4-80.6°F | Normal · up 0.3°F/5 min |
+**Eyebrow:** MORE DATA IS NOT THE SAME AS MORE CONTROL
 
-**Footer:** CHWP-02 is commanded to run but remains stopped. Cooling Loop B has lost its secondary pumping path; Hall 3 temperatures remain inside their current range.
+**Heading:** People cannot assemble the whole operation from hundreds of separate signals.
 
-## Ownership comparison
+Explain that increasing data volume only helps when source, time, quality, equipment identity, operating impact, ownership, and required action stay connected. Use ISA alarm-management principles to distinguish actionable alarms from notification overload. Do not claim a universal alarm rate for every industry.
 
-### What the Existing Stack Retains
+**Visual purpose:** A calm operator sees one qualified operating issue while raw plant screens remain in the background. The visual demonstrates prioritization, not autonomous control.
 
-- BMS/SCADA commands, status, measurements, and alarms.
-- Historian trends and retained operating data.
-- SAP work order and equipment records.
-- Provider dispatch and field-service updates.
-- Facilities, IT, and field operating authority.
+## Accountability gap
 
-### What Last Mile Adds
+**Heading:** The systems are connected. The operating outcome often is not.
 
-- One canonical asset and topology across source identities.
-- One qualified Condition instead of disconnected alarms.
-- One case across teams, systems, and providers.
-- One time-correct evidence chain from source to result.
-- One operating result established from return telemetry.
+Use the approved enterprise-integration architecture and the existing accountability sidecar. Show legacy industrial connections entering the Last Mile orchestration layer, then clear two-way paths to modern enterprise systems. Keep the gap statements: asset identity, fragmented condition, lost impact, and work status substituting for recovery.
 
-## Animated outcome loop
+Retain the What Stays with Your Systems and People and What Last Mile Adds comparison with substantial operational icons.
 
-### 1. Detect - Infinit-Signal
+## Connected Last Mile Products
 
-Display exact values from `USECASE-DC-COOLING-001`; do not use ON/OFF, near zero, stable, or declining as standalone measurements.
+**Eyebrow:** ONE PLATFORM. FOUR RESPONSIBILITIES.
 
-### 2. Qualify - Infinit-Signal and Singularity
+Preserve the direct roles:
 
-Show source authority, event time, 1.8-second latency, 98/100 quality, live-event classification, mapping confidence 1.00, five accepted records, and two quarantined records. Explain the duplicate and 47-second-stale pressure sample.
+- Infinit-Signal: Observe.
+- Singularity: Understand.
+- Infinit-Flow: Decide, Coordinate, Act.
+- Infinit-Control: Observe.
 
-### 3. Resolve - Singularity / SSOM
+Verification remains collective platform behavior.
 
-Show the representative source references and resolved topology. Label all named source products and paths as representative; do not imply validated integrations.
+## Research basis
 
-### 4. Coordinate - Infinit-Flow
+- NIST describes the need for trusted manufacturing data infrastructure, traceability, interoperability, and reproducible information workflows. https://www.nist.gov/programs-projects/advanced-manufacturing-data-infrastructure-and-analytics-program
+- ISA-18.2 covers alarm rationalization, prioritization, performance monitoring, and operator situational awareness. https://www.isa.org/standards-and-publications/isa-standards/isa-18-series-of-standards
 
-Show Maya Chen; acknowledgement 01:49 / 05:00 Normal; SAP `WO-18427` In progress; dispatch `M-88214` Accepted; ETA 18 min; mechanical isolation authorized; field authority retained by DC-03 Critical Facilities.
+## Exclusions
 
-### 5. Track - Infinit-Control
-
-Persistent panel: issue `LM-CHWP-02-0471`; Critical; CHWP-02; Reduced redundancy; Maya Chen; Critical Facilities · DC-03 / Hall 3; acknowledgement complete; SAP work and provider dispatch; current state Pump stopped; result Awaiting qualified return measurements.
-
-### 6. Verify - Singularity / SSOM and Infinit-Control
-
-Provide controls for five coherent datasets: Recovery established, Partial recovery, Failed intervention, Recurrence detected, and Insufficient return data. Changing the heading without changing telemetry is prohibited.
-
-## Outcome principle section
-
-**Heading:** The work order can close before the operating condition is recovered.
-
-**Body:** In the reference timeline, SAP work closes at 15:02:41. Recovery is not established until 15:17:42, after the complete fifteen-minute measurement window proves the pump is running, current and differential pressure are in band, rack inlet temperature remains in range, and pressure is stable.
-
-## Industry use-case viewer
-
-Keep the four supplied process-map images unchanged. Under each modal image, render the corresponding compact numerical snapshot from the use-case contract with named owner, units, bands, state text/icons, and result summary.
-
-## Reference disclosure
-
-Reference values describe a controlled Last Mile demonstration. External guidance is identified where applicable; equipment limits, commissioned setpoints, operating bands, response authority, and acceptance criteria remain customer- and site-specific.
-
-## CTA
-
-**Heading:** See one physical operation from signal to proof.
-
-**CTA:** Explore the operating use cases
-
-## Route scope
-
-Change only the Platform route, its exclusive components, data, styles, and tests. Preserve navigation stacking. Do not use this contract as permission to redesign Home, Products, or dedicated use-case pages.
+No 90-percent waste claim, automation-readiness percentage, universal alarm benchmark, partner logo wall, named unvalidated connector, unapproved architecture name, use-case dashboard, closing CTA panel, or autonomous-plant claim. Do not repeat the Home Accountable Operations Loop section on this route.

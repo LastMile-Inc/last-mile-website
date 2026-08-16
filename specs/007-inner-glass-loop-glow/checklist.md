@@ -1,0 +1,21 @@
+# Checklist
+
+- [x] Approved Infinit-Control portal untouched
+- [x] Commissioned ring retained
+- [x] Three-column Home layout retained
+- [x] Phase definitions retained
+- [x] Clipped raster wedges removed
+- [x] Loop polygon clipping removed
+- [x] Six inner-glass paths present
+- [x] Six feathered masks present
+- [x] Corporate Blue gradient present
+- [x] Matching active definition gradient present
+- [x] Opening sequence preserved
+- [x] Neutral completion preserved
+- [x] Pointer linkage preserved
+- [x] Keyboard linkage preserved
+- [x] Reduced-motion path preserved
+- [x] Desktop and phone browser checks passed
+- [x] Full validation passed
+- [x] Final consistency review completed
+- [x] Validated correction prepared for commit and push

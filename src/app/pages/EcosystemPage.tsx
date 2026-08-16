@@ -1,5 +1,5 @@
 import { SEO } from "@/app/components/SEO";
-import { EditorialHero, EditorialSection, InlineLink, NextStep } from "@/app/components/NarrativeComponents";
+import { EditorialHero, EditorialSection, InlineLink } from "@/app/components/NarrativeComponents";
 import { AccessibleDataTable } from "@/app/components/OperatingScenarioComponents";
 import { createBreadcrumbSchema } from "@/app/lib/structuredData";
 
@@ -43,7 +43,7 @@ export function EcosystemPage() {
   return <>
     <SEO title="Ecosystem | Keep the Systems That Run Your Operation" description={description} canonicalPath="/ecosystem" jsonLd={createBreadcrumbSchema([{ name: "Home", path: "/" }, { name: "Ecosystem", path: "/ecosystem" }])} />
     <div className="lm-v2-page">
-      <EditorialHero eyebrow="OPEN INDUSTRIAL ECOSYSTEM" title="Keep the systems that run your operation. Connect the accountability between them." intro="Last Mile consumes configured outputs from existing OT, data, work, facilities, and service platforms. It preserves their identities and responsibilities while creating one condition-to-outcome thread across them." primary={{ label: "Discuss Your Operational Stack", to: "/contact?intent=architecture" }} secondary={{ label: "Inspect the Platform", to: "/platform" }} />
+      <EditorialHero eyebrow="OPEN INDUSTRIAL ECOSYSTEM" title="Your systems stay in place. The handoffs stop disappearing." intro="Your control systems, historians, work systems, and service platforms already do important jobs. Last Mile keeps them in place and connects the problem, owner, work, and return readings between them." primary={{ label: "Discuss Your Operational Stack", to: "/contact?intent=architecture" }} secondary={{ label: "Inspect the Platform", to: "/platform" }} />
 
       <EditorialSection title="Each system keeps its proper responsibility." tone="grid">
         <div className="lm-ecosystem-grid">{categories.map((category) => <article key={category.title}><h3>{category.title}</h3><p>{category.copy}</p>{"link" in category ? <InlineLink to={category.link[1]}>{category.link[0]}</InlineLink> : null}</article>)}</div>
@@ -51,16 +51,17 @@ export function EcosystemPage() {
 
       <EditorialSection eyebrow="TECHNOLOGY HANDOFFS" title="Make the boundary concrete at every interface.">
         <AccessibleDataTable caption="Representative industrial technology handoffs" headers={["Existing responsibility", "Representative systems", "Representative handoff", "What Last Mile adds", "Explicit boundary"]} rows={handoffs} />
-        <p className="lm-v2-caveat">Every row is a representative integration pathway with validation status to be confirmed. Product names do not imply certification, partnership, endorsement, or completed production integration.</p>
+
+
       </EditorialSection>
 
-      <EditorialSection eyebrow="Representative ecosystems" title="Names illustrate where the operating thread crosses—not a privileged architecture.">
-        <p className="lm-v2-large-copy">Product and company names illustrate representative industrial ecosystems. Inclusion does not imply partnership, certification, or a validated production integration. Last Mile is designed to operate without requiring one automation, broker, historian, work, facilities, or service platform.</p>
-        <p className="lm-v2-caveat">Every named work system remains an optional external system of record; none is a platform foundation or prerequisite.</p>
+      <EditorialSection eyebrow="Representative ecosystems" title="Names illustrate where the operating thread crosses, not a privileged architecture.">
+        <p className="lm-v2-large-copy">Last Mile works across control, data, work, facilities, and service platforms without requiring any single vendor or system as its foundation.</p>
+
+
         <div className="lm-concept-links"><InlineLink to="/resources/industrial-concepts/semantic-interoperability">Connected is not yet interoperable</InlineLink><InlineLink to="/resources/industrial-concepts/opc-ua">OPC UA and Companion Specifications</InlineLink><InlineLink to="/resources/industrial-concepts/ot-security">OT security and explicit trust boundaries</InlineLink></div>
       </EditorialSection>
 
-      <NextStep title="See how source evidence becomes one governed operating model." copy="Infinit-Signal preserves each source's evidence and authority before creating canonical operational records for Singularity." label="Explore Infinit-Signal" to="/infinit-signal" secondary={{ label: "Discuss Your Operational Stack", to: "/contact?intent=architecture" }} />
     </div>
   </>;
 }

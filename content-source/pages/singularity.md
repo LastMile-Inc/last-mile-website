@@ -2,9 +2,9 @@
 content_id: PAGE-SINGULARITY-001
 status: approved
 owner: Singularity Product Marketing
-last_reviewed: 2026-08-06
-claim_maturity: [designed, reference_architecture]
-depends_on: [PROD-SINGULARITY-001, CONCEPT-SEMANTIC-001, CONCEPT-UNS-001, CLAIMS-REGISTRY-001]
+last_reviewed: 2026-08-15
+claim_maturity: [designed, reference_architecture, perspective]
+depends_on: [PROD-SINGULARITY-001, CONCEPT-SEMANTIC-001, CONCEPT-INDUSTRIAL-AI-001, CONCEPT-LIGHTSOUT-001, CONCEPT-DATASPACE-001, CLAIMS-REGISTRY-001]
 used_by: [/singularity]
 ---
 
@@ -12,60 +12,79 @@ used_by: [/singularity]
 
 ## Job
 
-Explain the difference between distributed data and durable operational meaning. Establish SSOM as the open contract and Singularity as Last Mile's governed operational memory without overclaiming a completed world model.
+Make Singularity memorable as the persistent operating memory that keeps expert context, decisions, actions, and measured results available after people, vendors, and systems change.
+
+## Audience
+
+Operations executives, plant managers, reliability leaders, and risk officers facing workforce transition, fragmented history, recurring downtime, and pressure to automate safely.
+
+## Five-second promise
+
+One durable operating record for every physical asset.
+
+## Narrative limits
+
+- Major sections: five including the hero.
+- Narrative copy: 500-700 words.
+- Primary visual: disparate industrial records passing through semantic alignment into one durable, source-linked equipment record.
+- Supporting visuals: the code-native learning continuum, one field anticipation image, the persistent-memory artifact, and the governed authority boundary.
+- Closing CTA: none.
+
+## Page order
+
+1. The workforce and operating-memory risk.
+2. Persistent operational memory.
+3. Operational learning continuum.
+4. Earlier recognition and programmatic anticipation.
+5. Governed learning and data trust.
 
 ## Hero
 
-**Eyebrow:** SINGULARITY
+**Eyebrow:** SINGULARITY · SEMANTIC OPERATING MEMORY
 
-**H1:** Give the physical operation one durable memory.
+**Heading:** The Standard Semantic Object Model for Physical Operations.
 
-**Body:** Singularity connects assets, observations, Conditions, evidence, decisions, work, return measurements, and Outcomes across the systems and sites that each see only part of the operating story.
+**Body:** Raw telemetry does not explain the operation. Singularity connects each reading to the asset, location, history, decision, action, and measured result that give it meaning.
 
-**Subordinate label:** Governed operational memory implementing the open SSOM contract.
+**Support:** Singularity aligns with Unified Namespace, or UNS, architectures. A UNS makes current plant information easier to find. Singularity gives that information durable identity and meaning while keeping source, time, quality, and equipment relationships intact.
 
-**Operating artifact:** Show the complete `CHWP-02` source-identity crosswalk and resolved topology from `USECASE-DC-COOLING-001`. Preserve every scoped source identity and validity period.
+**Visual purpose:** Show several source-linked industrial records becoming one layered operating record. Do not depict a monolithic data vault, dark background, or autonomous control.
 
-## SSOM distinction
+## Persistent operational memory
 
-**Heading:** An open semantic contract inside a governed Last Mile product.
+**Eyebrow:** THE THREAT OF OPERATIONAL AMNESIA
 
-**Body:** SSOM defines portable operational meaning and conformance. Singularity implements that contract through canonical journals, identity and topology services, current-state projections, condition and outcome services, evidence, replay, policy, and governed learning.
+**Heading:** If the reason behind the fix disappears, the next shift starts over.
 
-## Identity section
+Explain that expert knowledge becomes durable corporate memory only when the asset, source, time, condition, decision, authority, action, and physical result remain connected. Keep the SSOM and Singularity distinction concise and preserve source identity.
 
-**Heading:** One pump. Five names. One shared operational identity.
+## Operational learning continuum
 
-**Copy:** Source tags, MQTT topics, OPC UA NodeIds, historian points, SAP equipment, and provider records remain visible as scoped external identities. Singularity connects them to one canonical asset without erasing their source meaning or history.
+Use the current six-stage X/Y composition with the approved definitions, lower-area gradient fill, consistent connectors, readable labels, accessible HTML equivalent, and reduced-motion-safe motion.
 
-## UNS comparison
+Stages: Manual Reaction, Connected Visibility, Contextual Assistance, Governed Prediction, Proactive Automation, Lights-Out Manufacturing. The final stage remains a future horizon, not a current product claim.
 
-**Heading:** Distribution is not the same as meaning.
+## Earlier recognition
 
-| Unified Namespace | Singularity / SSOM |
-|---|---|
-| Distributes current information | Preserves governed operational memory |
-| Uses topics and source identifiers | Resolves canonical asset identity |
-| Carries payload and source metadata | Preserves quality, provenance, evidence, and lineage |
-| Exposes state changes | Connects Conditions, decisions, actions, and Outcomes |
-| Usually presents a navigable hierarchy | Represents many-to-many and time-varying relationships |
+**Eyebrow:** RECOGNIZE THE PATTERN BEFORE THE FAILURE
 
-**Link:** Read the complete UNS and SSOM explanation.
+**Heading:** Use the history to give the next crew a head start.
 
-## Outcome section
+Explain how Singularity can compare current measurements with prior conditions, decisions, work, and measured results. Earlier recognition may support a recommendation or an approved digital response, but it does not bypass current evidence, safety, or customer authority.
 
-**Heading:** Remember what worked—not just what was attempted.
+**Visual purpose:** A real compressor and precise event timeline show a small deviation, relevant history, recommended response, and required return reading. Do not show named external systems or claim zero downtime.
 
-**Body:** Singularity preserves the difference between a recommendation, an authorized action, a work-system receipt, and a verified physical result. Recovery, partial recovery, failed intervention, recurrence, and insufficient return data remain distinct evidence-backed states.
+## Governed learning
 
-## Data Trust section
+**Eyebrow:** AUTOMATION MUST EARN ITS TRUST
 
-**Heading:** Learn across operations without making consent implicit.
+Keep the ASSIST, AUTO, and HUMAN AUTHORITY progression. Preserve current valid evidence, measured recovery, purpose, consent, minimization, transformation, provenance, retention, and model scope. Aggregate learning cannot rewrite customer canonical facts.
 
-**Body:** The architecture separates customer operations from cross-site learning. SSOM conformance does not grant contribution rights. Purpose, consent, minimization, transformation, provenance, retention, and model scope remain explicit.
+## Research basis
 
-## CTA
+- BLS workforce tables track the material share of older workers across detailed occupations. Use the demographic direction, not a rounded universal manufacturing percentage. https://www.bls.gov/cps/data/aa2025/cpsa2025.pdf
+- NIST describes the need for trusted monitoring, diagnostics, and prognostics to minimize unplanned downtime and improve factory-floor decisions. https://www.nist.gov/programs-projects/monitoring-diagnostics-and-prognostics-manufacturing-operations
 
-**Heading:** See how governed meaning becomes coordinated response.
+## Exclusions
 
-**CTA:** Explore Infinit-Flow
+No fixed workforce percentage, universal downtime cost, guaranteed reduction, zero-downtime claim, partner or customer logo wall, named unvalidated connector, unapproved architecture name, current autonomous-plant claim, or closing CTA panel.

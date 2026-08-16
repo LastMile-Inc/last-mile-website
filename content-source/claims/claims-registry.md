@@ -2,7 +2,7 @@
 content_id: CLAIMS-REGISTRY-001
 status: approved
 owner: Product and Content Governance
-last_reviewed: 2026-08-06
+last_reviewed: 2026-08-15
 claim_maturity: [implemented, demonstrated, designed, reference_architecture, customer_specific, perspective, do_not_publish]
 depends_on: [GOV-CLAIMS-001]
 used_by: [all]
@@ -18,7 +18,7 @@ This registry is the canonical detailed claim authority beneath the review-site 
 |---|---|---|---|---|
 | CLM-CAT-001 | Last Mile is the Physical Operations Platform. | Designed / category position | Doctrine and four-product architecture | Market leadership or production adoption |
 | CLM-CAT-002 | Last Mile is an independent operational-accountability layer above existing OT, data, work, and service ecosystems. | Designed | Platform architecture | Replaces every underlying system |
-| CLM-CAT-003 | Last Mile connects condition to work to verified physical outcome. | Designed; Demonstrated in reference scenarios | Four use-case contracts | Customer production outcome |
+| CLM-CAT-003 | The Accountable Operations Loop keeps the issue, decision, work, and return readings connected until the equipment is stable again. | Designed; Demonstrated in reference scenarios | Four use-case contracts | Customer production outcome |
 | CLM-DATA-001 | Operational data is created once as an SSOM-conformant canonical record and consumed through governed contracts and projections. | Designed | Architecture baselines | All persistence is physically one database |
 | CLM-OUTCOME-001 | Physical recovery is verified from required current return measurements, not ticket status. | Designed; Demonstrated | Outcome rules and use cases | Regulatory certification |
 | CLM-VENDOR-001 | Last Mile is designed to operate across vendor ecosystems without requiring one automation, broker, historian, work, or service platform. | Designed / reference architecture | Source profiles and contracts | Every named vendor is validated |
@@ -27,19 +27,22 @@ This registry is the canonical detailed claim authority beneath the review-site 
 
 | Claim ID | Approved language | Maturity | Scope/evidence | Prohibited inference |
 |---|---|---|---|---|
-| CLM-SIG-001 | Infinit-Signal consumes configured operational sources, preserves source evidence, qualifies time and quality, and creates SSOM-conformant records. | Designed | Product contract and architecture | Production connector availability |
-| CLM-SIG-002 | Infinit-Signal is designed for MQTT, Sparkplug, OPC UA, historian, industrial platform, API, and file source families through versioned Source Platform Profiles. | Designed / reference architecture | Architecture | Certified compatibility |
+| CLM-SIG-001 | Infinit-Signal takes in alarms, measurements, state changes, history, and replay without flattening them into anonymous values. The original source, timestamp, equipment identity, and quality stay attached as traffic moves upstream. | Designed | Product contract and architecture | Production connector availability |
+| CLM-SIG-002 | Infinit-Signal is designed for MQTT, Sparkplug, OPC UA, BACnet, Modbus, historian, industrial platform, API, and file source families through versioned Source Platform Profiles or customer-approved adapters. | Designed / reference architecture | Architecture and product contract | Certified compatibility or generally available connectors |
 | CLM-SIG-003 | The customer UNS remains the communication and discovery fabric; Infinit-Signal consumes configured subscriptions without claiming ownership of the namespace. | Designed / perspective | UNS source and product contract | Last Mile operates broker infrastructure |
 | CLM-SIG-004 | Duplicate, stale, replayed, retained, unresolved, and invalid records receive explicit classifications and evidence. | Designed; Demonstrated only in reference scenario | Data-center qualification dataset | Measured production rates |
 | CLM-SIG-005 | Infinit-Signal is designed for priority-aware 24x7 ingestion and backpressure isolation. | Designed | SLO architecture | “Massive scale” or production-grade without test evidence |
+| CLM-SIG-006 | The current engineering target is millions of events per second at global enterprise scale. | Perspective / reference architecture | Founder brief and workload-profile test plan | Achieved production benchmark |
+| CLM-SIG-007 | The engineering objective is zero data loss for accepted P0 critical records inside a declared deployment profile. | Perspective / reference architecture | Founder brief and SLO architecture | Universal zero-data-loss guarantee |
+| CLM-SIG-008 | Infinit-Signal is designed for priority-aware continuous 24x7x365 intake with backpressure isolation and controlled recovery. | Designed / reference architecture | SLO architecture | Measured production availability |
 
 ## Singularity / SSOM
 
 | Claim ID | Approved language | Maturity | Scope/evidence | Prohibited inference |
 |---|---|---|---|---|
-| CLM-SSOM-001 | SSOM is an open, vendor-neutral semantic and evidence contract. | Designed | SSOM architecture | Standards-body adoption unless documented |
-| CLM-SING-001 | Singularity is Last Mile's governed operational-memory and OT world-model product implementing SSOM. | Designed | Product and architecture contracts | Implemented production world model |
-| CLM-SING-002 | Singularity preserves canonical identity, topology, conditions, evidence, time, and verified outcomes across systems. | Designed; Demonstrated in reference content | Architecture and scenarios | Universal digital twin |
+| CLM-SSOM-001 | The Standardized Semantic Object Model defines portable operating meaning, identity, relationships, time, quality, evidence, provenance, conformance, and profiles. | Designed | SSOM architecture | Standards-body adoption unless documented |
+| CLM-SING-001 | Singularity links readings, decisions, work, and results to the physical asset while preserving where each fact came from. | Designed | Product and architecture contracts | Implemented production world model |
+| CLM-SING-002 | Singularity connects each reading to the asset, location, history, decision, action, and measured result that give it meaning. | Designed; Demonstrated in reference content | Architecture and scenarios | Universal digital twin |
 | CLM-SING-003 | SSOM conformance and MQTT/Sparkplug compatibility are separate conformance domains. | Perspective / reference architecture | Eclipse specification and UNS paper | Certification in either domain |
 | CLM-SING-004 | Cross-site learning is consent- and purpose-governed and cannot rewrite customer canonical facts. | Designed | Data Trust architecture | Current federated/data-space implementation |
 
@@ -56,10 +59,15 @@ This registry is the canonical detailed claim authority beneath the review-site 
 
 | Claim ID | Approved language | Maturity | Scope/evidence | Prohibited inference |
 |---|---|---|---|---|
-| CLM-CTRL-001 | Infinit-Control presents one accountable case with live state, evidence, ownership, work, and verified outcome. | Designed; Demonstrated in reference page spec | Product contract | Implemented product UI unless code evidence exists |
+| CLM-CTRL-001 | Current impact, owner, authority, work, exceptions, and return readings stay together as the case changes. | Designed; Demonstrated in reference page spec | Product contract | Implemented product UI unless code evidence exists |
 | CLM-CTRL-002 | Measurements display value, unit, reference, state, and operationally meaningful trend/freshness. | Designed; Demonstrated in reference datasets | Use-case contracts | Customer-specific thresholds |
 | CLM-CTRL-003 | No-valid-data states prevent a healthy or recovered presentation. | Designed | Result rules | Automatic repair of source data |
 
+## Continuous Improvement and Industrial AI
+
+| Claim ID | Approved language | Maturity | Scope/evidence | Prohibited inference |
+| --- | --- | --- | --- | --- |
+| CLM-AI-001 | Because Last Mile sees the full lifecycle from first signal through verified recovery, AI can compare the decisions, handoffs, actions, delays, and return readings that shaped the result. No useful learning is lost, successful resolution steps do not have to be rediscovered, and approved improvements can be applied automatically the next time a similar issue appears. | Designed | Singularity learning architecture and Industrial AI concept | Autonomous plant control, implemented production learning, or guaranteed MTTR reduction |
 ## Industrial concepts
 
 | Claim ID | Approved language | Maturity | Source |

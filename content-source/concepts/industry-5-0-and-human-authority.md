@@ -12,7 +12,7 @@ used_by: [/about, /resources/industrial-concepts/industry-5-0]
 
 ## Canonical position
 
-Industry 5.0 is a human-centric, sustainable, and resilient industrial vision—not a new automation version number. Last Mile supports it by keeping authority explicit, making degraded states and resilience visible, and verifying resource and operating outcomes.
+Industry 5.0 is a human-centric, sustainable, and resilient industrial vision, not a new automation version number. Last Mile supports it by keeping authority explicit, making degraded states and resilience visible, and verifying resource and operating outcomes.
 
 ## Publication-ready article
 

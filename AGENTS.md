@@ -34,7 +34,7 @@ The legacy token names `--lm-teal` and `--lm-mint` refer to approved blue-family
 - Use pale blue or neutral washes sparingly for hierarchy.
 - Use restrained blue-grey borders and subtle shadows.
 - Use primary blue for calls to action, links, selected states, and controlled emphasis.
-- Use ink primarily for headings, text, and fine details—not large page or section backgrounds.
+- Use ink primarily for headings, text, and fine details, not large page or section backgrounds.
 - Keep all website images, diagrams, and generated visual assets within this palette. Preserve transparent backgrounds when the asset specification requires one.
 
 ### Prohibited treatment
@@ -56,6 +56,28 @@ Before completing any visual change:
 3. Confirm white-panel/light-canvas hierarchy remains intact.
 4. Check that diagrams and imagery coordinate with the same palette.
 5. Run the repository's appropriate validation, including `npm run build` after meaningful frontend changes.
+
+## Art Direction and Page Contracts
+
+The founder-approved homepage is the quality reference for visual hierarchy, editorial restraint, and custom operational storytelling. It is a reference for quality and principles, not a layout to duplicate on every route.
+
+Before creating or materially redesigning a public page:
+
+1. Read `docs/design/WEBSITE_DESIGN_STANDARD.md` and `docs/design/FOUNDER_REVIEW_RUBRIC.md`.
+2. Create or update the page's canonical contract in `content-source/pages/` using `docs/design/PAGE_CONTRACT_TEMPLATE.md`.
+3. Give the page one clear job, one primary visual idea, a defined section limit, and a narrative copy budget.
+4. Prefer a few large, explanatory compositions over repeated card grids, small decorative icons, or dense conceptual prose.
+5. Record rollout status in `docs/design/ROUTE_ROLLOUT.md` when a route becomes a new reference implementation.
+
+Do not copy the homepage composition section-for-section. Product, platform, use-case, resource, company, and conversion pages must use the appropriate page archetype in the design standard while retaining a coherent Last Mile visual language.
+
+## Public Writing Style
+
+- Do not use em dashes in public website copy. Use a period, comma, colon, or a shorter sentence instead.
+- Apply the spoken-language test before publishing: if an operator or buyer would not say the sentence naturally in a real conversation, rewrite it.
+- Prefer concrete problems, actions, handoffs, and results over abstract process language.
+- Do not restate the same idea in adjacent headings, captions, panels, or calls to action.
+- Do not add generic bottom-of-page closing or next-step CTA sections. Public pages end on substantive content unless the founder explicitly requests a route-specific close.
 
 ## Change Discipline
 

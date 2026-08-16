@@ -66,17 +66,202 @@ test("every use case uses the code-native governed process map and required disc
   }
 });
 
-test("homepage proof is code-native and public concepts hide governance enums", () => {
+test("all use-case details share the compact story deck and scenario-specific photography", () => {
+  const page = read("src/app/pages/OperatingUseCasePage.tsx");
+  const visuals = read("src/app/pages/useCaseVisuals.ts");
+  const styles = read("src/styles/site-v2.css");
+  assert.equal([...page.matchAll(/<StoryCard/g)].length, 5);
+  for (const chapter of ["operating-condition", "response-map", "work-path", "recovery-contract", "measurements"]) {
+    assert.match(page, new RegExp(`id="${chapter}"`));
+  }
+  for (const component of ["SystemResponsibilityMap", "AccountableResponseRail", "OutcomeEvidenceMap", "StoryDetails"]) {
+    assert.match(page, new RegExp(component));
+  }
+  assert.doesNotMatch(page, /EditorialSection/);
+  assert.doesNotMatch(page, /lm-story-cue|storySteps/);
+  assert.doesNotMatch(page, /NextStep|Map the .* response in your environment/);
+  assert.match(page, /Keep scrolling to follow the entire resolution/);
+  assert.ok(styles.includes("position: sticky;"));
+  assert.ok(styles.includes("top: calc(126px + (var(--lm-card-index) * 7px));"));
+  assert.ok(styles.includes("min-height: 0;"));
+  assert.ok(styles.includes(".lm-scenario-measurements.is-compact { grid-template-columns: repeat(5"));
+  assert.ok(styles.includes(".lm-use-case-story-card { position: relative; top: auto; }"));
+  for (const asset of ["data-center-cooling-v2.webp", "municipal-wastewater-v2.webp", "manufacturing-compressed-air-v2.webp", "cold-storage-refrigeration-v2.webp"]) {
+    assert.match(visuals, new RegExp(asset.replace(".", "\\.")));
+  }
+  assert.deepEqual(operatingScenarioList.map((scenario) => scenario.thesis), [
+    "The Thermal Threat",
+    "Stop the Overflow Before It Starts",
+    "Find the Air Loss Before Production Does",
+    "Protect the Product Before Temperatures Rise",
+  ]);
+});
+
+test("active public pages do not use generic closing or next-step sections", () => {
+  const pageRoot = path.join(root, "src/app/pages");
+  const pages = fs.readdirSync(pageRoot).filter((file) => file.endsWith(".tsx"));
+  for (const page of pages) {
+    const source = read(path.join("src/app/pages", page));
+    assert.doesNotMatch(source, /<NextStep|lm-v2-next/);
+  }
+  const components = read("src/app/components/NarrativeComponents.tsx");
+  assert.doesNotMatch(components, /export function NextStep/);
+});
+
+test("Home owns the company story, Platform owns architecture, and public concepts hide governance enums", () => {
   const home = read("src/app/pages/HomePage.tsx");
+  const platform = read("src/app/pages/PlatformOverviewPage.tsx");
+  const accountableLoop = read("src/app/components/AccountableOperationsLoop.tsx");
   const article = read("src/app/pages/IndustrialConceptArticlePage.tsx");
-  assert.match(home, /PrecisionLoopGraphic/);
-  assert.match(home, /Accountable Operations Loop/);
-  assert.equal((home.match(/<EditorialSection/g) ?? []).length + (home.match(/<HomepageHero/g) ?? []).length + (home.match(/<AccountableOperationsLoop/g) ?? []).length + (home.match(/<NextStep/g) ?? []).length, 7);
+  const styles = read("src/styles/technical-journal-refresh.css");
+
+  assert.match(home, /AccountableOperationsLoop/);
+  const homepageSections = ["HomepageHero", "IndustryProblem", "LastMileSolution", "AccountableOperationsLoop", "IndustryValue"];
+  for (const section of homepageSections) assert.match(home, new RegExp("<" + section));
+  assert.equal(homepageSections.length, 5);
+  assert.doesNotMatch(home, /PlatformLoopMapping|IndustryUseCases|operatingScenarioList|CompanyClose|<NextStep|Brownfield by Design/);
+
+  const platformSections = ["PlatformHero", "DataPressure", "AccountabilityGap", "ProductSystem"];
+  for (const section of platformSections) assert.match(platform, new RegExp("<" + section));
+  assert.match(platform, /accountability-gap-v2\.png/);
+  assert.match(platform, /const products/);
+  assert.doesNotMatch(platform, /AccountableOperationsLoop|THE LEARNING OPERATIONS PLATFORM|OperatingArchitecture|PlatformNextStep|START WITH THE GAP|platformReferenceData|operatingScenarioList|Cooling Loop|USECASE-/);
+  assert.match(accountableLoop, /PrecisionLoopGraphic/);
+  assert.match(accountableLoop, /lm-premium-loop-composition--three-column/);
+  assert.match(accountableLoop, /accountable-operations-loop-v3\.png/);
+  assert.doesNotMatch(accountableLoop, /accountable-operations-loop-v4\.png/);
+  assert.match(accountableLoop, /lm-premium-loop-center/);
+  assert.doesNotMatch(accountableLoop, /lm-precision-loop__generated-core|One accountable operational cycle/);
+  assert.match(styles, /\.lm-premium-loop-composition--three-column \.lm-premium-loop-center \{[\s\S]*?display: flex;[\s\S]*?align-items: center;[\s\S]*?justify-content: center;/);
+  assert.match(styles, /\.lm-premium-loop-section \.lm-precision-loop--generated \{[\s\S]*?border: 0;[\s\S]*?background: transparent;[\s\S]*?box-shadow: none;/);
+  assert.match(accountableLoop, /setIntroPlaying\(true\)/);
+  assert.match(accountableLoop, /loopStages\.forEach[\s\S]*setAnimatedStage\(index\)/);
+  assert.match(accountableLoop, /setAnimatedStage\(-1\)[\s\S]*setIntroPlaying\(false\)/);
+  assert.match(accountableLoop, /loopGlassSegments/);
+  assert.match(accountableLoop, /lm-precision-loop__glass-segment/);
+  assert.match(accountableLoop, /loop-glass-mask-feather/);
+  assert.match(accountableLoop, /loop-glass-gradient-/);
+  assert.match(accountableLoop, /lm-precision-loop__glass-hit/);
+  assert.match(accountableLoop, /onMouseEnter[\s\S]*onFocus/);
+  assert.match(styles, /linear-gradient\(135deg, #dff6ff 0%, #70c8ff 58%, #1d7cd8 100%\)/);
+  assert.doesNotMatch(accountableLoop, /lm-precision-loop__illuminations|lm-precision-loop__hit-areas/);
+  assert.doesNotMatch(styles, /lm-precision-loop__illumination--|lm-precision-loop__hit--|clip-path: polygon/);
+
   assert.doesNotMatch(home, /platform-core-blueprint|generic.*network.*hero/i);
   assert.doesNotMatch(article, /claimMaturity|reference_architecture|perspective\s*\//i);
 });
+test("Singularity centers persistent learning and a governed automation continuum", () => {
+  const singularity = read("src/app/pages/SSOMPage.tsx");
+  const curve = read("src/app/components/SingularityLearningCurve.tsx");
 
-test("primary navigation includes keyboard, outside-click, escape, and mobile disclosure behavior", () => {
+  for (const section of ["EditorialHero", "THE THREAT OF OPERATIONAL AMNESIA", "SingularityLearningCurve", "RECOGNIZE THE PATTERN BEFORE THE FAILURE", "AUTOMATION MUST EARN ITS TRUST"]) {
+    assert.match(singularity, new RegExp(section));
+  }
+  assert.doesNotMatch(singularity, /NextStep|NEXT LOGICAL STEP|IdentityCrosswalk|lm-concept-comparison|lm-result-states/);
+  for (const stage of ["Manual Reaction", "Connected Visibility", "Contextual Assistance", "Governed Prediction", "Proactive Automation", "Lights-Out Manufacturing"]) {
+    assert.match(curve, new RegExp(stage));
+  }
+  assert.match(curve, /VALUE CAPTURE/);
+  assert.match(curve, /DEGREE OF AUTOMATION/);
+  assert.match(curve, /not a current Last Mile autonomous-plant capability/);
+  assert.match(curve, /L1072 620 H120 Z/);
+  for (const connector of ["M170 450 V507", "M340 391 V447", "M520 303 V359", "M705 335 V381", "M885 243 V289", "M1050 153 V199"]) assert.match(curve, new RegExp(connector));
+});
+test("Infinit-Signal preserves source meaning while making scale targets explicit", () => {
+  const signal = read("src/app/pages/InfinitSignalPage.tsx");
+  const unsStart = signal.indexOf("function SignalUnsProgression");
+  const unsEnd = signal.indexOf("function SignalScaleRunway");
+  const unsVisual = signal.slice(unsStart, unsEnd);
+
+  for (const section of ["Keep telemetry intact from the edge to the enterprise.", "THE DATA-VOLUME PROBLEM", "PRIORITY ROUTING WITHOUT DELAYS", "AI-READY HANDOFF", "YOUR UNS STAYS YOURS", "UNRELENTING SCALE ENGINEERING", "SignalScaleRunway"]) {
+    assert.match(signal, new RegExp(section.replace(/[+]/g, "\\+")));
+  }
+  assert.match(signal, /priority-aware 24x7 ingestion and backpressure isolation/);
+  assert.match(signal, /priority-aware continuous 24x7x365 intake with backpressure isolation and controlled recovery/);
+  for (const source of ["MQTT + SPARKPLUG", "OPC UA", "BACNET + MODBUS", "HISTORIANS + APIs", "GOVERNED FILES"]) assert.match(signal, new RegExp(source.replace(/[+]/g, "\\+")));
+  for (const figure of ["79.4 ZB", "41.6 billion", "millions of events per second", "zero data loss for accepted P0 critical records"]) assert.match(signal, new RegExp(figure.replace(/[.]/g, "\\.")));
+  for (const asset of ["hyperscale-ingestion-hero-v2.png", "zero-block-priority-routing-v2.png", "ai-ready-handoff-v2.png"]) assert.match(signal, new RegExp(asset.replace(/[.]/g, "\\.")));
+  assert.match(signal, /JSON, repository-managed files, and spreadsheets/);
+  assert.doesNotMatch(signal, /EvidenceEnvelope|Cooling Use Case|lm-signal-states|What enters\. What is checked\. What leaves\.|NextStep|START WITH ONE LIVE SOURCE/);
+  assert.doesNotMatch(signal, /ServiceNow|#1D7CD8|achieved production benchmark/);
+  assert.match(unsVisual, /viewBox="0 0 1000 560"/);
+  assert.match(unsVisual, /THE PLANT MODEL/);
+  assert.match(unsVisual, /PRESERVE/);
+  assert.match(unsVisual, /QUALIFY/);
+  assert.match(unsVisual, /DURABLE OPERATING/);
+  assert.doesNotMatch(unsVisual, /OperationalIcon|lm-signal-uns-journey/);
+});
+
+test("main product workflow keeps retired specialist wording out of primary explanations", () => {
+  const primaryCopy = [
+    read("src/app/pages/InfinitSignalPage.tsx"),
+    read("src/app/pages/ResourcesPage.tsx"),
+    read("src/app/components/InfinitControlExperience.tsx"),
+    read("src/app/components/InfinitControlArtwork.tsx"),
+  ].join("\n");
+
+  for (const retiredPhrase of [
+    "hyperscale industrial intake",
+    "zero-block priority routing",
+    "schemas, mappings, and crosswalks",
+    "tenant isolation",
+    "payload size",
+    "deterministic control",
+  ]) {
+    assert.ok(!primaryCopy.toLowerCase().includes(retiredPhrase), `Retired phrase returned: ${retiredPhrase}`);
+  }
+  const singularity = read("src/app/pages/SSOMPage.tsx");
+  assert.doesNotMatch(singularity, /bounded digital steps/i);
+  assert.match(singularity, /The Standard Semantic Object Model for Physical Operations\./);
+  assert.match(singularity, /aligns with Unified Namespace/);
+  assert.match(singularity, /Unified Namespace, or UNS, architectures/);
+});
+test("Infinit-Flow quantifies workflow value without repeating process diagrams", () => {
+  const page = read("src/app/pages/InfinitFlowPage.tsx");
+  const visuals = read("src/app/components/InfinitFlowExperience.tsx");
+  const styles = read("src/styles/flow-control-redesign.css");
+  for (const section of ["execution engine for closed-loop accountability across disconnected systems", "SEE THE WHOLE RESPONSE", "DOCUMENT ONCE", "GIVE THE CREW THE CONTEXT FIRST", "ORCHESTRATE ACROSS WHAT YOU ALREADY RUN", "IMPROVE THE NEXT RESPONSE"]) assert.match(page, new RegExp(section));
+  assert.match(page, /Two-way connections with customer-approved CMMS and EAM work systems/);
+  for (const visual of ["FlowArchitectureHero", "FlowStudioVisual", "FlowMeasurementVisual", "FlowRecoveryVisual", "FlowArchitectureVisual", "FlowImprovementVisual"]) assert.match(page, new RegExp(visual));
+  for (const asset of ["infinit-flow-control-room.png", "infinit-flow-reliability-engineer.png", "infinit-flow-orchestration-architecture.png"]) assert.match(visuals, new RegExp(asset.replace(/[.]/g, "\\.")));
+  for (const measure of ["MANUAL TOUCHES", "HANDOFF DELAY", "CYCLE TIME", "REWORK", "ON-TIME RATE", "MTTR"]) assert.match(visuals, new RegExp(measure));
+  assert.match(styles, /grid-template-columns: minmax\(380px,.78fr\) minmax\(600px,1.22fr\)/);
+  assert.doesNotMatch(page, /FlowManualReductionVisual|Map Your Workflow|NextStep|START WITH ONE WORKFLOW|MODEL THE REAL OPERATION|FROM MODEL TO EXECUTION|AUTOMATE THE ROUTINE/);
+  assert.doesNotMatch(page, /Synapse|99\.9%|6 to 18 months|2 to 4 hours/);
+});
+
+test("Infinit-Control uses an interactive light command portal and clear operating priorities", () => {
+  const page = read("src/app/pages/InfinitControlPage.tsx");
+  const visuals = read("src/app/components/InfinitControlExperience.tsx");
+  const styles = read("src/styles/technical-journal-refresh.css");
+  for (const section of ["One operating truth. Tuned for every role", "END THE SWIVEL-CHAIR RESPONSE", "ONE CASE. EVERY DECISION LEVELS?", "BRING THE SIGNALS TO THE ISSUE", "GOVERN BY STATE, NOT SCREEN"]) assert.match(page, new RegExp(section));
+  assert.match(page, /ControlPortalExperience/);
+  assert.doesNotMatch(page, /mission-control-portal-v2\.png/);
+  for (const tab of ["EXEC", "PLANT MGR", "OPERATOR"]) assert.match(visuals, new RegExp(`tab: "${tab}"`));
+  for (const asset of ["portal-executive-v3.png", "portal-plant-manager-v3.png", "portal-operator-v3.png"]) {
+    assert.match(visuals, new RegExp(asset.replace(/[.]/g, "\\.")));
+    assert.ok(fs.existsSync(path.join(root, "public/images/products/infinit-control", asset)), `${asset} must remain in the published asset set`);
+  }
+  for (const component of ["RoleVisualization", "MiniTrend", "HealthPanel", "SystemsPanel", "AlertsPanel", "KpiPanel", "WorkPanel", "ReturnPanel", "SnapshotBar"]) assert.match(visuals, new RegExp(`function ${component}`));
+  assert.doesNotMatch(visuals, /function ExecutiveMap|function PlantSchematic|function OperatorLine/);
+  for (const metric of ["Portfolio Asset Health", "REGIONAL THROUGHPUT (MT/h)", "SUPPLY CHAIN LATENCY", "12ms", "HIGH-LEVEL OEE", "88.4%", "Plant Health", "PROCESS", "UTILITIES", "ELECTRICAL", "12,450 TPH", "ENERGY INTENSITY", "WATER USAGE", "EMISSIONS", "FILLER STATION TEMP", "180°C", "UNITS/MIN", "450", "CURRENT SHIFT YIELD", "98.2%", "ACTIVE LINE ALARMS", "NEXT PM CYCLE", "4 hrs"]) assert.ok(visuals.includes(metric));
+  assert.match(visuals, /work: \{ total: "156"/);
+  for (const panel of ["Operational Condition", "Systems Overview", "Alerts & Notifications", "KPI Summary", "Current Scope", "Work", "Live Measurements"]) assert.ok(visuals.includes(panel));
+  for (const fact of ["Filler pressure variance", "FIL-04 · Bottling Line 4", "Line Operations · WO-18427", "Return check pending"]) assert.match(visuals, new RegExp(fact));
+  assert.match(visuals, /role="tablist"/);
+  assert.match(visuals, /role="tabpanel"/);
+  assert.match(visuals, /aria-live="polite"/);
+  assert.match(visuals, /ArrowRight/);
+  assert.equal((visuals.match(/label: "SELECTED SITE", value: "NORTH RIDGE PLANT", x:/g) || []).length, 1);
+  assert.match(styles, /--lm-control-blue: #1d7cd8/);
+  assert.match(styles, /background: #fff/);
+  for (const role of ["C-SUITE", "PLANT MANAGER", "SUPERVISOR", "SHIFT WORKER"]) assert.match(visuals, new RegExp(role));
+  for (const visual of ["ControlRoleVisual", "ControlPriorityVisual", "ControlCommandCenterVisual", "field-command-v2.png"]) assert.match(page, new RegExp(visual.replace(/[.]/g, "\\.")));
+  for (const scope of ["UTILITY PLANT", "ELECTRICAL SERVICE", "DATA HALL 1", "DATA HALL 2", "DATA HALL 3", "CHILLED WATER LOOP B"]) assert.match(visuals, new RegExp(scope));
+  assert.doesNotMatch(visuals, /<image|avatar|OPERATING FOOTPRINT|chuck-operator/);
+  assert.doesNotMatch(page, /Design Your Operating View|NextStep|BUILD THE RIGHT VIEW|ONE OPERATION, EVERY ALTITUDE|NOTHING IMPORTANT GOES UNSEEN|A VIEW TEAMS CAN TRUST/);
+});
+test("primary navigation includes keyboard, outside-click, escape, mobile disclosure behavior, and a direct use-case catalog link", () => {
   const navigation = read("src/app/components/Navbar.tsx");
   assert.match(navigation, /aria-haspopup="menu"/);
   assert.match(navigation, /ArrowDown/);
@@ -84,5 +269,36 @@ test("primary navigation includes keyboard, outside-click, escape, and mobile di
   assert.match(navigation, /event\.key === "Escape"/);
   assert.match(navigation, /pointerdown/);
   assert.match(navigation, /MobileGroup/);
-  for (const scenario of operatingScenarioList) assert.ok(navigation.includes(scenario.route));
+  assert.match(navigation, /NavLink to="\/use-cases" label="Use Cases"/);
+  assert.match(navigation, /Infinit-Control · Observe/);
+  assert.doesNotMatch(navigation, /Infinit-Control · Govern/);
+  assert.doesNotMatch(navigation, /Open Use Cases scenario menu/);
+  for (const scenario of operatingScenarioList.filter((scenario) => scenario.route !== "/use-cases/data-center-cooling")) assert.ok(!navigation.includes(scenario.route));
+  assert.match(navigation, /Cooling Redundancy Proof/);
+});
+
+test("link previews use the approved infinity-loop logo instead of legacy architecture", () => {
+  const document = read("index.html");
+  const seo = read("src/app/components/SEO.tsx");
+  assert.ok(fs.existsSync(path.join(root, "public/logo.png")));
+  assert.match(document, /property="og:image" content="https:\/\/lastmileinc\.ai\/logo\.png"/);
+  assert.match(document, /property="og:image:secure_url" content="https:\/\/lastmileinc\.ai\/logo\.png"/);
+  assert.match(document, /property="og:image:width" content="1408"/);
+  assert.match(document, /property="og:image:height" content="736"/);
+  assert.match(document, /Last Mile blue and grey infinity-loop logo/);
+  assert.match(seo, /ogImage = 'https:\/\/lastmileinc\.ai\/logo\.png'/);
+  assert.match(seo, /ogImageAlt = 'Last Mile blue and grey infinity-loop logo'/);
+  assert.doesNotMatch(`${document}\n${seo}`, /last-mile-og|Physical Operations Platform architecture/);
+});
+
+test("Resources is a podcast-led technical intelligence hub with governed proof boundaries", () => {
+  const page = read("src/app/pages/ResourcesPage.tsx");
+  const styles = read("src/styles/resources-intelligence-hub.css");
+  for (const section of ["The Intelligence Hub for Physical Operations", "Signal 2 Action", "The New Industrial Architecture", "Engineering and Proof", "Historical Context &amp; Archives"]) assert.match(page, new RegExp(section));
+  for (const asset of ["signal_2_action.jpg", "intelligence-hub-hero-v1.png", "semantic-architecture-v1.png", "protocol-proof-v1.png"]) assert.match(page, new RegExp(asset.replace(/[.]/g, "\\.")));
+  for (const concept of ["Standardized Semantic Object Model", "OPC UA", "Modbus", "BACnet", "MQTT", "Sparkplug"]) assert.match(page, new RegExp(concept));
+  assert.match(page, /Targets stay labeled as targets until repeatable benchmark evidence is approved/);
+  assert.match(page, /Prior ServiceNow chapters/);
+  assert.doesNotMatch(page, /Choose the kind of evidence you need|Last Mile Synapse|private cloud data vault|99\.999%/);
+  assert.doesNotMatch(styles, /#1D7CD8|#[0-9A-Fa-f]{6}/);
 });

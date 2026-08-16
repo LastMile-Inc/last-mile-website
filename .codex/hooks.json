@@ -1,0 +1,19 @@
+{
+  "description": "Project-local development server startup.",
+  "hooks": {
+    "SessionStart": [
+      {
+        "matcher": "^(startup|resume)$",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node \"$(git rev-parse --show-toplevel)/.codex/hooks/start-dev-server.mjs\"",
+            "commandWindows": "powershell.exe -NoProfile -Command \"node (Join-Path (git rev-parse --show-toplevel) '.codex/hooks/start-dev-server.mjs')\"",
+            "timeout": 10,
+            "statusMessage": "Starting the Vite development server"
+          }
+        ]
+      }
+    ]
+  }
+}

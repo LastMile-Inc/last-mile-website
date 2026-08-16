@@ -2,7 +2,7 @@
 content_id: USECASE-AIR-001
 status: approved
 owner: Use-Case Product and Domain Review
-last_reviewed: 2026-08-06
+last_reviewed: 2026-08-13
 claim_maturity: [demonstrated]
 depends_on: [PROD-SIGNAL-001, PROD-SINGULARITY-001, PROD-FLOW-001, PROD-CONTROL-001]
 used_by: [/platform, /use-cases/manufacturing-compressed-air, demos]
@@ -12,7 +12,7 @@ used_by: [/platform, /use-cases/manufacturing-compressed-air, demos]
 
 ## Public thesis
 
-**Find the air loss before production does.** One accountable utility event—from abnormal demand to verified compressed-air performance.
+**Find the Air Loss Before Production Does.** Off-shift demand and pressure loss expose the problem before the next production run.
 
 ## Identity and ownership
 

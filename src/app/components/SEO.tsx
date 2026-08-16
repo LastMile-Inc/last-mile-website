@@ -5,6 +5,10 @@ interface SEOProps {
   description: string;
   keywords?: string;
   ogImage?: string;
+  ogImageWidth?: string;
+  ogImageHeight?: string;
+  ogImageAlt?: string;
+  ogImageType?: string;
   ogType?: string;
   canonicalPath?: string;
   markdownPath?: string;
@@ -16,7 +20,11 @@ export function SEO({
   title,
   description,
   keywords = 'Last Mile, Physical Operations Platform, operational accountability, governed action, verified physical outcomes, industrial operations',
-  ogImage = 'https://lastmileinc.ai/images/last-mile-og-4k.jpg',
+  ogImage = 'https://lastmileinc.ai/logo.png',
+  ogImageWidth = '1408',
+  ogImageHeight = '736',
+  ogImageAlt = 'Last Mile blue and grey infinity-loop logo',
+  ogImageType = 'image/png',
   ogType = 'website',
   canonicalPath = '',
   markdownPath,
@@ -50,9 +58,11 @@ export function SEO({
       <meta property="og:title" content={fullTitle} />
       <meta property="og:description" content={description} />
       <meta property="og:image" content={ogImage} />
-      <meta property="og:image:width" content="3840" />
-      <meta property="og:image:height" content="2160" />
-      <meta property="og:image:alt" content="Last Mile Physical Operations Platform architecture" />
+      <meta property="og:image:secure_url" content={ogImage} />
+      <meta property="og:image:type" content={ogImageType} />
+      <meta property="og:image:width" content={ogImageWidth} />
+      <meta property="og:image:height" content={ogImageHeight} />
+      <meta property="og:image:alt" content={ogImageAlt} />
       <meta property="og:site_name" content="Last Mile Inc." />
 
       {/* Twitter */}
@@ -61,7 +71,7 @@ export function SEO({
       <meta property="twitter:title" content={fullTitle} />
       <meta property="twitter:description" content={description} />
       <meta property="twitter:image" content={ogImage} />
-      <meta property="twitter:image:alt" content="Last Mile Physical Operations Platform architecture" />
+      <meta property="twitter:image:alt" content={ogImageAlt} />
 
       {/* Additional SEO */}
       <meta name="robots" content={robots} />

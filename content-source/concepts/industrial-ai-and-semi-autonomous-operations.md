@@ -16,7 +16,7 @@ Industrial AI requires governed context, explicit authority, current valid evide
 
 ## Publication-ready article
 
-### Industrial AI must know what it is allowed to do—and whether it worked
+### Industrial AI must know what it is allowed to do, and whether it worked
 
 An industrial model can identify a pattern, summarize evidence, recommend a response, or plan a sequence. None of those outputs should become an operating fact simply because a model produced it. Physical operations add constraints that ordinary enterprise automation can avoid: stale sensors, uncertain identities, safety boundaries, degraded redundancy, physical work, and outcomes that must be measured after the action.
 

@@ -18,7 +18,7 @@ const operatingStages = [
   { name: "Understand", copy: "Resolve identity, topology, context, and meaning." },
   { name: "Coordinate", copy: "Connect the Condition to people, platforms, providers, and work." },
   { name: "Act", copy: "Execute policy-governed human and machine actions." },
-  { name: "Verify", copy: "Use return telemetry to prove physical recovery." },
+  { name: "Verify", copy: "Use return telemetry to confirm physical recovery." },
   { name: "Learn", copy: "Retain the outcome and improve future response." },
 ] as const;
 
@@ -34,9 +34,9 @@ const lastMileAdvances = [
   { title: "One accountable Condition", copy: "Converts noisy events into a qualified, owned operational issue, focusing response on what can affect safety, uptime, cost, or service." },
   { title: "Condition-to-work orchestration", copy: "Carries evidence and context into the right workflow, team, and provider, eliminating manual handoffs and shortening time to action." },
   { title: "Policy-governed command and action", copy: "Makes authority, approvals, and execution boundaries explicit so customers can automate confidently without sacrificing control or auditability." },
-  { title: "Telemetry-verified physical recovery", copy: "Confirms the asset or process actually recovered using live return telemetry, replacing ticket-closure assumptions with proof of outcome." },
+  { title: "Recovery measured from return telemetry", copy: "Shows the asset or process recovered using live return telemetry instead of relying on ticket closure." },
   { title: "A time-correct evidence chain", copy: "Preserves what happened, when it happened, what changed, and who acted, providing a defensible record for analysis, compliance, and improvement." },
-  { title: "Outcome learning across sites", copy: "Retains proven responses and results so every site benefits from prior experience, improving consistency and preventing repeated failures." },
+  { title: "Outcome learning across sites", copy: "Retains successful responses and results so every site benefits from prior experience, improving consistency and preventing repeated failures." },
 ] as const;
 
 type CtaEvent = "cta_contact_click" | "cta_explore_platform_click" | "cta_product_click";

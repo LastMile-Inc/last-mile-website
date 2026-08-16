@@ -2,8 +2,8 @@
 content_id: PAGE-SIGNAL-001
 status: approved
 owner: Infinit-Signal Product Marketing
-last_reviewed: 2026-08-06
-claim_maturity: [designed, reference_architecture]
+last_reviewed: 2026-08-15
+claim_maturity: [designed, reference_architecture, perspective]
 depends_on: [PROD-SIGNAL-001, CONCEPT-UNS-001, CLAIMS-REGISTRY-001]
 used_by: [/infinit-signal]
 ---
@@ -12,58 +12,89 @@ used_by: [/infinit-signal]
 
 ## Job
 
-Explain how operational inputs are acquired, preserved, qualified, resolved, and handed into Singularity. Do not explain the complete outcome loop or imply validated connectors.
+Establish Infinit-Signal as the high-velocity intake engine for industrial operations: preserve the customer's source meaning, protect live critical traffic from replay and backfill, qualify records for Singularity, and demonstrate a credible engineering path to global scale.
+
+## Audience
+
+Enterprise IT/OT architects, plant managers, industrial data leaders, reliability teams, and operations executives managing large, fast, mixed-protocol environments.
+
+## Five-second promise
+
+Keep telemetry intact from the edge to the enterprise.
+
+## Narrative limits
+
+- Major sections: six including the hero.
+- Narrative copy: 650-850 words.
+- Primary visual: a bright industrial hyperscale intake engine that turns fragmented source traffic into an ordered governed stream.
+- Supporting visuals: a priority-routing composition and an AI-ready handoff composition.
+- Motion: restrained data movement only, with a reduced-motion-safe state.
+
+## Public figure and target treatment
+
+Do not suppress the figures requested in the founder brief. Publish them with accurate scope and maturity:
+
+- Industry figure: IDC's 2019 forecast estimated 41.6 billion connected IoT devices would generate 79.4 zettabytes of data in 2025. The page may describe this as roughly 80 ZB across IoT. It must not misstate the figure as industrial IoT alone. Source: https://www.telecomtv.com/content/iot/the-growth-in-connected-iot-devices-is-expected-to-generate-79-4zb-of-data-in-2025-according-to-a-new-idc-forecast-35522/
+- Engineering target: millions of events per second at global enterprise scale. Label this as a target until approved benchmark evidence exists.
+- Engineering target: zero loss of accepted P0 critical records within a declared deployment profile. Do not turn this into a universal zero-data-loss guarantee.
+- Design objective: priority-aware continuous 24x7x365 intake with isolated backpressure, controlled store-and-forward, and recovery by declared workload class. Do not present this as measured production availability.
+
+## Page order
+
+1. Hyperscale intake promise.
+2. The roughly 80 ZB IoT data-volume problem and why context matters more than raw collection.
+3. Intelligent P0-P3 intake that keeps live critical events ahead of replay and backfill.
+4. AI-ready handoff into Singularity and customer-authorized enterprise workflows.
+5. Preserve the customer's UNS and existing plant model.
+6. Continuous scale engineering, stress testing, and explicit target maturity.
+The page ends on engineering targets. Do not add a generic closing CTA.
 
 ## Hero
 
-**Eyebrow:** INFINIT-SIGNAL
+**Eyebrow:** INFINIT-SIGNAL · HYPERSCALE INDUSTRIAL INTAKE
 
-**H1:** Know which industrial evidence is fit to act on.
+**Heading:** Keep telemetry intact from the edge to the enterprise.
 
-**Body:** Infinit-Signal consumes configured outputs from the systems you already operate, preserves their original evidence, and classifies time, quality, duplication, replay, and identity before data enters the Last Mile operating model.
+**Body:** Infinit-Signal takes in alarms, measurements, state changes, history, and replay without flattening them into anonymous values. The original source, timestamp, equipment identity, and quality stay attached as traffic moves upstream.
 
-**Operating artifact:** Show the Cooling Loop B qualified evidence envelope from `USECASE-DC-COOLING-001`, including source authority, event time, latency, quality, duplicate/replay classification, mapping confidence, accepted/quarantined counts, and the rejected duplicate and stale pressure record.
+**Support:** Configured OPC UA, Modbus, MQTT, Sparkplug, historian, API, and managed file sources enter one priority-aware intake path. Each connection method keeps its recognizable source meaning before accepted records move to Singularity.
 
-## What enters. What is checked. What leaves.
+**Primary CTA:** Review the Intake Architecture
 
-### What enters
+**Secondary CTA:** Review Engineering Targets
 
-MQTT and customer UNS subscriptions; Sparkplug; OPC UA; SCADA, BMS, and MES outputs; historians and industrial data platforms; APIs, files, and service-system records.
+## Source-family wording
 
-### What is checked
+Infinit-Signal is designed for configured source families that include MQTT, Sparkplug, OPC UA, BACnet, Modbus, historians, industrial platforms, APIs, and governed files through customer-approved adapters or Source Platform Profiles. Named families do not imply certified or generally available connectors.
 
-Source authority, schema, event time, receive time, freshness, quality, units, retained-message context, duplication, replay/backfill, asset mapping, policy, and evidence integrity.
+Enterprise handoff remains generic on the active independent-platform website. Describe customer-authorized enterprise workflow destinations without reviving retired platform-specific positioning or implying a certified integration.
 
-### What leaves
+## UNS wording
 
-SSOM-conformant canonical operational records with original source identity, time, quality, mapping version, lineage, and evidence reference—accepted once for Singularity and governed consumers.
+**Required claim:** The UNS remains the customer's communication and discovery fabric.
 
-## Unified Namespace section
+Acknowledge the engineering time and plant knowledge invested in naming assets, organizing topics, and maintaining live context. Infinit-Signal consumes configured subscriptions and preserves broker, publisher, topic, session, timestamp, quality, retained state, and replay context. JSON, repositories, and spreadsheets remain separate governed mapping and configuration inputs.
 
-**Eyebrow:** UNIFIED NAMESPACE
+## P0-P3 wording
 
-**Heading:** Keep the real-time fabric. Add the operational contract.
+- P0 Critical events: move first; no intentional sampling; zero-loss target applies only to accepted records inside the declared deployment profile.
+- P1 Operating state: preserve complete state changes subject to the source contract.
+- P2 Standard telemetry: regulate batching and backpressure.
+- P3 High-rate and backfill: buffer, isolate, and recover by policy without blocking P0 and P1 traffic.
 
-**Body:** A Unified Namespace makes current operational information discoverable and available across systems. Infinit-Signal consumes configured UNS subscriptions while preserving the original publisher, topic, timestamp, quality, QoS, retained-message flag, and session context. It then classifies freshness, duplicates, replay, and unresolved assets before the information enters Singularity.
+## Scale wording
 
-**Boundary:** The UNS remains the customer's communication and discovery fabric. Singularity's SSOM contract supplies canonical identity, relationships, evidence, provenance, history, and lifecycle continuity. A topic path remains a source address—it does not automatically become the identity of the asset.
+State the millions-of-events-per-second and zero-loss language in a visible Engineering Targets panel. Explain that sustained rate, burst rate, payload size, source concurrency, recovery, and store-and-forward windows are tested as explicit workload profiles. Do not hide the targets, and do not promote them to measured achievements without benchmark evidence.
 
-**Link:** Read: UNS and SSOM - moving industrial data is not the same as making it accountable.
+## Responsive behavior
 
-## Quality section
+The hero becomes a vertical image-and-copy composition. P0-P3 labels remain HTML outside the generated routing image. All detailed visuals remain inside the viewport at 390px; a contained horizontal region is acceptable only for the UNS architecture.
 
-**Heading:** Preserve what arrived. Make every acceptance decision visible.
+## Exclusions
 
-**Body:** Accepted, warning, quarantined, rejected, duplicate, and replayed records retain reason codes and evidence. A stale or unresolved value may remain available for diagnosis without being allowed to influence a live Condition or verified Outcome.
-
-## Boundary runtime section
-
-**Heading:** Software-defined at the customer boundary.
-
-**Body:** Where customer architecture requires local collection or store-and-forward, Infinit-Signal is designed to run as customer-approved software on a VM, container, Kubernetes/OpenShift environment, private cloud, or existing edge compute. Last Mile does not require proprietary hardware.
-
-## CTA
-
-**Heading:** Turn source data into governed operational evidence.
-
-**CTA:** See how Singularity gives it durable meaning
+- No claim that 79.4 ZB is industrial IoT alone.
+- No achieved millions-of-events-per-second benchmark without approved test output.
+- No universal zero-data-loss or production-availability guarantee.
+- No certified connector implication for MQTT, Sparkplug, OPC UA, BACnet, Modbus, or enterprise workflow platforms.
+- No claim that Last Mile owns or replaces the customer's UNS, broker, historian, SCADA, BMS, or control system.
+- No retired platform-specific positioning on the active independent-platform route.

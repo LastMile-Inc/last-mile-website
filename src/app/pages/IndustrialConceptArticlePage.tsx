@@ -1,7 +1,7 @@
 import { ArrowLeft, ExternalLink } from "lucide-react";
 import { Link, Navigate, useParams } from "react-router";
 import { SEO } from "@/app/components/SEO";
-import { EditorialHero, EditorialSection, InlineLink, NextStep } from "@/app/components/NarrativeComponents";
+import { EditorialHero, EditorialSection, InlineLink } from "@/app/components/NarrativeComponents";
 import { industrialConcepts } from "@/app/content/industrialConcepts.generated";
 import { createBreadcrumbSchema } from "@/app/lib/structuredData";
 
@@ -28,7 +28,8 @@ export function IndustrialConceptArticlePage() {
 
       <EditorialSection eyebrow="BOUNDARY" title="What this article does not imply" tone="grid">
         <p className="lm-v2-large-copy">{concept.boundary}</p>
-        <p className="lm-v2-caveat">This article explains Last Mile&apos;s position and governed reference architecture. It does not claim that every described capability is implemented in customer production.</p>
+
+
       </EditorialSection>
 
       <EditorialSection title="Sources">
@@ -36,7 +37,6 @@ export function IndustrialConceptArticlePage() {
         {isIndustryFive ? <InlineLink to="/about">How human authority connects to why Last Mile was built</InlineLink> : null}
       </EditorialSection>
 
-      <NextStep title="Connect the concept to the operating architecture." copy="See the product boundaries, evidence path, authority model, and verified-outcome rules that turn these ideas into a governed reference architecture." label="Explore the Last Mile Platform" to="/platform" />
       <Link className="lm-concept-back" to="/resources/industrial-concepts"><ArrowLeft aria-hidden="true" />All Industrial Concepts</Link>
     </article>
   </>;

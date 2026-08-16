@@ -6,6 +6,8 @@
   "scripts": {
     "content:validate": "node scripts/validate-content.mjs",
     "governance:validate": "node scripts/validate-governance.mjs",
+    "editorial:validate": "node scripts/validate-editorial-style.mjs",
+    "copy:proximity": "node scripts/audit-copy-proximity.mjs",
     "concepts:generate": "node scripts/generate-industrial-concepts.mjs",
     "concepts:check": "node scripts/generate-industrial-concepts.mjs --check",
     "content-control:validate": "node --experimental-strip-types scripts/validate-content-control.mjs",
@@ -16,7 +18,7 @@
     "typecheck": "tsc -p tsconfig.json --noEmit",
     "lint": "eslint src",
     "test": "npm run content:test",
-    "validate": "npm run governance:validate && npm run concepts:check && npm run typecheck && npm run lint && npm run build",
+    "validate": "npm run governance:validate && npm run editorial:validate && npm run concepts:check && npm run typecheck && npm run lint && npm run build",
     "newsroom:generate": "node scripts/generate-newsroom-content.mjs",
     "sitemap:generate": "node scripts/generate-sitemap.mjs"
   },

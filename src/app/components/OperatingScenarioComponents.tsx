@@ -1,5 +1,6 @@
 import type { ReactNode } from "react";
-import { ArrowRight, Check, CircleAlert, CircleCheck, CircleHelp, CircleX, Info, ShieldCheck, TriangleAlert } from "lucide-react";
+import { ArrowRight, Check, CircleAlert, CircleCheck, CircleHelp, CircleX, Info, TriangleAlert } from "lucide-react";
+import { OperationalIcon, type OperationalIconKind } from "./OperationalIcon";
 import {
   coolingReference,
   deriveRag,
@@ -75,32 +76,77 @@ export function ResponseTimeline({ scenario, compact = false }: { scenario: Oper
 
 export function RecoveryContractPanel({ scenario }: { scenario: OperatingScenario }) {
   return <section className="lm-recovery-contract" aria-label={`${scenario.operatingProblem} recovery contract`}>
-    <header><div><span>Recovery contract</span><strong>Current, valid return measurements establish the result.</strong></div><ShieldCheck aria-hidden="true" /></header>
+    <header><div><span>Recovery contract</span><strong>Current, valid return measurements establish the result.</strong></div><OperationalIcon kind="verification" size="small" /></header>
     <ul>{scenario.recoveryCriteria.map((criterion) => <li key={criterion}><Check aria-hidden="true" />{criterion}</li>)}</ul>
-    <dl><div><dt>Required stability</dt><dd>{scenario.stabilityPeriod}</dd></div><div><dt>Recurrence window</dt><dd>{scenario.recurrenceWindow}</dd></div><div><dt>Result basis</dt><dd>Qualified measurements—not work-system state</dd></div></dl>
+    <dl><div><dt>Required stability</dt><dd>{scenario.stabilityPeriod}</dd></div><div><dt>Recurrence window</dt><dd>{scenario.recurrenceWindow}</dd></div><div><dt>Result basis</dt><dd>Qualified measurements, not work-system state</dd></div></dl>
   </section>;
 }
 
-export function ScenarioProofPanel({ scenario }: { scenario: OperatingScenario }) {
-  return <section className="lm-scenario-proof" aria-label="Reference-scenario proof posture"><span>Current proof posture</span><ul>{scenario.proofPosture.map((item) => <li key={item}><Info aria-hidden="true" />{item}</li>)}</ul></section>;
-}
 
 export function AccessibleDataTable({ caption, headers, rows }: { caption: string; headers: readonly string[]; rows: ReadonlyArray<readonly string[]> }) {
   return <div className="lm-data-table-wrap"><table className="lm-data-table"><caption>{caption}</caption><thead><tr>{headers.map((header) => <th key={header} scope="col">{header}</th>)}</tr></thead><tbody>{rows.map((row) => <tr key={row.join("|")}>{row.map((cell, index) => index === 0 ? <th key={cell} scope="row">{cell}</th> : <td key={`${cell}-${index}`}>{cell}</td>)}</tr>)}</tbody></table></div>;
 }
 
 export function ScenarioProcessMap({ scenario }: { scenario: OperatingScenario }) {
-  const stages = [
-    { name: "Evidence", owner: "Existing systems", copy: scenario.incident.slice(0, 4).map((measurement) => measurement.name).join(" · ") },
-    { name: "Qualify", owner: "Infinit-Signal", copy: "Validate source, time, quality, replay, and identity; create the SSOM-conformant record and Condition." },
-    { name: "Coordinate", owner: "Singularity + Infinit-Flow", copy: "Use accepted canonical context while coordinating policy, people, systems, timers, and authority." },
-    { name: "Work", owner: "Customer-authorized participants", copy: scenario.response.find((step) => step.stage === "Act")?.detail ?? "Execute the governed physical or digital response." },
-    { name: "Verify", owner: "Infinit-Signal + Singularity", copy: "Qualify return evidence, establish the canonical Outcome, and present live state through Infinit-Control." },
-  ] as const;
+  const stages: ReadonlyArray<{ name: string; owner: string; copy: string; icon: OperationalIconKind }> = [
+    { name: "Evidence", owner: "Existing systems", copy: scenario.incident.slice(0, 4).map((measurement) => measurement.name).join(" · "), icon: "evidence" },
+    { name: "Qualify", owner: "Infinit-Signal", copy: "Validate source, time, quality, replay, and identity; create the SSOM-conformant record and Condition.", icon: "signal" },
+    { name: "Coordinate", owner: "Singularity + Infinit-Flow", copy: "Use accepted canonical context while coordinating policy, people, systems, timers, and authority.", icon: "flow" },
+    { name: "Work", owner: "Customer-authorized participants", copy: scenario.response.find((step) => step.stage === "Act")?.detail ?? "Execute the governed physical or digital response.", icon: "work" },
+    { name: "Verify", owner: "Infinit-Signal + Singularity", copy: "Qualify return evidence, establish the canonical Outcome, and present live state through Infinit-Control.", icon: "verification" },
+  ];
 
   return <ol className="lm-code-process-map" aria-label={`${scenario.menuLabel}: Evidence, Qualify, Coordinate, Work, Verify`}>
-    {stages.map((stage, index) => <li key={stage.name}><span>{String(index + 1).padStart(2, "0")}</span><div><strong>{stage.name}</strong><em>{stage.owner}</em><p>{stage.copy}</p></div>{index < stages.length - 1 ? <ArrowRight aria-hidden="true" /> : null}</li>)}
+    {stages.map((stage, index) => <li key={stage.name}><OperationalIcon kind={stage.icon} size="small" /><div><strong>{stage.name}</strong><em>{stage.owner}</em><p>{stage.copy}</p></div>{index < stages.length - 1 ? <ArrowRight aria-hidden="true" /> : null}</li>)}
   </ol>;
+}
+
+const systemIconKinds: readonly OperationalIconKind[] = ["control-system", "operational-data", "execution-system", "people-authority"];
+
+export function SystemResponsibilityMap({ scenario }: { scenario: OperatingScenario }) {
+  return <section className="lm-system-responsibility-map" aria-label={`${scenario.menuLabel} participating systems`}>
+    <div className="lm-system-responsibility-map__hub">
+      <OperationalIcon kind="context" size="large" />
+      <span>Operating issue</span>
+      <strong>{scenario.condition}</strong>
+      <small>{scenario.owner}</small>
+    </div>
+    <div className="lm-system-responsibility-map__nodes">
+      {scenario.systems.map((system, index) => <article key={system.name}>
+        <OperationalIcon kind={systemIconKinds[index % systemIconKinds.length]} />
+        <div><strong>{system.name}</strong><p>{system.retains}</p></div>
+      </article>)}
+    </div>
+  </section>;
+}
+
+const responseIconKinds: readonly OperationalIconKind[] = ["evidence", "context", "decision", "flow", "work", "verification"];
+
+export function AccountableResponseRail({ scenario }: { scenario: OperatingScenario }) {
+  return <ol className="lm-accountable-response-rail" aria-label={`${scenario.menuLabel} Accountable Operations Loop`}>
+    {scenario.response.map((step, index) => <li key={step.stage}>
+      <OperationalIcon kind={responseIconKinds[index]} />
+      <div><strong>{step.stage}</strong><span>{step.product}</span><small>{step.mode}</small></div>
+    </li>)}
+  </ol>;
+}
+
+export function OutcomeEvidenceMap({ scenario }: { scenario: OperatingScenario }) {
+  return <section className="lm-outcome-evidence-map" aria-label={`${scenario.menuLabel} event readings and program metrics`}>
+    <article>
+      <OperationalIcon kind="verification" size="large" />
+      <span>This response</span>
+      <h3>Return readings</h3>
+      <ul>{scenario.eventProof.slice(0, 6).map((item) => <li key={item}>{item}</li>)}</ul>
+    </article>
+    <div className="lm-outcome-evidence-map__bridge" aria-hidden="true"><i /><i /><i /></div>
+    <article>
+      <OperationalIcon kind="operational-data" size="large" />
+      <span>Across responses</span>
+      <h3>Program metrics</h3>
+      <ul>{scenario.programMetrics.map((item) => <li key={item}>{item}</li>)}</ul>
+    </article>
+  </section>;
 }
 
 export function ExpandableProcessMap({ scenario, textVersion }: { scenario: OperatingScenario; textVersion: ReactNode }) {
