@@ -15,6 +15,15 @@ const loopStages: readonly LoopStage[] = [
   { name: "Act", headline: "Execute through the right system.", copy: "Start the approved maintenance, inspection, operator action, production change, or control action." },
   { name: "Verify", headline: "Confirm the operation recovered.", copy: "Keep watching the return readings until the operation is stable again.", note: "Work completed is not the same as problem solved." },
 ] as const;
+
+const loopGlassSegments = [
+  { path: "M 500 224 C 626 151 766 120 904 134", start: [500, 224], end: [904, 134] },
+  { path: "M 969 139 C 1114 158 1224 229 1260 333", start: [969, 139], end: [1260, 333] },
+  { path: "M 1269 355 C 1302 435 1298 510 1243 578", start: [1269, 355], end: [1243, 578] },
+  { path: "M 1190 637 C 1079 698 928 716 741 690", start: [1190, 637], end: [741, 690] },
+  { path: "M 688 696 C 540 692 426 635 377 552", start: [688, 696], end: [377, 552] },
+  { path: "M 367 508 C 333 407 359 303 453 230", start: [367, 508], end: [453, 230] },
+] as const;
 export function AccountableOperationsLoop({ context = "home", introCopy, learningCopy }: { context?: "home" | "platform"; introCopy?: string; learningCopy: string }) {
   const rootRef = useRef<HTMLDivElement>(null);
   const timersRef = useRef<number[]>([]);
@@ -96,6 +105,7 @@ function StageDefinitions({ stages, startIndex, activeStage, onSelect }: { stage
               onFocus={() => onSelect(index)}
               onBlur={() => onSelect(null)}
               aria-label={`${stage.name}: ${stage.headline}`}
+              aria-pressed={activeStage === index}
             >
               <span aria-hidden="true" />
               <div><em>{stage.name}</em><strong>{stage.headline}</strong><p>{stage.copy}</p>{stage.note ? <small>{stage.note}</small> : null}</div>
@@ -108,12 +118,51 @@ function StageDefinitions({ stages, startIndex, activeStage, onSelect }: { stage
 function PrecisionLoopGraphic({ activeStage, onSelect }: { activeStage: number; onSelect: (stage: number | null) => void }) {
   return <figure className="lm-precision-loop lm-precision-loop--generated" data-active-stage={activeStage} aria-labelledby="precision-loop-caption">
     <img className="lm-precision-loop__base" src="/images/platform/accountable-operations-loop-v3.png" alt="A continuous six-segment engineered ring reconnects the measured result to the next operating decision." width="1672" height="941" loading="lazy" />
-    <div className="lm-precision-loop__illuminations" aria-hidden="true">
-      {loopStages.map((stage, index) => <img key={stage.name} className={`lm-precision-loop__illumination lm-precision-loop__illumination--${index}${activeStage === index ? " is-active" : ""}`} src="/images/platform/accountable-operations-loop-v3.png" alt="" width="1672" height="941" />)}
-    </div>
-    <div className="lm-precision-loop__hit-areas">
-      {loopStages.map((stage, index) => <button key={stage.name} className={`lm-precision-loop__hit lm-precision-loop__hit--${index}`} type="button" onMouseEnter={() => onSelect(index)} onMouseLeave={() => onSelect(null)} onFocus={() => onSelect(index)} onBlur={() => onSelect(null)} aria-label={`Highlight ${stage.name}: ${stage.headline}`}><span className="lm-visually-hidden">{stage.name}</span></button>)}
-    </div>
+    <svg className="lm-precision-loop__glass" viewBox="0 0 1672 941" preserveAspectRatio="xMidYMid meet" role="group" aria-label="Interactive Accountable Operations Loop sections">
+      <defs>
+        <filter id="loop-glass-mask-feather" x="-40%" y="-40%" width="180%" height="180%"><feGaussianBlur stdDeviation="13" /></filter>
+        <filter id="loop-glass-bloom" x="-45%" y="-45%" width="190%" height="190%"><feGaussianBlur stdDeviation="11" /></filter>
+        {loopGlassSegments.map((segment, index) => <linearGradient key={`gradient-${index}`} id={`loop-glass-gradient-${index}`} gradientUnits="userSpaceOnUse" x1={segment.start[0]} y1={segment.start[1]} x2={segment.end[0]} y2={segment.end[1]}>
+          <stop offset="0" stopColor="#dff6ff" />
+          <stop offset=".45" stopColor="#70c8ff" />
+          <stop offset="1" stopColor="#1d7cd8" />
+        </linearGradient>)}
+        {loopGlassSegments.map((segment, index) => <mask key={`mask-${index}`} id={`loop-glass-mask-${index}`} maskUnits="userSpaceOnUse" x="0" y="0" width="1672" height="941">
+          <rect width="1672" height="941" fill="black" />
+          <path d={segment.path} fill="none" stroke="white" strokeWidth="82" strokeLinecap="round" opacity=".34" filter="url(#loop-glass-mask-feather)" />
+          <path d={segment.path} fill="none" stroke="white" strokeWidth="54" strokeLinecap="round" />
+        </mask>)}
+      </defs>
+      {loopGlassSegments.map((segment, index) => <g key={loopStages[index].name} className={`lm-precision-loop__glass-segment${activeStage === index ? " is-active" : ""}`}>
+        <image href="/images/platform/accountable-operations-loop-v3.png" width="1672" height="941" mask={`url(#loop-glass-mask-${index})`} className="lm-precision-loop__glass-reveal" />
+        <path d={segment.path} fill="none" stroke={`url(#loop-glass-gradient-${index})`} strokeWidth="34" strokeLinecap="round" className="lm-precision-loop__glass-aura" filter="url(#loop-glass-bloom)" />
+        <path d={segment.path} fill="none" stroke={`url(#loop-glass-gradient-${index})`} strokeWidth="18" strokeLinecap="round" className="lm-precision-loop__glass-beam" />
+        <path d={segment.path} fill="none" stroke="#f3fcff" strokeWidth="4" strokeLinecap="round" className="lm-precision-loop__glass-glint" />
+      </g>)}
+      {loopGlassSegments.map((segment, index) => <path
+        key={`hit-${loopStages[index].name}`}
+        d={segment.path}
+        className="lm-precision-loop__glass-hit"
+        fill="none"
+        stroke="transparent"
+        strokeWidth="126"
+        strokeLinecap="round"
+        pointerEvents="stroke"
+        role="button"
+        tabIndex={0}
+        aria-label={`Highlight ${loopStages[index].name}: ${loopStages[index].headline}`}
+        aria-pressed={activeStage === index}
+        onMouseEnter={() => onSelect(index)}
+        onMouseLeave={() => onSelect(null)}
+        onFocus={() => onSelect(index)}
+        onBlur={() => onSelect(null)}
+        onKeyDown={(event) => {
+          if (event.key !== "Enter" && event.key !== " ") return;
+          event.preventDefault();
+          onSelect(index);
+        }}
+      />)}
+    </svg>
     <figcaption id="precision-loop-caption" className="lm-visually-hidden">The return reading becomes the starting point for the next decision.</figcaption>
   </figure>;
 }

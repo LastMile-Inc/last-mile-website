@@ -10,7 +10,7 @@ Complete the two remaining interaction and visual-fidelity corrections: translat
 - Replace the sparse four-card portal treatment with a dense three-column command view modeled on the supplied reference structure.
 - Update the central image, operating panels, measurements, work state, and summary strip for EXEC, PLANT MGR, and OPERATOR without a page refresh.
 - Preserve the Home three-column phase definitions and unframed commissioned ring image.
-- Add six clipped illumination layers and six matching image hit areas.
+- Add six inner-glass illumination paths and six matching image hit areas. Feature 007 supersedes the original clipped-raster technique after visual review found edge artifacts.
 - Run one six-phase sequence when the loop first becomes visible, then return to neutral.
 - After the sequence, link image hover, definition hover, and keyboard focus to the same physical segment and definition.
 - Respect reduced-motion settings.
@@ -28,7 +28,7 @@ Complete the two remaining interaction and visual-fidelity corrections: translat
 5. EXEC includes Portfolio Asset Health at 94%, Regional Throughput, 12ms Supply Chain Latency, and 88.4% High-Level OEE.
 6. EXEC contains exactly one illuminated selected-site tag.
 7. Each role changes its center image and surrounding data without a page refresh.
-8. The loop contains six distinct image illumination layers and six matching pointer and keyboard targets.
+8. The loop contains six distinct inner-glass illumination paths and six matching pointer and keyboard targets.
 9. The first visible sequence advances Evidence through Verify once, then returns to a neutral image.
 10. Hovering or focusing either an image segment or its definition highlights both together.
 11. Desktop and 390-pixel phone layouts have no horizontal overflow.

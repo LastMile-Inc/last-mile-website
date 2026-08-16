@@ -468,9 +468,25 @@
 }
 
 .lm-premium-loop-composition--three-column .lm-premium-loop-definitions li.is-active button {
-  border-color: var(--lm-blue);
-  background: color-mix(in srgb, var(--lm-blue) 10%, var(--lm-surface));
-  box-shadow: 0 12px 28px color-mix(in srgb, var(--lm-blue) 14%, transparent);
+  border-color: #1d7cd8;
+  background: linear-gradient(135deg, #dff6ff 0%, #70c8ff 58%, #1d7cd8 100%);
+  color: #06131f;
+  box-shadow: 0 14px 32px rgba(29,124,216,.25), inset 0 1px 0 rgba(255,255,255,.72);
+}
+
+.lm-premium-loop-composition--three-column .lm-premium-loop-definitions li.is-active button > span {
+  border-color: #0b4f91;
+  background: radial-gradient(circle at 38% 34%, #f3fcff 0 18%, #70c8ff 21% 54%, #1d7cd8 58% 100%);
+  box-shadow: 0 0 0 5px rgba(223,246,255,.48), 0 0 18px rgba(29,124,216,.46);
+}
+
+.lm-premium-loop-composition--three-column .lm-premium-loop-definitions li.is-active :is(em, strong, p, small) {
+  color: #06131f;
+}
+
+.lm-premium-loop-composition--three-column .lm-premium-loop-definitions li.is-active small {
+  border-left-color: #0b4f91;
+  background: rgba(255,255,255,.58);
 }
 
 .lm-premium-loop-composition--three-column .lm-premium-loop-definitions em,
@@ -499,69 +515,60 @@
   filter: grayscale(.92) saturate(.22) contrast(.98) brightness(1.025);
 }
 
-.lm-precision-loop__illuminations,
-.lm-precision-loop__hit-areas,
-.lm-precision-loop__illumination,
-.lm-precision-loop__hit {
+.lm-precision-loop__glass {
   position: absolute;
   inset: 0;
-}
-
-.lm-precision-loop__illuminations {
+  width: 100%;
+  height: 100%;
+  margin: 0;
   z-index: 1;
-  pointer-events: none;
-}
-
-.lm-precision-loop__illumination {
-  width: 100%;
-  height: 100%;
   display: block;
-  object-fit: contain;
+  overflow: visible;
+}
+
+.lm-precision-loop__glass-segment {
   opacity: 0;
-  filter: saturate(1.55) contrast(1.08) brightness(1.02) drop-shadow(0 0 8px rgba(29,124,216,.72));
-  transition: opacity .22s ease, filter .22s ease;
-}
-
-.lm-precision-loop__illumination.is-active {
-  opacity: 1;
-  filter: saturate(1.7) contrast(1.11) brightness(1.04) drop-shadow(0 0 12px rgba(29,124,216,.9));
-}
-
-.lm-precision-loop__illumination--0,
-.lm-precision-loop__hit--0 { clip-path: polygon(20% 17%,47% 2%,57% 25%,34% 42%); }
-.lm-precision-loop__illumination--1,
-.lm-precision-loop__hit--1 { clip-path: polygon(49% 2%,81% 17%,69% 43%,55% 25%); }
-.lm-precision-loop__illumination--2,
-.lm-precision-loop__hit--2 { clip-path: polygon(80% 16%,87% 53%,68% 64%,68% 41%); }
-.lm-precision-loop__illumination--3,
-.lm-precision-loop__hit--3 { clip-path: polygon(87% 52%,69% 84%,49% 74%,68% 62%); }
-.lm-precision-loop__illumination--4,
-.lm-precision-loop__hit--4 { clip-path: polygon(70% 84%,30% 88%,33% 65%,51% 73%); }
-.lm-precision-loop__illumination--5,
-.lm-precision-loop__hit--5 { clip-path: polygon(31% 88%,15% 39%,34% 40%,34% 67%); }
-
-.lm-precision-loop__hit-areas {
-  z-index: 2;
   pointer-events: none;
+  transition: opacity .26s ease;
 }
 
-.lm-precision-loop__hit {
-  width: 100%;
-  height: 100%;
-  padding: 0;
-  border: 0;
-  background: transparent;
+.lm-precision-loop__glass-segment.is-active {
+  opacity: 1;
+}
+
+.lm-precision-loop__glass-reveal {
+  opacity: .82;
+  filter: saturate(1.38) contrast(1.04);
+}
+
+.lm-precision-loop__glass-aura {
+  opacity: .52;
+  mix-blend-mode: screen;
+}
+
+.lm-precision-loop__glass-beam {
+  opacity: .78;
+  mix-blend-mode: screen;
+}
+
+.lm-precision-loop__glass-glint {
+  opacity: .86;
+  mix-blend-mode: screen;
+}
+
+.lm-precision-loop__glass-hit {
   cursor: pointer;
-  pointer-events: auto;
+  outline: none;
 }
 
-.lm-precision-loop__hit:focus-visible {
-  outline: 3px solid #1d7cd8;
-  outline-offset: -4px;
-  background: rgba(29,124,216,.08);
+.lm-precision-loop__glass-hit:focus-visible {
+  stroke: #1d7cd8;
+  stroke-width: 5;
+  stroke-dasharray: 11 13;
+  filter: drop-shadow(0 0 5px rgba(29,124,216,.72));
 }
 
-.lm-premium-loop-composition[data-intro-playing="true"] .lm-precision-loop__hit,
+.lm-premium-loop-composition[data-intro-playing="true"] .lm-precision-loop__glass-hit,
 .lm-premium-loop-composition[data-intro-playing="true"] .lm-premium-loop-definitions button {
   cursor: default;
 }
@@ -1528,7 +1535,7 @@
 @media (prefers-reduced-motion: reduce) {
   .lm-control-portal__workspace,
   .lm-control-portal__tabs button,
-  .lm-precision-loop__illumination {
+  .lm-precision-loop__glass-segment {
     animation: none;
     transition: none;
   }

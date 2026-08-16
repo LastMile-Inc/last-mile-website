@@ -10,7 +10,7 @@ Feature 006 is internally consistent and ready for founder review. It is a focus
 
 - The existing Home three-column composition, six phase definitions, and commissioned ring remain in place.
 - The ring has no panel fill, border, shadow, center oval, or overlapping copy.
-- Six clipped illumination layers map to the six physical sections, and six matching hit areas link image interaction to the definition cards.
+- Six illumination states map to the six physical sections, and six matching hit areas link image interaction to the definition cards. Feature 007 supersedes the reviewed clipped-raster rendering with masked inner-glass paths.
 - The opening sequence runs Evidence through Verify once, returns to neutral, and is skipped for users who request reduced motion.
 - The existing Infinit-Control role tabs and detailed light role plates remain in place.
 - Every role updates seven surrounding panel families and the five-value center summary with its own believable concept data.

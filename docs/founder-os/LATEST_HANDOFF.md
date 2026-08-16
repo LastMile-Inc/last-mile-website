@@ -121,8 +121,19 @@ Updated: 2026-08-15
 - Added Spec Kit Feature 006 as the final focused correction to the existing Infinit-Control portal and Home loop.
 - Rebuilt the portal's information layer from four large cards into seven compact light command-panel families plus a five-value center summary, following the supplied mission-control reference's density and hierarchy.
 - EXEC, PLANT MGR, and OPERATOR now update the complete surrounding dataset together with the central portfolio, facility, or bottling-line image. The founder-specified values are present, and the Executive view retains exactly one illuminated selected-site tag.
-- Kept the original unframed commissioned Home ring and all six definition cards. Six clipped copies of the same image now illuminate the physical metallic sections from Evidence through Verify once when visible, then return to neutral.
+- Kept the original unframed commissioned Home ring and all six definition cards. Six linked illumination states run from Evidence through Verify once when visible, then return to neutral. Feature 007 supersedes the reviewed clipped-raster rendering method.
 - After the opening sequence, hovering or focusing either an image segment or its definition highlights both together. Reduced-motion users skip the timed sequence and keep the direct interaction.
 - Browser review passed at 1440 by 900 and 390 by 844 with role-specific image and panel updates, keyboard tab movement, linked loop hover and focus behavior, no horizontal overflow, and no console errors.
 - Governance, editorial, generated-concept, content, controlled-content, type, published-output, and whitespace checks pass. Content tests pass 23 of 23. Lint has zero errors and six existing Fast Refresh warnings. The production build transforms 2,127 modules successfully.
 - The portal remains a concept interface. No live customer data, calculation, access, equipment-control, safety, merge, deployment, cloud, or GCP change is included.
+
+# 2026-08-16 inner-glass loop glow correction handoff
+
+- Added Spec Kit Feature 007 as a contained correction to the Home loop only. The approved Infinit-Control portal was not changed.
+- Removed all six clipped full-image wedges and the associated CSS polygon boundaries that allowed blue blocks to cross the metal frame.
+- Added six smooth SVG light paths, six feathered masks that reveal the commissioned color inside the glass rails, and path-shaped pointer and keyboard targets.
+- The active glass rail and matching definition share the exact `#DFF6FF` to `#70C8FF` to `#1D7CD8` gradient. Definition copy uses high-contrast near-black text.
+- Preserved the opening Evidence-to-Verify sequence, neutral finish, post-sequence hover and focus linkage, and reduced-motion behavior.
+- Browser review passed at 1440 by 900 and 390 by 844 with six smooth glass rails, six accessible path targets, synchronized activation in both directions, no horizontal overflow, and no console errors.
+- Governance, editorial, generated-concept, content, controlled-content, type, published-output, and whitespace checks pass. Content tests pass 23 of 23. Lint has zero errors and six existing Fast Refresh warnings. The production build transforms 2,127 modules successfully.
+- No image replacement, page teardown, claim change, data change, customer connection, access expansion, equipment-control change, safety change, merge, deployment, cloud resource, or GCP change is included.

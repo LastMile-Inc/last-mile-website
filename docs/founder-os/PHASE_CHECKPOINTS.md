@@ -62,3 +62,13 @@ Status: Feature 006 implemented on the existing website-refresh workstream; not 
 - Connected all six Home loop definitions to six physical image-segment illumination layers for the first visible sequence and later pointer or keyboard interaction.
 - Preserved the concept label, shared case facts, controlled claims, customer boundaries, equipment-control authority, and safety responsibilities.
 - Complete validation is recorded in the Feature 006 final consistency review.
+
+## 2026-08-16 inner-glass loop correction checkpoint
+
+Status: Feature 007 implemented on the existing website-refresh workstream; not merged or deployed.
+
+- Left the founder-approved Infinit-Control portal unchanged.
+- Removed the reviewed clipped-raster wedges and polygon boundaries from the Home loop.
+- Replaced them with six smooth masked SVG light rails and path-based pointer and keyboard targets.
+- Matched each active definition background to the same Corporate Blue glass gradient.
+- Preserved the one-pass opening sequence, neutral completion, reduced-motion behavior, phase copy, and three-column layout.

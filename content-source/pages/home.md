@@ -89,9 +89,9 @@ Keep product copy to one sentence each. Verification is collective platform beha
 
 Use a three-column loop composition: Evidence, Understand, and Decide on the left; the original commissioned `accountable-operations-loop-v3.png` ring in the center; Coordinate, Act, and Verify on the right. Preserve the exact stage order: Evidence, Understand, Decide, Coordinate, Act, Verify. Vertically center the loop image through the center column's layout, not with spacing offsets. The image sits directly on the page background and uses the center column's available width. Do not add a panel fill, border, shadow, center oval, or overlapping copy.
 
-When the loop first becomes visible, illuminate one physical metallic image section and its matching definition at a time from Evidence through Verify, then return the entire loop to neutral. After that sequence, hovering or focusing either a physical image section or its definition must illuminate and highlight both together. Skip the timed sequence when the user requests reduced motion, but retain the pointer and keyboard interaction.
+When the loop first becomes visible, illuminate the inner glass rail of one physical image section and its matching definition at a time from Evidence through Verify, then return the entire loop to neutral. Use smooth masked SVG light paths contained inside the glass; do not use clipped image wedges, polygons, or opaque blocks over the metal. The active definition uses the same light-to-dark blue gradient as the glass rail. After the sequence, hovering or focusing either a physical image section or its definition must illuminate and highlight both together. Skip the timed sequence when the user requests reduced motion, but retain the pointer and keyboard interaction.
 
-Use "Work completed is not the same as problem solved" once. Keep the approved AI wording once after the loop. Use the commissioned six-stage ring as the visual surface while keeping every stage name, definition, selected state, and keyboard interaction in accessible HTML.
+Use "Work completed is not the same as problem solved" once. Keep the approved AI wording once after the loop. Use the commissioned six-stage ring as the visual surface while keeping every stage name, definition, selected state, and keyboard interaction accessible.
 
 ## What Last Mile brings to industry
 

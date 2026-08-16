@@ -137,10 +137,15 @@ test("Home owns the company story, Platform owns architecture, and public concep
   assert.match(accountableLoop, /setIntroPlaying\(true\)/);
   assert.match(accountableLoop, /loopStages\.forEach[\s\S]*setAnimatedStage\(index\)/);
   assert.match(accountableLoop, /setAnimatedStage\(-1\)[\s\S]*setIntroPlaying\(false\)/);
-  assert.match(accountableLoop, /lm-precision-loop__illuminations/);
-  assert.match(accountableLoop, /lm-precision-loop__hit-areas/);
+  assert.match(accountableLoop, /loopGlassSegments/);
+  assert.match(accountableLoop, /lm-precision-loop__glass-segment/);
+  assert.match(accountableLoop, /loop-glass-mask-feather/);
+  assert.match(accountableLoop, /loop-glass-gradient-/);
+  assert.match(accountableLoop, /lm-precision-loop__glass-hit/);
   assert.match(accountableLoop, /onMouseEnter[\s\S]*onFocus/);
-  for (let index = 0; index < 6; index += 1) assert.match(styles, new RegExp(`lm-precision-loop__illumination--${index}`));
+  assert.match(styles, /linear-gradient\(135deg, #dff6ff 0%, #70c8ff 58%, #1d7cd8 100%\)/);
+  assert.doesNotMatch(accountableLoop, /lm-precision-loop__illuminations|lm-precision-loop__hit-areas/);
+  assert.doesNotMatch(styles, /lm-precision-loop__illumination--|lm-precision-loop__hit--|clip-path: polygon/);
 
   assert.doesNotMatch(home, /platform-core-blueprint|generic.*network.*hero/i);
   assert.doesNotMatch(article, /claimMaturity|reference_architecture|perspective\s*\//i);

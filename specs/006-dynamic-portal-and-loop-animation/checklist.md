@@ -10,7 +10,7 @@
 - [x] Role images and surrounding data change together
 - [x] Original Home three-column layout preserved
 - [x] Original unframed ring preserved
-- [x] Six clipped illumination layers present
+- [x] Six linked illumination states present; final inner-glass rendering is recorded in Feature 007
 - [x] Six image interaction targets present
 - [x] Initial six-phase sequence present
 - [x] Neutral post-sequence state present
