@@ -19,6 +19,7 @@ const useCases = [
 
 const resources = [
   ["/resources", "Build and Proof"],
+  ["/resources/architect-reference-center", "Architect Reference Center"],
   ["/resources/industrial-concepts", "Industrial Concepts"],
   ["/ecosystem", "Industrial Ecosystem"],
   ["/signal-to-action", "Signal 2 Action"],
