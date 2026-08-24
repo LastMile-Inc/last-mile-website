@@ -214,6 +214,22 @@
       "uses": [
         { "route": "/resources/industrial-concepts/ot-security", "sourceFile": "src/app/content/industrialConcepts.generated.ts", "wording": "Industrial connectivity must preserve the performance, reliability, and safety requirements of OT. Last Mile applies least privilege, identity, segmentation-aware deployment, policy, audit, and bounded action without assuming enterprise IT controls can be copied into plant operations unchanged." }
       ]
+    },
+    {
+      "claimId": "CLM-IMPL-001",
+      "approvedMaturity": "perspective",
+      "allowedRoutes": ["/resources/pmo-implementation-hub"],
+      "uses": [
+        { "route": "/resources/pmo-implementation-hub", "sourceFile": "src/app/pages/PmoImplementationHubPage.tsx", "wording": "Reference implementation planning pages may present phased rollout models, staffing estimates, and parallel-run governance as planning aids rather than customer commitments." }
+      ]
+    },
+    {
+      "claimId": "CLM-IMPL-002",
+      "approvedMaturity": "reference_architecture",
+      "allowedRoutes": ["/resources/pmo-implementation-hub"],
+      "uses": [
+        { "route": "/resources/pmo-implementation-hub", "sourceFile": "src/app/pages/PmoImplementationHubPage.tsx", "wording": "Last Mile Synapse is the implementation label for the open-protocol edge gateway workstream that stages source acquisition for Infinit-Signal during rollout." }
+      ]
     }
   ]
 }

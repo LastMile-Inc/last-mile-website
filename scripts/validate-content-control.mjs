@@ -150,7 +150,7 @@ const routeClaims = JSON.parse(fs.readFileSync(path.join(root, "data", "content-
 if (routeClaims.schemaVersion !== 2) fail("route-claims.json must use traceable route-use schemaVersion 2");
 const claimIds = new Set();
 let tracedClaimUses = 0;
-const staticRoutes = new Set(["/", "/platform", "/use-cases", "/use-cases/data-center-cooling", "/use-cases/municipal-wastewater", "/use-cases/manufacturing-compressed-air", "/use-cases/cold-storage-refrigeration", "/infinit-signal", "/singularity", "/infinit-flow", "/infinit-control", "/ecosystem", "/about", "/resources", "/resources/industrial-concepts", "/contact", "/signal-to-action", "/company/newsroom"]);
+const staticRoutes = new Set(["/", "/platform", "/use-cases", "/use-cases/data-center-cooling", "/use-cases/municipal-wastewater", "/use-cases/manufacturing-compressed-air", "/use-cases/cold-storage-refrigeration", "/infinit-signal", "/singularity", "/infinit-flow", "/infinit-control", "/ecosystem", "/about", "/resources", "/resources/pmo-implementation-hub", "/resources/industrial-concepts", "/contact", "/signal-to-action", "/company/newsroom"]);
 for (const object of objects.filter((item) => item.rel.startsWith("content-source/concepts/"))) {
   const articleRoute = object.usedBy.find((value) => value.startsWith("/resources/industrial-concepts/"));
   if (articleRoute) staticRoutes.add(articleRoute);

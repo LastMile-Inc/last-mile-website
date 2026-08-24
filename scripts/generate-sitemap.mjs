@@ -9,7 +9,7 @@ const routes = [
   ["/use-cases/data-center-cooling", "weekly", "0.9"], ["/use-cases/municipal-wastewater", "weekly", "0.9"],
   ["/use-cases/manufacturing-compressed-air", "weekly", "0.9"], ["/use-cases/cold-storage-refrigeration", "weekly", "0.9"],
   ["/infinit-signal", "weekly", "0.8"], ["/singularity", "weekly", "0.8"], ["/infinit-flow", "weekly", "0.8"], ["/infinit-control", "weekly", "0.8"],
-  ["/ecosystem", "monthly", "0.7"], ["/resources", "monthly", "0.7"], ["/about", "monthly", "0.7"], ["/contact", "monthly", "0.8"], ["/signal-to-action", "monthly", "0.7"], ["/company/newsroom", "monthly", "0.6"], ["/privacy", "yearly", "0.2"], ["/terms", "yearly", "0.2"],
+  ["/ecosystem", "monthly", "0.7"], ["/resources", "monthly", "0.7"], ["/resources/pmo-implementation-hub", "monthly", "0.7"], ["/resources/architect-reference-center", "monthly", "0.7"], ["/about", "monthly", "0.7"], ["/contact", "monthly", "0.8"], ["/signal-to-action", "monthly", "0.7"], ["/company/newsroom", "monthly", "0.6"], ["/privacy", "yearly", "0.2"], ["/terms", "yearly", "0.2"],
 ];
 routes.push(["/resources/industrial-concepts", "monthly", "0.8"]);
 const conceptDirectory = path.join(root, "content-source", "concepts");

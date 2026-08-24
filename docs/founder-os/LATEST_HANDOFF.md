@@ -1,9 +1,10 @@
 # Latest handoff
 
-Updated: 2026-08-11
+Updated: 2026-08-24
 
 ## Completed safely
 
+- Added a governed PMO Implementation Hub review route at `/resources/pmo-implementation-hub` with reference FTE models, rollout phase gates, and a Synapse parallel-run schema; the new page preserves the canonical four-product public model and constrains "Last Mile Synapse" to implementation-scoped language.
 - Reconciled checkpoint `be9b7c6b5f2cd90abd3df6a8b6a93e0d6099bf50` onto normalized main `358327618a7b6bbd7cccc5ea66a686c3a02608e9` without altering the preserved checkpoint branch.
 - Retained normalized governance and publishing controls, kept the legacy catalog retired, and replaced the excluded scenario/architecture imagery with accessible code-native maps.
 - Passed `npm ci`, `npm run validate`, `npm test`, `npm run build`, `git diff --check`, canonical content checks, and desktop/mobile Playwright visual QA across the required route matrix, navigation, and footer.

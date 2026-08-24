@@ -39,6 +39,16 @@
       "contentId": "LM-WEB-PROOF-001",
       "status": "approved-for-review-site",
       "claim": "Recovery is evaluated from return telemetry and operating evidence rather than ticket closure alone."
+    },
+    {
+      "contentId": "LM-WEB-IMPL-001",
+      "status": "approved-for-review-site",
+      "claim": "Reference implementation planning pages may present phased rollout models, staffing estimates, and parallel-run governance as planning aids rather than customer commitments."
+    },
+    {
+      "contentId": "LM-WEB-SYNAPSE-001",
+      "status": "approved-for-review-site",
+      "claim": "Last Mile Synapse is the implementation label for the open-protocol edge gateway workstream that stages source acquisition for Infinit-Signal during rollout."
     }
   ]
 }

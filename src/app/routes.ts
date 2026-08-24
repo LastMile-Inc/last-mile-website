@@ -50,6 +50,7 @@ export const router = createBrowserRouter([
       { path: "company", loader: redirectTo("/about") },
       { path: "company/newsroom", lazy: lazyPage(() => import("./pages/NewsroomPage"), "NewsroomPage") },
       { path: "resources", lazy: lazyPage(() => import("./pages/ResourcesPage"), "ResourcesPage") },
+      { path: "resources/pmo-implementation-hub", lazy: lazyPage(() => import("./pages/PmoImplementationHubPage"), "PmoImplementationHubPage") },
       { path: "resources/architect-reference-center", lazy: lazyPage(() => import("./pages/ArchitectReferenceCenterPage"), "ArchitectReferenceCenterPage") },
       { path: "resources/industrial-concepts", lazy: lazyPage(() => import("./pages/IndustrialConceptsPage"), "IndustrialConceptsPage") },
       { path: "resources/industrial-concepts/:conceptSlug", lazy: lazyPage(() => import("./pages/IndustrialConceptArticlePage"), "IndustrialConceptArticlePage") },
