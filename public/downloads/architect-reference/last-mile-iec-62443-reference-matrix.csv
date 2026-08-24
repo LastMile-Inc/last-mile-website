@@ -1,0 +1,6 @@
+Control family,Design treatment,Review evidence
+SR 1.1 Human user identification and authentication,"Operator and administrator actions require explicit authenticated identity and role context.","User-role mapping and audit records for privileged actions."
+SR 1.2 Software process and device identification,"Collectors, relays, and services use scoped machine identity instead of shared trust.","Service identity configuration and certificate assignment."
+SR 2.1 Authorization enforcement,"Approved sources, actions, and targets are policy-bound and revocable.","Connection allowlists, policy records, and blocked-action logging."
+SR 3.1 Communication integrity,"Encrypted conduits, signed delivery where appropriate, and replay classification preserve transport integrity.","TLS posture, relay configuration, and duplicate/replay handling."
+

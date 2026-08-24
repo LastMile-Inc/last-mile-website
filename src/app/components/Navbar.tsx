@@ -20,6 +20,7 @@ const useCases = [
 const resources = [
   ["/resources", "Build and Proof"],
   ["/resources/pmo-implementation-hub", "PMO Implementation Hub"],
+  ["/resources/architect-reference-center", "Architect Reference Center"],
   ["/resources/industrial-concepts", "Industrial Concepts"],
   ["/ecosystem", "Industrial Ecosystem"],
   ["/signal-to-action", "Signal 2 Action"],

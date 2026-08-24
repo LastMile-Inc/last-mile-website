@@ -1,0 +1,6 @@
+Control family,Design treatment,Review evidence
+5.15 Access control,"Access is granted per tenant, role, service identity, and approved operating scope.","Role design, service identity policy, and boundary approval records."
+5.17 Authentication information,"Secrets and certificates are rotated and scoped to the specific source or service path.","Credential inventory and rotation records."
+8.15 Logging,"Connection changes, policy decisions, and workflow actions emit auditable events.","Application audit trail and action receipts."
+8.24 Use of cryptography,"Encryption protects transport and storage boundaries with explicit key-management ownership.","Transport posture and storage-encryption configuration."
+

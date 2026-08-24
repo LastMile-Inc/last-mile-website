@@ -85,6 +85,12 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://lastmileinc.ai/resources/architect-reference-center</loc>
+    <lastmod>2026-08-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://lastmileinc.ai/about</loc>
     <lastmod>2026-08-24</lastmod>
     <changefreq>monthly</changefreq>
