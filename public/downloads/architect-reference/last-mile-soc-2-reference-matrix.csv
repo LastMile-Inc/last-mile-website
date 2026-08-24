@@ -1,0 +1,6 @@
+Control family,Design treatment,Review evidence
+CC6.1 Logical access,"Tenant-scoped workload identity, least-privilege service access, and explicit operator roles.","Identity policy, service bindings, and access review records."
+CC6.6 Logical access removal,"Revocable credentials, certificate rotation, and source-specific connection grants.","Rotation records and disabled access audit trail."
+CC7.2 Change monitoring,"Connection, mapping, and policy changes are logged with actor, time, and target.","Audit events for configuration changes and approvals."
+A1.2 Availability commitments,"Boundary-local acquisition, backpressure isolation, and explicit degraded-state handling.","Runbooks, replay handling, and resilience posture notes."
+
