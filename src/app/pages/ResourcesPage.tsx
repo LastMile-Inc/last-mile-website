@@ -3,6 +3,7 @@ import { EditorialHero, EditorialSection, InlineLink, NextStep } from "@/app/com
 import { createBreadcrumbSchema } from "@/app/lib/structuredData";
 
 const resourceGroups = [
+  { title: "PMO Implementation Hub", copy: "Interactive rollout models, implementation wave gates, and the reference Synapse parallel-run schema for delivery planning.", link: ["Open the PMO Implementation Hub", "/resources/pmo-implementation-hub"] },
   { title: "Build and Proof", copy: "Demonstration milestones, architecture briefs, reference-use-case updates, and product progress.", link: ["Review the cooling proof", "/use-cases/data-center-cooling"] },
   { title: "Industrial Concepts", copy: "Canonical explanations of UNS and SSOM, interoperability, OPC UA, operational memory, industrial AI, OT security, and related architectures.", link: ["Explore Industrial Concepts", "/resources/industrial-concepts"] },
   { title: "Signal 2 Action", copy: "Current episodes, the editorial thesis, and an invitation for practitioners with a useful operating perspective.", link: ["Visit Signal 2 Action", "/signal-to-action"] },

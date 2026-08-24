@@ -1,5 +1,9 @@
 # Decision log
 
+## 2026-08-24 — PMO Implementation Hub review route
+
+Decision: add a Resources-scoped PMO Implementation Hub route as reference implementation planning content only. The page may present phased rollout models, staffing estimates, and parallel-run governance as planning aids rather than customer commitments. "Last Mile Synapse" is restricted to the implementation label for the open-protocol edge gateway workstream that stages source acquisition for Infinit-Signal during rollout; it does not expand the canonical four-product public model.
+
 ## 2026-08-11 — current repository identity and completed baseline
 
 Decision: retain stable repository ID 1147329489 under its current name, `LastMile-Inc/last-mile-website`, and record the earlier `LastMile-Inc/Thesite` name only as historical state. Website Phase 3 PR #8 and Phase 4 PR #9 are merged. `LastMile-Inc/P0_GCP_Foundation` PR #17 and Build Readiness PR #23 are also merged, with PR #23 at `da5a49fc82448c2e2c95be2c8c3d1efeffa0b09f`. These completed baselines do not authorize draft PR #12 to merge or deploy.

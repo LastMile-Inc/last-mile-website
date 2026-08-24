@@ -60,6 +60,13 @@ This registry is the canonical detailed claim authority beneath the review-site 
 | CLM-CTRL-002 | Measurements display value, unit, reference, state, and operationally meaningful trend/freshness. | Designed; Demonstrated in reference datasets | Use-case contracts | Customer-specific thresholds |
 | CLM-CTRL-003 | No-valid-data states prevent a healthy or recovered presentation. | Designed | Result rules | Automatic repair of source data |
 
+## Implementation planning
+
+| Claim ID | Approved language | Maturity | Scope/evidence | Prohibited inference |
+|---|---|---|---|---|
+| CLM-IMPL-001 | Reference implementation planning pages may present phased rollout models, staffing estimates, and parallel-run governance as planning aids rather than customer commitments. | Perspective / designed | PMO page contract | Customer savings guarantee or fixed deployment commitment |
+| CLM-IMPL-002 | Last Mile Synapse is the implementation label for the open-protocol edge gateway workstream that stages source acquisition for Infinit-Signal during rollout. | Reference architecture | PMO page contract | Fifth released product, implemented connector catalog, or autonomous edge control |
+
 ## Industrial concepts
 
 | Claim ID | Approved language | Maturity | Source |

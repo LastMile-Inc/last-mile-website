@@ -3,7 +3,7 @@ import { Link } from "react-router";
 
 const products = [["/infinit-signal","Infinit-Signal"],["/singularity","Singularity"],["/infinit-flow","Infinit-Flow"],["/infinit-control","Infinit-Control"]] as const;
 const company = [["/about","About"],["/company/newsroom","News and Updates"],["/contact","Contact"]] as const;
-const resources = [["/platform","Platform"],["/use-cases","Operating Use Cases"],["/use-cases/data-center-cooling","Cooling Redundancy"],["/ecosystem","Ecosystem"],["/resources/industrial-concepts","Industrial Concepts"],["/resources","Resources"],["/signal-to-action","Signal 2 Action"]] as const;
+const resources = [["/platform","Platform"],["/use-cases","Operating Use Cases"],["/use-cases/data-center-cooling","Cooling Redundancy"],["/ecosystem","Ecosystem"],["/resources/pmo-implementation-hub","PMO Implementation Hub"],["/resources/industrial-concepts","Industrial Concepts"],["/resources","Resources"],["/signal-to-action","Signal 2 Action"]] as const;
 
 export function Footer() {
   return <footer className="lm-footer">

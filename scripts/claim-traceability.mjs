@@ -9,6 +9,7 @@ const routeConsumers = new Map([
   ["/singularity", "src/app/pages/SSOMPage.tsx"],
   ["/infinit-flow", "src/app/pages/InfinitFlowPage.tsx"],
   ["/infinit-control", "src/app/pages/InfinitControlPage.tsx"],
+  ["/resources/pmo-implementation-hub", "src/app/pages/PmoImplementationHubPage.tsx"],
 ]);
 
 function expectedConsumer(route) {
