@@ -1,5 +1,5 @@
 import { SEO } from "@/app/components/SEO";
-import { EditorialHero, EditorialSection, InlineLink, NextStep } from "@/app/components/NarrativeComponents";
+import { ConnectedResponseStrip, EditorialHero, EditorialSection, InlineLink, NextStep } from "@/app/components/NarrativeComponents";
 import { EvidenceEnvelope } from "@/app/components/OperatingScenarioComponents";
 import { createBreadcrumbSchema, createProductSchema } from "@/app/lib/structuredData";
 
@@ -41,7 +41,8 @@ export function InfinitSignalPage() {
   return <>
     <SEO title="Infinit-Signal | Know Which Industrial Evidence Is Fit to Act On" description={description} canonicalPath="/infinit-signal" jsonLd={[createProductSchema("Infinit-Signal", "/infinit-signal", description), createBreadcrumbSchema([{ name: "Home", path: "/" }, { name: "Infinit-Signal", path: "/infinit-signal" }])]} />
     <div className="lm-v2-page">
-      <EditorialHero eyebrow="INFINIT-SIGNAL · OBSERVE" title="Know what actually happened—and which evidence is fit to act on." intro="Infinit-Signal continuously acquires configured outputs from the systems you already operate, preserves their original evidence, and classifies time, quality, duplication, replay, and identity before data enters the Last Mile operating model." primary={{ label: "Discuss Your Source Environment", to: "/contact?intent=architecture" }} secondary={{ label: "See the Cooling Use Case", to: "/use-cases/data-center-cooling" }} visual={<EvidenceEnvelope />} />
+      <EditorialHero eyebrow="INFINIT-SIGNAL · OBSERVE + QUALIFY" title="Qualify industrial evidence before the response begins." intro="Infinit-Signal continuously acquires configured outputs from the systems you already operate, preserves their original evidence, and classifies time, quality, duplication, replay, and identity before data enters the Last Mile operating model." support="Connected response role: supply trusted source evidence to Singularity before orchestration or operator views begin." primary={{ label: "Discuss Your Source Environment", to: "/contact?intent=architecture" }} secondary={{ label: "See the Cooling Use Case", to: "/use-cases/data-center-cooling" }} visual={<EvidenceEnvelope />} />
+      <ConnectedResponseStrip activeProduct="Infinit-Signal" intro="Infinit-Signal starts the connected response by deciding what source evidence is trustworthy enough to influence identity, orchestration, and proof." />
 
       <EditorialSection title="What enters. What is checked. What leaves." tone="grid">
         <div className="lm-pipeline">{pipeline.map((stage) => <article key={stage.title}><h3>{stage.title}</h3><ul className="lm-v2-list">{stage.items.map((item) => <li key={item}>{item}</li>)}</ul></article>)}</div>

@@ -1,6 +1,6 @@
 # Current state
 
-Updated: 2026-08-11
+Updated: 2026-08-26
 
 ## Platform and public narrative
 
@@ -17,6 +17,7 @@ Updated: 2026-08-11
 - No active website workflow deploys or writes catalog content.
 - The governed parallel website refresh has been reconciled onto normalized `origin/main` at `358327618a7b6bbd7cccc5ea66a686c3a02608e9` on `integration/website-parallel-refresh-2026-08-11`.
 - Draft PR #12 carries that refresh for review; founder approval is still required before merge, and production is unchanged.
+- The current review branch standardizes the homepage and four product routes around the Accountable Operations Loop and the phrase **orchestration layer for physical operations**, adds explicit audience signposting, and keeps technical-depth links discoverable without making them the default first click.
 - Superseded scenario and architecture imagery was excluded. The integration uses accessible, code-native process maps and a code-native product contract that preserves the approved product ownership boundaries.
 - Automated validation and desktop/mobile Playwright visual QA pass for the homepage, platform, four product routes, four operating scenarios, resources, contact, navigation, and footer. Production remains unchanged.
 

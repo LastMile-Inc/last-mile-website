@@ -16,7 +16,8 @@
       "approvedMaturity": "designed",
       "allowedRoutes": ["/", "/platform", "/ecosystem", "/about"],
       "uses": [
-        { "route": "/", "sourceFile": "src/app/pages/HomePage.tsx", "wording": "Turn fragmented operational evidence into coordinated action and verified outcomes without replacing the systems already running your business." },
+        { "route": "/", "sourceFile": "src/app/pages/HomePage.tsx", "wording": "Last Mile is the orchestration layer for physical operations across the OT, data, work, and service systems you already run." },
+        { "route": "/platform", "sourceFile": "src/app/pages/PlatformOverviewPage.tsx", "wording": "Last Mile is the orchestration layer for physical operations across the OT, data, work, and service systems you already run." },
         { "route": "/ecosystem", "sourceFile": "src/app/pages/EcosystemPage.tsx", "wording": "Last Mile consumes configured outputs from existing OT, data, work, facilities, and service platforms. It preserves their identities and responsibilities while creating one condition-to-outcome thread across them." }
       ]
     },

@@ -145,6 +145,68 @@ export function ProductThread({ expanded = false }: { expanded?: boolean }) {
   </div>;
 }
 
+const connectedResponseProducts = [
+  {
+    name: "Infinit-Signal",
+    stage: "01 · Observe + qualify",
+    route: "/infinit-signal",
+    copy: "Qualify source evidence before it influences the rest of the response.",
+    handoff: "Hands accepted canonical operational records into Singularity.",
+  },
+  {
+    name: "Singularity",
+    stage: "02 · Understand + connect",
+    route: "/singularity",
+    copy: "Resolve identity, topology, Conditions, evidence, and outcome context.",
+    handoff: "Supplies canonical operational meaning to Flow and Control.",
+  },
+  {
+    name: "Infinit-Flow",
+    stage: "03 · Orchestrate + execute",
+    route: "/infinit-flow",
+    copy: "Carry one accountable case across people, systems, providers, and approvals.",
+    handoff: "Requests return-measurement verification once work advances.",
+  },
+  {
+    name: "Infinit-Control",
+    stage: "04 · See + govern",
+    route: "/infinit-control",
+    copy: "Keep the full operating response visible to each authorized role.",
+    handoff: "Presents the resulting state; verification still depends on qualified evidence.",
+  },
+] as const;
+
+type ConnectedResponseProductName = (typeof connectedResponseProducts)[number]["name"];
+
+export function ConnectedResponseStrip({ activeProduct, intro }: { activeProduct: ConnectedResponseProductName; intro: string }) {
+  const activeIndex = connectedResponseProducts.findIndex((product) => product.name === activeProduct);
+
+  return <section className="lm-connected-response">
+    <div className="lm-v2-container">
+      <header className="lm-connected-response__head">
+        <p className="lm-eyebrow">ONE CONNECTED RESPONSE</p>
+        <h2>The Accountable Operations Loop stays connected across all four products.</h2>
+        <p>{intro}</p>
+      </header>
+      <div className="lm-connected-response__grid">
+        {connectedResponseProducts.map((product, index) => <TrackedLink
+          key={product.name}
+          to={product.route}
+          eventName="cta_product_click"
+          eventData={{ product: product.name }}
+          aria-current={product.name === activeProduct ? "page" : undefined}
+          className={`lm-connected-response__card${product.name === activeProduct ? " is-active" : index < activeIndex ? " is-complete" : ""}`}
+        >
+          <span>{product.stage}</span>
+          <strong>{product.name}</strong>
+          <p>{product.copy}</p>
+          <small>{product.handoff}</small>
+        </TrackedLink>)}
+      </div>
+    </div>
+  </section>;
+}
+
 export function BlueprintCard({ title, eyebrow, children }: { title: string; eyebrow?: string; children: ReactNode }) {
   return <article className="lm-v2-blueprint-card">{eyebrow ? <span>{eyebrow}</span> : null}<h3>{title}</h3>{children}</article>;
 }

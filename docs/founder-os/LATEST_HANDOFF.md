@@ -1,9 +1,12 @@
 # Latest handoff
 
-Updated: 2026-08-24
+Updated: 2026-08-26
 
 ## Completed safely
 
+- Standardized the review-branch website narrative around the Accountable Operations Loop and the phrase **orchestration layer for physical operations** across canonical governance content, homepage messaging, platform framing, and the four product routes.
+- Reworked homepage discovery so the operating-failure problem statement leads, technical depth is explicitly signposted by audience, and architecture-heavy exploration is delayed until after the core orchestration story is introduced.
+- Added connected-response framing to the four product pages so each product keeps a distinct role while remaining part of one accountable operating response.
 - Added a governed PMO Implementation Hub review route at `/resources/pmo-implementation-hub` with reference FTE models, rollout phase gates, and a Synapse parallel-run schema; the new page preserves the canonical four-product public model and constrains "Last Mile Synapse" to implementation-scoped language.
 - Reconciled checkpoint `be9b7c6b5f2cd90abd3df6a8b6a93e0d6099bf50` onto normalized main `358327618a7b6bbd7cccc5ea66a686c3a02608e9` without altering the preserved checkpoint branch.
 - Retained normalized governance and publishing controls, kept the legacy catalog retired, and replaced the excluded scenario/architecture imagery with accessible code-native maps.

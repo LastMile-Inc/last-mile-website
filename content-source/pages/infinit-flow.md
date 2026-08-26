@@ -2,7 +2,7 @@
 content_id: PAGE-FLOW-001
 status: approved
 owner: Infinit-Flow Product Marketing
-last_reviewed: 2026-08-06
+last_reviewed: 2026-08-26
 claim_maturity: [designed, reference_architecture]
 depends_on: [PROD-FLOW-001, CLAIMS-REGISTRY-001]
 used_by: [/infinit-flow]
@@ -18,9 +18,13 @@ Explain governed, asset-aware condition-to-outcome orchestration. Show why drag-
 
 **Eyebrow:** INFINIT-FLOW
 
-**H1:** Coordinate the operating response without losing the condition.
+**H1:** Orchestrate the operating response without losing the condition.
 
 **Body:** Infinit-Flow creates one durable case across operators, work systems, providers, approvals, evidence, and return measurements. It automates the digital steps policy allows and keeps physical authority where operations require it.
+
+## Connected response framing
+
+Render a four-product connected-response strip immediately after the hero. Highlight Infinit-Flow as the orchestration engine that carries one accountable case across people, systems, providers, and verification.
 
 **Operating artifact:** Show the Cooling Loop B reference timeline from command through qualified Condition, acknowledgement, SAP work, provider dispatch, field completion, stability completion, and recovery. Label the applicable AUTO, ASSIST, and HUMAN AUTHORITY boundaries.
 

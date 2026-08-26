@@ -164,7 +164,7 @@ const startSteps = [
 ] as const;
 
 export function PlatformOverviewPage() {
-  const description = "See how Last Mile connects industrial data, asset context, people, enterprise work, and return measurements across the systems already operating a facility.";
+  const description = "See how Last Mile serves as the orchestration layer for physical operations across industrial data, asset context, people, enterprise work, and return measurements.";
   return <>
     <SEO title="Last Mile Platform | Connect Operational Response Across Systems" description={description} canonicalPath="/platform" jsonLd={[createProductSchema("Last Mile Platform", "/platform", description), createBreadcrumbSchema([{ name: "Home", path: "/" }, { name: "Platform", path: "/platform" }])]} />
     <main className="lm-platform-page">
@@ -184,9 +184,9 @@ export function PlatformOverviewPage() {
 function PlatformHero() {
   return <header className="lm-platform-hero">
     <div className="lm-platform-hero__copy">
-      <p className="lm-eyebrow">LAST MILE PLATFORM</p>
+      <p className="lm-eyebrow">LAST MILE PLATFORM · TECHNICAL BRIEFING</p>
       <h1>One accountable operating condition—from first evidence to verified outcome.</h1>
-      <p className="lm-platform-lede">Last Mile sits above the systems that already run, record, and service physical operations. It qualifies their evidence, resolves one operational identity, coordinates the governed response, and proves recovery from live return measurements.</p>
+      <p className="lm-platform-lede">Last Mile is the orchestration layer for physical operations across the OT, data, work, and service systems you already run. It qualifies evidence, resolves one operational identity, coordinates the governed response, and proves recovery from live return measurements.</p>
       <div className="lm-platform-actions"><a className="lm-platform-button lm-platform-button--primary" href="#how-it-works">Watch How It Works <ArrowRight aria-hidden="true" /></a><a className="lm-platform-button lm-platform-button--secondary" href="#industry-use-cases">See Industry Examples</a></div>
     </div>
     <aside className="lm-operating-preview" aria-label="Cooling Loop B operating state preview">

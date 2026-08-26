@@ -1,0 +1,31 @@
+# Enterprise Sales Narrative Tasks
+
+- [ ] Update `content-source/public-claims.json`.
+- [ ] Update `content-source/claims/claims-registry.md`.
+- [ ] Update `content-source/governance/canonical-vocabulary.md`.
+- [ ] Update `content-source/pages/home.md`.
+- [ ] Update `content-source/pages/platform.md`.
+- [ ] Update `content-source/pages/infinit-signal.md`.
+- [ ] Update `content-source/pages/singularity.md`.
+- [ ] Update `content-source/pages/infinit-flow.md`.
+- [ ] Update `content-source/pages/infinit-control.md`.
+- [ ] Update `data/content-control/route-claims.json`.
+- [ ] Update `docs/founder-os/CURRENT_STATE.md`.
+- [ ] Update `docs/founder-os/DECISION_LOG.md`.
+- [ ] Update `docs/founder-os/LATEST_HANDOFF.md`.
+- [ ] Update `src/app/components/Navbar.tsx`.
+- [ ] Update `src/app/components/Footer.tsx`.
+- [ ] Update `src/app/components/NarrativeComponents.tsx`.
+- [ ] Update `src/app/content/siteContent.ts`.
+- [ ] Update `src/app/pages/HomePage.tsx`.
+- [ ] Update `src/app/pages/PlatformOverviewPage.tsx`.
+- [ ] Update `src/app/pages/InfinitSignalPage.tsx`.
+- [ ] Update `src/app/pages/SSOMPage.tsx`.
+- [ ] Update `src/app/pages/InfinitFlowPage.tsx`.
+- [ ] Update `src/app/pages/InfinitControlPage.tsx`.
+- [ ] Update `src/styles/theme.css`.
+- [ ] Update `src/styles/last-mile-system.css`.
+- [ ] Update `src/styles/site-v2.css`.
+- [ ] Update `src/styles/platform-recovery.css`.
+- [ ] Run `npm run validate`.
+- [ ] Run `npm run build`.

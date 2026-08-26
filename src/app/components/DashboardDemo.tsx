@@ -5,14 +5,14 @@ export function DashboardDemo() {
   return (
     <div className="relative">
       {/* Glow effect */}
-      <div className="absolute -inset-2 bg-[#217ED9]/20 blur-2xl rounded-lg"></div>
+      <div className="absolute -inset-2 bg-[#1d7cd8]/20 blur-2xl rounded-lg"></div>
 
       <div className="relative bg-slate-900 border border-slate-700 rounded-lg shadow-2xl overflow-hidden flex flex-col h-[500px]">
         {/* Header */}
         <div className="bg-slate-800 border-b border-slate-700 px-4 py-3 flex justify-between items-center">
           <div className="flex items-center gap-3">
-            <span className="text-xs font-mono text-[#217ED9]">LIVE_TELEMETRY_STREAM</span>
-            <span className="bg-[#217ED9]/20 text-[#75ADE6] text-[10px] px-1.5 py-0.5 rounded uppercase">
+            <span className="text-xs font-mono text-[#1d7cd8]">LIVE_TELEMETRY_STREAM</span>
+            <span className="bg-[#1d7cd8]/20 text-[#75ADE6] text-[10px] px-1.5 py-0.5 rounded uppercase">
               Connected
             </span>
           </div>
@@ -27,10 +27,10 @@ export function DashboardDemo() {
               Asset Hierarchy
             </div>
 
-            <div className="telemetry-row p-3 border-b border-slate-800 cursor-pointer border-l-2 border-[#217ED9] bg-slate-800/30">
+            <div className="telemetry-row p-3 border-b border-slate-800 cursor-pointer border-l-2 border-[#1d7cd8] bg-slate-800/30">
               <div className="flex justify-between mb-1">
                 <span className="text-white font-semibold">CNC_UNIT_04</span>
-                <span className="text-[#4c86c6]">NORMAL</span>
+                <span className="text-[#1d7cd8]">NORMAL</span>
               </div>
               <div className="text-slate-500">Floor 2, Sector B</div>
             </div>
@@ -46,7 +46,7 @@ export function DashboardDemo() {
             <div className="telemetry-row p-3 border-b border-slate-800 cursor-pointer border-l-2 border-transparent hover:border-slate-600">
               <div className="flex justify-between mb-1">
                 <span className="text-white font-semibold">INFUSION_PUMP_X</span>
-                <span className="text-[#4c86c6]">ACTIVE</span>
+                <span className="text-[#1d7cd8]">ACTIVE</span>
               </div>
               <div className="text-slate-500">ICU, Room 304</div>
             </div>
@@ -68,13 +68,13 @@ export function DashboardDemo() {
                 <h3 className="text-sm font-bold text-white uppercase tracking-wider">
                   Vibration Analysis
                 </h3>
-                <span className="text-xs text-[#217ED9] font-mono">120Hz / 45ms</span>
+                <span className="text-xs text-[#1d7cd8] font-mono">120Hz / 45ms</span>
               </div>
               <div className="h-24 bg-slate-800/50 rounded border border-slate-700 relative overflow-hidden flex items-end px-1 gap-0.5">
                 {[40, 60, 30, 80, 50, 70, 45, 65, 30, 85, 40, 60, 50, 75].map((height, i) => (
                   <motion.div
                     key={i}
-                    className="w-2 bg-[#217ED9]"
+                    className="w-2 bg-[#1d7cd8]"
                     style={{ height: `${height}%` }}
                     animate={{ height: [`${height}%`, `${height + 10}%`, `${height}%`] }}
                     transition={{
@@ -92,12 +92,12 @@ export function DashboardDemo() {
               <div className="p-4 bg-slate-800/30 border border-slate-700 rounded">
                 <div className="text-xs text-slate-500 uppercase mb-1">Temperature</div>
                 <div className="text-2xl font-mono text-white">184.5°F</div>
-                <div className="text-xs text-[#4c86c6] mt-1">Within limits</div>
+                <div className="text-xs text-[#1d7cd8] mt-1">Within limits</div>
               </div>
               <div className="p-4 bg-slate-800/30 border border-slate-700 rounded">
                 <div className="text-xs text-slate-500 uppercase mb-1">Op Time</div>
                 <div className="text-2xl font-mono text-white">48h 12m</div>
-                <div className="text-xs text-[#217ED9] mt-1">Continuous</div>
+                <div className="text-xs text-[#1d7cd8] mt-1">Continuous</div>
               </div>
             </div>
 

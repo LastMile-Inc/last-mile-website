@@ -169,7 +169,7 @@ export function Signal2ActionPage() {
                     rel={platform.href.startsWith("http") ? "noreferrer" : undefined}
                     className="lm-button lm-button--secondary"
                   >
-                    <Rss className="h-4 w-4 text-[#217ED9]" />
+                    <Rss className="h-4 w-4 text-[#1d7cd8]" />
                     {platform.label}
                   </TrackedAnchor>
                 ))}
@@ -274,7 +274,7 @@ function EpisodeRow({ episode }: { episode: PodcastEpisode }) {
               type="button"
               onClick={handlePlayClick}
               disabled={!available || audioError}
-              className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-[#217ED9]/50 bg-[#0a1929]/80 text-white disabled:cursor-not-allowed disabled:border-slate-700 disabled:text-slate-500"
+              className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-[#1d7cd8]/50 bg-[#0a1929]/80 text-white disabled:cursor-not-allowed disabled:border-slate-700 disabled:text-slate-500"
             >
               {playing ? <Pause className="h-5 w-5" /> : <Play className="h-5 w-5" />}
             </button>
@@ -289,7 +289,7 @@ function EpisodeRow({ episode }: { episode: PodcastEpisode }) {
             {open && available && !audioError ? (
               <div className="mt-4">
                 <div onClick={seek} className="h-2 cursor-pointer rounded-full bg-slate-800">
-                  <div className="h-2 rounded-full bg-[#217ED9]" style={{ width: `${progress}%` }}></div>
+                  <div className="h-2 rounded-full bg-[#1d7cd8]" style={{ width: `${progress}%` }}></div>
                 </div>
                 <div className="mt-2 flex justify-between text-sm text-slate-400">
                   <span>{formatTime(currentTime)}</span>

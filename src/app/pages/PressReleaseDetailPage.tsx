@@ -120,7 +120,7 @@ export function PressReleaseDetailPage() {
                   }
 
                   .job-content li::marker {
-                    color: #4c86c6;
+                    color: #1d7cd8;
                   }
 
                   .job-content strong,

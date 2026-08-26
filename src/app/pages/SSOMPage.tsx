@@ -1,6 +1,6 @@
 import { ArrowRight } from "lucide-react";
 import { SEO } from "@/app/components/SEO";
-import { EditorialHero, EditorialSection, InlineLink, NextStep } from "@/app/components/NarrativeComponents";
+import { ConnectedResponseStrip, EditorialHero, EditorialSection, InlineLink, NextStep } from "@/app/components/NarrativeComponents";
 import { IdentityCrosswalk } from "@/app/components/OperatingScenarioComponents";
 import { createBreadcrumbSchema, createProductSchema } from "@/app/lib/structuredData";
 
@@ -12,7 +12,8 @@ export function SSOMPage() {
   return <>
     <SEO title="Singularity | One Durable Memory for Physical Operations" description={description} canonicalPath="/singularity" jsonLd={[createProductSchema("Singularity", "/singularity", description), createBreadcrumbSchema([{ name: "Home", path: "/" }, { name: "Singularity", path: "/singularity" }])]} />
     <div className="lm-v2-page">
-      <EditorialHero eyebrow="SINGULARITY · UNDERSTAND" title="Give the physical operation one durable, shared context." intro="Singularity creates the operational world model connecting assets, processes, observations, Conditions, evidence, decisions, Responses, return measurements, and Outcomes across the systems and sites that each see only part of the story." support="Governed operational memory implementing the open SSOM contract." primary={{ label: "Discuss Your Operational Model", to: "/contact?intent=architecture" }} secondary={{ label: "Explore the Platform", to: "/platform" }} visual={<IdentityCrosswalk />} />
+      <EditorialHero eyebrow="SINGULARITY · UNDERSTAND + CONNECT" title="Give the response one durable operational memory." intro="Singularity creates the operational world model connecting assets, processes, observations, Conditions, evidence, decisions, Responses, return measurements, and Outcomes across the systems and sites that each see only part of the story." support="Connected response role: turn qualified evidence into canonical identity, topology, and outcome context for the rest of the platform." primary={{ label: "Discuss Your Operational Model", to: "/contact?intent=architecture" }} secondary={{ label: "Explore the Platform", to: "/platform" }} visual={<IdentityCrosswalk />} />
+      <ConnectedResponseStrip activeProduct="Singularity" intro="Singularity gives the response one durable operational memory so every downstream decision, action, and proof state resolves against the same governed context." />
 
       <EditorialSection title="An open semantic contract inside a governed Last Mile product." tone="grid">
         <div className="lm-v2-columns-2"><article><h3>SSOM</h3><p>The Standardized Semantic Object Model defines portable operational meaning, identity, relationships, temporal semantics, quality, evidence, provenance, conformance, and profiles.</p></article><article><h3>Singularity</h3><p>Singularity implements that contract through canonical journals, identity and topology services, current-state projections, Condition and Outcome services, evidence, replay, policy, and preserved decision history.</p></article></div>

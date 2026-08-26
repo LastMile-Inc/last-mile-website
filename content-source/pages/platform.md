@@ -2,7 +2,7 @@
 content_id: PAGE-PLATFORM-001
 status: approved
 owner: Platform Product Marketing
-last_reviewed: 2026-08-06
+last_reviewed: 2026-08-26
 claim_maturity: [designed, demonstrated]
 depends_on: [GOV-DOCTRINE-001, USECASE-DC-COOLING-001, CLAIMS-REGISTRY-001]
 used_by: [/platform]
@@ -20,7 +20,7 @@ Show how the four products preserve one operating condition from evidence throug
 
 **H1:** One accountable operating condition—from first evidence to verified outcome.
 
-**Body:** Last Mile sits above the systems that already run, record, and service physical operations. It qualifies their evidence, resolves one operational identity, coordinates the governed response, and proves recovery from live return measurements.
+**Body:** Last Mile is the orchestration layer for physical operations across the OT, data, work, and service systems you already run. It qualifies evidence, resolves one operational identity, coordinates the governed response, and proves recovery from live return measurements.
 
 ### Operating-state panel
 

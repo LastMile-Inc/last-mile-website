@@ -1,5 +1,5 @@
 import { SEO } from "@/app/components/SEO";
-import { EditorialHero, EditorialSection, NextStep } from "@/app/components/NarrativeComponents";
+import { ConnectedResponseStrip, EditorialHero, EditorialSection, NextStep } from "@/app/components/NarrativeComponents";
 import { MeasurementGrid, OperatingConditionPanel, RecoveryContractPanel } from "@/app/components/OperatingScenarioComponents";
 import { operatingScenarios } from "@/app/pages/platformReferenceData";
 import { createBreadcrumbSchema, createProductSchema } from "@/app/lib/structuredData";
@@ -18,7 +18,8 @@ export function InfinitControlPage() {
   return <>
     <SEO title="Infinit-Control | See the Condition, Response, and Proof" description={description} canonicalPath="/infinit-control" jsonLd={[createProductSchema("Infinit-Control", "/infinit-control", description), createBreadcrumbSchema([{ name: "Home", path: "/" }, { name: "Infinit-Control", path: "/infinit-control" }])]} />
     <div className="lm-v2-page">
-      <EditorialHero eyebrow="INFINIT-CONTROL · SEE + GOVERN" title="See the Condition, Response, and proof in one governed command surface." intro="Infinit-Control gives each role a governed operational command surface for current state, canonical topology, evidence, ownership, work, system participation, authority, return measurements, and verified Outcomes. It is more than a dashboard because it keeps the complete accountable response in view." primary={{ label: "Discuss Your Operating View", to: "/contact?intent=operation" }} secondary={{ label: "See the Cooling Use Case", to: scenario.route }} visual={<OperatingConditionPanel scenario={scenario} compact />} />
+      <EditorialHero eyebrow="INFINIT-CONTROL · SEE + GOVERN" title="Put the accountable response in front of every role." intro="Infinit-Control gives each role a governed operational command surface for current state, canonical topology, evidence, ownership, work, system participation, authority, return measurements, and verified Outcomes. It is more than a dashboard because it keeps the complete accountable response in view." support="Connected response role: present the active condition, authority, work, and resulting state without claiming canonical truth or deterministic control." primary={{ label: "Discuss Your Operating View", to: "/contact?intent=operation" }} secondary={{ label: "See the Cooling Use Case", to: scenario.route }} visual={<OperatingConditionPanel scenario={scenario} compact />} />
+      <ConnectedResponseStrip activeProduct="Infinit-Control" intro="Infinit-Control keeps the full response legible to each role, but the proof state still depends on qualified return evidence and Singularity's governed outcome evaluation." />
 
       <EditorialSection title="Every state explains itself." tone="grid">
         <p className="lm-v2-large-copy">Important measurements show a numerical value, engineering unit, expected or reference band, state icon and text, and meaningful trend or freshness. Stale, quarantined, unresolved, or missing inputs are shown as <strong>No valid data</strong> and cannot support a recovered result.</p>
