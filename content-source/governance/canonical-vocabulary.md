@@ -2,7 +2,7 @@
 content_id: GOV-VOCAB-001
 status: approved
 owner: Product Architecture
-last_reviewed: 2026-08-06
+last_reviewed: 2026-08-26
 claim_maturity: [designed]
 depends_on: [GOV-DOCTRINE-001]
 used_by: [all]
@@ -16,6 +16,7 @@ used_by: [all]
 |---|---|
 | **Last Mile Platform** | The complete cloud-native SaaS platform and four-product system. |
 | **Physical Operations Platform** | Primary category descriptor. Capitalize when used as the named category. |
+| **orchestration layer for physical operations** | Preferred cross-system role descriptor for Last Mile across brownfield OT, data, work, and service environments. Use this instead of **operating layer** in public narrative. |
 | **Infinit-Signal** | Operational evidence acquisition, qualification, normalization, mapping, and canonical-record production. Never use a retired product name. |
 | **Singularity** | Last Mile's operational-memory and OT world-model product implementing SSOM. |
 | **SSOM** | Standardized Semantic Object Model: open, vendor-neutral semantic and evidence contract. Spell out on first technical use. |
@@ -49,7 +50,7 @@ used_by: [all]
 
 ## Preferred phrases
 
-- independent operational-accountability layer
+- orchestration layer for physical operations
 - cross-vendor operational identity and topology
 - signals and alarms qualified into one accountable Condition
 - condition-to-work-to-verified-outcome
@@ -66,6 +67,7 @@ used_by: [all]
 | Do not use | Use instead |
 |---|---|
 | approved UNS topics | configured UNS subscriptions |
+| operating layer | orchestration layer for physical operations |
 | single pane of glass as the full value proposition | role-based operational surface or operator case |
 | alarm is the incident/condition | alarm contributes evidence to a qualified Condition |
 | ticket closed; issue resolved | work closed; operating result pending/verified |

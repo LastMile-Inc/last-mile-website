@@ -2,7 +2,7 @@
 content_id: PAGE-SIGNAL-001
 status: approved
 owner: Infinit-Signal Product Marketing
-last_reviewed: 2026-08-06
+last_reviewed: 2026-08-26
 claim_maturity: [designed, reference_architecture]
 depends_on: [PROD-SIGNAL-001, CONCEPT-UNS-001, CLAIMS-REGISTRY-001]
 used_by: [/infinit-signal]
@@ -18,9 +18,13 @@ Explain how operational inputs are acquired, preserved, qualified, resolved, and
 
 **Eyebrow:** INFINIT-SIGNAL
 
-**H1:** Know which industrial evidence is fit to act on.
+**H1:** Qualify industrial evidence before the response begins.
 
 **Body:** Infinit-Signal consumes configured outputs from the systems you already operate, preserves their original evidence, and classifies time, quality, duplication, replay, and identity before data enters the Last Mile operating model.
+
+## Connected response framing
+
+Render a four-product connected-response strip immediately after the hero. Highlight Infinit-Signal as the product that starts the accountable response by qualifying source evidence before Singularity, Infinit-Flow, and Infinit-Control use it.
 
 **Operating artifact:** Show the Cooling Loop B qualified evidence envelope from `USECASE-DC-COOLING-001`, including source authority, event time, latency, quality, duplicate/replay classification, mapping confidence, accepted/quarantined counts, and the rejected duplicate and stale pressure record.
 

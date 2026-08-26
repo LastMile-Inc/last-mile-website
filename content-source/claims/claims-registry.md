@@ -2,7 +2,7 @@
 content_id: CLAIMS-REGISTRY-001
 status: approved
 owner: Product and Content Governance
-last_reviewed: 2026-08-06
+last_reviewed: 2026-08-26
 claim_maturity: [implemented, demonstrated, designed, reference_architecture, customer_specific, perspective, do_not_publish]
 depends_on: [GOV-CLAIMS-001]
 used_by: [all]
@@ -17,7 +17,7 @@ This registry is the canonical detailed claim authority beneath the review-site 
 | Claim ID | Approved language | Maturity | Scope/evidence | Prohibited inference |
 |---|---|---|---|---|
 | CLM-CAT-001 | Last Mile is the Physical Operations Platform. | Designed / category position | Doctrine and four-product architecture | Market leadership or production adoption |
-| CLM-CAT-002 | Last Mile is an independent operational-accountability layer above existing OT, data, work, and service ecosystems. | Designed | Platform architecture | Replaces every underlying system |
+| CLM-CAT-002 | Last Mile is the orchestration layer for physical operations across existing OT, data, work, and service systems. | Designed | Platform architecture | Replaces every underlying system |
 | CLM-CAT-003 | Last Mile connects condition to work to verified physical outcome. | Designed; Demonstrated in reference scenarios | Four use-case contracts | Customer production outcome |
 | CLM-DATA-001 | Operational data is created once as an SSOM-conformant canonical record and consumed through governed contracts and projections. | Designed | Architecture baselines | All persistence is physically one database |
 | CLM-OUTCOME-001 | Physical recovery is verified from required current return measurements, not ticket status. | Designed; Demonstrated | Outcome rules and use cases | Regulatory certification |

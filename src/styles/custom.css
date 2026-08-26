@@ -44,7 +44,7 @@ body {
 
 .hero-title-gradient {
   color: #263244;
-  background: linear-gradient(90deg, #263244 0%, #315f91 48%, #4c86c6 100%);
+  background: linear-gradient(90deg, #263244 0%, #315f91 48%, #1d7cd8 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -60,7 +60,7 @@ body {
 a,
 button,
 summary {
-  -webkit-tap-highlight-color: rgba(76, 134, 198, 0.2);
+  -webkit-tap-highlight-color: rgba(29, 124, 216, 0.2);
 }
 
 a:focus-visible,
@@ -69,7 +69,7 @@ summary:focus-visible,
 input:focus-visible,
 textarea:focus-visible,
 select:focus-visible {
-  outline: 2px solid #4c86c6;
+  outline: 2px solid #1d7cd8;
   outline-offset: 3px;
 }
 
@@ -78,7 +78,7 @@ select:focus-visible {
   overflow: hidden;
   background:
     radial-gradient(circle at 18% 8%, rgba(0, 194, 255, 0.18), transparent 28rem),
-    radial-gradient(circle at 84% 20%, rgba(76, 134, 198, 0.11), transparent 24rem),
+    radial-gradient(circle at 84% 20%, rgba(29, 124, 216, 0.11), transparent 24rem),
     linear-gradient(180deg, #030816 0%, #071426 46%, #030816 100%);
 }
 
@@ -102,7 +102,7 @@ select:focus-visible {
   z-index: 0;
   background:
     linear-gradient(90deg, transparent 0 9%, rgba(0, 194, 255, 0.16) 9.05%, transparent 9.2% 90.8%, rgba(0, 194, 255, 0.12) 90.95%, transparent 91.1%),
-    linear-gradient(180deg, transparent 0 14%, rgba(76, 134, 198, 0.09) 14.08%, transparent 14.2% 84.8%, rgba(76, 134, 198, 0.1) 84.92%, transparent 85.05%);
+    linear-gradient(180deg, transparent 0 14%, rgba(29, 124, 216, 0.09) 14.08%, transparent 14.2% 84.8%, rgba(29, 124, 216, 0.1) 84.92%, transparent 85.05%);
   opacity: 0.45;
   pointer-events: none;
 }
@@ -132,15 +132,15 @@ select:focus-visible {
   background:
     linear-gradient(90deg, rgba(0, 194, 255, 0.18), transparent 28%) top left / 6rem 1px no-repeat,
     linear-gradient(180deg, rgba(0, 194, 255, 0.18), transparent 28%) top left / 1px 6rem no-repeat,
-    linear-gradient(270deg, rgba(76, 134, 198, 0.16), transparent 28%) bottom right / 6rem 1px no-repeat,
-    linear-gradient(0deg, rgba(76, 134, 198, 0.16), transparent 28%) bottom right / 1px 6rem no-repeat;
+    linear-gradient(270deg, rgba(29, 124, 216, 0.16), transparent 28%) bottom right / 6rem 1px no-repeat,
+    linear-gradient(0deg, rgba(29, 124, 216, 0.16), transparent 28%) bottom right / 1px 6rem no-repeat;
   pointer-events: none;
 }
 
 .blueprint-card:hover,
 .blueprint-card:focus-within {
   transform: translateY(-3px);
-  border-color: rgba(76, 134, 198, 0.48);
+  border-color: rgba(29, 124, 216, 0.48);
   box-shadow:
     inset 0 1px 0 rgba(230, 236, 255, 0.1),
     0 22px 64px rgba(0, 194, 255, 0.16);
@@ -176,8 +176,8 @@ select:focus-visible {
 .blueprint-panel input:focus,
 .blueprint-panel textarea:focus,
 .blueprint-panel select:focus {
-  border-color: rgba(76, 134, 198, 0.72) !important;
-  box-shadow: 0 0 0 1px rgba(76, 134, 198, 0.28);
+  border-color: rgba(29, 124, 216, 0.72) !important;
+  box-shadow: 0 0 0 1px rgba(29, 124, 216, 0.28);
 }
 
 @media (max-width: 640px) {
@@ -335,7 +335,7 @@ html {
 .platform-image-scroll {
   overflow-x: auto;
   overflow-y: hidden;
-  scrollbar-color: rgba(76, 134, 198, 0.5) rgba(38, 50, 68, 0.12);
+  scrollbar-color: rgba(29, 124, 216, 0.5) rgba(38, 50, 68, 0.12);
   scrollbar-width: thin;
 }
 
@@ -361,7 +361,7 @@ html {
   z-index: 2;
   border: 1px solid transparent;
   border-radius: 0.85rem;
-  background: rgba(76, 134, 198, 0);
+  background: rgba(29, 124, 216, 0);
   cursor: pointer;
   transition:
     background-color 180ms ease,
@@ -382,14 +382,14 @@ html {
   background: rgba(0, 194, 255, 0.045);
   box-shadow:
     0 0 24px rgba(0, 194, 255, 0.18),
-    inset 0 0 24px rgba(76, 134, 198, 0.045);
+    inset 0 0 24px rgba(29, 124, 216, 0.045);
   outline: 0;
 }
 
 .platform-hotspot:focus-visible {
-  border-color: rgba(76, 134, 198, 0.35);
+  border-color: rgba(29, 124, 216, 0.35);
   background: rgba(0, 194, 255, 0.055);
-  outline: 2px solid #4c86c6;
+  outline: 2px solid #1d7cd8;
   outline-offset: 4px;
 }
 
@@ -427,8 +427,8 @@ html {
 
 .platform-hotspot-panel__close:hover,
 .platform-hotspot-panel__close:focus-visible {
-  border-color: rgba(76, 134, 198, 0.74);
-  background: rgba(76, 134, 198, 0.12);
+  border-color: rgba(29, 124, 216, 0.74);
+  background: rgba(29, 124, 216, 0.12);
   color: #ffffff;
   outline: 0;
 }
@@ -472,13 +472,13 @@ html {
 .platform-mobile-hotspot-card li::before {
   content: "\2713";
   margin-right: 0.45rem;
-  color: #4c86c6;
+  color: #1d7cd8;
 }
 
 .platform-mobile-hotspot-card a {
   display: inline-flex;
   margin-top: 0.85rem;
-  color: #4c86c6;
+  color: #1d7cd8;
   font-size: 0.875rem;
   font-weight: 700;
 }
@@ -658,8 +658,8 @@ html {
 .blueprint-panel input:focus,
 .blueprint-panel textarea:focus,
 .blueprint-panel select:focus {
-  border-color: #4c86c6 !important;
-  box-shadow: 0 0 0 4px rgba(76,134,198,.14);
+  border-color: #1d7cd8 !important;
+  box-shadow: 0 0 0 4px rgba(29,124,216,.14);
 }
 .telemetry-row:hover { background: #eef3f8; }
 .scoreboard-header,

@@ -1,5 +1,19 @@
 import { useCallback, useEffect, useRef, useState, type CSSProperties } from "react";
-import { ArrowRight, CheckCircle2, CircleDot, Database, Gauge, Network, Radio, RefreshCw, Route, ShieldCheck, Users, type LucideIcon } from "lucide-react";
+import {
+  ArrowRight,
+  CheckCircle2,
+  CircleDot,
+  Database,
+  Gauge,
+  Network,
+  Radio,
+  RefreshCw,
+  Route,
+  ShieldCheck,
+  Users,
+  Workflow,
+  type LucideIcon,
+} from "lucide-react";
 import { SEO } from "@/app/components/SEO";
 import { CtaLink } from "@/app/components/MarketingComponents";
 import { EditorialSection, NextStep } from "@/app/components/NarrativeComponents";
@@ -15,12 +29,33 @@ type LoopStage = {
   note?: string;
 };
 
+const audiencePaths = [
+  {
+    role: "Enterprise Architects",
+    label: "Technical briefing",
+    to: "/platform",
+    copy: "See the four-product contract, system boundaries, and governed handoffs first.",
+  },
+  {
+    role: "Plant Managers",
+    label: "Operating references",
+    to: "/use-cases",
+    copy: "Start with recognizable failures, ownership, escalation, and proof criteria.",
+  },
+  {
+    role: "OT Engineers",
+    label: "Evidence and data handoffs",
+    to: "/infinit-signal",
+    copy: "Inspect how source evidence is qualified before orchestration and operator views begin.",
+  },
+] as const;
+
 const loopStages: readonly LoopStage[] = [
-  { number: "01", name: "Evidence", headline: "Know what actually happened.", copy: "Establish trustworthy physical evidence with source, time, quality, lineage and provenance." },
-  { number: "02", name: "Understand", headline: "Know what it means here.", copy: "Connect the Condition to the relevant assets, process, topology, history and current operating state." },
-  { number: "03", name: "Decide", headline: "Determine what should happen next.", copy: "Evaluate context, policy and consequence to determine the appropriate response: AUTO, ASSIST or no action.", note: "Not every Condition requires maintenance. Not every Condition requires action." },
-  { number: "04", name: "Coordinate", headline: "Bring the right participants together.", copy: "Orchestrate the required response across operators, controls, CMMS, MES, QMS, ERP and other systems already in place." },
-  { number: "05", name: "Act", headline: "Execute through the right system.", copy: "Initiate maintenance, inspection, operator action, production change, approved control action or another governed response." },
+  { number: "01", name: "Evidence", headline: "Know what actually happened.", copy: "Establish trustworthy physical evidence with source, time, quality, lineage, and provenance." },
+  { number: "02", name: "Understand", headline: "Know what it means here.", copy: "Connect the Condition to the relevant assets, process, topology, history, and current operating state." },
+  { number: "03", name: "Decide", headline: "Determine what should happen next.", copy: "Evaluate context, policy, and consequence to determine the appropriate response: AUTO, ASSIST, or no action.", note: "Not every Condition requires maintenance. Not every Condition requires action." },
+  { number: "04", name: "Coordinate", headline: "Bring the right participants together.", copy: "Orchestrate the required response across operators, controls, CMMS, MES, QMS, ERP, and other systems already in place." },
+  { number: "05", name: "Act", headline: "Execute through the right system.", copy: "Initiate maintenance, inspection, operator action, production change, approved control action, or another governed response." },
   { number: "06", name: "Verify", headline: "Prove that it worked.", copy: "Continue observing the physical operation until evidence confirms whether the intended outcome was actually achieved.", note: "Work completed is not the same as problem solved." },
 ] as const;
 
@@ -32,10 +67,10 @@ const systemGroups: ReadonlyArray<{ label: string; systems: string; icon: Lucide
 ] as const;
 
 const products: ReadonlyArray<{ name: string; role: string; copy: string; detail: string; route: string; icon: LucideIcon }> = [
-  { name: "Infinit-Signal", role: "Observe", copy: "Acquire, normalize and preserve trustworthy operational evidence across existing industrial systems.", detail: "MQTT · Sparkplug B · OPC UA · UNS · historians · edge platforms", route: "/infinit-signal", icon: Radio },
-  { name: "Singularity", role: "Understand", copy: "Create the shared operational world model connecting equipment, processes, observations, Conditions, history, Responses and Outcomes.", detail: "Shared operational context implemented through SSOM", route: "/singularity", icon: Network },
-  { name: "Infinit-Flow", role: "Decide · Coordinate · Act", copy: "Apply operational context and policy to determine the appropriate response and coordinate governed execution across systems and people.", detail: "AUTO | ASSIST", route: "/infinit-flow", icon: Route },
-  { name: "Infinit-Control", role: "See · Govern", copy: "Give operators and leaders one role-based operational surface for active Conditions, coordinated Responses and verified Outcomes across sites.", detail: "Role-based operating command surface", route: "/infinit-control", icon: Gauge },
+  { name: "Infinit-Signal", role: "Observe + qualify", copy: "Qualifies operational evidence before the rest of the platform uses it.", detail: "Source authority, time, quality, replay, and mapping before canonical acceptance.", route: "/infinit-signal", icon: Radio },
+  { name: "Singularity", role: "Understand + connect", copy: "Creates the shared operational memory for identity, topology, Conditions, and Outcomes.", detail: "One durable operational context across OT, data, work, and provider systems.", route: "/singularity", icon: Network },
+  { name: "Infinit-Flow", role: "Orchestrate + execute", copy: "Carries one accountable case across people, approvals, systems, providers, and return checks.", detail: "The orchestration engine for governed action without taking customer authority away.", route: "/infinit-flow", icon: Workflow },
+  { name: "Infinit-Control", role: "See + govern", copy: "Puts the active condition, response, authority, and resulting state in front of every role.", detail: "Visibility is the final presentation layer, not the source of truth on its own.", route: "/infinit-control", icon: ShieldCheck },
 ] as const;
 
 const enterpriseSystems = [
@@ -43,12 +78,19 @@ const enterpriseSystems = [
   "MQTT / OPC UA / UNS / Historians",
   "CMMS / EAM / work-management platforms",
   "MES / QMS / ERP",
+  "Service providers and field crews",
 ] as const;
 
-const trustCapabilities = ["Evidence lineage", "Replay / deduplication", "Policy", "AUTO / ASSIST", "Human authorization", "Audit", "Multi-tenant isolation", "Verified outcome"] as const;
+const trustPillars: ReadonlyArray<{ title: string; copy: string; icon: LucideIcon }> = [
+  { title: "Evidence lineage", copy: "Every consequential state can be traced back to qualified source evidence and time context.", icon: Database },
+  { title: "Replay and deduplication", copy: "Duplicate, stale, replayed, and quarantined records stay visible instead of silently shaping decisions.", icon: RefreshCw },
+  { title: "Authority boundaries", copy: "AUTO, ASSIST, and HUMAN AUTHORITY stay explicit around every step that matters operationally.", icon: ShieldCheck },
+  { title: "Tenant isolation and audit", copy: "Cross-site learning remains governed while customer truth, authority, and evidence boundaries stay separate.", icon: Users },
+  { title: "Verified outcome", copy: "The loop closes only when return telemetry proves the physical result in the operating environment.", icon: CheckCircle2 },
+] as const;
 
 export function HomePage() {
-  const description = "Last Mile closes the gap between operational evidence and verified outcomes across the industrial systems an enterprise already operates.";
+  const description = "Last Mile is the orchestration layer for physical operations, connecting evidence, response, and verified outcomes across the systems an enterprise already runs.";
 
   return <>
     <SEO
@@ -56,67 +98,104 @@ export function HomePage() {
       description={description}
       canonicalPath="/"
       markdownPath="/index.md"
-      keywords="physical operations platform, operational intelligence, accountable operations loop, industrial systems orchestration, verified outcomes"
+      keywords="physical operations platform, accountable operations loop, industrial orchestration layer, verified outcomes, enterprise OT orchestration"
       jsonLd={[createOrganizationSchema(), createWebsiteSchema()]}
     />
-    <div className="lm-v2-page lm-home-page lm-home-corrective">
+    <div className="lm-v2-page lm-home-repositioned">
       <HomepageHero />
-      <MissingLastMile />
+      <AccountabilityGap />
       <AccountableOperationsLoop />
-      <PlatformLoopMapping />
+      <ProductMapping />
       <IndustryUseCases />
       <EnterpriseTrust />
       <NextStep
-        eyebrow="THE PHYSICAL OPERATIONS PLATFORM"
-        title="You already built the operation. Close the Last Mile."
+        eyebrow="START WITH ONE CONSEQUENTIAL FAILURE"
+        title="Bring one operating breakdown into view."
         copy="Turn fragmented operational evidence into coordinated action and verified outcomes without replacing the systems already running your business."
-        label="See Last Mile in Action"
+        label="Discuss Your Operation"
         to="/contact?intent=operation"
-        secondary={{ label: "Explore the Platform", to: "/platform" }}
+        secondary={{ label: "Explore Operating Use Cases", to: "/use-cases" }}
       />
     </div>
   </>;
 }
 
 function HomepageHero() {
-  return <header className="lm-corrective-hero">
+  return <header className="lm-home-new-hero">
+    <div className="lm-v2-container lm-home-new-hero__grid">
+      <div className="lm-home-new-hero__copy">
+        <p className="lm-eyebrow">ENTERPRISE ORCHESTRATION FOR PHYSICAL OPERATIONS</p>
+        <h1>Everything was green. <span>The line still failed.</span></h1>
+        <p>Last Mile is the orchestration layer for physical operations across the OT, data, work, and service systems you already run.</p>
+        <p>When a consequential operating condition crosses system boundaries, Last Mile keeps the evidence, context, response, authority, and proof connected until the physical outcome is established.</p>
+        <strong>The Accountable Operations Loop turns fragmented signals into one accountable operating response.</strong>
+        <div className="lm-actions">
+          <CtaLink to="/#accountable-operations-loop" eventName="cta_explore_platform_click">See the Accountable Operations Loop</CtaLink>
+          <CtaLink to="/contact?intent=operation" variant="secondary">Discuss Your Operation</CtaLink>
+        </div>
+      </div>
+      <figure className="lm-hero-thread">
+        <figcaption>Connected response architecture</figcaption>
+        <div className="lm-hero-thread__systems">
+          {systemGroups.map(({ label, systems }) => <div key={label}><span>{label}</span><strong>{systems}</strong></div>)}
+        </div>
+        <div className="lm-hero-thread__bus" aria-hidden="true"><i /><i /><i /><i /></div>
+        <div className="lm-hero-thread__layer">
+          <span>Last Mile orchestration layer</span>
+          <strong>The Accountable Operations Loop</strong>
+          <div>
+            {loopStages.map((stage) => <em key={stage.name}>{stage.name}</em>)}
+          </div>
+        </div>
+        <div className="lm-hero-thread__outcome">
+          <CheckCircle2 aria-hidden="true" />
+          <strong>Qualified condition - coordinated response - verified outcome</strong>
+          <RefreshCw aria-hidden="true" />
+        </div>
+      </figure>
+    </div>
     <div className="lm-v2-container">
-      <p className="lm-eyebrow">THE PHYSICAL OPERATIONS PLATFORM</p>
-      <h1>Close the Last Mile between operational evidence and verified outcomes.</h1>
-      <p>Your operation already runs on SCADA, DCS, BMS, historians, CMMS, MES, controls and enterprise systems. Last Mile connects the operational context across them, determines what should happen next, coordinates the right response, and keeps watching until the physical outcome is verified.</p>
-      <strong>Keep the systems you trust. Add the operational intelligence between them.</strong>
-      <div className="lm-actions">
-        <CtaLink to="/#accountable-operations-loop" eventName="cta_explore_platform_click">See the Accountable Operations Loop</CtaLink>
-        <CtaLink to="/platform" variant="secondary" eventName="cta_explore_platform_click">Explore the Platform</CtaLink>
+      <div className="lm-audience-paths" aria-label="Audience pathways by technical depth">
+        {audiencePaths.map((path) => <TrackedLink key={path.role} to={path.to} eventName="cta_explore_platform_click" className="lm-audience-path">
+          <span>{path.role}</span>
+          <strong>{path.label}</strong>
+          <p>{path.copy}</p>
+          <ArrowRight aria-hidden="true" />
+        </TrackedLink>)}
       </div>
     </div>
+    <p className="lm-home-new-hero__footer">Choose the operating story that matches your role. Technical depth stays explicit.</p>
   </header>;
 }
 
-function MissingLastMile() {
+function AccountabilityGap() {
   return <EditorialSection
-    id="missing-last-mile"
-    eyebrow="THE ARCHITECTURAL WHITE SPACE"
-    title="Your systems know their part. Last Mile understands the operation."
-    tone="grid"
+    eyebrow="THE ACCOUNTABILITY GAP"
+    title="Everything was green. The line still failed."
+    intro="That is what brownfield operations look like when every system reports its own state but no platform owns the accountable response across them."
   >
-    <div className="lm-missing-architecture" aria-label="Last Mile spans control, operational data, execution systems, and people">
-      <div className="lm-missing-architecture__systems">
+    <div className="lm-system-gap" aria-label="Existing systems and the Last Mile orchestration layer">
+      <div className="lm-system-gap__families">
         {systemGroups.map(({ label, systems, icon: Icon }) => <article key={label}><Icon aria-hidden="true" /><span>{label}</span><strong>{systems}</strong></article>)}
       </div>
-      <div className="lm-missing-architecture__spine" aria-hidden="true"><i /><i /><i /><i /></div>
-      <div className="lm-missing-architecture__layer"><span>LAST MILE</span><strong>Independent operational context and execution across the environment</strong></div>
+      <div className="lm-system-gap__connectors" aria-hidden="true"><i /><i /><i /><i /></div>
+      <div className="lm-system-gap__layer">
+        <span>Last Mile</span>
+        <strong>The orchestration layer for physical operations keeps one condition, one response, and one proof boundary intact.</strong>
+      </div>
     </div>
-    <div className="lm-missing-copy">
-      <p>Operational context fragments between systems. A physical condition can begin in controls, depend on history and operator judgment, create maintenance work, affect production, and ultimately require verification in the physical operation.</p>
-      <p><strong>Last Mile provides the independent operational context and execution layer that carries that condition across the gaps.</strong></p>
+    <div className="lm-home-prose-pair">
+      <p>Enterprise plants already run on a stack of control systems, historians, work platforms, enterprise systems, and provider relationships assembled over years. Each system is legitimate. Each one sees only part of the operating story.</p>
+      <div>
+        <strong>The gap is not missing telemetry. The gap is missing orchestration.</strong>
+        <p>Last Mile closes that gap by carrying the same accountable condition across evidence qualification, context, governed action, and verified result without taking control away from the systems or people that retain authority.</p>
+      </div>
     </div>
-    <aside className="lm-cmms-once"><WrenchMark /><p><strong>A CMMS manages maintenance work.</strong> Last Mile determines when maintenance is the right response, coordinates everything else required, and verifies the operational outcome.</p></aside>
+    <aside className="lm-cmms-once">
+      <span aria-hidden="true"><CheckCircle2 /></span>
+      <p><strong>A CMMS manages maintenance work.</strong> Last Mile determines when maintenance is the right response, coordinates what else must happen around it, and keeps watching until the operating outcome is proven.</p>
+    </aside>
   </EditorialSection>;
-}
-
-function WrenchMark() {
-  return <span aria-hidden="true"><CheckCircle2 /></span>;
 }
 
 function AccountableOperationsLoop() {
@@ -156,8 +235,8 @@ function AccountableOperationsLoop() {
   return <section id="accountable-operations-loop" className="lm-premium-loop-section" aria-labelledby="premium-loop-heading">
     <div className="lm-v2-container">
       <header className="lm-premium-loop-section__head">
-        <p className="lm-eyebrow">THE OPERATING MODEL</p>
-        <h2 id="premium-loop-heading">The Accountable Operations Loop</h2>
+        <p className="lm-eyebrow">THE ACCOUNTABLE OPERATIONS LOOP</p>
+        <h2 id="premium-loop-heading">The operating model buyers can audit.</h2>
         <p><strong>From physical evidence to verified outcome. Then back to evidence.</strong></p>
         <div aria-label="Accountable Operations Loop stages">EVIDENCE → UNDERSTAND → DECIDE → COORDINATE → ACT → VERIFY ↻</div>
       </header>
@@ -189,12 +268,12 @@ function PrecisionLoopGraphic({ activeStage, onSelect }: { activeStage: number; 
       <title id="precision-loop-title">The Accountable Operations Loop</title>
       <desc id="precision-loop-desc">A continuous engineered ring moves clockwise through Evidence, Understand, Decide, Coordinate, Act, and Verify before returning to Evidence.</desc>
       <defs>
-        <linearGradient id="loop-g0" x1="300" y1="120" x2="650" y2="170" gradientUnits="userSpaceOnUse"><stop stopColor="#315F91" /><stop offset="1" stopColor="#4C86C6" /></linearGradient>
-        <linearGradient id="loop-g1" x1="680" y1="170" x2="820" y2="520" gradientUnits="userSpaceOnUse"><stop stopColor="#4C86C6" /><stop offset="1" stopColor="#5E8FAF" /></linearGradient>
-        <linearGradient id="loop-g2" x1="820" y1="540" x2="620" y2="805" gradientUnits="userSpaceOnUse"><stop stopColor="#5E8FAF" /><stop offset="1" stopColor="#8BB4CF" /></linearGradient>
-        <linearGradient id="loop-g3" x1="600" y1="805" x2="275" y2="770" gradientUnits="userSpaceOnUse"><stop stopColor="#8BB4CF" /><stop offset="1" stopColor="#A8BCCB" /></linearGradient>
-        <linearGradient id="loop-g4" x1="240" y1="750" x2="105" y2="410" gradientUnits="userSpaceOnUse"><stop stopColor="#A8BCCB" /><stop offset="1" stopColor="#5E8FAF" /></linearGradient>
-        <linearGradient id="loop-g5" x1="110" y1="375" x2="300" y2="120" gradientUnits="userSpaceOnUse"><stop stopColor="#5E8FAF" /><stop offset="1" stopColor="#315F91" /></linearGradient>
+        <linearGradient id="loop-g0" x1="300" y1="120" x2="650" y2="170" gradientUnits="userSpaceOnUse"><stop stopColor="var(--lm-blue-dark)" /><stop offset="1" stopColor="var(--lm-blue)" /></linearGradient>
+        <linearGradient id="loop-g1" x1="680" y1="170" x2="820" y2="520" gradientUnits="userSpaceOnUse"><stop stopColor="var(--lm-blue)" /><stop offset="1" stopColor="var(--lm-teal)" /></linearGradient>
+        <linearGradient id="loop-g2" x1="820" y1="540" x2="620" y2="805" gradientUnits="userSpaceOnUse"><stop stopColor="var(--lm-teal)" /><stop offset="1" stopColor="var(--lm-mint)" /></linearGradient>
+        <linearGradient id="loop-g3" x1="600" y1="805" x2="275" y2="770" gradientUnits="userSpaceOnUse"><stop stopColor="var(--lm-mint)" /><stop offset="1" stopColor="var(--lm-steel)" /></linearGradient>
+        <linearGradient id="loop-g4" x1="240" y1="750" x2="105" y2="410" gradientUnits="userSpaceOnUse"><stop stopColor="var(--lm-steel)" /><stop offset="1" stopColor="var(--lm-teal)" /></linearGradient>
+        <linearGradient id="loop-g5" x1="110" y1="375" x2="300" y2="120" gradientUnits="userSpaceOnUse"><stop stopColor="var(--lm-teal)" /><stop offset="1" stopColor="var(--lm-blue-dark)" /></linearGradient>
         <filter id="precision-shadow" x="-30%" y="-30%" width="160%" height="160%"><feDropShadow dx="0" dy="12" stdDeviation="15" floodColor="#263244" floodOpacity=".16" /></filter>
         <filter id="precision-glow" x="-20%" y="-20%" width="140%" height="140%"><feGaussianBlur stdDeviation="7" /></filter>
       </defs>
@@ -238,15 +317,14 @@ function polar(cx: number, cy: number, radius: number, angle: number) {
   return { x: Number((cx + radius * Math.cos(radians)).toFixed(2)), y: Number((cy + radius * Math.sin(radians)).toFixed(2)) };
 }
 
-function PlatformLoopMapping() {
+function ProductMapping() {
   return <EditorialSection
-    id="platform"
-    eyebrow="THE LAST MILE PLATFORM"
-    title="One platform closes the loop."
-    intro="The four products share responsibility for evidence, operational understanding, governed execution, and resulting state. Verification is collective platform behavior—not a dashboard function."
+    eyebrow="ONE CONNECTED RESPONSE"
+    title="Four products. One accountable operational response."
+    intro="Infinit-Signal, Singularity, Infinit-Flow, and Infinit-Control are not isolated applications. Together they keep one accountable case moving from evidence to verified outcome."
     className="lm-loop-products-section"
   >
-    <div className="lm-loop-products">
+    <div className="lm-home-products">
       {products.map(({ name, role, copy, detail, route, icon: Icon }, index) => <article key={name}>
         <header><span>{String(index + 1).padStart(2, "0")}</span><Icon aria-hidden="true" /></header>
         <p>{role}</p><h3>{name}</h3><strong>{copy}</strong><small>{detail}</small>
@@ -258,18 +336,17 @@ function PlatformLoopMapping() {
 
 function IndustryUseCases() {
   return <EditorialSection
-    id="use-cases"
     eyebrow="CONTROLLED INDUSTRIAL REFERENCES"
-    title="Accountability in recognizable physical operations."
-    intro="These governed references use internally consistent operational evidence and approved result criteria. They are not customer case studies, ROI claims, or production-performance claims."
+    title="Recognizable operations. One disciplined response model."
+    intro="These governed references show how the same accountable loop applies across different physical environments without inventing customer results or polished demo fiction."
     tone="grid"
-    className="lm-concise-use-cases-section"
   >
-    <div className="lm-concise-use-cases">
+    <div className="lm-home-use-cases">
       {operatingScenarioList.map((scenario) => {
         const coordinate = scenario.response.find((step) => step.stage === "Coordinate")?.detail;
         return <article key={scenario.key}>
-          <header><span>{scenario.industry}</span><CircleDot aria-hidden="true" /></header><h3>{scenario.operatingProblem}</h3>
+          <header><span>{scenario.industry}</span><CircleDot aria-hidden="true" /></header>
+          <h3>{scenario.operatingProblem}</h3>
           <dl>
             <div><dt>Condition</dt><dd>{scenario.condition}</dd></div>
             <div><dt>Response</dt><dd>{coordinate}</dd></div>
@@ -285,12 +362,15 @@ function IndustryUseCases() {
 
 function EnterpriseTrust() {
   return <EditorialSection
-    id="enterprise-trust"
     eyebrow="BROWNFIELD BY DESIGN"
-    title="Built for the operation you already have."
-    intro="Last Mile works across brownfield environments without requiring a standardized technology estate. Existing controls and systems of record remain authoritative while Last Mile supplies the shared context and coordination between them."
+    title="Designed for enterprise architecture, plant reality, and OT accountability."
+    intro="Existing controls and systems of record stay authoritative. Last Mile supplies the orchestration, proof discipline, and role clarity between them."
   >
-    <div className="lm-enterprise-systems" aria-label="Representative technology categories">{enterpriseSystems.map((system) => <span key={system}>{system}</span>)}</div>
-    <div className="lm-enterprise-trust" aria-label="Enterprise trust capabilities">{trustCapabilities.map((capability) => <span key={capability}><ShieldCheck aria-hidden="true" />{capability}</span>)}</div>
+    <div className="lm-home-ecosystem" aria-label="Representative existing system categories">
+      {enterpriseSystems.map((system) => <span key={system}>{system}</span>)}
+    </div>
+    <div className="lm-governance-strip" aria-label="Enterprise trust capabilities">
+      {trustPillars.map(({ title, copy, icon: Icon }) => <article key={title}><Icon aria-hidden="true" /><h3>{title}</h3><p>{copy}</p></article>)}
+    </div>
   </EditorialSection>;
 }

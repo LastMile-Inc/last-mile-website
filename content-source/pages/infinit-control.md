@@ -2,7 +2,7 @@
 content_id: PAGE-CONTROL-001
 status: approved
 owner: Infinit-Control Product Marketing
-last_reviewed: 2026-08-06
+last_reviewed: 2026-08-26
 claim_maturity: [designed, demonstrated]
 depends_on: [PROD-CONTROL-001, CLAIMS-REGISTRY-001]
 used_by: [/infinit-control]
@@ -18,9 +18,13 @@ Show an operator-centered, role-based surface that distinguishes live state, wor
 
 **Eyebrow:** INFINIT-CONTROL
 
-**H1:** See the operating condition, the response, and the proof in one place.
+**H1:** Put the accountable response in front of every role.
 
 **Body:** Infinit-Control gives each role a governed view of current state, canonical topology, evidence, ownership, work, authority, return measurements, and verified Outcomes.
+
+## Connected response framing
+
+Render a four-product connected-response strip immediately after the hero. Highlight Infinit-Control as the role-based surface that keeps the full accountable response visible without claiming to perform verification alone.
 
 **Operating artifact:** Show the Cooling Loop B operating Condition, severity in text and icon, owner, asset and location, current measurements, trends, freshness, work state, required return measurements, and result state.
 

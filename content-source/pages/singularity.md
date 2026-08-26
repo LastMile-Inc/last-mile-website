@@ -2,7 +2,7 @@
 content_id: PAGE-SINGULARITY-001
 status: approved
 owner: Singularity Product Marketing
-last_reviewed: 2026-08-06
+last_reviewed: 2026-08-26
 claim_maturity: [designed, reference_architecture]
 depends_on: [PROD-SINGULARITY-001, CONCEPT-SEMANTIC-001, CONCEPT-UNS-001, CLAIMS-REGISTRY-001]
 used_by: [/singularity]
@@ -18,9 +18,13 @@ Explain the difference between distributed data and durable operational meaning.
 
 **Eyebrow:** SINGULARITY
 
-**H1:** Give the physical operation one durable memory.
+**H1:** Give the response one durable operational memory.
 
 **Body:** Singularity connects assets, observations, Conditions, evidence, decisions, work, return measurements, and Outcomes across the systems and sites that each see only part of the operating story.
+
+## Connected response framing
+
+Render a four-product connected-response strip immediately after the hero. Highlight Singularity as the product that turns qualified evidence into durable operational meaning for the rest of the response.
 
 **Subordinate label:** Governed operational memory implementing the open SSOM contract.
 

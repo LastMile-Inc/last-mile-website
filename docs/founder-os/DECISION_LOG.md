@@ -1,5 +1,9 @@
 # Decision log
 
+## 2026-08-26 — enterprise narrative and terminology standardization
+
+Decision: standardize the public website narrative around the Accountable Operations Loop and the phrase **orchestration layer for physical operations**. Homepage discovery should lead with the operating-failure problem statement and audience signposting before architecture-heavy exploration. The four product pages must present Infinit-Signal, Singularity, Infinit-Flow, and Infinit-Control as one connected response rather than isolated applications.
+
 ## 2026-08-24 — PMO Implementation Hub review route
 
 Decision: add a Resources-scoped PMO Implementation Hub route as reference implementation planning content only. The page may present phased rollout models, staffing estimates, and parallel-run governance as planning aids rather than customer commitments. "Last Mile Synapse" is restricted to the implementation label for the open-protocol edge gateway workstream that stages source acquisition for Infinit-Signal during rollout; it does not expand the canonical four-product public model.

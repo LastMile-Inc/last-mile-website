@@ -136,8 +136,8 @@ export function OEMForm() {
   if (isSuccess) {
     return (
       <div className="text-center py-12 animate-in fade-in zoom-in duration-500">
-        <div className="w-20 h-20 bg-[#4c86c6]/20 rounded-full flex items-center justify-center mx-auto mb-6">
-          <CheckCircle2 className="text-[#4c86c6] w-10 h-10" />
+        <div className="w-20 h-20 bg-[#1d7cd8]/20 rounded-full flex items-center justify-center mx-auto mb-6">
+          <CheckCircle2 className="text-[#1d7cd8] w-10 h-10" />
         </div>
         <h3 className="text-2xl font-bold text-white mb-2">Technical Data Received</h3>
         <p className="text-slate-400 mb-8">
@@ -146,7 +146,7 @@ export function OEMForm() {
         <button
           type="button"
           onClick={() => setIsSuccess(false)}
-          className="text-[#217ED9] font-semibold hover:text-[#75ADE6] transition-colors"
+          className="text-[#1d7cd8] font-semibold hover:text-[#75ADE6] transition-colors"
         >
           Submit another request
         </button>
@@ -222,7 +222,7 @@ export function OEMForm() {
         <textarea
           id="message"
           {...register("message", { required: "Message is required" })}
-          className="mt-2 w-full px-3 py-2 bg-slate-800/50 border border-slate-700 rounded-md text-white placeholder:text-slate-500 focus:outline-none focus:ring-2 focus:ring-[#217ED9] min-h-[120px]"
+          className="mt-2 w-full px-3 py-2 bg-slate-800/50 border border-slate-700 rounded-md text-white placeholder:text-slate-500 focus:outline-none focus:ring-2 focus:ring-[#1d7cd8] min-h-[120px]"
           placeholder="Tell us about your technology and partnership interest"
         />
         {errors.message && <p className="text-red-400 text-sm mt-1">{errors.message.message}</p>}
@@ -238,7 +238,7 @@ export function OEMForm() {
           onDrop={handleDrop}
           className={`mt-2 border-2 border-dashed rounded-md p-8 text-center transition-colors ${
             isDragging
-              ? "border-[#217ED9] bg-[#217ED9]/10"
+              ? "border-[#1d7cd8] bg-[#1d7cd8]/10"
               : "border-slate-700 bg-slate-800/50"
           }`}
         >
@@ -251,7 +251,7 @@ export function OEMForm() {
           />
           {uploadedFile ? (
             <div className="flex items-center justify-center gap-3">
-              <FileText className="w-8 h-8 text-[#217ED9]" />
+              <FileText className="w-8 h-8 text-[#1d7cd8]" />
               <div className="text-left">
                 <p className="text-white font-medium">{uploadedFile.name}</p>
                 <p className="text-slate-400 text-sm">
@@ -272,7 +272,7 @@ export function OEMForm() {
               <p className="text-slate-300 mb-2">Drag and drop your file here, or</p>
               <label
                 htmlFor="openapi-files"
-                className="text-[#217ED9] hover:text-[#75ADE6] font-semibold cursor-pointer"
+                className="text-[#1d7cd8] hover:text-[#75ADE6] font-semibold cursor-pointer"
               >
                 browse to upload
               </label>

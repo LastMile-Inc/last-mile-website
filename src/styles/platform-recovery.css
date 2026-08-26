@@ -92,7 +92,7 @@
 .lm-animation__rail button > span { position: relative; z-index: 1; width: 30px; height: 30px; margin: auto; display: grid; place-items: center; border: 2px solid var(--lm-line); border-radius: 50%; background: var(--lm-surface); font: 750 12px "Roboto Mono", monospace; }
 .lm-animation__rail button strong { display: block; margin-top: 6px; font-size: 13px; }
 .lm-animation__rail button.is-complete::before, .lm-animation__rail button.is-complete > span { border-color: var(--lm-blue); background: var(--lm-blue); color: var(--lm-surface); }
-.lm-animation__rail button.is-current > span { border-color: var(--lm-blue); color: var(--lm-blue-dark); box-shadow: 0 0 0 4px rgba(76, 134, 198, .13); }
+.lm-animation__rail button.is-current > span { border-color: var(--lm-blue); color: var(--lm-blue-dark); box-shadow: 0 0 0 4px rgba(var(--lm-blue-rgb), .13); }
 .lm-animation__live { margin: 0; padding: 10px 18px; border-top: 1px solid var(--lm-line); border-bottom: 1px solid var(--lm-line); font-size: 15px; line-height: 1.5; }
 .lm-animation__live strong { color: var(--lm-ink); }
 .lm-animation__workspace { min-height: 0; display: grid; grid-template-columns: minmax(0, 1fr) 310px; }

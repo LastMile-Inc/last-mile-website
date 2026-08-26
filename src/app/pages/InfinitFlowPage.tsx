@@ -1,5 +1,5 @@
 import { SEO } from "@/app/components/SEO";
-import { EditorialHero, EditorialSection, InlineLink, NextStep } from "@/app/components/NarrativeComponents";
+import { ConnectedResponseStrip, EditorialHero, EditorialSection, InlineLink, NextStep } from "@/app/components/NarrativeComponents";
 import { ResponseTimeline } from "@/app/components/OperatingScenarioComponents";
 import { operatingScenarios } from "@/app/pages/platformReferenceData";
 import { createBreadcrumbSchema, createProductSchema } from "@/app/lib/structuredData";
@@ -12,7 +12,8 @@ export function InfinitFlowPage() {
   return <>
     <SEO title="Infinit-Flow | Coordinate the Operating Response" description={description} canonicalPath="/infinit-flow" jsonLd={[createProductSchema("Infinit-Flow", "/infinit-flow", description), createBreadcrumbSchema([{ name: "Home", path: "/" }, { name: "Infinit-Flow", path: "/infinit-flow" }])]} />
     <div className="lm-v2-page">
-      <EditorialHero eyebrow="INFINIT-FLOW · DECIDE + COORDINATE + ACT" title="The operational decision and orchestration engine." intro="Infinit-Flow determines what should happen next and creates one durable Response across operators, work systems, providers, approvals, evidence, and return measurements. It executes only the digital steps policy allows and keeps physical authority where operations require it." primary={{ label: "Discuss Your Response Path", to: "/contact?intent=operation" }} secondary={{ label: "See the Cooling Use Case", to: "/use-cases/data-center-cooling" }} visual={<div className="lm-product-artifact"><span>Cooling Loop B response</span><ResponseTimeline scenario={operatingScenarios.cooling} /></div>} />
+      <EditorialHero eyebrow="INFINIT-FLOW · ORCHESTRATE + EXECUTE" title="Orchestrate the operating response without losing the condition." intro="Infinit-Flow determines what should happen next and creates one durable Response across operators, work systems, providers, approvals, evidence, and return measurements. It executes only the digital steps policy allows and keeps physical authority where operations require it." support="Connected response role: carry one accountable case across people, systems, providers, approvals, and return-measurement verification." primary={{ label: "Discuss Your Response Path", to: "/contact?intent=operation" }} secondary={{ label: "See the Cooling Use Case", to: "/use-cases/data-center-cooling" }} visual={<div className="lm-product-artifact"><span>Cooling Loop B response</span><ResponseTimeline scenario={operatingScenarios.cooling} /></div>} />
+      <ConnectedResponseStrip activeProduct="Infinit-Flow" intro="Infinit-Flow is the orchestration engine inside the loop, but it still depends on qualified evidence, governed context, and explicit outcome verification." />
 
       <EditorialSection title="Start with the kind of asset and response—not an empty box." tone="grid">
         <p className="lm-v2-large-copy">Choose an operational object type and intent. Infinit-Flow returns only assets compatible with the required SSOM class, capability, tenant, site, role, quality, and freshness. Simple controls appear first; expert semantic and lineage detail remains available when needed.</p>
