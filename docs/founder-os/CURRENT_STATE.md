@@ -1,6 +1,6 @@
 # Current state
 
-Updated: 2026-08-26
+Updated: 2026-09-26
 
 ## Platform and public narrative
 
@@ -15,11 +15,13 @@ Updated: 2026-08-26
 - The approved reconciliation lineage is the exact `makeover` baseline.
 - Phase 3 PR #8 and Phase 4 PR #9 are merged; the legacy catalog is removed from the active tree and preserved in Git history plus a dated recovery archive.
 - No active website workflow deploys or writes catalog content.
-- The governed parallel website refresh has been reconciled onto normalized `origin/main` at `358327618a7b6bbd7cccc5ea66a686c3a02608e9` on `integration/website-parallel-refresh-2026-08-11`.
-- Draft PR #12 carries that refresh for review; founder approval is still required before merge, and production is unchanged.
-- The current review branch standardizes the homepage and four product routes around the Accountable Operations Loop and the phrase **orchestration layer for physical operations**, adds explicit audience signposting, and keeps technical-depth links discoverable without making them the default first click.
-- Superseded scenario and architecture imagery was excluded. The integration uses accessible, code-native process maps and a code-native product contract that preserves the approved product ownership boundaries.
-- Automated validation and desktop/mobile Playwright visual QA pass for the homepage, platform, four product routes, four operating scenarios, resources, contact, navigation, and footer. Production remains unchanged.
+- The current independent-hosting design review is based on main commit `d14c49d44aa2b80ad669621c8d3af8aa92577243` (PR #16), on branch `codex/website-design-review-2026-09-25`.
+- The founder authorized transfer of the Homepage Concept into the company repository for direct editing and review through the existing `preview.lastmileinc.ai` tunnel on port 5173.
+- Eight buyer-facing routes now carry the approved light design, Accountable Operations story, screenshot placeholders, and proactive personal-service promise. The earlier seven-section homepage restriction is superseded by the explicit redesign request.
+- Service capabilities and the ambition to earn the highest service ratings are registered as founder-directed review-site commitments, not independently verified achievements or service-level guarantees.
+- Demo and private-beta routes use the existing form integration; development mode does not send CRM submissions. Deeper existing pages retain their layout and routes.
+- The port is editable React/TypeScript/CSS in the existing Vite project and has no ChatGPT Sites runtime dependency. See `docs/website-design-review.md`.
+- Main, production hosting, tunnel settings, and GCP infrastructure are unchanged by this review increment.
 
 ## Foundation dependency
 

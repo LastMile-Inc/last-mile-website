@@ -5,6 +5,8 @@ import path from "node:path";
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const lastModified = new Date().toISOString().slice(0, 10);
 const routes = [
+  ["/how-it-works", "monthly", "0.8"], ["/industries", "monthly", "0.8"], ["/why-last-mile", "monthly", "0.8"],
+  ["/our-service", "monthly", "0.8"], ["/demo", "monthly", "0.8"], ["/private-beta", "monthly", "0.8"],
   ["/", "weekly", "1.0"], ["/platform", "weekly", "0.9"], ["/use-cases", "weekly", "0.9"],
   ["/use-cases/data-center-cooling", "weekly", "0.9"], ["/use-cases/municipal-wastewater", "weekly", "0.9"],
   ["/use-cases/manufacturing-compressed-air", "weekly", "0.9"], ["/use-cases/cold-storage-refrigeration", "weekly", "0.9"],

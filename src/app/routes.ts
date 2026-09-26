@@ -1,6 +1,7 @@
 import type { ComponentType } from "react";
 import { createBrowserRouter, redirect } from "react-router";
 import { Root } from "./components/Root";
+import { ReviewRoot } from "./components/makeover/ReviewRoot";
 import { RouteLoading } from "./components/RouteLoading";
 
 function lazyPage<T extends Record<string, unknown>>(
@@ -26,10 +27,25 @@ function redirectTo(path: string, status = 302) {
 export const router = createBrowserRouter([
   {
     path: "/",
-    Component: Root,
+    Component: ReviewRoot,
     HydrateFallback: RouteLoading,
     children: [
       { index: true, lazy: lazyPage(() => import("./pages/HomePage"), "HomePage") },
+      { path: "how-it-works", lazy: lazyPage(() => import("./pages/HowItWorksPage"), "HowItWorksPage") },
+      { path: "industries", lazy: lazyPage(() => import("./pages/IndustriesPage"), "IndustriesPage") },
+      { path: "why-last-mile", lazy: lazyPage(() => import("./pages/WhyLastMilePage"), "WhyLastMilePage") },
+      { path: "our-service", lazy: lazyPage(() => import("./pages/OurServicePage"), "OurServicePage") },
+      { path: "about", lazy: lazyPage(() => import("./pages/AboutPage"), "AboutPage") },
+      { path: "demo", lazy: lazyPage(() => import("./pages/DemoPage"), "DemoPage") },
+      { path: "private-beta", lazy: lazyPage(() => import("./pages/PrivateBetaPage"), "PrivateBetaPage") },
+    ],
+  },
+
+  {
+    path: "/",
+    Component: Root,
+    HydrateFallback: RouteLoading,
+    children: [
       { path: "platform", lazy: lazyPage(() => import("./pages/PlatformOverviewPage"), "PlatformOverviewPage") },
       { path: "use-cases", lazy: lazyPage(() => import("./pages/UseCasesPage"), "UseCasesPage") },
       { path: "use-cases/data-centers", loader: redirectTo("/use-cases/data-center-cooling", 301) },
@@ -46,7 +62,6 @@ export const router = createBrowserRouter([
       { path: "ecosystem", lazy: lazyPage(() => import("./pages/EcosystemPage"), "EcosystemPage") },
       { path: "integrations", loader: redirectTo("/ecosystem") },
       { path: "integrations/:vendorSlug/:productSlug", loader: redirectTo("/ecosystem") },
-      { path: "about", lazy: lazyPage(() => import("./pages/AboutPage"), "AboutPage") },
       { path: "company", loader: redirectTo("/about") },
       { path: "company/newsroom", lazy: lazyPage(() => import("./pages/NewsroomPage"), "NewsroomPage") },
       { path: "resources", lazy: lazyPage(() => import("./pages/ResourcesPage"), "ResourcesPage") },

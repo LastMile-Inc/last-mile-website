@@ -1,7 +1,11 @@
 # About Last Mile
 
-Last Mile was founded to close the distance between operational systems and physical outcomes. Enterprise platforms transformed digital work, but physical operations still lack a vendor-independent layer connecting evidence to governed action and verified recovery.
+## Our name is our responsibility.
 
-Rodney Runolfson brings decades of enterprise-platform strategy and implementation experience, including building and leading a major ServiceNow practice at Deloitte. That experience informed the category insight; the Last Mile Platform itself is vendor-independent by design.
+The last mile is where the promise becomes the result. It’s where decisions become action, the work gets finished, and someone makes sure it actually worked.
 
-Primary URL: https://lastmileinc.ai/about
+We’re building Last Mile to bring those efforts together: one connected path from the first warning to a verified outcome. We call it Accountable Operations.
+
+Our principles are to stay close to the real work, carry responsibility through to the result, and anticipate the customer’s needs.
+
+[Our service promise](/our-service) · [Explore the private beta](/private-beta)

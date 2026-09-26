@@ -1,5 +1,9 @@
 # Decision log
 
+## 2026-09-25 — buyer website and proactive service review
+
+Decision: carry the founder-approved Sites concept into a dedicated corporate-repository review branch based on current main at d14c49d44aa2b80ad669621c8d3af8aa92577243, which includes the previously reconciled work. Replace the buyer homepage and About page, add six supporting routes, and preserve the existing deeper resources and product routes. The founder explicitly authorized repository updates and confirmed the review hostname preview.lastmileinc.ai tunnels to Vite on port 5173. Keep that workflow and the current inquiry integration. Product screenshots remain intentional placeholders pending founder delivery. The service model and rating ambition are recorded conservatively in the release gate and claims registry. No merge, server deployment, infrastructure change, or architecture release is included. This supersedes the August homepage layout contract only for the approved redesign.
+
 ## 2026-08-26 — enterprise narrative and terminology standardization
 
 Decision: standardize the public website narrative around the Accountable Operations Loop and the phrase **orchestration layer for physical operations**. Homepage discovery should lead with the operating-failure problem statement and audience signposting before architecture-heavy exploration. The four product pages must present Infinit-Signal, Singularity, Infinit-Flow, and Infinit-Control as one connected response rather than isolated applications.
@@ -35,3 +39,7 @@ Decision: remove the inactive ServiceNow-era catalog, generated API artifacts, c
 ## 2026-08-10 — protection boundaries
 
 Decision: never weaken branch protection to complete a merge. Merges, deployment, GCP mutation, ownership/visibility changes, release of under-review architecture, and catalog revival require explicit founder approval at the action boundary.
+
+## 2026-09-26 — Independent-hosting source handoff
+
+The founder explicitly requested editable code in the corporate GitHub repository and declined ChatGPT Sites hosting for the release. The approved concept is now ported to the existing Vite app on the review branch `codex/website-design-review-2026-09-25`. `npm run validate` passes, including all 15 tests and the production build. The handoff guide documents port 5173, the existing preview tunnel hostname, editable source files, development-only form simulation, screenshot briefs, and remaining public-release review. Local browser access was unavailable for this port, so visual verification on the user’s test server remains explicit. No merge or deployment is authorized by this source handoff.

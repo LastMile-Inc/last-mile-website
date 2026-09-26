@@ -2,6 +2,14 @@ import fs from "node:fs";
 import path from "node:path";
 
 const routeConsumers = new Map([
+  ["/how-it-works", "src/app/pages/HowItWorksPage.tsx"],
+  ["/industries", "src/app/pages/IndustriesPage.tsx"],
+  ["/why-last-mile", "src/app/pages/WhyLastMilePage.tsx"],
+  ["/our-service", "src/app/pages/OurServicePage.tsx"],
+  ["/about", "src/app/pages/AboutPage.tsx"],
+  ["/demo", "src/app/pages/DemoPage.tsx"],
+  ["/private-beta", "src/app/pages/PrivateBetaPage.tsx"],
+
   ["/", "src/app/pages/HomePage.tsx"],
   ["/platform", "src/app/pages/PlatformOverviewPage.tsx"],
   ["/ecosystem", "src/app/pages/EcosystemPage.tsx"],

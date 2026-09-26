@@ -49,6 +49,11 @@
       "contentId": "LM-WEB-SYNAPSE-001",
       "status": "approved-for-review-site",
       "claim": "Last Mile Synapse is the implementation label for the open-protocol edge gateway workstream that stages source acquisition for Infinit-Signal during rollout."
+    },
+    {
+      "contentId": "LM-WEB-SERVICE-001",
+      "status": "approved-for-review-site",
+      "claim": "Founder-directed review copy may describe named operations engineers, platform health reporting, direct two-way customer chat, and proactive contact. Service rankings are an ambition to earn, not an achieved rating; detection lead time, coverage, staffing ratios, and response times are not guaranteed."
     }
   ]
 }

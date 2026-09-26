@@ -2,7 +2,7 @@
 content_id: CLAIMS-REGISTRY-001
 status: approved
 owner: Product and Content Governance
-last_reviewed: 2026-08-26
+last_reviewed: 2026-09-25
 claim_maturity: [implemented, demonstrated, designed, reference_architecture, customer_specific, perspective, do_not_publish]
 depends_on: [GOV-CLAIMS-001]
 used_by: [all]
@@ -77,6 +77,20 @@ This registry is the canonical detailed claim authority beneath the review-site 
 | CLM-CONCEPT-I50 | Industry 5.0 emphasizes human-centricity, sustainability, and resilience. | Perspective | European Commission |
 | CLM-CONCEPT-THREAD | Last Mile's operational outcome thread complements broader lifecycle digital threads. | Perspective / Designed | NIST and platform architecture |
 | CLM-CONCEPT-OTSEC | OT security must address physical performance, reliability, and safety requirements. | Perspective | NIST SP 800-82r3 |
+
+## Buyer narrative and service model — September 2026 review
+
+The founder authorized this review direction on 2026-09-25. The health-reporting and built-in-chat capabilities are founder-attested; product captures are still being collected. This records approval for review copy, not independent verification of implementation or production performance. Staffing and contact language is a service commitment as customers come online. No response-time, all-hours coverage, guaranteed early detection, competitor exclusivity, or achieved ranking is implied.
+
+| Claim ID | Approved language | Maturity | Scope/evidence | Prohibited inference |
+|---|---|---|---|---|
+| CLM-CAT-004 | Accountable Operations describes a connected path from the first warning to a verified physical result. | Designed / category position | Founder-approved September 2026 website concept; existing outcome and authority boundaries | Established market category, exclusive provider, or customer results |
+| CLM-SERVICE-001 | As customers come online, Last Mile will assign named Cloud Operations engineers who get to know their teams and priorities. | Designed | Founder service-model direction, 2026-09-25 | Guaranteed exclusive engineer, staffing ratio, or coverage schedule |
+| CLM-SERVICE-002 | The platform is built to report its health to the operations team; when checks flag an issue, Last Mile reaches out directly. | Designed | Founder-attested platform capability and service direction; product evidence pending | Detection of every incident, guaranteed notice before customer awareness, or a response-time SLA |
+| CLM-SERVICE-003 | Built-in chat connects customers and the Last Mile operations team in both directions. | Designed | Founder-attested capability; screenshot 05 pending | Guaranteed immediate response or continuously staffed chat |
+| CLM-SERVICE-004 | Regular proactive conversations help Last Mile understand customers’ changing priorities and needs. | Designed | Founder service-model direction, 2026-09-25 | A fixed contact schedule before one is agreed |
+| CLM-SERVICE-005 | Our ambition is to earn the highest customer service ratings in our field. | Perspective | Founder ambition, 2026-09-25 | Existing independent rating, hyperscaler status, or competitor comparison |
+| CLM-SERVICE-006 | Good Service Remembers...Great Service Anticipates. | Perspective | Founder-supplied team service slogan, 2026-09-25 | A guarantee that every issue is anticipated |
 
 ## Explicit do-not-publish claims
 

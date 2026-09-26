@@ -5,11 +5,11 @@ Official website for Last Mile Inc.
 
 ## Canonical website branch
 
-The active reconciliation baseline is the `makeover` lineage. The default branch remains protected until the platform-first site passes founder review and is deliberately promoted.
+The editable design review is on `codex/website-design-review-2026-09-25`, based on main commit `d14c49d44aa2b80ad669621c8d3af8aa92577243`. See [the run and edit guide](docs/website-design-review.md) for the exact checkout commands, screenshot locations, and review notes. Merge and production publishing remain subject to founder approval.
 
 ## Running the code
 
-Run `npm ci` to install dependencies and `npm run dev` to start the development server.
+Use Node.js 24. Run `npm ci` to install dependencies and `npm run dev` to start the development server on `0.0.0.0:5173`. The existing tunnel hostname `preview.lastmileinc.ai` is allowed. This source runs independently of ChatGPT Sites.
 
 Run `npm run validate` before opening or updating a pull request.
 

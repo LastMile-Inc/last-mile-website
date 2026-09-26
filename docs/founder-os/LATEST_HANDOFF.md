@@ -1,33 +1,35 @@
 # Latest handoff
 
-Updated: 2026-08-26
+Updated: 2026-09-26
 
-## Completed safely
+## Editable corporate website design review
 
-- Standardized the review-branch website narrative around the Accountable Operations Loop and the phrase **orchestration layer for physical operations** across canonical governance content, homepage messaging, platform framing, and the four product routes.
-- Reworked homepage discovery so the operating-failure problem statement leads, technical depth is explicitly signposted by audience, and architecture-heavy exploration is delayed until after the core orchestration story is introduced.
-- Added connected-response framing to the four product pages so each product keeps a distinct role while remaining part of one accountable operating response.
-- Added a governed PMO Implementation Hub review route at `/resources/pmo-implementation-hub` with reference FTE models, rollout phase gates, and a Synapse parallel-run schema; the new page preserves the canonical four-product public model and constrains "Last Mile Synapse" to implementation-scoped language.
-- Reconciled checkpoint `be9b7c6b5f2cd90abd3df6a8b6a93e0d6099bf50` onto normalized main `358327618a7b6bbd7cccc5ea66a686c3a02608e9` without altering the preserved checkpoint branch.
-- Retained normalized governance and publishing controls, kept the legacy catalog retired, and replaced the excluded scenario/architecture imagery with accessible code-native maps.
-- Passed `npm ci`, `npm run validate`, `npm test`, `npm run build`, `git diff --check`, canonical content checks, and desktop/mobile Playwright visual QA across the required route matrix, navigation, and footer.
-- Opened draft PR #12 from `integration/website-parallel-refresh-2026-08-11` against `main`; no merge or deployment is included.
-- Renamed stable repository ID 1147329489 to `LastMile-Inc/last-mile-website` after its transfer to the company organization.
-- Merged Phase 3 website reconciliation PR #8 after full validation.
-- Preserved the legacy integration catalog in a dated recovery archive.
-- Merged Phase 4 retirement PR #9 after full validation.
-- Added Phase 5 Founder OS rules, records, approval gates, PR evidence checklist, and validation on the current stacked branch.
-- Merged `LastMile-Inc/P0_GCP_Foundation` PR #17 and Build Readiness PR #23; PR #23 merged at `da5a49fc82448c2e2c95be2c8c3d1efeffa0b09f`.
+The founder authorized moving the Last Mile Homepage Concept into `LastMile-Inc/last-mile-website` so the team can edit the files and run the existing preview tunnel on port 5173. The review branch is `codex/website-design-review-2026-09-25`, based on main `d14c49d44aa2b80ad669621c8d3af8aa92577243`.
 
-## Awaiting review or approval
+The source is the approved concept's homepage and seven supporting routes, including the personal-service narrative, named Cloud Operations engineers, proactive outreach, direct chat, and “Good Service Remembers...Great Service Anticipates.” Five real-product screenshot briefs remain visible for the founder to supply images.
 
-1. Review draft PR #12 from `integration/website-parallel-refresh-2026-08-11` against normalized `main`; founder approval is still required before merge.
-2. Decide separately whether the private historical `rrunolfson/Last-Mile-Integrations` repository should be transferred to the company and formally archived.
-3. Approve a production release procedure before any website deployment.
+## Implementation and canonical sources
 
-## Do not do implicitly
+- Updated `content-source/pages/home.md`, added `content-source/pages/supporting-review.md`, and registered the category and service claims before porting derivatives. No architecture marked `UNDER_REVIEW` was released.
+- Ported the design into the existing React/TypeScript/Vite project, preserving the lockfile and deeper platform, product, resource, scenario, contact, and legal routes.
+- Reused approved industrial and loop imagery and shared brand tokens. Review-page styles are scoped to the new layout.
+- Added demo and private-beta routes using the existing HubSpot form integration. Development submissions are local review interactions and do not create CRM records.
+- Set Vite's default listener to `0.0.0.0:5173`, enabled strict port selection, and explicitly allowed `preview.lastmileinc.ai` alongside the existing review hostname.
+- Added `docs/website-design-review.md` with exact checkout/start instructions, the files to edit, image briefs, form behavior, and public-release considerations.
 
-- Do not bypass branch protection.
-- Do not deploy the website or mutate GCP.
-- Do not publish architecture r1.3 as released.
-- Do not revive catalog syncs, manufactured OpenAPI, or ServiceNow Store delivery claims.
+## Validation evidence
+
+- `npm ci` succeeded.
+- `npm run validate` passed: governance, concept consistency, TypeScript, lint, public claims, content traceability, all 15 existing/updated tests, production build, and published-output verification.
+- Lint reports six existing Fast Refresh warnings in unchanged shared UI component files and no errors.
+- `git diff --check` passed.
+- The original Sites design had desktop and mobile visual review. Browser verification of the corporate-repo port could not be completed in this session: the local review server was unreachable from the browser environment. Do not treat the earlier visual check as a check of this port. Review the eight routes and form layouts on the test webserver before public release.
+
+## Next steps for the team
+
+1. Fetch the review branch and run `npm ci` then `npm run dev` on the test webserver. The existing tunnel remains the user's responsibility; it was not altered here.
+2. Review copy, responsive layout, navigation, and demo/beta forms at `preview.lastmileinc.ai`; supply the five product screenshots and polish the source directly.
+3. Validate the production CRM delivery and indexing policy before public release. Review-mode pages currently carry `noindex, nofollow` and a team-review label.
+4. Obtain founder approval for merge and public release through the existing repository workflow.
+
+No merge, public deployment, GCP mutation, repository ownership/visibility change, or revival of historical catalog automation is included. Historical foundation and ownership decisions remain recorded in `CURRENT_STATE.md`, `IP_REGISTER.md`, and `DECISION_LOG.md`.

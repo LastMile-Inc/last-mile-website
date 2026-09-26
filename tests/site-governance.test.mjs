@@ -66,12 +66,20 @@ test("every use case uses the code-native governed process map and required disc
   }
 });
 
-test("homepage proof is code-native and public concepts hide governance enums", () => {
+test("homepage uses approved imagery and real-product placeholders while concepts hide governance enums", () => {
   const home = read("src/app/pages/HomePage.tsx");
   const article = read("src/app/pages/IndustrialConceptArticlePage.tsx");
-  assert.match(home, /PrecisionLoopGraphic/);
+  assert.match(home, /accountable-operations-loop-v3\.png/);
+  assert.match(home, /<Screenshot index=\{0\}/);
+  assert.match(home, /<ServiceTeaser/);
   assert.match(home, /Accountable Operations Loop/);
-  assert.equal((home.match(/<EditorialSection/g) ?? []).length + (home.match(/<HomepageHero/g) ?? []).length + (home.match(/<AccountableOperationsLoop/g) ?? []).length + (home.match(/<NextStep/g) ?? []).length, 7);
+  const shot = read("src/app/components/makeover/ProductShot.tsx");
+  assert.match(shot, /Screenshot Placeholder/);
+  for (const page of ["DemoPage", "PrivateBetaPage"]) {
+    const content = read(`src/app/pages/${page}.tsx`);
+    assert.match(content, /ContactLastMileForm/);
+    assert.doesNotMatch(content, /href="https:\/\/preview\.lastmileinc\.ai\/(?:demo|private-beta)"/);
+  }
   assert.doesNotMatch(home, /platform-core-blueprint|generic.*network.*hero/i);
   assert.doesNotMatch(article, /claimMaturity|reference_architecture|perspective\s*\//i);
 });

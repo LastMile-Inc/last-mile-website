@@ -1,29 +1,14 @@
 import { SEO } from "@/app/components/SEO";
-import { EditorialHero, EditorialSection, InlineLink, NextStep } from "@/app/components/NarrativeComponents";
-import { companyStage } from "@/app/content/siteContent";
-import { createBreadcrumbSchema } from "@/app/lib/structuredData";
+import { ArrowRight } from "lucide-react";
+import { PageIntro, ClosingCTA } from "@/app/components/makeover/SiteShell";
 
-const principles = ["Keep source authority visible.", "Create operational records once.", "Preserve uncertainty instead of hiding it.", "Put policy before consequential action.", "Treat work completion and physical recovery as different states.", "Make failure and degraded data visible.", "Earn the right to automate through evidence."] as const;
 
 export function AboutPage() {
-  const description = "Last Mile exists to make industrial response visible, coordinated, and measurable across the control, data, work, provider, and evidence systems already in place.";
-  return <><SEO title="About Last Mile | Built for the Operational Handoffs" description={description} canonicalPath="/about" markdownPath="/about.md" jsonLd={createBreadcrumbSchema([{ name: "Home", path: "/" }, { name: "About", path: "/about" }])} />
-    <div className="lm-v2-page">
-      <EditorialHero eyebrow="About Last Mile" title="We built Last Mile because industrial response still breaks at the handoffs." intro="Enterprise platforms transformed digital work. Physical operations still depend on disconnected control, data, work, provider, and evidence systems. Last Mile exists to make the complete response visible, coordinated, and measurable without forcing customers into another vendor silo." primary={{ label: "Discuss Your Operation", to: "/contact?intent=operation" }} />
-
-      <EditorialSection title="Built from decades of enterprise-platform experience—and its limits." tone="grid">
-        <div className="lm-founder-v2"><div className="lm-founder-v2__identity"><span className="lm-v2-card-label">Founder and CEO</span><h3>Rodney Runolfson</h3></div><div className="lm-founder-v2__copy"><p>Rodney Runolfson brings three decades of experience across enterprise platforms, including roles as a customer, ServiceNow employee, and founder of Deloitte’s U.S. ServiceNow practice. That experience demonstrated what shared platforms can accomplish—and where physical operations remain fundamentally different.</p><p>Last Mile applies those lessons without depending on ServiceNow or any other single enterprise vendor. The company is building an operations-native platform on GCP for the cross-system work that established platforms leave unresolved.</p></div></div>
-      </EditorialSection>
-
-      <EditorialSection eyebrow="Working principles" title="Evidence earns authority." tone="grid">
-        <ul className="lm-principles-v2">{principles.map((principle) => <li key={principle}>{principle}</li>)}</ul>
-        <InlineLink to="/resources/industrial-concepts/industry-5-0">Industry 5.0 and human authority</InlineLink>
-      </EditorialSection>
-
-      <EditorialSection eyebrow={companyStage.label} title="Clear about the stage. Serious about the proof.">
-        <div className="lm-v2-columns-2"><p className="lm-v2-large-copy">{companyStage.summary}</p><p className="lm-v2-large-copy">{companyStage.evidence}</p></div>
-      </EditorialSection>
-      <NextStep title="Bring the operational handoff your team cannot make accountable." copy="We will start with what happens today, who holds authority, and which live measurements would establish recovery." label="Discuss Your Operation" to="/contact?intent=operation" secondary={{ label: "See What We Are Proving", to: "/use-cases/data-center-cooling" }} />
-    </div>
-  </>;
+  return <><SEO title={"About Last Mile | Built for the follow-through"} description={"Why we’re building Last Mile: to connect the work between seeing an operating problem and proving it has been resolved."} canonicalPath="/about" robots="noindex, nofollow" /><main id="main"><PageIntro label="ABOUT LAST MILE" title="Our name is" accent="our responsibility." description="The last mile is where the promise becomes the result. It’s where decisions become action, the work gets finished, and someone makes sure it actually worked."/>
+    <section className="about-image wrap"><img src="/images/home/industrial-orchestration-hero-v3.png" alt="An industrial operator beside connected plant equipment"/><div><span>BUILT FOR THE PEOPLE WHO KEEP INDUSTRY RUNNING.</span></div></section>
+    <section className="editorial-split wrap section-space about-story"><div><p className="eyebrow">WHY WE’RE HERE</p><h2>The next chapter<br/>of industry starts<br/><span>with the follow-through.</span></h2></div><div><p className="large-copy">Operations teams carry enormous responsibility. They deserve tools—and a partner—that help them carry it.</p><p>A plant, a facility, a critical operation: behind every operating result are people making decisions, coordinating work, and keeping things moving.</p><p>We’re building Last Mile to bring those efforts together. One connected path from the first warning to a verified outcome. We call it Accountable Operations.</p><a className="text-link" href="/how-it-works">See how the idea becomes a response <ArrowRight size={18}/></a><p><a className="text-link" href="/resources/industrial-concepts/industry-5-0">Explore people’s role in the future of industry <ArrowRight size={18}/></a></p></div></section>
+    <section className="band section-space"><div className="wrap"><p className="eyebrow">WHAT WE EXPECT OF OURSELVES</p><h2>Build it into the product.<br/><span>Live it as a team.</span></h2><div className="principles"><article><span>01</span><h3>Stay close to the real work.</h3><p>Listen to the people responsible for the operation. Build around their decisions, their constraints, and the outcomes that matter to them.</p></article><article><span>02</span><h3>Carry the responsibility.</h3><p>Make the next step clear. Know who owns it. Follow through until there is evidence of the result.</p></article><article><span>03</span><h3>Anticipate the need.</h3><p>Pay attention before someone has to ask. Get to know our customers. Reach out, keep the conversation going, and act on what we learn.</p></article></div></div></section>
+    <section className="about-service wrap section-space"><p className="eyebrow">OUR STANDARD FOR SERVICE</p><h2>Personal attention.<br/><span>Built to grow with us.</span></h2><p>As Last Mile grows, we want our customers to feel closer to the people supporting them. That means named operations engineers, a direct conversation inside the product, and a team that takes the initiative.</p><a className="text-link" href="/our-service">Read our service promise <ArrowRight size={18}/></a></section>
+    <ClosingCTA title="Help shape what comes next." text="Bring your experience to our Private Beta Release. Let’s explore where Last Mile can make a difference in your operation." beta/>
+  </main></>;
 }

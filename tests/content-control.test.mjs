@@ -9,8 +9,8 @@ const root = fileURLToPath(new URL("..", import.meta.url));
 test("claim traceability accepts wording published by the registered route consumer", () => {
   const errors = validateClaimUseTraceability({
     root,
-    claimId: "CLM-CAT-001",
-    use: { route: "/", sourceFile: "src/app/pages/HomePage.tsx", wording: "The Physical Operations Platform" },
+    claimId: "CLM-CAT-004",
+    use: { route: "/", sourceFile: "src/app/pages/HomePage.tsx", wording: "This is Accountable Operations" },
   });
   assert.deepEqual(errors, []);
 });
@@ -18,8 +18,8 @@ test("claim traceability accepts wording published by the registered route consu
 test("claim traceability rejects registered wording that drifts from the published consumer", () => {
   const errors = validateClaimUseTraceability({
     root,
-    claimId: "CLM-CAT-001",
-    use: { route: "/", sourceFile: "src/app/pages/HomePage.tsx", wording: "The Physical Operations Platform — drifted" },
+    claimId: "CLM-CAT-004",
+    use: { route: "/", sourceFile: "src/app/pages/HomePage.tsx", wording: "This is Accountable Operations — drifted" },
   });
   assert.ok(errors.some((error) => /does not exactly match/.test(error)));
 });

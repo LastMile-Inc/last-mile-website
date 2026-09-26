@@ -1,14 +1,14 @@
 :root {
-  --lm-blue: #1d7cd8;
-  --lm-blue-rgb: 29, 124, 216;
+  --lm-blue: #4c86c6;
+  --lm-blue-rgb: 76, 134, 198;
   --lm-blue-dark: #315f91;
   --lm-deep: #263244;
   --lm-ink: #263244;
   --lm-copy: #58687a;
   --lm-teal: #5e8faf;
   --lm-mint: #8bb4cf;
-  --lm-cta: #1d7cd8;
-  --lm-cta-hover: #1768b7;
+  --lm-cta: var(--lm-blue);
+  --lm-cta-hover: var(--lm-blue-dark);
   --lm-cta-text: #ffffff;
   --lm-steel: #a8bccb;
   --lm-canvas: #f1f3f6;
