@@ -1,5 +1,9 @@
 # Decision log
 
+## 2026-10-15 — buyer-facing /platform redesign
+
+Decision: replace the `/platform` technical briefing with a buyer-facing overview built in four sections: a hero with a live-text platform map, four alternating product explanations, existing-system fit, and a demo invitation. Canonical contract: `content-source/pages/platform.md`. The route moves under the accepted homepage shell (`ReviewRoot`), which removes the nested main landmark and the separate legacy navigation and footer. The new page is `src/app/pages/PlatformPage.tsx` with route-only styles in `src/styles/platform-page.css`. `PlatformOverviewPage.tsx` and its technical components are retained, unrouted, for a future deeper demonstration. All visuals are concept illustrations; no verified product screenshot exists. Claim traceability for `/platform` now points to the new page, and the page links only to the architect reference center for technical depth. Also fixed: `SEO.tsx` had been deleting React 19's natively rendered head tags, so every route showed the homepage title and canonical. Static `index.html` fallbacks are now marked `data-static-head` and are the only tags removed. Review work is on local branch `review/platform-redesign-2026-10-15`; no merge or deployment.
+
 ## 2026-10-15 — plain-language homepage copy
 
 Decision: the founder accepted the recovered homepage structure and design and supplied replacement copy written for plant managers, supervisors, and operators. Copy-only change to `/`; layout, links, CTAs, metadata, analytics, and the three service commitments are unchanged. Canonical copy is in `content-source/pages/home.md`. The homepage no longer uses the phrase "Accountable Operations", so the CLM-CAT-004 route use for `/` was removed; CLM-CAT-003 and CLM-OUTCOME-001 now trace to the new wording.

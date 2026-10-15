@@ -2,6 +2,14 @@
 
 Updated: 2026-10-15
 
+## /platform redesign (2026-10-15)
+
+- Branch `review/platform-redesign-2026-10-15`, based on the accepted homepage checkpoint `ec52fa01` (on `review-pr17`). Preview: `preview.lastmileinc.ai/platform`. Not pushed, not merged.
+- New page `PlatformPage.tsx` plus `platform-page.css` (scoped to `.lm-platform`, loaded only by this route). The route now uses the homepage shell. Review labels are hidden on `/platform`, as on `/`.
+- Shared edits: `routes.ts` (moves one route), `SiteShell.tsx` (adds `/platform` to the review-chrome exclusion list), `SEO.tsx` with `index.html` and `vite.config.ts` (head-tag fix affecting the head metadata of every route; no visible change), plus governance files `claim-traceability.mjs`, `route-claims.json`, and `route-concepts.json`.
+- Homepage and the seven accepted supporting routes are pixel-identical to the pre-change capture at five viewports.
+- Open: real Infinit-Control product screenshot; the product pages (`/infinit-*`, `/singularity`) still use the legacy shell and technical copy.
+
 ## Homepage recovery (2026-10-15)
 
 - Baseline: `cc0c329c` on `review-pr17` (tracks `origin/codex/website-design-review-2026-09-25`). The rejected overhaul is preserved locally on `snapshot/homepage-overhaul-2026-10-15` (`425c1181`, plus the recovered pre-existing `LaunchCountdownBanner.tsx` in `75e48023`). Not pushed, not for merge.

@@ -60,27 +60,9 @@ export function SEO({
       : [];
 
   useLayoutEffect(() => {
-    const duplicateSelectors = [
-      'meta[name="title"]:not([data-rh])',
-      'meta[name="description"]:not([data-rh])',
-      'meta[name="keywords"]:not([data-rh])',
-      'meta[name="author"]:not([data-rh])',
-      'meta[name="language"]:not([data-rh])',
-      'meta[name="robots"]:not([data-rh])',
-      'link[rel="canonical"]:not([data-rh])',
-      'meta[property^="og:"]:not([data-rh])',
-      'meta[property^="twitter:"]:not([data-rh])',
-      'meta[name^="twitter:"]:not([data-rh])',
-    ];
-    for (const selector of duplicateSelectors) {
-      document.head.querySelectorAll(selector).forEach((node) => node.remove());
-    }
-    const titles = document.head.querySelectorAll('title');
-    if (titles.length > 1) {
-      for (let i = 0; i < titles.length - 1; i += 1) {
-        titles[i].remove();
-      }
-    }
+    // index.html ships static fallback tags (marked data-static-head) for first paint and non-JS crawlers.
+    // React 19 renders this component's tags natively into <head>, so drop the static copies to avoid duplicates.
+    document.head.querySelectorAll('[data-static-head]').forEach((node) => node.remove());
   }, [fullTitle, description, canonicalUrl, effectiveRobots]);
 
   return (

@@ -38,6 +38,7 @@ export const router = createBrowserRouter([
       { path: "about", lazy: lazyPage(() => import("./pages/AboutPage"), "AboutPage") },
       { path: "demo", lazy: lazyPage(() => import("./pages/DemoPage"), "DemoPage") },
       { path: "private-beta", lazy: lazyPage(() => import("./pages/PrivateBetaPage"), "PrivateBetaPage") },
+      { path: "platform", lazy: lazyPage(() => import("./pages/PlatformPage"), "PlatformPage") },
     ],
   },
 
@@ -46,7 +47,6 @@ export const router = createBrowserRouter([
     Component: Root,
     HydrateFallback: RouteLoading,
     children: [
-      { path: "platform", lazy: lazyPage(() => import("./pages/PlatformOverviewPage"), "PlatformOverviewPage") },
       { path: "use-cases", lazy: lazyPage(() => import("./pages/UseCasesPage"), "UseCasesPage") },
       { path: "use-cases/data-centers", loader: redirectTo("/use-cases/data-center-cooling", 301) },
       { path: "use-cases/manufacturing", loader: redirectTo("/use-cases/manufacturing-compressed-air", 301) },

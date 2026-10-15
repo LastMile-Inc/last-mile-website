@@ -42,7 +42,6 @@
       "articleRoute": "/resources/industrial-concepts/operational-outcome-thread",
       "collectionIndex": 5,
       "usages": [
-        { "route": "/platform", "mode": "link_only", "sourceFile": "src/app/pages/PlatformOverviewPage.tsx" },
         { "route": "/use-cases/data-center-cooling", "mode": "link_only", "sourceFile": "src/app/pages/OperatingUseCasePage.tsx" },
         { "route": "/use-cases/municipal-wastewater", "mode": "link_only", "sourceFile": "src/app/pages/OperatingUseCasePage.tsx" },
         { "route": "/use-cases/manufacturing-compressed-air", "mode": "link_only", "sourceFile": "src/app/pages/OperatingUseCasePage.tsx" },

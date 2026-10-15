@@ -21,8 +21,8 @@ export default defineConfig(({ command }) => ({
       transformIndexHtml(html) {
         if (command === 'serve') {
           return html.replace(
-            '<meta name="robots" content="index, follow" data-rh="true" />',
-            '<meta name="robots" content="noindex, nofollow" data-rh="true" />',
+            '<meta name="robots" content="index, follow" data-static-head />',
+            '<meta name="robots" content="noindex, nofollow" data-static-head />',
           )
         }
         return html

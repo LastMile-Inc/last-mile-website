@@ -4,10 +4,11 @@ import { useLocation } from "react-router";
 import { ArrowRight, ArrowUpRight, Menu, X, Phone, Users, MessageSquare, Activity } from "lucide-react";
 import { trackEvent } from "@/app/lib/analytics";
 
-/** Internal review chrome stays off the customer-facing homepage unless ?review=1 is set; other routes keep the baseline review labels. */
+/** Internal review chrome stays off the customer-facing homepage and platform page unless ?review=1 is set; other routes keep the baseline review labels. */
+const routesWithoutReviewChrome = new Set(["/", "/platform"]);
 function useShowReviewChrome() {
   const { pathname, search } = useLocation();
-  return pathname !== "/" || new URLSearchParams(search).get("review") === "1";
+  return !routesWithoutReviewChrome.has(pathname) || new URLSearchParams(search).get("review") === "1";
 }
 
 const navigation = [["How it works", "/how-it-works"], ["Industries", "/industries"], ["Why Last Mile", "/why-last-mile"], ["Our service", "/our-service"], ["Private beta", "/private-beta"]];

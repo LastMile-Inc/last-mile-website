@@ -11,7 +11,7 @@ const routeConsumers = new Map([
   ["/private-beta", "src/app/pages/PrivateBetaPage.tsx"],
 
   ["/", "src/app/pages/HomePage.tsx"],
-  ["/platform", "src/app/pages/PlatformOverviewPage.tsx"],
+  ["/platform", "src/app/pages/PlatformPage.tsx"],
   ["/ecosystem", "src/app/pages/EcosystemPage.tsx"],
   ["/infinit-signal", "src/app/pages/InfinitSignalPage.tsx"],
   ["/singularity", "src/app/pages/SSOMPage.tsx"],

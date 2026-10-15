@@ -13,7 +13,7 @@
       "uses": [
         {
           "route": "/platform",
-          "sourceFile": "src/app/pages/PlatformOverviewPage.tsx",
+          "sourceFile": "src/app/pages/PlatformPage.tsx",
           "wording": "Last Mile Platform"
         }
       ]
@@ -30,8 +30,8 @@
       "uses": [
         {
           "route": "/platform",
-          "sourceFile": "src/app/pages/PlatformOverviewPage.tsx",
-          "wording": "Last Mile is the orchestration layer for physical operations across the OT, data, work, and service systems you already run."
+          "sourceFile": "src/app/pages/PlatformPage.tsx",
+          "wording": "Last Mile connects information and work across your existing equipment and business software."
         },
         {
           "route": "/ecosystem",
@@ -58,8 +58,8 @@
       "uses": [
         {
           "route": "/platform",
-          "sourceFile": "src/app/pages/PlatformOverviewPage.tsx",
-          "wording": "One accountable operating condition\u2014from first evidence to verified outcome."
+          "sourceFile": "src/app/pages/PlatformPage.tsx",
+          "wording": "See what needs attention, organize the response, and check the result."
         },
         {
           "route": "/",
@@ -92,8 +92,8 @@
       "uses": [
         {
           "route": "/platform",
-          "sourceFile": "src/app/pages/PlatformOverviewPage.tsx",
-          "wording": "The work order can close before the operating condition is recovered."
+          "sourceFile": "src/app/pages/PlatformPage.tsx",
+          "wording": "Finishing the task doesn’t prove the equipment has recovered. The team checks the readings afterward."
         },
         {
           "route": "/infinit-flow",
@@ -154,8 +154,8 @@
         },
         {
           "route": "/platform",
-          "sourceFile": "src/app/pages/PlatformOverviewPage.tsx",
-          "wording": "Consumes configured operational sources, preserves source evidence, qualifies time and quality, resolves mappings, and creates SSOM-conformant canonical operational records."
+          "sourceFile": "src/app/pages/PlatformPage.tsx",
+          "wording": "Infinit-Signal brings that information together, checks it for problems, and prepares it for use across Last Mile."
         }
       ]
     },

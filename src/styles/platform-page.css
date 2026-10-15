@@ -1,0 +1,175 @@
+/* /platform page only. Every rule is scoped to main.lm-platform; this file is imported solely by PlatformPage.tsx. */
+body.lm-makeover .lm-platform .pf-sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+body.lm-makeover .lm-platform #products{scroll-margin-top:110px}
+
+/* Hero */
+body.lm-makeover .lm-platform .pf-hero{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:64px;align-items:center;padding-block:64px 80px}
+body.lm-makeover .lm-platform .pf-hero>*{min-width:0}
+body.lm-makeover .lm-platform .pf-hero h1{font-size:clamp(44px,4.6vw,70px);line-height:1.04;letter-spacing:-2.6px;margin-top:24px;text-wrap:balance}
+body.lm-makeover .lm-platform .pf-lead{font-size:19px;line-height:1.6;color:var(--lm-copy);margin-top:24px;max-width:540px}
+body.lm-makeover .lm-platform .pf-actions{display:flex;flex-wrap:wrap;align-items:center;gap:24px;margin-top:32px}
+
+/* Platform map (hero visual) */
+body.lm-makeover .lm-platform .pf-map{margin:0;display:flex;flex-direction:column;align-items:stretch}
+body.lm-makeover .lm-platform .pf-map-tier{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:12px 20px;padding:16px 20px;background:var(--lm-surface);border:1px solid var(--lm-wash);border-radius:8px}
+body.lm-makeover .lm-platform .pf-map-tier-label{font-size:12px;font-weight:700;letter-spacing:1.4px;text-transform:uppercase;color:var(--lm-copy)}
+body.lm-makeover .lm-platform .pf-map-chips{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:10px}
+body.lm-makeover .lm-platform .pf-map-chips li{display:inline-flex;align-items:center;gap:8px;padding:8px 12px;border-radius:999px;background:var(--lm-canvas);color:var(--lm-ink);font-size:15px;font-weight:500;line-height:1.3}
+body.lm-makeover .lm-platform .pf-map-chips svg{color:var(--lm-blue-dark);flex-shrink:0}
+body.lm-makeover .lm-platform .pf-map-link{position:relative;height:30px}
+body.lm-makeover .lm-platform .pf-map-link::before{content:"";position:absolute;left:50%;top:4px;bottom:8px;width:2px;transform:translateX(-50%);background:var(--lm-steel)}
+body.lm-makeover .lm-platform .pf-map-link::after{content:"";position:absolute;left:50%;bottom:3px;width:8px;height:8px;border-right:2px solid var(--lm-steel);border-bottom:2px solid var(--lm-steel);transform:translateX(-50%) rotate(45deg)}
+body.lm-makeover .lm-platform .pf-map-platform{display:flex;flex-direction:column;gap:22px;padding:22px;border-radius:12px;background:linear-gradient(180deg,var(--lm-wash),var(--lm-canvas));border:1px solid var(--lm-steel);box-shadow:0 24px 50px -36px color-mix(in srgb,var(--lm-ink) 45%,transparent)}
+body.lm-makeover .lm-platform .pf-map-platform-label{display:flex;align-items:center;gap:10px;font-size:12px;font-weight:700;letter-spacing:1.6px;text-transform:uppercase;color:var(--lm-blue-dark)}
+body.lm-makeover .lm-platform .pf-map-platform-label::before{content:"";width:22px;height:2px;background:var(--lm-blue)}
+body.lm-makeover .lm-platform .pf-map-node,body.lm-makeover .lm-platform .pf-map-core{display:flex;align-items:flex-start;gap:12px;padding:14px 16px;border-radius:8px;background:var(--lm-surface);border:1px solid var(--lm-wash);position:relative}
+body.lm-makeover .lm-platform .pf-map-node svg,body.lm-makeover .lm-platform .pf-map-core svg{color:var(--lm-blue-dark);flex-shrink:0;margin-top:2px}
+body.lm-makeover .lm-platform .pf-map-node strong,body.lm-makeover .lm-platform .pf-map-core strong{display:block;font-size:17px;font-weight:600;color:var(--lm-ink);letter-spacing:-.2px}
+body.lm-makeover .lm-platform .pf-map-node span,body.lm-makeover .lm-platform .pf-map-core span{display:block;font-size:15px;color:var(--lm-copy);margin-top:2px;line-height:1.4}
+body.lm-makeover .lm-platform .pf-map-core{padding:18px 20px;background:var(--lm-surface);border:2px solid var(--lm-mint)}
+body.lm-makeover .lm-platform .pf-map-core em{display:inline-block;margin-top:10px;font-style:normal;font-size:13px;font-weight:600;color:var(--lm-blue-dark);background:var(--lm-wash);padding:4px 10px;border-radius:999px}
+body.lm-makeover .lm-platform .pf-map-signal::after,body.lm-makeover .lm-platform .pf-map-uses::before{content:"";position:absolute;left:50%;width:2px;height:22px;background:var(--lm-mint);transform:translateX(-50%)}
+body.lm-makeover .lm-platform .pf-map-signal::after{top:100%}
+body.lm-makeover .lm-platform .pf-map-uses::before{bottom:100%}
+body.lm-makeover .lm-platform .pf-map-pair{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+body.lm-makeover .lm-platform .pf-caption{margin-top:12px;font-size:13px;color:var(--lm-copy);letter-spacing:.2px}
+
+/* Products */
+body.lm-makeover .lm-platform .pf-products{background:var(--lm-canvas);padding-block:96px 40px;border-top:1px solid var(--lm-wash)}
+body.lm-makeover .lm-platform .pf-products-header{max-width:720px;margin-bottom:24px}
+body.lm-makeover .lm-platform .pf-products-header h2{text-wrap:balance}
+body.lm-makeover .lm-platform .pf-products-header p{font-size:19px;line-height:1.6;color:var(--lm-copy);margin-top:20px}
+body.lm-makeover .lm-platform .pf-product{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.1fr);gap:72px;align-items:center;padding-block:64px;border-top:1px solid var(--lm-steel)}
+body.lm-makeover .lm-platform .pf-product:first-of-type{border-top:0}
+body.lm-makeover .lm-platform .pf-product>*{min-width:0}
+body.lm-makeover .lm-platform .pf-product:nth-of-type(even) .pf-product-copy{order:2}
+body.lm-makeover .lm-platform .pf-product-name{display:inline-flex;align-items:center;gap:10px;font-size:14px;font-weight:700;letter-spacing:1.2px;text-transform:uppercase;color:var(--lm-blue-dark)}
+body.lm-makeover .lm-platform .pf-product h3{font-size:clamp(28px,2.6vw,38px);font-weight:500;line-height:1.15;letter-spacing:-1.2px;color:var(--lm-ink);margin-top:16px;text-wrap:balance}
+body.lm-makeover .lm-platform .pf-product-copy>p:not(.pf-product-name){font-size:17px;line-height:1.65;color:var(--lm-copy);margin-top:18px;max-width:520px}
+body.lm-makeover .lm-platform .pf-capabilities{list-style:none;margin:24px 0 28px;padding:0;display:grid;gap:12px}
+body.lm-makeover .lm-platform .pf-capabilities li{display:flex;gap:12px;font-size:16px;line-height:1.5;color:var(--lm-ink)}
+body.lm-makeover .lm-platform .pf-capabilities svg{color:var(--lm-blue);flex-shrink:0;margin-top:4px}
+
+/* Shared visual frame */
+body.lm-makeover .lm-platform .pf-visual{margin:0;padding:28px;background:var(--lm-surface);border:1px solid var(--lm-wash);border-radius:12px;box-shadow:0 24px 50px -38px color-mix(in srgb,var(--lm-ink) 45%,transparent)}
+body.lm-makeover .lm-platform .pf-visual-label{font-size:12px;font-weight:700;letter-spacing:1.2px;text-transform:uppercase;color:var(--lm-copy);margin-bottom:12px}
+
+/* Infinit-Signal visual */
+body.lm-makeover .lm-platform .pf-signal-grid{display:grid;grid-template-columns:minmax(0,1fr) auto minmax(0,1fr);gap:18px;align-items:center}
+body.lm-makeover .lm-platform .pf-signal-raw{list-style:none;margin:0;padding:0;display:grid;gap:10px}
+body.lm-makeover .lm-platform .pf-signal-raw li{font-family:"Roboto Mono",ui-monospace,monospace;font-size:14px;color:var(--lm-ink);padding:10px 12px;border-radius:6px;background:var(--lm-canvas);border:1px solid var(--lm-wash);overflow-wrap:anywhere}
+body.lm-makeover .lm-platform .pf-signal-raw li.is-set-aside{border-style:dashed;border-color:var(--lm-steel);color:var(--lm-copy)}
+body.lm-makeover .lm-platform .pf-signal-raw li span{display:block;font-family:Inter,system-ui,sans-serif;font-size:13px;font-weight:600;color:var(--lm-blue-dark);margin-top:4px}
+body.lm-makeover .lm-platform .pf-signal-arrow{display:grid;place-items:center;width:40px;height:40px;border-radius:50%;background:var(--lm-wash);color:var(--lm-blue-dark)}
+body.lm-makeover .lm-platform .pf-signal-record{padding:16px;border-radius:8px;border:2px solid var(--lm-mint);background:var(--lm-surface)}
+body.lm-makeover .lm-platform .pf-signal-record strong{display:block;font-size:17px;font-weight:600;color:var(--lm-ink)}
+body.lm-makeover .lm-platform .pf-signal-record ul{list-style:none;margin:12px 0 0;padding:0;display:grid;gap:8px}
+body.lm-makeover .lm-platform .pf-signal-record li{display:flex;gap:8px;align-items:flex-start;font-size:15px;color:var(--lm-copy);line-height:1.4}
+body.lm-makeover .lm-platform .pf-signal-record svg{color:var(--lm-blue);flex-shrink:0;margin-top:2px}
+
+/* Singularity visual */
+body.lm-makeover .lm-platform .pf-sing-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:28px;align-items:start}
+body.lm-makeover .lm-platform .pf-sing-graph{display:flex;flex-direction:column;align-items:center;text-align:center}
+body.lm-makeover .lm-platform .pf-sing-readings{list-style:none;margin:0;padding:0 0 22px;display:flex;flex-wrap:wrap;justify-content:center;gap:8px;position:relative;width:100%}
+body.lm-makeover .lm-platform .pf-sing-readings::after{content:"";position:absolute;left:50%;bottom:2px;width:2px;height:16px;transform:translateX(-50%);background:var(--lm-mint)}
+body.lm-makeover .lm-platform .pf-sing-readings li{font-size:14px;color:var(--lm-ink);padding:6px 10px;border-radius:999px;background:var(--lm-canvas);border:1px solid var(--lm-wash)}
+body.lm-makeover .lm-platform .pf-sing-node{width:100%;max-width:240px;padding:14px 16px;border-radius:8px;background:var(--lm-surface);border:1px solid var(--lm-steel)}
+body.lm-makeover .lm-platform .pf-sing-node.is-selected{border:2px solid var(--lm-blue);background:var(--lm-wash)}
+body.lm-makeover .lm-platform .pf-sing-node span{display:block;font-size:12px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--lm-copy)}
+body.lm-makeover .lm-platform .pf-sing-node strong{display:block;font-size:18px;font-weight:600;color:var(--lm-ink);margin-top:4px}
+body.lm-makeover .lm-platform .pf-sing-edge{position:relative;margin:0;padding:24px 0;font-size:14px;font-weight:600;line-height:1.2;color:var(--lm-blue-dark)}
+body.lm-makeover .lm-platform .pf-sing-edge::before,body.lm-makeover .lm-platform .pf-sing-edge::after{content:"";position:absolute;left:50%;width:2px;height:18px;transform:translateX(-50%);background:var(--lm-mint)}
+body.lm-makeover .lm-platform .pf-sing-edge::before{top:2px}
+body.lm-makeover .lm-platform .pf-sing-edge::after{bottom:2px}
+body.lm-makeover .lm-platform .pf-sing-history ol{list-style:none;margin:0;padding:0 0 0 18px;border-left:2px solid var(--lm-wash);display:grid;gap:16px}
+body.lm-makeover .lm-platform .pf-sing-history li{position:relative;font-size:15px;line-height:1.45;color:var(--lm-copy)}
+body.lm-makeover .lm-platform .pf-sing-history li::before{content:"";position:absolute;left:-24px;top:6px;width:10px;height:10px;border-radius:50%;background:var(--lm-surface);border:2px solid var(--lm-blue)}
+body.lm-makeover .lm-platform .pf-sing-history strong{display:block;font-size:13px;font-weight:700;letter-spacing:.8px;text-transform:uppercase;color:var(--lm-blue-dark)}
+
+/* Infinit-Flow visual */
+body.lm-makeover .lm-platform .pf-flow-steps{list-style:none;margin:0;padding:0;display:grid}
+body.lm-makeover .lm-platform .pf-flow-steps li{position:relative;display:grid;grid-template-columns:auto minmax(0,1fr) auto;gap:14px;align-items:center;padding:14px 0}
+body.lm-makeover .lm-platform .pf-flow-steps li:not(:last-child)::after{content:"";position:absolute;left:12px;top:42px;bottom:-14px;width:2px;background:var(--lm-wash)}
+body.lm-makeover .lm-platform .pf-flow-dot{display:grid;place-items:center;width:26px;height:26px;border-radius:50%;border:2px solid var(--lm-blue);background:var(--lm-surface);color:var(--lm-surface);position:relative;z-index:1}
+body.lm-makeover .lm-platform .pf-flow-steps li.is-done .pf-flow-dot{background:var(--lm-blue)}
+body.lm-makeover .lm-platform .pf-flow-steps strong{display:block;font-size:17px;font-weight:600;color:var(--lm-ink)}
+body.lm-makeover .lm-platform .pf-flow-steps div span{display:block;font-size:15px;color:var(--lm-copy);margin-top:2px}
+body.lm-makeover .lm-platform .pf-flow-steps em{font-style:normal;font-size:13px;font-weight:600;color:var(--lm-blue-dark);background:var(--lm-wash);padding:4px 10px;border-radius:999px;white-space:nowrap}
+body.lm-makeover .lm-platform .pf-flow-steps li.is-active em{background:var(--lm-surface);border:1px solid var(--lm-blue)}
+body.lm-makeover .lm-platform .pf-flow-note{margin-top:16px;padding:14px 16px;border-radius:8px;background:var(--lm-canvas);border-left:3px solid var(--lm-blue);font-size:15px;line-height:1.5;color:var(--lm-ink)}
+
+/* Infinit-Control visual (concept, not a product screen) */
+body.lm-makeover .lm-platform .pf-control-frame{border:1px solid var(--lm-steel);border-radius:10px;overflow:hidden;background:var(--lm-surface)}
+body.lm-makeover .lm-platform .pf-control-bar{padding:10px 16px;background:var(--lm-wash);font-size:13px;font-weight:700;letter-spacing:.8px;text-transform:uppercase;color:var(--lm-blue-dark)}
+body.lm-makeover .lm-platform .pf-control-body{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:20px;padding:18px 16px}
+body.lm-makeover .lm-platform .pf-control-status{display:inline-block;font-size:13px;font-weight:700;color:var(--lm-blue-dark);border:1px solid var(--lm-blue);border-radius:999px;padding:3px 10px;margin-bottom:10px}
+body.lm-makeover .lm-platform .pf-control-issue strong{display:block;font-size:18px;font-weight:600;color:var(--lm-ink);line-height:1.3}
+body.lm-makeover .lm-platform .pf-control-issue dl{margin:14px 0 0;display:grid;gap:10px}
+body.lm-makeover .lm-platform .pf-control-issue dt{font-size:12px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--lm-copy)}
+body.lm-makeover .lm-platform .pf-control-issue dd{margin:2px 0 0;font-size:15px;color:var(--lm-ink)}
+body.lm-makeover .lm-platform .pf-control-chart svg{display:block;width:100%;height:auto}
+body.lm-makeover .lm-platform .pf-chart-band{fill:var(--lm-wash)}
+body.lm-makeover .lm-platform .pf-chart-line{fill:none;stroke:var(--lm-blue-dark);stroke-width:3;stroke-linecap:round;stroke-linejoin:round}
+body.lm-makeover .lm-platform .pf-control-legend{display:flex;align-items:center;gap:8px;margin-top:8px;font-size:13px;color:var(--lm-copy)}
+body.lm-makeover .lm-platform .pf-control-legend span{width:16px;height:10px;border-radius:2px;background:var(--lm-wash);border:1px solid var(--lm-steel)}
+
+/* Existing-system fit */
+body.lm-makeover .lm-platform .pf-fit{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:84px;align-items:start;padding-block:96px}
+body.lm-makeover .lm-platform .pf-fit>*{min-width:0}
+body.lm-makeover .lm-platform .pf-fit h2{text-wrap:balance}
+body.lm-makeover .lm-platform .pf-fit-intro>p{font-size:18px;line-height:1.6;color:var(--lm-copy);margin-top:22px;max-width:540px}
+body.lm-makeover .lm-platform .pf-fit-link{margin-top:26px}
+body.lm-makeover .lm-platform .pf-fit-list{list-style:none;margin:0;padding:0}
+body.lm-makeover .lm-platform .pf-fit-list li{padding-block:22px;border-top:1px solid var(--lm-steel)}
+body.lm-makeover .lm-platform .pf-fit-list li:last-child{border-bottom:1px solid var(--lm-steel)}
+body.lm-makeover .lm-platform .pf-fit-list h3{font-size:20px;font-weight:500;letter-spacing:-.4px;color:var(--lm-ink)}
+body.lm-makeover .lm-platform .pf-fit-list p{font-size:16px;line-height:1.55;color:var(--lm-copy);margin-top:6px}
+
+/* Closing */
+body.lm-makeover .lm-platform .pf-closing{padding-top:80px;border-top:1px solid var(--lm-steel)}
+body.lm-makeover .lm-platform .pf-closing h2{max-width:14em;text-wrap:balance}
+body.lm-makeover .lm-platform .pf-closing p{max-width:620px;line-height:1.6}
+
+/* Book a demo buttons match the header button at every breakpoint (same values as the homepage rule). */
+body.lm-makeover .lm-platform .pf-actions .button,body.lm-makeover .lm-platform .closing-button{font-size:14px;padding:13px 18px;gap:20px}
+
+@media(max-width:1200px){
+  body.lm-makeover .lm-platform .pf-actions .button,body.lm-makeover .lm-platform .closing-button{padding:13px 14px;gap:12px}
+}
+@media(max-width:1020px){
+  body.lm-makeover .lm-platform .pf-hero{grid-template-columns:minmax(0,1fr);gap:48px}
+  body.lm-makeover .lm-platform .pf-lead{max-width:640px}
+  body.lm-makeover .lm-platform .pf-product{grid-template-columns:minmax(0,1fr);gap:36px}
+  body.lm-makeover .lm-platform .pf-product:nth-of-type(even) .pf-product-copy{order:0}
+  body.lm-makeover .lm-platform .pf-product-copy>p:not(.pf-product-name){max-width:640px}
+  body.lm-makeover .lm-platform .pf-fit{grid-template-columns:minmax(0,1fr);gap:40px}
+}
+@media(max-width:800px){
+  body.lm-makeover .lm-platform .pf-hero{padding-block:44px 56px}
+  body.lm-makeover .lm-platform .pf-products{padding-block:64px 24px}
+  body.lm-makeover .lm-platform .pf-product{padding-block:48px}
+  body.lm-makeover .lm-platform .pf-fit{padding-block:64px}
+  body.lm-makeover .lm-platform .pf-closing{padding-top:56px}
+  body.lm-makeover .lm-platform .pf-actions .button,body.lm-makeover .lm-platform .closing-button{font-size:14px;padding:12px 15px;gap:12px}
+}
+@media(max-width:580px){
+  body.lm-makeover .lm-platform .pf-hero h1{font-size:40px;letter-spacing:-1.6px}
+  body.lm-makeover .lm-platform .pf-lead,body.lm-makeover .lm-platform .pf-products-header p{font-size:17px}
+  body.lm-makeover .lm-platform .pf-map-tier{padding:14px}
+  body.lm-makeover .lm-platform .pf-map-platform{padding:16px;gap:20px}
+  body.lm-makeover .lm-platform .pf-map-pair{gap:12px}
+  body.lm-makeover .lm-platform .pf-map-pair .pf-map-node{flex-direction:column;gap:8px;padding:12px}
+  body.lm-makeover .lm-platform .pf-map-pair .pf-map-node strong{font-size:15px}
+  body.lm-makeover .lm-platform .pf-map-pair .pf-map-node span{font-size:14px}
+  body.lm-makeover .lm-platform .pf-visual{padding:18px}
+  body.lm-makeover .lm-platform .pf-signal-grid{grid-template-columns:minmax(0,1fr);gap:14px}
+  body.lm-makeover .lm-platform .pf-signal-arrow{justify-self:center;transform:rotate(90deg)}
+  body.lm-makeover .lm-platform .pf-sing-grid,body.lm-makeover .lm-platform .pf-control-body{grid-template-columns:minmax(0,1fr)}
+  body.lm-makeover .lm-platform .pf-closing{padding-top:44px}
+  body.lm-makeover .lm-platform .pf-actions .button,body.lm-makeover .lm-platform .closing-button{font-size:12px;padding:11px 12px;gap:8px}
+  body.lm-makeover .lm-platform .pf-actions .button svg,body.lm-makeover .lm-platform .closing-button svg{width:14px}
+}
+@media(max-width:360px){
+  body.lm-makeover .lm-platform .pf-hero h1{font-size:36px}
+  body.lm-makeover .lm-platform .pf-actions .button,body.lm-makeover .lm-platform .closing-button{font-size:11px;padding:10px}
+}

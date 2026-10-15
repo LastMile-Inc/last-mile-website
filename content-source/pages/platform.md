@@ -2,106 +2,100 @@
 content_id: PAGE-PLATFORM-001
 status: approved
 owner: Platform Product Marketing
-last_reviewed: 2026-08-26
+last_reviewed: 2026-10-15
 claim_maturity: [designed, demonstrated]
-depends_on: [GOV-DOCTRINE-001, USECASE-DC-COOLING-001, CLAIMS-REGISTRY-001]
+depends_on: [GOV-DOCTRINE-001, CLAIMS-REGISTRY-001]
 used_by: [/platform]
 ---
 
 # Platform Page Contract and Copy
 
-## Job
+## October 2026 founder-directed redesign
 
-Show how the four products preserve one operating condition from evidence through verified outcome. Use the data-center cooling reference scenario to demonstrate measurement integrity. Do not turn the page into a general product directory or redesign the approved structure.
+On 2026-10-15 the founder directed a buyer-facing redesign of `/platform` only. The page answers: “What does this software let my team do, and how do its parts work together?” It uses the accepted homepage shell (same header and footer, one main landmark), one platform overview visual, and four product explanations. The previous technical briefing (cooling measurement panel, six-stage simulation, result selector, response sidebar, ownership lists, handoff dictionary, embedded architecture, and use-case viewer) is removed from this route. Its source remains in `src/app/pages/PlatformOverviewPage.tsx` and deeper routes; it is not deleted. This contract supersedes the August 2026 platform copy.
 
-## Hero
+Write for operators and managers. Product names may appear; explain each immediately in plain language. Do not use: canonical identity, qualified Condition, SSOM-conformant, governed operational memory, time-correct evidence chain, return telemetry, measurement contract, authority boundaries, role-based command surfaces, orchestration layer.
 
-**Eyebrow:** LAST MILE PLATFORM
+## 1. Hero
 
-**H1:** One accountable operating condition—from first evidence to verified outcome.
+**Eyebrow:** THE LAST MILE PLATFORM
 
-**Body:** Last Mile is the orchestration layer for physical operations across the OT, data, work, and service systems you already run. It qualifies evidence, resolves one operational identity, coordinates the governed response, and proves recovery from live return measurements.
+**H1:** Bring your systems and your team together.
 
-### Operating-state panel
+**Body:** Last Mile brings equipment information, AI assistance, and everyday work into one connected platform. See what needs attention, organize the response, and check the result.
 
-**Cooling Loop B · Reduced redundancy**
-**Critical · Pump CHWP-02 did not start**
-**Maya Chen · Critical Facilities · DC-03 / Hall 3**
+**Primary CTA:** Book a demo — /demo
 
-| Measurement | Current | Reference | State |
-|---|---:|---:|---|
-| Commanded state | RUN | Requested at 14:32:18 | Commanded |
-| Pump status | Stopped | Expected: Running | Critical |
-| Motor current | 0.6 A | Running baseline*: 17.5-20.5 A | Critical |
-| Loop differential pressure | 4.2 psid | Approved band*: 9.0-15.0 psid | Critical · down 2.1 psid/5 min |
-| Rack inlet temperature | 73.6°F | Recommended: 64.4-80.6°F | Normal · up 0.3°F/5 min |
+**Secondary CTA:** Explore the four products — #products
 
-**Footer:** CHWP-02 is commanded to run but remains stopped. Cooling Loop B has lost its secondary pumping path; Hall 3 temperatures remain inside their current range.
+**Visual (concept illustration, live HTML text):** existing equipment and business systems → a bounded Last Mile platform → your team. Inside the platform: Infinit-Signal — Bring information together; Singularity — Understand your operation (shown as shared information used across the platform); Infinit-Flow — Organize the work; Infinit-Control — See and manage what matters. Conceptual only; no integration paths or control relationships.
 
-## Ownership comparison
+## 2. Products
 
-### What the Existing Stack Retains
+**Heading:** Four products. One connected operation.
 
-- BMS/SCADA commands, status, measurements, and alarms.
-- Historian trends and retained operating data.
-- SAP work order and equipment records.
-- Provider dispatch and field-service updates.
-- Facilities, IT, and field operating authority.
+**Introduction:** Each part has a clear job. Together, they help your team work with the same information and keep the response moving.
 
-### What Last Mile Adds
+### Infinit-Signal — Bring scattered information together.
 
-- One canonical asset and topology across source identities.
-- One qualified Condition instead of disconnected alarms.
-- One case across teams, systems, and providers.
-- One time-correct evidence chain from source to result.
-- One operating result established from return telemetry.
+Equipment and business systems report information in different ways. Infinit-Signal brings that information together, checks it for problems, and prepares it for use across Last Mile.
 
-## Animated outcome loop
+- Collect information from connected systems.
+- Check for missing, repeated, or outdated readings.
+- Keep track of where information came from.
 
-### 1. Detect - Infinit-Signal
+Link: Explore Infinit-Signal — /infinit-signal. Visual: three differently named versions of the same reading (one repeated reading set aside) become one consistent record. Concept illustration.
 
-Display exact values from `USECASE-DC-COOLING-001`; do not use ON/OFF, near zero, stable, or declining as standalone measurements.
+### Singularity — Give every reading its place in the bigger picture.
 
-### 2. Qualify - Infinit-Signal and Singularity
+A reading means more when you know which equipment it belongs to, what that equipment supports, and what happened before. Singularity connects those details so people and AI can work with a shared understanding of the operation.
 
-Show source authority, event time, 1.8-second latency, 98/100 quality, live-event classification, mapping confidence 1.00, five accepted records, and two quarantined records. Explain the duplicate and 47-second-stale pressure sample.
+- Connect readings to the right equipment.
+- Show how equipment and systems relate.
+- Keep the history of issues, work, and results.
 
-### 3. Resolve - Singularity / SSOM
+Link: Explore Singularity — /singularity. Visual: readings → selected Pump 2 → supports → Cooling system, with a three-entry history. Concept illustration.
 
-Show the representative source references and resolved topology. Label all named source products and paths as representative; do not imply validated integrations.
+### Infinit-Flow — Turn the next step into organized work.
 
-### 4. Coordinate - Infinit-Flow
+Infinit-Flow helps your team assign work, get approvals, and coordinate tasks across people and systems. Approved tasks can run automatically where configured, while your team stays informed.
 
-Show Maya Chen; acknowledgement 01:49 / 05:00 Normal; SAP `WO-18427` In progress; dispatch `M-88214` Accepted; ETA 18 min; mechanical isolation authorized; field authority retained by DC-03 Critical Facilities.
+- Give tasks a clear owner.
+- Request approval where needed.
+- Automate approved tasks and track progress.
 
-### 5. Track - Infinit-Control
+Link: Explore Infinit-Flow — /infinit-flow. Visual: issue reviewed → approval requested → task assigned → progress recorded, with the note “Finishing the task doesn’t prove the equipment has recovered. The team checks the readings afterward.” (CLM-FLOW-004, CLM-OUTCOME-001). Concept illustration.
 
-Persistent panel: issue `LM-CHWP-02-0471`; Critical; CHWP-02; Reduced redundancy; Maya Chen; Critical Facilities · DC-03 / Hall 3; acknowledgement complete; SAP work and provider dispatch; current state Pump stopped; result Awaiting qualified return measurements.
+### Infinit-Control — See what needs your attention.
 
-### 6. Verify - Singularity / SSOM and Infinit-Control
+Infinit-Control gives each person a view of the issues, work, and equipment that matter to their role. See who is responding, what has changed, and whether the equipment is performing as expected.
 
-Provide controls for five coherent datasets: Recovery established, Partial recovery, Failed intervention, Recurrence detected, and Insufficient return data. Changing the heading without changing telemetry is prohibited.
+- See current issues and equipment information.
+- Follow work and responsibilities.
+- Review readings after the response.
 
-## Outcome principle section
+Link: Explore Infinit-Control — /infinit-control. Visual: “Concept illustration · not a product screen” showing one issue, who is responding, work state, and readings returning into an unlabeled expected range. No verified product screenshot exists yet; replace with an approved capture when supplied.
 
-**Heading:** The work order can close before the operating condition is recovered.
+## 3. Existing systems
 
-**Body:** In the reference timeline, SAP work closes at 15:02:41. Recovery is not established until 15:17:42, after the complete fifteen-minute measurement window proves the pump is running, current and differential pressure are in band, rack inlet temperature remains in range, and pressure is stable.
+**Heading:** Work with the systems you already use.
 
-## Industry use-case viewer
+**Body:** Last Mile connects information and work across your existing equipment and business software. We’ll review your systems with you to confirm the connections and starting scope.
 
-Keep the four supplied process-map images unchanged. Under each modal image, render the corresponding compact numerical snapshot from the use-case contract with named owner, units, bands, state text/icons, and result summary.
+- Equipment and controls — Readings, operating status, and warnings.
+- Business and maintenance systems — Equipment records, work orders, and updates.
+- People and service teams — Responsibilities, approvals, and progress.
 
-## Reference disclosure
+Discreet link: Explore technical details — /resources/architect-reference-center. No vendor lists; do not imply every system or integration is supported or production-ready.
 
-Reference values describe a controlled Last Mile demonstration. External guidance is identified where applicable; equipment limits, commissioned setpoints, operating bands, response authority, and acceptance criteria remain customer- and site-specific.
+## 4. Final invitation
 
-## CTA
+**Heading:** See how Last Mile could work in your operation.
 
-**Heading:** See one physical operation from signal to proof.
+**Body:** Bring one problem your team spends too much time chasing. We’ll walk through the platform and discuss how it could fit your equipment, systems, and people.
 
-**CTA:** Explore the operating use cases
+**CTA:** Book a demo — /demo
 
-## Route scope
+## Evidence boundaries
 
-Change only the Platform route, its exclusive components, data, styles, and tests. Preserve navigation stacking. Do not use this contract as permission to redesign Home, Products, or dedicated use-case pages.
+All five visuals are concept illustrations built in HTML/CSS/SVG with live text; none is a product screenshot. They contain no customer names, results, measurements, or vendor integrations. Pump 2 and the roles shown are generic examples.
