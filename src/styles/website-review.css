@@ -48,3 +48,31 @@ body.lm-makeover .lm-form__submit { background: var(--lm-blue-dark); color: var(
 body.lm-makeover .lm-form__warning, body.lm-makeover .lm-form__review { font-size: 12px; line-height: 1.65; }
 body.lm-makeover .lm-form__review { padding: 12px; background: var(--lm-wash); border-left: 2px solid var(--lm-blue); color: var(--lm-ink); }
 body.lm-makeover .product-family h3 { font-size: clamp(22px,2.2vw,30px); overflow-wrap: anywhere; }
+/* Homepage (2026-10 recovery): scoped to main.lm-home so shared headings, sections, cards, and buttons are unchanged on every other route. */
+body.lm-makeover .lm-home .hero h1>span{white-space:nowrap}
+body.lm-makeover .lm-home .hero>*{min-width:0}
+body.lm-makeover .lm-home h1,body.lm-makeover .lm-home h2{text-wrap:balance}
+body.lm-makeover .lm-home .hero-description{max-width:500px}
+body.lm-makeover .lm-home .hero-visual{padding-top:0;justify-content:center}
+body.lm-makeover .lm-home .home-hero-image{min-height:0;aspect-ratio:4/3;align-self:auto}
+body.lm-makeover .lm-home .home-hero-image>img{object-position:20% center}
+body.lm-makeover .lm-home .home-response{padding-block:76px 100px;border-top:1px solid var(--lm-wash)}
+body.lm-makeover .lm-home .home-response .editorial-split{align-items:start}
+body.lm-makeover .lm-home .home-response .large-copy{margin-top:0;font-size:19px;line-height:1.6}
+body.lm-makeover .lm-home .home-steps{list-style:none;margin:34px 0 0;padding:0}
+body.lm-makeover .lm-home .home-steps li{display:grid;grid-template-columns:minmax(0,.85fr) minmax(0,1.15fr);gap:24px;padding-block:18px;border-top:1px solid var(--lm-steel)}
+body.lm-makeover .lm-home .home-steps li:last-child{border-bottom:1px solid var(--lm-steel)}
+body.lm-makeover .lm-home .home-steps h3{font-size:18px;line-height:1.4;letter-spacing:-.3px;color:var(--lm-ink)}
+body.lm-makeover .lm-home .home-steps p{margin-top:0;font-size:16px;line-height:1.55}
+body.lm-makeover .lm-home .home-example{margin-top:26px;padding-left:16px;border-left:2px solid var(--lm-blue);font-size:15px;line-height:1.6}
+body.lm-makeover .lm-home .home-example strong{font-weight:600;color:var(--lm-ink)}
+body.lm-makeover .lm-home .closing{padding-top:80px}
+body.lm-makeover .lm-home .industry-panel:focus-visible{outline:2px solid var(--lm-blue-dark);outline-offset:6px}
+body.lm-makeover .lm-home .closing h2{max-width:12.5em}
+body.lm-makeover .lm-home .hero-actions .button,body.lm-makeover .lm-home .closing-button{font-size:14px;padding:13px 18px;gap:20px}
+@media(max-width:1200px){body.lm-makeover .lm-home .hero-actions .button,body.lm-makeover .lm-home .closing-button{padding:13px 14px;gap:12px}}
+@media(max-width:800px){body.lm-makeover .lm-home .hero-actions .button,body.lm-makeover .lm-home .closing-button{font-size:14px;padding:12px 15px;gap:12px}}
+@media(max-width:580px){body.lm-makeover .lm-home .hero-actions .button,body.lm-makeover .lm-home .closing-button{font-size:12px;padding:11px 12px;gap:8px}body.lm-makeover .lm-home .hero-actions .button svg,body.lm-makeover .lm-home .closing-button svg{width:14px}}
+@media(max-width:360px){body.lm-makeover .lm-home .hero-actions .button,body.lm-makeover .lm-home .closing-button{font-size:11px;padding:10px}}
+@media(max-width:800px){body.lm-makeover .lm-home .home-response{padding-block:56px 64px}body.lm-makeover .lm-home .home-response .large-copy{font-size:18px}body.lm-makeover .lm-home .closing{padding-top:56px}}
+@media(max-width:580px){body.lm-makeover .lm-home .home-steps li{grid-template-columns:1fr;gap:6px}body.lm-makeover .lm-home .home-response{padding-block:48px 56px}body.lm-makeover .lm-home .closing{padding-top:44px}}

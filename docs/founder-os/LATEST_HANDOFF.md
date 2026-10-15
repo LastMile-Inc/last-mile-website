@@ -1,6 +1,15 @@
 # Latest handoff
 
-Updated: 2026-09-26
+Updated: 2026-10-15
+
+## Homepage recovery (2026-10-15)
+
+- Baseline: `cc0c329c` on `review-pr17` (tracks `origin/codex/website-design-review-2026-09-25`). The rejected overhaul is preserved locally on `snapshot/homepage-overhaul-2026-10-15` (`425c1181`, plus the recovered pre-existing `LaunchCountdownBanner.tsx` in `75e48023`). Not pushed, not for merge.
+- Homepage: five sections built on baseline classes, with homepage styles scoped under `.lm-home`. Canonical copy: `content-source/pages/home.md`.
+- Shared files: `SiteShell.tsx` hides review chrome on `/` only (shown with `?review=1`), instruments the header demo CTA, and updates the homepage-only `ServiceTeaser` copy. `website-review.css` changes are additive and scoped. Supporting routes were pixel-compared at five viewports against the baseline: 37 of 40 identical; the 3 `/platform` mobile differences match baseline-to-baseline capture noise.
+- Retained: metadata deduplication, preview `noindex, nofollow` and `X-Robots-Tag`, production `index, follow`, on-palette social image, structured-data description, CTA events. Not retained: eager homepage import and font-loading change (no measured benefit).
+- Open founder inputs: real product screenshots; verified release date/availability (no notice shown); claim registration for the hero's AI capability statement; demo duration.
+- Validation: `npm run validate` passes. No merge or deployment.
 
 ## Editable corporate website design review
 

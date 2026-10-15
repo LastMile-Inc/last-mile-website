@@ -1,6 +1,6 @@
 # Current state
 
-Updated: 2026-09-26
+Updated: 2026-10-15
 
 ## Platform and public narrative
 
@@ -18,6 +18,7 @@ Updated: 2026-09-26
 - The current independent-hosting design review is based on main commit `d14c49d44aa2b80ad669621c8d3af8aa92577243` (PR #16), on branch `codex/website-design-review-2026-09-25`.
 - The founder authorized transfer of the Homepage Concept into the company repository for direct editing and review through the existing `preview.lastmileinc.ai` tunnel on port 5173.
 - Eight buyer-facing routes now carry the approved light design, Accountable Operations story, screenshot placeholders, and proactive personal-service promise. The earlier seven-section homepage restriction is superseded by the explicit redesign request.
+- 2026-10-15: the homepage was recovered to the September design language as five sections (see `content-source/pages/home.md`). It no longer uses screenshot placeholders. Supporting routes, sitewide navigation, and the footer match baseline `cc0c329c`. The rejected ten-section overhaul is preserved on local branch `snapshot/homepage-overhaul-2026-10-15` and is not for merge.
 - Service capabilities and the ambition to earn the highest service ratings are registered as founder-directed review-site commitments, not independently verified achievements or service-level guarantees.
 - Demo and private-beta routes use the existing form integration; development mode does not send CRM submissions. Deeper existing pages retain their layout and routes.
 - The port is editable React/TypeScript/CSS in the existing Vite project and has no ChatGPT Sites runtime dependency. See `docs/website-design-review.md`.

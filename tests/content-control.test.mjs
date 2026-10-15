@@ -10,7 +10,7 @@ test("claim traceability accepts wording published by the registered route consu
   const errors = validateClaimUseTraceability({
     root,
     claimId: "CLM-CAT-004",
-    use: { route: "/", sourceFile: "src/app/pages/HomePage.tsx", wording: "This is Accountable Operations" },
+    use: { route: "/", sourceFile: "src/app/pages/HomePage.tsx", wording: "Seeing a problem is only the start." },
   });
   assert.deepEqual(errors, []);
 });
@@ -19,7 +19,7 @@ test("claim traceability rejects registered wording that drifts from the publish
   const errors = validateClaimUseTraceability({
     root,
     claimId: "CLM-CAT-004",
-    use: { route: "/", sourceFile: "src/app/pages/HomePage.tsx", wording: "This is Accountable Operations — drifted" },
+    use: { route: "/", sourceFile: "src/app/pages/HomePage.tsx", wording: "Seeing a problem is only the start — drifted" },
   });
   assert.ok(errors.some((error) => /does not exactly match/.test(error)));
 });

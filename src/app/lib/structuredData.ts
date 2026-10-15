@@ -11,7 +11,7 @@ export function createOrganizationSchema() {
     logo: `${siteUrl}/logo.png`,
     sameAs: ["https://www.linkedin.com/company/lastmile-inc/"],
     description:
-      "Last Mile turns operational signals into coordinated work, authorized automation, and visible operational outcomes.",
+      "Last Mile is a cloud-based operational intelligence platform that integrates and normalizes data from industrial and enterprise systems, provides AI-assisted insights and operational dashboards, and orchestrates workflows and authorized automated actions with outcome tracking.",
   };
 }
 
@@ -22,7 +22,7 @@ export function createWebsiteSchema() {
     name: "Last Mile",
     url: siteUrl,
     description:
-      "Last Mile turns operational signals into coordinated work, authorized automation, and visible operational outcomes.",
+      "Last Mile is a cloud-based operational intelligence platform that integrates and normalizes data from industrial and enterprise systems, provides AI-assisted insights and operational dashboards, and orchestrates workflows and authorized automated actions with outcome tracking.",
   };
 }
 

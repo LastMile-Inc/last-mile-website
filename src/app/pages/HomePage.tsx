@@ -1,47 +1,87 @@
 import { SEO } from "@/app/components/SEO";
-import { screenshots } from "@/app/content/productScreenshots";
 import { useState } from "react";
-import { ArrowUpRight, ArrowRight, ChevronRight, Factory, Server, Snowflake } from "lucide-react";
+import { ArrowUpRight, ArrowRight, Factory, Server, Snowflake } from "lucide-react";
 import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/app/components/ui/tabs";
-import { Screenshot } from "@/app/components/makeover/ProductShot";
 import { ServiceTeaser } from "@/app/components/makeover/SiteShell";
+import { trackEvent } from "@/app/lib/analytics";
 
 const demoUrl = "/demo";
-const betaUrl = "/private-beta";
-const stages = [
-  { name: "Evidence", short: "See what changed.", text: "Bring the facts about a developing problem into view, so the right people know where to look.", example: "A cooling unit’s temperature starts to rise. The change becomes the starting point for a response." },
-  { name: "Understand", short: "Know what it means.", text: "Put the issue in context. Connect what is happening now with the equipment’s history and the operation it supports.", example: "The team sees the rising temperature alongside the cooling unit’s recent performance and service history." },
-  { name: "Decide", short: "Choose the right response.", text: "Make the next step clear, with your operating rules and your people’s authority guiding the decision.", example: "The responsible person reviews the suggested response and approves the next step where required." },
-  { name: "Coordinate", short: "Get everyone moving together.", text: "Connect the people and work involved in a response. Make ownership clear and keep progress visible.", example: "The facilities team knows who is handling the cooling issue, what needs to happen, and what comes next." },
-  { name: "Act", short: "Turn the decision into action.", text: "Carry out the agreed response within the permissions and safeguards your operation sets.", example: "The approved response is carried out. The team can follow what was done and when." },
-  { name: "Verify", short: "Prove the problem is resolved.", text: "Check the operating evidence after the action. Recovery should mean the equipment is performing as expected.", example: "The temperature returns to the expected range. The operating evidence confirms whether the response worked." },
+const responseSteps = [
+  { title: "Understand the problem.", text: "See the warning alongside the equipment’s recent readings and history." },
+  { title: "Get the right people moving.", text: "Assign the next step and get approval when it’s needed." },
+  { title: "Check that the fix worked.", text: "Check the equipment’s readings after the work to see whether it is running as expected." },
 ];
 const industries = [
-  { name: "Manufacturing", icon: Factory, title: "Keep the line moving.", text: "When a machine starts behaving differently, connect the warning to the people who can respond—and follow through to a stable operation.", challenge: "Equipment reliability · Production continuity · Team coordination" },
-  { name: "Data centers", icon: Server, title: "Keep critical operations ready.", text: "When cooling or facility equipment needs attention, bring the facts and the response together—and check that conditions have recovered.", challenge: "Cooling performance · Facility readiness · Clear ownership" },
-  { name: "Cold storage", icon: Snowflake, title: "Protect what depends on you.", text: "When storage conditions begin to drift, help the team understand what is happening, coordinate the next step, and verify the return to expected conditions.", challenge: "Temperature conditions · Equipment health · Timely response" },
+  { name: "Manufacturing", icon: Factory, title: "Keep the line moving.", text: "When a machine shows signs of trouble, help production and maintenance see the same information, agree on the next step, and keep each other informed.", challenge: "Equipment condition · Production uptime · Clear responsibilities" },
+  { name: "Data centers", icon: Server, title: "Keep cooling problems from escalating.", text: "When temperatures rise or cooling equipment needs attention, help the team see what changed, organize the response, and check that temperatures return to the expected range.", challenge: "Cooling performance · Temperature checks · Clear responsibilities" },
+  { name: "Cold storage", icon: Snowflake, title: "Keep stored goods at the right temperature.", text: "When storage temperatures move outside the expected range, help the team investigate, organize the work, and check that cooling has recovered.", challenge: "Storage temperatures · Cooling equipment · Clear responsibilities" },
 ];
 
 export function HomePage() {
-  const [stage, setStage] = useState("Evidence");
   const [industry, setIndustry] = useState("Manufacturing");
   return <>
-    <SEO title={"Last Mile — Run your operation as one"} description={"Accountable Operations. From the first warning to a proven result, backed by proactive personal service."} canonicalPath="/" robots="noindex, nofollow" />
-    <main id="main">
-      <section className="hero wrap">
-        <div className="hero-copy"><p className="eyebrow"><span className="little-line" /> INTRODUCING ACCOUNTABLE OPERATIONS</p><h1>Run your<br />operation<br /><span>as one.</span></h1><p className="hero-audience">For the leaders who keep plants, facilities,<br className="desktop-break" /> and critical operations running.</p><p className="hero-description">Connect what’s happening to what happens next. Last Mile brings your equipment, systems, and people together—from the first warning to a proven result.</p><a className="hero-service-link" href="/our-service">Backed by people who get to know your operation. <ArrowRight size={16}/></a><div className="hero-actions"><a className="button" href={demoUrl}>See Last Mile in action <ArrowUpRight size={18} /></a><a className="text-link" href="#private-beta">Explore the private beta <ArrowRight size={17} /></a></div></div>
-        <div className="hero-visual"><div className="hero-visual-heading"><span>THE BIG PICTURE. THE NEXT MOVE.</span><span>01 — 04</span></div><Screenshot index={0} hero /><div className="hero-visual-footer"><span className="path-mark" /><p>One connected operation.<br /><strong>All the way to the outcome.</strong></p><a href="#in-action" aria-label="Explore the product views"><ArrowRight size={23}/></a></div></div>
+    <SEO title="Operational Intelligence for Industrial Teams | Last Mile" description="Last Mile connects industrial and enterprise system data and coordinates people, workflows, and authorized automation through to a verified result." canonicalPath="/" markdownPath="/index.md" />
+    <main id="main" className="lm-home">
+      <section className="hero wrap" aria-labelledby="home-hero-title">
+        <div className="hero-copy">
+          <p className="eyebrow"><span className="little-line" /> SOFTWARE FOR INDUSTRIAL OPERATIONS</p>
+          <h1 id="home-hero-title">Run your operation <span>as one.</span></h1>
+          <p className="hero-description">Last Mile brings information from your equipment and business systems into one place. It uses AI to help your team spot problems and decide what to do next. Your team can assign work, automate approved tasks, and check that the equipment is working as expected afterward.</p>
+          <div className="hero-actions">
+            <a className="button" href={demoUrl} onClick={() => trackEvent("cta_demo_click", { placement: "home_hero", destination: demoUrl })}>Book a demo <ArrowUpRight size={16} aria-hidden="true" /></a>
+            <a className="text-link" href="/platform" onClick={() => trackEvent("cta_explore_platform_click", { placement: "home_hero", destination: "/platform" })}>Explore the platform <ArrowRight size={17} aria-hidden="true" /></a>
+          </div>
+        </div>
+        <div className="hero-visual">
+          <div className="industrial-image home-hero-image">
+            <img src="/images/home/industrial-orchestration-hero-v3.png" alt="An operator with a tablet beside industrial pump equipment, connected by a visual path from a warning to a response" width={1672} height={941} fetchPriority="high" />
+            <div className="image-caption" aria-hidden="true"><span>FROM THE PLANT FLOOR</span><ArrowRight size={18} /><span>TO THE FINISHED RESPONSE</span></div>
+          </div>
+        </div>
       </section>
-      <div className="outcome-strip wrap"><div><span>01</span><strong>Know what matters.</strong><p>See the issue in context.</p></div><div><span>02</span><strong>Move as one.</strong><p>Give every response clear ownership.</p></div><div><span>03</span><strong>Prove it worked.</strong><p>Follow through to the physical result.</p></div></div>
-      <section className="problem wrap" aria-labelledby="problem-title"><div className="industrial-image"><img src="/images/home/industrial-orchestration-hero-v3.png" alt="Industrial equipment and an operator connected by a visual path from a warning to a response" loading="lazy" /><div className="image-caption"><span>FROM THE PLANT FLOOR</span><ArrowRight size={18} /><span>TO THE FINISHED RESPONSE</span></div></div><div className="problem-copy"><p className="eyebrow">CLOSE THE GAP</p><h2 id="problem-title">Seeing a problem<br />is only the start.</h2><p className="large-copy">The real work is everything that comes next.</p><p>Finding the context. Reaching the right person. Agreeing on the next step. Checking that the fix actually worked.</p><p>Last Mile is designed to bring that work together, so your best people can spend less time chasing answers and more time moving the operation forward.</p><a href="/how-it-works" className="text-link">This is Accountable Operations <ArrowRight size={18} /></a></div></section>
-      <section className="loop-section" id="how-it-works"><div className="wrap"><div className="section-top"><div><p className="eyebrow">THE ACCOUNTABLE OPERATIONS LOOP</p><h2>Every step connected.<br /><span>Every outcome accounted for.</span></h2></div><p className="section-intro">One continuous path from what your equipment is telling you to proof that the response worked.</p></div>
-        <Tabs value={stage} onValueChange={setStage} className="loop-tabs"><TabsList className="stage-list" aria-label="Accountable Operations Loop stages">{stages.map((s,i) => <TabsTrigger key={s.name} value={s.name} className="stage-trigger"><span>0{i+1}</span>{s.name}<ChevronRight size={15}/></TabsTrigger>)}</TabsList><div className="loop-layout"><div className="loop-image"><img src="/images/platform/accountable-operations-loop-v3.png" alt="The Accountable Operations Loop, a connected ring of six engineered segments" loading="lazy" /><span className="loop-image-label">THE LOOP IS COMPLETE WHEN THE RESULT IS VERIFIED.</span></div><div className="stage-panels">{stages.map((s,i) => <TabsContent key={s.name} value={s.name} className="stage-panel"><p className="eyebrow">0{i+1} / {s.name.toUpperCase()}</p><h3>{s.short}</h3><p>{s.text}</p><div className="example"><span>FOLLOW A COOLING ISSUE</span><p>{s.example}</p><small>Illustrative scenario</small></div><button className="text-link" onClick={() => setStage(stages[(i+1)%6].name)}>{i===5 ? "Back to the first warning" : `Next: ${stages[i+1].name}`}<ArrowRight size={17}/></button></TabsContent>)}</div></div></Tabs>
-      </div></section>
-      <section className="product-section wrap" id="in-action"><div className="section-top"><div><p className="eyebrow">SEE THE FOLLOW-THROUGH</p><h2>From “what’s happening?”<br />to <span>“here’s the result.”</span></h2></div><p className="section-intro">Follow one issue through Last Mile. See the context, the response, and the evidence that brings it to a close.</p></div><Tabs defaultValue="02" className="product-tabs"><TabsList className="product-list" aria-label="Product views">{screenshots.slice(1,4).map(s => <TabsTrigger key={s.id} value={s.id} className="product-trigger"><span>{s.id}</span>{s.title}<ArrowUpRight size={18}/></TabsTrigger>)}</TabsList>{screenshots.slice(1,4).map((s,i) => <TabsContent key={s.id} value={s.id} className="product-panel"><Screenshot index={i+1}/><div className="product-context"><span className="product-number">{s.id}</span><h3>{i===0 ? "The whole story. In one place." : i===1 ? "A clear next step. A clear owner." : "The work is done when the result is real."}</h3><p>{s.detail}</p><div className="fine-rule"/><p className="product-promise">{i===0 ? "Give your people the context to make the next decision with confidence." : i===1 ? "Keep your people in control. Your rules determine what requires approval." : "Close the loop with evidence from the operation itself."}</p><a className="text-link" href={demoUrl}>Walk through it with us <ArrowUpRight size={17}/></a></div></TabsContent>)}</Tabs></section>
-      <section className="industries-section" id="your-industry"><div className="wrap industries-layout"><div><p className="eyebrow">YOUR WORLD. YOUR LAST MILE.</p><h2>The stakes are real.<br />So is the work.</h2><p className="industry-intro">For operations leaders responsible for equipment, uptime, and the people who keep everything running.</p><a className="text-link" href="/industries">Explore your industry <ArrowUpRight size={18}/></a></div><Tabs value={industry} onValueChange={setIndustry} className="industry-tabs"><TabsList className="industry-list" aria-label="Industry examples">{industries.map(item => <TabsTrigger className="industry-trigger" key={item.name} value={item.name}><item.icon size={18}/>{item.name}</TabsTrigger>)}</TabsList>{industries.map(item => <TabsContent value={item.name} key={item.name} className="industry-panel"><span className="industry-icon"><item.icon size={35} strokeWidth={1.1}/></span><h3>{item.title}</h3><p>{item.text}</p><div className="industry-challenges">{item.challenge}</div><small>Illustrative application</small></TabsContent>)}</Tabs></div></section>
+
+      <section className="home-response wrap" aria-labelledby="problem-title">
+        <div className="editorial-split">
+          <div>
+            <p className="eyebrow">FROM WARNING TO RESOLUTION</p>
+            <h2 id="problem-title">Seeing a problem is only the start.</h2>
+          </div>
+          <div>
+            <p className="large-copy">A warning doesn’t fix the problem. Your team still has to piece together what happened, find the right person, and make sure the fix worked. Last Mile helps them manage that work without chasing updates across different systems.</p>
+            <ol className="home-steps">
+              {responseSteps.map((step) => <li key={step.title}><h3>{step.title}</h3><p>{step.text}</p></li>)}
+            </ol>
+            <p className="home-example"><strong>Example:</strong> A cooling unit gets too warm. The team checks its recent readings, assigns someone to investigate, and checks the temperature again after the work.</p>
+            <a href="/how-it-works" className="text-link">See how it works <ArrowRight size={18} aria-hidden="true" /></a>
+          </div>
+        </div>
+      </section>
+
+      <section className="industries-section" id="your-industry" aria-labelledby="industries-title">
+        <div className="wrap industries-layout">
+          <div>
+            <p className="eyebrow">YOUR WORLD. YOUR LAST MILE.</p>
+            <h2 id="industries-title">Built for the operations you’re responsible for.</h2>
+            <p className="industry-intro">Keep production moving, keep cooling equipment working, and get the right people involved when something needs attention.</p>
+            <a className="text-link" href="/industries">Explore your industry <ArrowUpRight size={18} aria-hidden="true" /></a>
+          </div>
+          <Tabs value={industry} onValueChange={setIndustry} className="industry-tabs">
+            <TabsList className="industry-list" aria-label="Industry examples">{industries.map((item) => <TabsTrigger className="industry-trigger" key={item.name} value={item.name}><item.icon size={18} aria-hidden="true" />{item.name}</TabsTrigger>)}</TabsList>
+            {industries.map((item) => <TabsContent value={item.name} key={item.name} className="industry-panel"><span className="industry-icon" aria-hidden="true"><item.icon size={35} strokeWidth={1.1} /></span><h3>{item.title}</h3><p>{item.text}</p><div className="industry-challenges">{item.challenge}</div><small>Example use</small></TabsContent>)}
+          </Tabs>
+        </div>
+      </section>
+
       <ServiceTeaser />
-      <section className="beta-section wrap" id="private-beta"><div className="beta-symbol" aria-hidden="true"><img src="/logo.png" alt=""/></div><div className="beta-content"><p className="eyebrow"><span className="status-dot"/> PRIVATE BETA RELEASE</p><h2>Help shape what<br />comes next for industry.</h2><p>Bring your operating reality to the conversation. Work closely with our team and help shape how connected, accountable operations work in the real world.</p><div className="beta-actions"><a className="button" href={betaUrl}>Request private beta access <ArrowUpRight size={18}/></a><span>Start with a conversation about fit.</span></div></div></section>
-      <section className="closing wrap"><div><p className="eyebrow">LET’S GO THE LAST MILE</p><h2>Bring us the problem<br />you’re tired of chasing.</h2><p>Let’s explore what a complete response could look like.</p></div><a className="button closing-button" href={demoUrl}>Book your demo <ArrowUpRight size={22}/></a></section>
+
+      <section className="closing wrap" aria-labelledby="closing-title">
+        <div>
+          <p className="eyebrow">LET’S GO THE LAST MILE</p>
+          <h2 id="closing-title">Bring us the problem you’re tired of chasing.</h2>
+          <p>Show us where your team loses time chasing information or getting problems resolved. We’ll show you how Last Mile could help.</p>
+        </div>
+        <a className="button closing-button" href={demoUrl} onClick={() => trackEvent("cta_demo_click", { placement: "home_closing", destination: demoUrl })}>Book a demo <ArrowUpRight size={16} aria-hidden="true" /></a>
+      </section>
     </main>
   </>;
 }

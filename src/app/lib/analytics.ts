@@ -1,5 +1,7 @@
 export type AnalyticsEventName =
   | "cta_contact_click"
+  | "cta_demo_click"
+  | "cta_beta_click"
   | "cta_explore_platform_click"
   | "cta_product_click"
   | "cta_ssom_click"

@@ -64,7 +64,7 @@
         {
           "route": "/",
           "sourceFile": "src/app/pages/HomePage.tsx",
-          "wording": "Last Mile brings your equipment, systems, and people together\u2014from the first warning to a proven result."
+          "wording": "Your team can assign work, automate approved tasks, and check that the equipment is working as expected afterward."
         },
         {
           "route": "/how-it-works",
@@ -128,7 +128,7 @@
         {
           "route": "/",
           "sourceFile": "src/app/pages/HomePage.tsx",
-          "wording": "Check the operating evidence after the action. Recovery should mean the equipment is performing as expected."
+          "wording": "Check the equipment’s readings after the work to see whether it is running as expected."
         },
         {
           "route": "/how-it-works",
@@ -530,13 +530,7 @@
       "allowedRoutes": [
         "/"
       ],
-      "uses": [
-        {
-          "route": "/",
-          "sourceFile": "src/app/pages/HomePage.tsx",
-          "wording": "INTRODUCING ACCOUNTABLE OPERATIONS"
-        }
-      ]
+      "uses": []
     },
     {
       "claimId": "CLM-SERVICE-001",

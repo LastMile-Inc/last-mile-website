@@ -66,13 +66,16 @@ test("every use case uses the code-native governed process map and required disc
   }
 });
 
-test("homepage uses approved imagery and real-product placeholders while concepts hide governance enums", () => {
+test("homepage uses approved imagery without placeholders while concepts hide governance enums", () => {
   const home = read("src/app/pages/HomePage.tsx");
+  const howItWorks = read("src/app/pages/HowItWorksPage.tsx");
   const article = read("src/app/pages/IndustrialConceptArticlePage.tsx");
-  assert.match(home, /accountable-operations-loop-v3\.png/);
-  assert.match(home, /<Screenshot index=\{0\}/);
+  assert.match(home, /industrial-orchestration-hero-v3\.png/);
+  assert.doesNotMatch(home, /<Screenshot\b/);
+  assert.doesNotMatch(home, /robots="noindex,\s*nofollow"/);
+  assert.doesNotMatch(home, /not a product screenshot|24\/7|response-time SLA/i);
   assert.match(home, /<ServiceTeaser/);
-  assert.match(home, /Accountable Operations Loop/);
+  assert.match(howItWorks, /accountable-operations-loop-v3\.png/);
   const shot = read("src/app/components/makeover/ProductShot.tsx");
   assert.match(shot, /Screenshot Placeholder/);
   for (const page of ["DemoPage", "PrivateBetaPage"]) {

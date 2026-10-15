@@ -2,6 +2,13 @@
 import { useEffect, useRef, useState } from "react";
 import { useLocation } from "react-router";
 import { ArrowRight, ArrowUpRight, Menu, X, Phone, Users, MessageSquare, Activity } from "lucide-react";
+import { trackEvent } from "@/app/lib/analytics";
+
+/** Internal review chrome stays off the customer-facing homepage unless ?review=1 is set; other routes keep the baseline review labels. */
+function useShowReviewChrome() {
+  const { pathname, search } = useLocation();
+  return pathname !== "/" || new URLSearchParams(search).get("review") === "1";
+}
 
 const navigation = [["How it works", "/how-it-works"], ["Industries", "/industries"], ["Why Last Mile", "/why-last-mile"], ["Our service", "/our-service"], ["Private beta", "/private-beta"]];
 
@@ -14,6 +21,7 @@ export function SiteHeader() {
   const { pathname } = useLocation();
   const headerRef = useRef<HTMLElement>(null);
   const menuRef = useRef<HTMLButtonElement>(null);
+  const showReviewChrome = useShowReviewChrome();
   useEffect(() => {
     if (!open) return;
     const closeOutside = (event: PointerEvent) => { if (!headerRef.current?.contains(event.target as Node)) setOpen(false); };
@@ -22,15 +30,16 @@ export function SiteHeader() {
     document.addEventListener("keydown", closeEscape);
     return () => { document.removeEventListener("pointerdown", closeOutside); document.removeEventListener("keydown", closeEscape); };
   }, [open]);
-  return <><a href="#main" className="skip-link">Skip to content</a><div className="concept-bar"><span>LAST MILE / WEBSITE CONCEPT</span><span>Team design review</span></div><header className="header" ref={headerRef}><Brand /><nav className="desktop-nav" aria-label="Main navigation">{navigation.map(([name, href]) => <a key={href} href={href} aria-current={pathname === href ? "page" : undefined}>{name}</a>)}</nav><a className="button button-small header-demo" href="/demo">Book a demo <ArrowUpRight size={16}/></a><button ref={menuRef} className="menu-toggle" aria-label={open ? "Close menu" : "Open menu"} aria-expanded={open} aria-controls="mobile-navigation" onClick={() => setOpen(!open)}>{open ? <X /> : <Menu />}</button>{open && <nav id="mobile-navigation" className="mobile-nav" aria-label="Mobile navigation">{[...navigation, ["About Last Mile", "/about"], ["Book a demo", "/demo"]].map(([name, href]) => <a key={href} href={href} onClick={() => setOpen(false)} aria-current={pathname === href ? "page" : undefined}>{name}<ArrowUpRight size={18}/></a>)}</nav>}</header></>;
+  return <><a href="#main" className="skip-link">Skip to content</a>{showReviewChrome && <div className="concept-bar"><span>LAST MILE / WEBSITE CONCEPT</span><span>Team design review</span></div>}<header className="header" ref={headerRef}><Brand /><nav className="desktop-nav" aria-label="Main navigation">{navigation.map(([name, href]) => <a key={href} href={href} aria-current={pathname === href ? "page" : undefined}>{name}</a>)}</nav><a className="button button-small header-demo" href="/demo" onClick={() => trackEvent("cta_demo_click", { placement: "header", destination: "/demo" })}>Book a demo <ArrowUpRight size={16}/></a><button ref={menuRef} className="menu-toggle" aria-label={open ? "Close menu" : "Open menu"} aria-expanded={open} aria-controls="mobile-navigation" onClick={() => setOpen(!open)}>{open ? <X /> : <Menu />}</button>{open && <nav id="mobile-navigation" className="mobile-nav" aria-label="Mobile navigation">{[...navigation, ["About Last Mile", "/about"], ["Book a demo", "/demo"]].map(([name, href]) => <a key={href} href={href} onClick={() => setOpen(false)} aria-current={pathname === href ? "page" : undefined}>{name}<ArrowUpRight size={18}/></a>)}</nav>}</header></>;
 }
 
 export function SiteFooter() {
-  return <><footer className="site-footer wrap"><div className="footer-top"><div><Brand /><p>From the first warning<br/>to a proven result.</p></div><div className="footer-links"><div><span>EXPLORE</span><a href="/how-it-works">How it works</a><a href="/industries">Industries</a><a href="/why-last-mile">Why Last Mile</a><a href="/platform">Platform details</a><a href="/resources">Resources</a></div><div><span>MEET LAST MILE</span><a href="/our-service">Our service promise</a><a href="/about">About us</a><a href="/private-beta">Private Beta Release</a></div><div><span>TAKE THE NEXT STEP</span><a href="/demo">Book a demo <ArrowUpRight size={15}/></a><a href="/private-beta">Explore the beta <ArrowUpRight size={15}/></a><a href="/contact">Contact</a><a href="/privacy">Privacy</a><a href="/terms">Terms</a></div></div></div><div className="footer-bottom"><span>© {new Date().getFullYear()} Last Mile, Inc.</span><p>Good Service Remembers...Great Service Anticipates.</p></div></footer><div className="review-note wrap"><span>DESIGN REVIEW</span><p>Click a Screenshot Placeholder for its image brief. Demo and beta inquiries use the existing contact integration. Development review mode does not send requests.</p></div></>;
+  const showReviewChrome = useShowReviewChrome();
+  return <><footer className="site-footer wrap"><div className="footer-top"><div><Brand /><p>From the first warning<br/>to a proven result.</p></div><div className="footer-links"><div><span>EXPLORE</span><a href="/how-it-works">How it works</a><a href="/industries">Industries</a><a href="/why-last-mile">Why Last Mile</a><a href="/platform">Platform details</a><a href="/resources">Resources</a></div><div><span>MEET LAST MILE</span><a href="/our-service">Our service promise</a><a href="/about">About us</a><a href="/private-beta">Private Beta Release</a></div><div><span>TAKE THE NEXT STEP</span><a href="/demo">Book a demo <ArrowUpRight size={15}/></a><a href="/private-beta">Explore the beta <ArrowUpRight size={15}/></a><a href="/contact">Contact</a><a href="/privacy">Privacy</a><a href="/terms">Terms</a></div></div></div><div className="footer-bottom"><span>© {new Date().getFullYear()} Last Mile, Inc.</span><p>Good Service Remembers...Great Service Anticipates.</p></div></footer>{showReviewChrome && <div className="review-note wrap"><span>DESIGN REVIEW</span><p>Click a Screenshot Placeholder for its image brief. Demo and beta inquiries use the existing contact integration. Development review mode does not send requests.</p></div>}</>;
 }
 
 export function ServiceTeaser() {
-  return <section className="service-teaser wrap" aria-labelledby="service-heading"><div className="service-teaser-title"><p className="eyebrow">THE PEOPLE BEHIND THE PLATFORM</p><h2 id="service-heading">Good Service Remembers...<br/><span>Great Service Anticipates.</span></h2><p>You should feel known, supported, and one step ahead. That’s the relationship we’re building into Last Mile from day one.</p><a className="text-link" href="/our-service">Meet a different kind of service <ArrowRight size={18}/></a></div><div className="service-teaser-details"><div><Users/><h3>People who know you.</h3><p>A named operations engineer as you come online.</p></div><div><MessageSquare/><h3>A direct line, both ways.</h3><p>Built-in chat connects you with our operations team.</p></div><div><Phone/><h3>We make the first call.</h3><p>When platform health checks flag an issue, we reach out directly.</p></div></div></section>;
+  return <section className="service-teaser wrap" aria-labelledby="service-heading"><div className="service-teaser-title"><p className="eyebrow">THE PEOPLE BEHIND THE PLATFORM</p><h2 id="service-heading">Good Service Remembers...<br/><span>Great Service Anticipates.</span></h2><p>You should feel known, supported, and one step ahead. That’s the relationship we’re building into Last Mile from day one.</p><a className="text-link" href="/our-service">Explore our service approach <ArrowRight size={18}/></a></div><div className="service-teaser-details"><div><Users/><h3>People who know you.</h3><p>Named Cloud Operations engineers who get to know your team and operating priorities.</p></div><div><MessageSquare/><h3>A direct line, both ways.</h3><p>Built-in chat connects your team with our operations team.</p></div><div><Phone/><h3>We make the first call.</h3><p>When Last Mile platform health checks flag an issue, we reach out directly.</p></div></div></section>;
 }
 
 export function ServiceNote({beta = false, title, text}: {beta?: boolean; title?: string; text?: string}) {
