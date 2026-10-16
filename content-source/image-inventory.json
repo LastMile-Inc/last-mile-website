@@ -1,0 +1,270 @@
+{
+  "schemaVersion": 1,
+  "lastUpdated": "2026-10-15",
+  "scope": "Home (/) and Platform (/platform) approved imagery and reserved supporting-page assets",
+  "activeAssets": [
+    {
+      "status": "active",
+      "deliveryBasename": "home-chuck-hero",
+      "sourceFilename": "Picture10.jpg",
+      "canonicalSpecName": "Picture10(1).jpg",
+      "preservedOriginalPath": "assets/originals/2026-10-approved/Picture10.jpg",
+      "originalDimensions": {
+        "width": 443,
+        "height": 540
+      },
+      "originalBytes": 62822,
+      "originalSha256": "10107aa47d58871e",
+      "route": "/",
+      "placement": "Home hero",
+      "alt": "Industrial worker in hard hat, safety glasses, and high-visibility vest on a factory floor",
+      "caption": null,
+      "deliveryFiles": [
+        "public/images/home/home-chuck-hero.avif",
+        "public/images/home/home-chuck-hero.webp",
+        "public/images/home/home-chuck-hero.jpg"
+      ],
+      "notes": "Native 443x540 portrait; not upscaled. At 340-400 CSS px desktop width, 2x Retina displays have a ~1.11x-1.30x pixel-density ratio."
+    },
+    {
+      "status": "active",
+      "deliveryBasename": "platform-inspection-team",
+      "sourceFilename": "Industrial Inspection Team at Work.png",
+      "canonicalSpecName": "Industrial Inspection Team at Work.png",
+      "preservedOriginalPath": "assets/originals/2026-10-approved/Industrial Inspection Team at Work.png",
+      "originalDimensions": {
+        "width": 1536,
+        "height": 1024
+      },
+      "originalBytes": 2091641,
+      "originalSha256": "dee0988d5dccb191",
+      "route": "/platform",
+      "placement": "Platform hero",
+      "alt": "Two industrial workers in safety gear reviewing equipment information on a tablet beside plant machinery",
+      "caption": null,
+      "deliveryFiles": [
+        "public/images/platform/platform-inspection-team-640.avif",
+        "public/images/platform/platform-inspection-team-640.webp",
+        "public/images/platform/platform-inspection-team-960.avif",
+        "public/images/platform/platform-inspection-team-960.webp",
+        "public/images/platform/platform-inspection-team-1280.avif",
+        "public/images/platform/platform-inspection-team-1280.webp",
+        "public/images/platform/platform-inspection-team-1536.avif",
+        "public/images/platform/platform-inspection-team-1536.webp",
+        "public/images/platform/platform-inspection-team.png"
+      ],
+      "notes": "3:2 aspect ratio (1536x1024 native)."
+    },
+    {
+      "status": "active",
+      "deliveryBasename": "platform-infinit-signal",
+      "sourceFilename": "AI-Powered Factory Inspection Line.png",
+      "canonicalSpecName": "AI-Powered Factory Inspection Line(1).png",
+      "preservedOriginalPath": "assets/originals/2026-10-approved/AI-Powered Factory Inspection Line.png",
+      "originalDimensions": {
+        "width": 1448,
+        "height": 1086
+      },
+      "originalBytes": 2235833,
+      "originalSha256": "7b9959d57967392b",
+      "route": "/platform",
+      "placement": "Platform Infinit-Signal section",
+      "alt": "Concept illustration of factory operators and equipment connected to incoming equipment readings",
+      "caption": "Concept illustration",
+      "deliveryFiles": [
+        "public/images/platform/platform-infinit-signal-640.avif",
+        "public/images/platform/platform-infinit-signal-640.webp",
+        "public/images/platform/platform-infinit-signal-960.avif",
+        "public/images/platform/platform-infinit-signal-960.webp",
+        "public/images/platform/platform-infinit-signal-1280.avif",
+        "public/images/platform/platform-infinit-signal-1280.webp",
+        "public/images/platform/platform-infinit-signal-1448.avif",
+        "public/images/platform/platform-infinit-signal-1448.webp",
+        "public/images/platform/platform-infinit-signal.png"
+      ],
+      "notes": "4:3 aspect ratio (1448x1086 native)."
+    },
+    {
+      "status": "active",
+      "deliveryBasename": "platform-singularity",
+      "sourceFilename": "Smart Water Treatment Plant Monitoring.png",
+      "canonicalSpecName": "Smart Water Treatment Plant Monitoring(1).png",
+      "preservedOriginalPath": "assets/originals/2026-10-approved/Smart Water Treatment Plant Monitoring.png",
+      "originalDimensions": {
+        "width": 1448,
+        "height": 1086
+      },
+      "originalBytes": 2632219,
+      "originalSha256": "ee3608717f3c001a",
+      "route": "/platform",
+      "placement": "Platform Singularity section",
+      "alt": "Concept illustration of water facility engineers reviewing how equipment, systems, and readings relate",
+      "caption": "Concept illustration",
+      "deliveryFiles": [
+        "public/images/platform/platform-singularity-640.avif",
+        "public/images/platform/platform-singularity-640.webp",
+        "public/images/platform/platform-singularity-960.avif",
+        "public/images/platform/platform-singularity-960.webp",
+        "public/images/platform/platform-singularity-1280.avif",
+        "public/images/platform/platform-singularity-1280.webp",
+        "public/images/platform/platform-singularity-1448.avif",
+        "public/images/platform/platform-singularity-1448.webp",
+        "public/images/platform/platform-singularity.png"
+      ],
+      "notes": "4:3 aspect ratio (1448x1086 native)."
+    },
+    {
+      "status": "active",
+      "deliveryBasename": "platform-infinit-flow",
+      "sourceFilename": "Precision Agriculture Teamwork at Golden Hour.png",
+      "canonicalSpecName": "Precision Agriculture Teamwork at Golden Hour(1).png",
+      "preservedOriginalPath": "assets/originals/2026-10-approved/Precision Agriculture Teamwork at Golden Hour.png",
+      "originalDimensions": {
+        "width": 1448,
+        "height": 1086
+      },
+      "originalBytes": 2446649,
+      "originalSha256": "38ef0432b545339e",
+      "route": "/platform",
+      "placement": "Platform Infinit-Flow section",
+      "alt": "Concept illustration of field operators coordinating work across equipment and systems",
+      "caption": "Concept illustration",
+      "deliveryFiles": [
+        "public/images/platform/platform-infinit-flow-640.avif",
+        "public/images/platform/platform-infinit-flow-640.webp",
+        "public/images/platform/platform-infinit-flow-960.avif",
+        "public/images/platform/platform-infinit-flow-960.webp",
+        "public/images/platform/platform-infinit-flow-1280.avif",
+        "public/images/platform/platform-infinit-flow-1280.webp",
+        "public/images/platform/platform-infinit-flow-1448.avif",
+        "public/images/platform/platform-infinit-flow-1448.webp",
+        "public/images/platform/platform-infinit-flow.png"
+      ],
+      "notes": "4:3 aspect ratio (1448x1086 native)."
+    },
+    {
+      "status": "active",
+      "deliveryBasename": "platform-infinit-control",
+      "sourceFilename": "Golden-Hour Oilfield Inspection.png",
+      "canonicalSpecName": "Golden-Hour Oilfield Inspection(1).png",
+      "preservedOriginalPath": "assets/originals/2026-10-approved/Golden-Hour Oilfield Inspection.png",
+      "originalDimensions": {
+        "width": 1448,
+        "height": 1086
+      },
+      "originalBytes": 2267954,
+      "originalSha256": "57f764f55f520b91",
+      "route": "/platform",
+      "placement": "Platform Infinit-Control section",
+      "alt": "Concept illustration of an oilfield technician reviewing equipment status and operational readings on a tablet",
+      "caption": "Concept illustration",
+      "deliveryFiles": [
+        "public/images/platform/platform-infinit-control-640.avif",
+        "public/images/platform/platform-infinit-control-640.webp",
+        "public/images/platform/platform-infinit-control-960.avif",
+        "public/images/platform/platform-infinit-control-960.webp",
+        "public/images/platform/platform-infinit-control-1280.avif",
+        "public/images/platform/platform-infinit-control-1280.webp",
+        "public/images/platform/platform-infinit-control-1448.avif",
+        "public/images/platform/platform-infinit-control-1448.webp",
+        "public/images/platform/platform-infinit-control.png"
+      ],
+      "notes": "4:3 aspect ratio (1448x1086 native)."
+    }
+  ],
+  "reservedAssets": [
+    {
+      "status": "reserved",
+      "sourceFilename": "Factory Worker Adjusting Control Panel.png",
+      "preservedOriginalPath": "assets/originals/2026-10-approved/Factory Worker Adjusting Control Panel.png",
+      "originalDimensions": {
+        "width": 1536,
+        "height": 1024
+      },
+      "originalBytes": 2378949,
+      "originalSha256": "06622689bbb6061f",
+      "displayedOn": [],
+      "notes": "Reserved for upcoming supporting-page reviews. Do not display on Home or Platform."
+    },
+    {
+      "status": "reserved",
+      "sourceFilename": "Confident Industrial Worker Portrait.png",
+      "preservedOriginalPath": "assets/originals/2026-10-approved/Confident Industrial Worker Portrait.png",
+      "originalDimensions": {
+        "width": 1536,
+        "height": 1024
+      },
+      "originalBytes": 2271167,
+      "originalSha256": "85f6cbbbfbeed6e8",
+      "displayedOn": [],
+      "notes": "Reserved for upcoming supporting-page reviews. Do not display on Home or Platform."
+    },
+    {
+      "status": "reserved",
+      "sourceFilename": "Maritime Worker Beside Massive Ship Hull.png",
+      "preservedOriginalPath": "assets/originals/2026-10-approved/Maritime Worker Beside Massive Ship Hull.png",
+      "originalDimensions": {
+        "width": 1536,
+        "height": 1024
+      },
+      "originalBytes": 2029611,
+      "originalSha256": "b2ff27de5bc4990d",
+      "displayedOn": [],
+      "notes": "Reserved for upcoming supporting-page reviews. Do not display on Home or Platform."
+    },
+    {
+      "status": "reserved",
+      "sourceFilename": "Container Wall and Yard Worker.png",
+      "preservedOriginalPath": "assets/originals/2026-10-approved/Container Wall and Yard Worker.png",
+      "originalDimensions": {
+        "width": 1536,
+        "height": 1024
+      },
+      "originalBytes": 2389534,
+      "originalSha256": "f9dcfaddfdd99c20",
+      "displayedOn": [],
+      "notes": "Reserved for upcoming supporting-page reviews. Do not display on Home or Platform."
+    },
+    {
+      "status": "reserved",
+      "sourceFilename": "Cold Storage Warehouse Inspection.png",
+      "preservedOriginalPath": "assets/originals/2026-10-approved/Cold Storage Warehouse Inspection.png",
+      "originalDimensions": {
+        "width": 1448,
+        "height": 1086
+      },
+      "originalBytes": 2394687,
+      "originalSha256": "52c2deeaba45b7c3",
+      "displayedOn": [],
+      "notes": "Reserved for upcoming supporting-page reviews. Do not display on Home or Platform."
+    },
+    {
+      "status": "reserved",
+      "sourceFilename": "Solar Farm Inspection Team.png",
+      "preservedOriginalPath": "assets/originals/2026-10-approved/Solar Farm Inspection Team.png",
+      "originalDimensions": {
+        "width": 1448,
+        "height": 1086
+      },
+      "originalBytes": 2345674,
+      "originalSha256": "616cd17b3f551e51",
+      "displayedOn": [],
+      "notes": "Reserved for upcoming supporting-page reviews. Do not display on Home or Platform."
+    }
+  ],
+  "supersededAssets": [
+    {
+      "status": "superseded_not_displayed",
+      "sourceFilename": "Connected Automotive Assembly Line.png",
+      "preservedOriginalPath": "assets/originals/2026-10-approved/Connected Automotive Assembly Line.png",
+      "originalDimensions": {
+        "width": 1448,
+        "height": 1086
+      },
+      "originalBytes": 2400714,
+      "originalSha256": "9dc10b19729a6446",
+      "displayedOn": [],
+      "notes": "Superseded candidate asset; preserved in originals only and not displayed on any route."
+    }
+  ]
+}

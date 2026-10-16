@@ -53,9 +53,10 @@ body.lm-makeover .lm-home .hero h1>span{white-space:nowrap}
 body.lm-makeover .lm-home .hero>*{min-width:0}
 body.lm-makeover .lm-home h1,body.lm-makeover .lm-home h2{text-wrap:balance}
 body.lm-makeover .lm-home .hero-description{max-width:500px}
-body.lm-makeover .lm-home .hero-visual{padding-top:0;justify-content:center}
-body.lm-makeover .lm-home .home-hero-image{min-height:0;aspect-ratio:4/3;align-self:auto}
-body.lm-makeover .lm-home .home-hero-image>img{object-position:20% center}
+body.lm-makeover .lm-home .hero-visual{padding:28px;justify-content:center;align-items:center;background:linear-gradient(180deg,var(--lm-wash),var(--lm-canvas));border:1px solid var(--lm-wash);border-radius:12px}
+body.lm-makeover .lm-home .home-hero-image{width:100%;max-width:376px;height:auto;min-height:0;aspect-ratio:443/540;align-self:center;padding:12px;background:var(--lm-surface);border:1px solid var(--lm-steel);border-radius:10px;box-shadow:0 22px 44px -26px color-mix(in srgb,var(--lm-ink) 28%,transparent)}
+body.lm-makeover .lm-home .home-hero-image picture{display:block;width:100%;height:100%;border-radius:6px;overflow:hidden}
+body.lm-makeover .lm-home .home-hero-image img{width:100%;height:100%;object-fit:cover;object-position:center}
 body.lm-makeover .lm-home .home-response{padding-block:76px 100px;border-top:1px solid var(--lm-wash)}
 body.lm-makeover .lm-home .home-response .editorial-split{align-items:start}
 body.lm-makeover .lm-home .home-response .large-copy{margin-top:0;font-size:19px;line-height:1.6}

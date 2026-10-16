@@ -28,7 +28,7 @@ Later on 2026-10-15 the founder accepted the recovered structure and design and 
 
 **Secondary CTA:** Explore the platform — /platform
 
-**Visual:** the approved industrial operator-and-equipment illustration (`/images/home/industrial-orchestration-hero-v3.png`). No screenshot placeholders, simulated dashboards, or process tables in the hero.
+**Visual:** the approved industrial worker portrait card (`/images/home/home-chuck-hero.{avif,webp,jpg}`, native 443×540 portrait from `Picture10.jpg`, not upscaled and without a caption strip over the portrait). No screenshot placeholders, simulated dashboards, or process tables in the hero.
 
 ## 2. Problem and response — why follow-through matters
 

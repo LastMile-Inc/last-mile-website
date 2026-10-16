@@ -93,7 +93,7 @@
         {
           "route": "/platform",
           "sourceFile": "src/app/pages/PlatformPage.tsx",
-          "wording": "Finishing the task doesn’t prove the equipment has recovered. The team checks the readings afterward."
+          "wording": "See who is responding, what has changed, and whether the equipment is performing as expected."
         },
         {
           "route": "/infinit-flow",

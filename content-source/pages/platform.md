@@ -28,7 +28,7 @@ Write for operators and managers. Product names may appear; explain each immedia
 
 **Secondary CTA:** Explore the four products — #products
 
-**Visual (concept illustration, live HTML text):** existing equipment and business systems → a bounded Last Mile platform → your team. Inside the platform: Infinit-Signal — Bring information together; Singularity — Understand your operation (shown as shared information used across the platform); Infinit-Flow — Organize the work; Infinit-Control — See and manage what matters. Conceptual only; no integration paths or control relationships.
+**Visual:** 3:2 hero photograph (`/images/platform/platform-inspection-team-{640,960,1280,1536}.{avif,webp}` and `/images/platform/platform-inspection-team.png`, native 1536×1024 from `Industrial Inspection Team at Work.png`) with no text overlaid on the photo, paired with a preserved live-text product summary in the hero (`Infinit-Signal — Bring information together`; `Singularity — Understand your operation` / `Shared information used across the platform`; `Infinit-Flow — Organize the work`; `Infinit-Control — See and manage what matters`).
 
 ## 2. Products
 
@@ -44,7 +44,7 @@ Equipment and business systems report information in different ways. Infinit-Sig
 - Check for missing, repeated, or outdated readings.
 - Keep track of where information came from.
 
-Link: Explore Infinit-Signal — /infinit-signal. Visual: three differently named versions of the same reading (one repeated reading set aside) become one consistent record. Concept illustration.
+Link: Explore Infinit-Signal — /infinit-signal. Visual: 4:3 concept illustration (`/images/platform/platform-infinit-signal-{640,960,1280,1448}.{avif,webp}` and `/images/platform/platform-infinit-signal.png`, native 1448×1086 from `AI-Powered Factory Inspection Line.png`) with caption `Concept illustration`.
 
 ### Singularity — Give every reading its place in the bigger picture.
 
@@ -54,7 +54,7 @@ A reading means more when you know which equipment it belongs to, what that equi
 - Show how equipment and systems relate.
 - Keep the history of issues, work, and results.
 
-Link: Explore Singularity — /singularity. Visual: readings → selected Pump 2 → supports → Cooling system, with a three-entry history. Concept illustration.
+Link: Explore Singularity — /singularity. Visual: 4:3 concept illustration (`/images/platform/platform-singularity-{640,960,1280,1448}.{avif,webp}` and `/images/platform/platform-singularity.png`, native 1448×1086 from `Smart Water Treatment Plant Monitoring.png`) with caption `Concept illustration`.
 
 ### Infinit-Flow — Turn the next step into organized work.
 
@@ -64,7 +64,7 @@ Infinit-Flow helps your team assign work, get approvals, and coordinate tasks ac
 - Request approval where needed.
 - Automate approved tasks and track progress.
 
-Link: Explore Infinit-Flow — /infinit-flow. Visual: issue reviewed → approval requested → task assigned → progress recorded, with the note “Finishing the task doesn’t prove the equipment has recovered. The team checks the readings afterward.” (CLM-FLOW-004, CLM-OUTCOME-001). Concept illustration.
+Link: Explore Infinit-Flow — /infinit-flow. Visual: 4:3 concept illustration (`/images/platform/platform-infinit-flow-{640,960,1280,1448}.{avif,webp}` and `/images/platform/platform-infinit-flow.png`, native 1448×1086 from `Precision Agriculture Teamwork at Golden Hour.png`) with caption `Concept illustration`.
 
 ### Infinit-Control — See what needs your attention.
 
@@ -74,7 +74,7 @@ Infinit-Control gives each person a view of the issues, work, and equipment that
 - Follow work and responsibilities.
 - Review readings after the response.
 
-Link: Explore Infinit-Control — /infinit-control. Visual: “Concept illustration · not a product screen” showing one issue, who is responding, work state, and readings returning into an unlabeled expected range. No verified product screenshot exists yet; replace with an approved capture when supplied.
+Link: Explore Infinit-Control — /infinit-control. Visual: 4:3 concept illustration (`/images/platform/platform-infinit-control-{640,960,1280,1448}.{avif,webp}` and `/images/platform/platform-infinit-control.png`, native 1448×1086 from `Golden-Hour Oilfield Inspection.png`) with caption `Concept illustration`.
 
 ## 3. Existing systems
 
@@ -98,4 +98,4 @@ Discreet link: Explore technical details — /resources/architect-reference-cent
 
 ## Evidence boundaries
 
-All five visuals are concept illustrations built in HTML/CSS/SVG with live text; none is a product screenshot. They contain no customer names, results, measurements, or vendor integrations. Pump 2 and the roles shown are generic examples.
+The hero visual is an approved industrial inspection photograph (`platform-inspection-team`), and the four product visuals are approved 4:3 concept illustrations (`platform-infinit-signal`, `platform-singularity`, `platform-infinit-flow`, `platform-infinit-control`), each labeled `Concept illustration` below the image rather than presented as a live product screenshot or customer deployment.

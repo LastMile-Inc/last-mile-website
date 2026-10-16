@@ -2,6 +2,15 @@
 
 Updated: 2026-10-15
 
+## Home and Platform approved imagery (2026-10-15)
+
+- Preserved all 12 supplied original assets (6 active, 6 reserved, plus 1 superseded candidate) in `assets/originals/2026-10-approved/` and registered them in `content-source/image-inventory.json`.
+- Generated optimized delivery sets via `scripts/optimize-approved-imagery.py`:
+  - Home hero (`/`): `public/images/home/home-chuck-hero.{avif,webp,jpg}` at native `443×540` (not upscaled; displayed as a portrait card without caption overlay).
+  - Platform hero (`/platform`): `public/images/platform/platform-inspection-team-{640,960,1280,1536}.{avif,webp}` and `.png` fallback at 3:2 (`1536×1024`), replacing the previous hero diagram while preserving the live-text four-product explanations in `.pf-hero-products`.
+  - Platform product sections (`/platform`): `platform-infinit-signal`, `platform-singularity`, `platform-infinit-flow`, and `platform-infinit-control` at 4:3 (`640w`, `960w`, `1280w`, `1448w` AVIF/WebP plus `.png` fallback at `1448×1086`), each with a restrained `Concept illustration` caption below the image.
+- Note on resolution: `Picture10.jpg` (`home-chuck-hero`) has native dimensions `443×540`; at ~350–376 CSS px desktop width, it provides ~1.18×–1.26× density rather than full 2× Retina (which would require ~750–800px source width). It is preserved at native resolution without artificial upscaling.
+
 ## /platform redesign (2026-10-15)
 
 - Branch `review/platform-redesign-2026-10-15`, based on the accepted homepage checkpoint `ec52fa01` (on `review-pr17`). Preview: `preview.lastmileinc.ai/platform`. Not pushed, not merged.

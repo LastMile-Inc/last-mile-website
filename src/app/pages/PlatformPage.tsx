@@ -1,5 +1,5 @@
 import type { ComponentType } from "react";
-import { ArrowRight, ArrowUpRight, Check, ClipboardList, Factory, LayoutDashboard, Network, RadioTower, Users, Workflow } from "lucide-react";
+import { ArrowRight, ArrowUpRight, Check, LayoutDashboard, Network, RadioTower, Workflow } from "lucide-react";
 import { SEO } from "@/app/components/SEO";
 import { trackEvent } from "@/app/lib/analytics";
 import { createBreadcrumbSchema, createProductSchema } from "@/app/lib/structuredData";
@@ -17,153 +17,63 @@ type Product = {
   capabilities: string[];
   href: string;
   linkLabel: string;
-  Visual: ComponentType;
+  imageBasename: string;
+  imageAlt: string;
 };
 
-function ConceptCaption() {
-  return <figcaption className="pf-caption">Concept illustration</figcaption>;
-}
-
-function PlatformMap() {
+function PlatformHeroMedia() {
   return (
-    <figure className="pf-map" aria-labelledby="pf-map-title">
-      <p id="pf-map-title" className="pf-sr-only">How Last Mile sits between your existing systems and your team</p>
-      <div className="pf-map-tier">
-        <p className="pf-map-tier-label">Your existing systems</p>
-        <ul className="pf-map-chips">
-          <li><Factory size={18} aria-hidden="true" /> Equipment and controls</li>
-          <li><ClipboardList size={18} aria-hidden="true" /> Business and maintenance software</li>
-        </ul>
-      </div>
-      <div className="pf-map-link" aria-hidden="true" />
-      <div className="pf-map-platform">
-        <p className="pf-map-platform-label">Last Mile platform</p>
-        <div className="pf-map-node pf-map-signal"><RadioTower size={20} aria-hidden="true" /><div><strong>Infinit-Signal</strong><span>Bring information together</span></div></div>
-        <div className="pf-map-core"><Network size={22} aria-hidden="true" /><div><strong>Singularity</strong><span>Understand your operation</span><em>Shared information used across the platform</em></div></div>
-        <div className="pf-map-pair">
-          <div className="pf-map-node pf-map-uses"><Workflow size={20} aria-hidden="true" /><div><strong>Infinit-Flow</strong><span>Organize the work</span></div></div>
-          <div className="pf-map-node pf-map-uses"><LayoutDashboard size={20} aria-hidden="true" /><div><strong>Infinit-Control</strong><span>See and manage what matters</span></div></div>
-        </div>
-      </div>
-      <div className="pf-map-link" aria-hidden="true" />
-      <div className="pf-map-tier">
-        <p className="pf-map-tier-label">Your team</p>
-        <ul className="pf-map-chips">
-          <li><Users size={18} aria-hidden="true" /> Understand issues</li>
-          <li><Check size={18} aria-hidden="true" /> Manage work</li>
-        </ul>
-      </div>
-      <ConceptCaption />
+    <figure className="pf-hero-media">
+      <picture>
+        <source
+          type="image/avif"
+          srcSet="/images/platform/platform-inspection-team-640.avif 640w, /images/platform/platform-inspection-team-960.avif 960w, /images/platform/platform-inspection-team-1280.avif 1280w, /images/platform/platform-inspection-team-1536.avif 1536w"
+          sizes="(max-width: 1020px) calc(100vw - 40px), 680px"
+        />
+        <source
+          type="image/webp"
+          srcSet="/images/platform/platform-inspection-team-640.webp 640w, /images/platform/platform-inspection-team-960.webp 960w, /images/platform/platform-inspection-team-1280.webp 1280w, /images/platform/platform-inspection-team-1536.webp 1536w"
+          sizes="(max-width: 1020px) calc(100vw - 40px), 680px"
+        />
+        <img
+          src="/images/platform/platform-inspection-team.png"
+          alt="Two industrial workers in safety gear reviewing equipment information on a tablet beside plant machinery"
+          width={1536}
+          height={1024}
+          loading="eager"
+          fetchPriority="high"
+        />
+      </picture>
     </figure>
   );
 }
 
-function SignalVisual() {
+function ProductIllustration({ basename, alt }: { basename: string; alt: string }) {
   return (
-    <figure className="pf-visual pf-signal">
-      <div className="pf-signal-grid">
-        <div>
-          <p className="pf-visual-label">Arriving from different systems</p>
-          <ul className="pf-signal-raw">
-            <li>pump2.motor_amps</li>
-            <li>Pump 2 – Motor Current</li>
-            <li className="is-set-aside">P2/AMPS<span>Repeated reading · set aside</span></li>
-          </ul>
-        </div>
-        <span className="pf-signal-arrow" aria-hidden="true"><ArrowRight size={22} /></span>
-        <div>
-          <p className="pf-visual-label">Ready to use across Last Mile</p>
-          <div className="pf-signal-record">
-            <strong>Pump 2 · Motor current</strong>
-            <ul>
-              <li><Check size={16} aria-hidden="true" /> Source recorded</li>
-              <li><Check size={16} aria-hidden="true" /> Checked for gaps and repeats</li>
-              <li><Check size={16} aria-hidden="true" /> Up to date</li>
-            </ul>
-          </div>
-        </div>
+    <figure className="pf-visual">
+      <div className="pf-visual-frame">
+        <picture>
+          <source
+            type="image/avif"
+            srcSet={`/images/platform/${basename}-640.avif 640w, /images/platform/${basename}-960.avif 960w, /images/platform/${basename}-1280.avif 1280w, /images/platform/${basename}-1448.avif 1448w`}
+            sizes="(max-width: 1020px) calc(100vw - 40px), 660px"
+          />
+          <source
+            type="image/webp"
+            srcSet={`/images/platform/${basename}-640.webp 640w, /images/platform/${basename}-960.webp 960w, /images/platform/${basename}-1280.webp 1280w, /images/platform/${basename}-1448.webp 1448w`}
+            sizes="(max-width: 1020px) calc(100vw - 40px), 660px"
+          />
+          <img
+            src={`/images/platform/${basename}.png`}
+            alt={alt}
+            width={1448}
+            height={1086}
+            loading="lazy"
+            decoding="async"
+          />
+        </picture>
       </div>
-      <ConceptCaption />
-    </figure>
-  );
-}
-
-function SingularityVisual() {
-  return (
-    <figure className="pf-visual pf-sing">
-      <div className="pf-sing-grid">
-        <div className="pf-sing-graph">
-          <ul className="pf-sing-readings" aria-label="Readings connected to Pump 2">
-            <li>Motor current</li>
-            <li>Pressure</li>
-          </ul>
-          <div className="pf-sing-node is-selected"><span>Selected equipment</span><strong>Pump 2</strong></div>
-          <p className="pf-sing-edge">supports</p>
-          <div className="pf-sing-node"><span>System</span><strong>Cooling system</strong></div>
-        </div>
-        <div className="pf-sing-history">
-          <p className="pf-visual-label">History for Pump 2</p>
-          <ol>
-            <li><strong>Warning</strong>Motor current dropped</li>
-            <li><strong>Work</strong>Seal inspected and replaced</li>
-            <li><strong>Result</strong>Readings back in expected range</li>
-          </ol>
-        </div>
-      </div>
-      <ConceptCaption />
-    </figure>
-  );
-}
-
-function FlowVisual() {
-  const steps = [
-    { title: "Issue reviewed", detail: "Shift supervisor", state: "Done" },
-    { title: "Approval requested", detail: "Approved by operations manager", state: "Done" },
-    { title: "Task assigned", detail: "Maintenance technician", state: "Done" },
-    { title: "Progress recorded", detail: "Inspection under way", state: "In progress" },
-  ];
-  return (
-    <figure className="pf-visual pf-flow">
-      <ol className="pf-flow-steps">
-        {steps.map((step) => (
-          <li key={step.title} className={step.state === "Done" ? "is-done" : "is-active"}>
-            <span className="pf-flow-dot" aria-hidden="true">{step.state === "Done" ? <Check size={14} /> : null}</span>
-            <div><strong>{step.title}</strong><span>{step.detail}</span></div>
-            <em>{step.state}</em>
-          </li>
-        ))}
-      </ol>
-      <p className="pf-flow-note">Finishing the task doesn’t prove the equipment has recovered. The team checks the readings afterward.</p>
-      <ConceptCaption />
-    </figure>
-  );
-}
-
-function ControlVisual() {
-  return (
-    <figure className="pf-visual pf-control">
-      <div className="pf-control-frame">
-        <p className="pf-control-bar">My view · Maintenance</p>
-        <div className="pf-control-body">
-          <div className="pf-control-issue">
-            <p className="pf-control-status">Needs attention</p>
-            <strong>Pump 2 · Motor current low</strong>
-            <dl>
-              <div><dt>Responding</dt><dd>Maintenance technician</dd></div>
-              <div><dt>Work</dt><dd>In progress</dd></div>
-            </dl>
-          </div>
-          <div className="pf-control-chart">
-            <p className="pf-visual-label">Motor current after the work</p>
-            <svg viewBox="0 0 240 90" role="img" aria-label="Line showing readings returning into the shaded expected range">
-              <rect x="0" y="22" width="240" height="30" className="pf-chart-band" />
-              <polyline points="0,78 40,76 80,72 110,52 140,40 170,36 200,38 240,37" className="pf-chart-line" />
-            </svg>
-            <p className="pf-control-legend"><span aria-hidden="true" /> Expected range</p>
-          </div>
-        </div>
-      </div>
-      <figcaption className="pf-caption">Concept illustration · not a product screen</figcaption>
+      <figcaption className="pf-caption">Concept illustration</figcaption>
     </figure>
   );
 }
@@ -178,7 +88,8 @@ const products: Product[] = [
     capabilities: ["Collect information from connected systems.", "Check for missing, repeated, or outdated readings.", "Keep track of where information came from."],
     href: "/infinit-signal",
     linkLabel: "Explore Infinit-Signal",
-    Visual: SignalVisual,
+    imageBasename: "platform-infinit-signal",
+    imageAlt: "Concept illustration of factory operators and equipment connected to incoming equipment readings",
   },
   {
     id: "singularity",
@@ -189,7 +100,8 @@ const products: Product[] = [
     capabilities: ["Connect readings to the right equipment.", "Show how equipment and systems relate.", "Keep the history of issues, work, and results."],
     href: "/singularity",
     linkLabel: "Explore Singularity",
-    Visual: SingularityVisual,
+    imageBasename: "platform-singularity",
+    imageAlt: "Concept illustration of water facility engineers reviewing how equipment, systems, and readings relate",
   },
   {
     id: "infinit-flow",
@@ -200,7 +112,8 @@ const products: Product[] = [
     capabilities: ["Give tasks a clear owner.", "Request approval where needed.", "Automate approved tasks and track progress."],
     href: "/infinit-flow",
     linkLabel: "Explore Infinit-Flow",
-    Visual: FlowVisual,
+    imageBasename: "platform-infinit-flow",
+    imageAlt: "Concept illustration of field operators coordinating work across equipment and systems",
   },
   {
     id: "infinit-control",
@@ -211,7 +124,8 @@ const products: Product[] = [
     capabilities: ["See current issues and equipment information.", "Follow work and responsibilities.", "Review readings after the response."],
     href: "/infinit-control",
     linkLabel: "Explore Infinit-Control",
-    Visual: ControlVisual,
+    imageBasename: "platform-infinit-control",
+    imageAlt: "Concept illustration of an oilfield technician reviewing equipment status and operational readings on a tablet",
   },
 ];
 
@@ -241,7 +155,13 @@ export function PlatformPage() {
               <a className="text-link" href="#products">Explore the four products <ArrowRight size={17} aria-hidden="true" /></a>
             </div>
           </div>
-          <PlatformMap />
+          <PlatformHeroMedia />
+          <ul className="pf-hero-products" aria-label="The four products in the Last Mile platform">
+            <li><RadioTower size={18} aria-hidden="true" /><div><strong>Infinit-Signal</strong><span>Bring information together</span></div></li>
+            <li className="is-shared"><Network size={18} aria-hidden="true" /><div><strong>Singularity</strong><span>Understand your operation</span><em>Shared information used across the platform</em></div></li>
+            <li><Workflow size={18} aria-hidden="true" /><div><strong>Infinit-Flow</strong><span>Organize the work</span></div></li>
+            <li><LayoutDashboard size={18} aria-hidden="true" /><div><strong>Infinit-Control</strong><span>See and manage what matters</span></div></li>
+          </ul>
         </section>
 
         <section className="pf-products" id="products" aria-labelledby="pf-products-title">
@@ -250,7 +170,7 @@ export function PlatformPage() {
               <h2 id="pf-products-title">Four products. One connected operation.</h2>
               <p>Each part has a clear job. Together, they help your team work with the same information and keep the response moving.</p>
             </header>
-            {products.map(({ id, name, icon: Icon, headline, body, capabilities, href, linkLabel, Visual }) => (
+            {products.map(({ id, name, icon: Icon, headline, body, capabilities, href, linkLabel, imageBasename, imageAlt }) => (
               <article key={id} className="pf-product" aria-labelledby={`pf-${id}-title`}>
                 <div className="pf-product-copy">
                   <p className="pf-product-name"><Icon size={20} aria-hidden="true" /> {name}</p>
@@ -261,7 +181,7 @@ export function PlatformPage() {
                   </ul>
                   <a className="text-link" href={href} onClick={() => trackEvent("cta_product_click", { placement: "platform_products", destination: href, product: name })}>{linkLabel} <ArrowRight size={17} aria-hidden="true" /></a>
                 </div>
-                <Visual />
+                <ProductIllustration basename={imageBasename} alt={imageAlt} />
               </article>
             ))}
           </div>

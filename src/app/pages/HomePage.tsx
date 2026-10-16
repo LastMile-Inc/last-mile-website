@@ -34,8 +34,11 @@ export function HomePage() {
         </div>
         <div className="hero-visual">
           <div className="industrial-image home-hero-image">
-            <img src="/images/home/industrial-orchestration-hero-v3.png" alt="An operator with a tablet beside industrial pump equipment, connected by a visual path from a warning to a response" width={1672} height={941} fetchPriority="high" />
-            <div className="image-caption" aria-hidden="true"><span>FROM THE PLANT FLOOR</span><ArrowRight size={18} /><span>TO THE FINISHED RESPONSE</span></div>
+            <picture>
+              <source srcSet="/images/home/home-chuck-hero.avif" type="image/avif" />
+              <source srcSet="/images/home/home-chuck-hero.webp" type="image/webp" />
+              <img src="/images/home/home-chuck-hero.jpg" alt="Industrial worker in hard hat, safety glasses, and high-visibility vest on a factory floor" width={443} height={540} loading="eager" fetchPriority="high" />
+            </picture>
           </div>
         </div>
       </section>

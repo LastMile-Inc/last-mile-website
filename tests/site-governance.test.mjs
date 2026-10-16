@@ -66,15 +66,24 @@ test("every use case uses the code-native governed process map and required disc
   }
 });
 
-test("homepage uses approved imagery without placeholders while concepts hide governance enums", () => {
+test("homepage and platform use approved imagery and inventory while concepts hide governance enums", () => {
   const home = read("src/app/pages/HomePage.tsx");
+  const platform = read("src/app/pages/PlatformPage.tsx");
   const howItWorks = read("src/app/pages/HowItWorksPage.tsx");
   const article = read("src/app/pages/IndustrialConceptArticlePage.tsx");
-  assert.match(home, /industrial-orchestration-hero-v3\.png/);
+  const inventory = JSON.parse(read("content-source/image-inventory.json"));
+  assert.match(home, /home-chuck-hero\.(?:avif|webp|jpg)/);
+  assert.match(home, /width=\{443\} height=\{540\} loading="eager" fetchPriority="high"/);
+  assert.doesNotMatch(home, /image-caption/);
   assert.doesNotMatch(home, /<Screenshot\b/);
   assert.doesNotMatch(home, /robots="noindex,\s*nofollow"/);
   assert.doesNotMatch(home, /not a product screenshot|24\/7|response-time SLA/i);
   assert.match(home, /<ServiceTeaser/);
+  for (const basename of ["platform-inspection-team", "platform-infinit-signal", "platform-singularity", "platform-infinit-flow", "platform-infinit-control"]) {
+    assert.ok(platform.includes(basename), `PlatformPage missing ${basename}`);
+  }
+  assert.equal(inventory.activeAssets.length, 6);
+  assert.equal(inventory.reservedAssets.length, 6);
   assert.match(howItWorks, /accountable-operations-loop-v3\.png/);
   const shot = read("src/app/components/makeover/ProductShot.tsx");
   assert.match(shot, /Screenshot Placeholder/);
