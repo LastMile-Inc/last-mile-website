@@ -1,0 +1,220 @@
+/* Locally scoped styles for cleaned-up supporting marketing routes:
+   /how-it-works (below the Accountable Operations ring), /industries, /why-last-mile, /our-service, and /about.
+   Does NOT modify / (HomePage) or /platform (PlatformPage). */
+
+body.lm-makeover .lm-supporting-card {
+  background: var(--lm-surface);
+  border: 1px solid var(--lm-steel);
+  border-radius: 10px;
+  box-shadow: 0 18px 38px -24px color-mix(in srgb, var(--lm-ink) 18%, transparent);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+body.lm-makeover .lm-supporting-card__bar {
+  padding: 13px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  background: var(--lm-canvas);
+  border-bottom: 1px solid var(--lm-wash);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1.1px;
+  text-transform: uppercase;
+  color: var(--lm-blue-dark);
+}
+
+body.lm-makeover .lm-supporting-card__badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 10px;
+  border-radius: 999px;
+  background: var(--lm-wash);
+  border: 1px solid var(--lm-steel);
+  color: var(--lm-ink);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.8px;
+}
+
+body.lm-makeover .lm-supporting-card__body {
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+body.lm-makeover .lm-supporting-card__title {
+  font-size: 21px;
+  font-weight: 600;
+  line-height: 1.25;
+  letter-spacing: -0.4px;
+  color: var(--lm-ink);
+}
+
+body.lm-makeover .lm-supporting-card__rows {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  gap: 10px;
+}
+
+body.lm-makeover .lm-supporting-card__rows li {
+  display: grid;
+  grid-template-columns: 140px minmax(0, 1fr);
+  gap: 14px;
+  padding: 11px 14px;
+  background: var(--lm-canvas);
+  border: 1px solid var(--lm-wash);
+  border-radius: 6px;
+  align-items: baseline;
+}
+
+body.lm-makeover .lm-supporting-card__rows span {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.7px;
+  text-transform: uppercase;
+  color: var(--lm-blue-dark);
+}
+
+body.lm-makeover .lm-supporting-card__rows strong {
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.5;
+  color: var(--lm-ink);
+}
+
+body.lm-makeover .lm-supporting-card__footer {
+  padding: 14px 20px;
+  background: var(--lm-wash);
+  border-top: 1px solid var(--lm-steel);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+  font-size: 13px;
+  color: var(--lm-copy);
+}
+
+body.lm-makeover .lm-supporting-card__footer strong {
+  color: var(--lm-ink);
+  font-weight: 600;
+}
+
+/* Product family links on /how-it-works */
+body.lm-makeover .product-family article {
+  display: flex;
+  flex-direction: column;
+}
+
+body.lm-makeover .product-family .text-link {
+  margin-top: auto;
+  padding-top: 18px;
+}
+
+/* About page operational charter panel replacing legacy hero image */
+body.lm-makeover .lm-about-charter {
+  background: linear-gradient(180deg, var(--lm-wash) 0%, var(--lm-canvas) 100%);
+  border: 1px solid var(--lm-steel);
+  border-radius: 10px;
+  padding: 36px 40px;
+  display: grid;
+  grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr);
+  gap: 44px;
+  align-items: center;
+}
+
+body.lm-makeover .lm-about-charter h2 {
+  font-size: clamp(28px, 2.8vw, 38px);
+  line-height: 1.14;
+  letter-spacing: -1.2px;
+  margin-top: 14px;
+  color: var(--lm-ink);
+}
+
+body.lm-makeover .lm-about-charter p:not(.eyebrow) {
+  margin-top: 16px;
+  font-size: 16px;
+  line-height: 1.65;
+  color: var(--lm-copy);
+}
+
+body.lm-makeover .lm-about-charter__pillars {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  gap: 12px;
+}
+
+body.lm-makeover .lm-about-charter__pillars li {
+  background: var(--lm-surface);
+  border: 1px solid var(--lm-steel);
+  border-left: 3px solid var(--lm-blue);
+  border-radius: 6px;
+  padding: 14px 18px;
+}
+
+body.lm-makeover .lm-about-charter__pillars span {
+  display: block;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.9px;
+  text-transform: uppercase;
+  color: var(--lm-blue-dark);
+}
+
+body.lm-makeover .lm-about-charter__pillars strong {
+  display: block;
+  margin-top: 4px;
+  font-size: 15px;
+  font-weight: 600;
+  line-height: 1.45;
+  color: var(--lm-ink);
+}
+
+/* Industry explorer scenario links */
+body.lm-makeover .sector-actions {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+/* Form next-step helper inside ReviewRoot */
+body.lm-makeover .lm-form__next-step {
+  margin-top: 10px;
+  font-size: 14px;
+  line-height: 1.6;
+  color: var(--lm-copy);
+}
+
+@media (max-width: 900px) {
+  body.lm-makeover .lm-about-charter {
+    grid-template-columns: 1fr;
+    padding: 28px 24px;
+    gap: 28px;
+  }
+}
+
+@media (max-width: 580px) {
+  body.lm-makeover .lm-supporting-card__body {
+    padding: 18px;
+  }
+
+  body.lm-makeover .lm-supporting-card__rows li {
+    grid-template-columns: 1fr;
+    gap: 4px;
+  }
+
+  body.lm-makeover .lm-about-charter {
+    padding: 22px 18px;
+  }
+}

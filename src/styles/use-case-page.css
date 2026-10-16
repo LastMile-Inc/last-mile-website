@@ -1,0 +1,166 @@
+/* Scoped exclusively to the three updated OperatingUseCasePage introductions (.lm-v2-page.lm-use-case-page--intro-updated). */
+
+.lm-v2-page.lm-use-case-page--intro-updated .lm-v2-hero.lm-v2-hero--split {
+  display: grid;
+  grid-template-columns: minmax(0, 0.92fr) minmax(0, 1.08fr);
+  gap: 40px 56px;
+  align-items: center;
+  min-height: 0;
+  padding: clamp(48px, 5vw, 68px) clamp(28px, 4.5vw, 64px);
+  border: 1px solid var(--lm-line);
+  border-radius: 20px;
+  box-shadow: var(--lm-shadow);
+}
+
+.lm-v2-page.lm-use-case-page--intro-updated .lm-v2-hero.lm-v2-hero--split > * {
+  min-width: 0;
+}
+
+.lm-v2-page.lm-use-case-page--intro-updated .lm-v2-hero__copy h1 {
+  font-size: clamp(36px, 3.8vw, 52px);
+  font-weight: 500;
+  line-height: 1.07;
+  letter-spacing: -0.035em;
+  margin-top: 16px;
+  text-wrap: balance;
+  color: var(--lm-ink);
+}
+
+.lm-v2-page.lm-use-case-page--intro-updated .lm-v2-hero__intro {
+  font-size: 18px;
+  line-height: 1.62;
+  color: var(--lm-copy);
+  margin-top: 20px;
+  max-width: 560px;
+}
+
+.lm-v2-page.lm-use-case-page--intro-updated .lm-v2-hero__copy .lm-actions {
+  margin-top: 28px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 14px;
+}
+
+/* Primary introductory visual */
+.lm-v2-page.lm-use-case-page--intro-updated .uc-intro-media {
+  margin: 0;
+  padding: 12px 12px 14px;
+  background: var(--lm-surface);
+  border: 1px solid var(--lm-steel);
+  border-radius: 14px;
+  box-shadow: 0 24px 50px -36px color-mix(in srgb, var(--lm-ink) 40%, transparent);
+}
+
+.lm-v2-page.lm-use-case-page--intro-updated .uc-intro-media__frame {
+  width: 100%;
+  border-radius: 9px;
+  overflow: hidden;
+  background: var(--lm-canvas);
+}
+
+.lm-v2-page.lm-use-case-page--intro-updated .uc-intro-media__frame[data-aspect="16-10"] {
+  aspect-ratio: 1024 / 640;
+}
+
+.lm-v2-page.lm-use-case-page--intro-updated .uc-intro-media__frame[data-aspect="16-9"] {
+  aspect-ratio: 1024 / 576;
+}
+
+.lm-v2-page.lm-use-case-page--intro-updated .uc-intro-media__frame picture {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.lm-v2-page.lm-use-case-page--intro-updated .uc-intro-media__frame img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.lm-v2-page.lm-use-case-page--intro-updated .uc-intro-media__caption {
+  margin-top: 10px;
+  padding-inline: 4px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px 16px;
+  font-size: 13px;
+  color: var(--lm-copy);
+  letter-spacing: 0.2px;
+  line-height: 1.4;
+}
+
+.lm-v2-page.lm-use-case-page--intro-updated .uc-intro-media__tag {
+  display: inline-block;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--lm-blue-dark);
+  background: var(--lm-wash);
+  padding: 3px 10px;
+  border-radius: 999px;
+  line-height: 1.35;
+}
+
+.lm-v2-page.lm-use-case-page--intro-updated .lm-use-case-disclosure {
+  width: min(1320px, calc(100% - 48px));
+  margin: 18px auto 28px;
+  padding: 14px 20px;
+  border: 1px solid var(--lm-line);
+  border-left: 3px solid var(--lm-blue);
+  border-radius: 12px;
+  background: var(--lm-surface);
+  color: var(--lm-copy);
+  font-size: 13px;
+  line-height: 1.55;
+}
+
+@media (max-width: 1020px) {
+  .lm-v2-page.lm-use-case-page--intro-updated .lm-v2-hero.lm-v2-hero--split {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 32px;
+    padding: 40px 28px;
+  }
+
+  .lm-v2-page.lm-use-case-page--intro-updated .lm-v2-hero__intro {
+    max-width: 640px;
+  }
+}
+
+@media (max-width: 580px) {
+  .lm-v2-page.lm-use-case-page--intro-updated .lm-v2-hero.lm-v2-hero--split {
+    width: calc(100% - 32px);
+    padding: 28px 20px;
+    gap: 24px;
+    border-radius: 16px;
+  }
+
+  .lm-v2-page.lm-use-case-page--intro-updated .lm-v2-hero__copy h1 {
+    font-size: clamp(30px, 8vw, 36px);
+    letter-spacing: -0.03em;
+  }
+
+  .lm-v2-page.lm-use-case-page--intro-updated .lm-v2-hero__intro {
+    font-size: 16.5px;
+    margin-top: 16px;
+  }
+
+  .lm-v2-page.lm-use-case-page--intro-updated .uc-intro-media {
+    padding: 10px 10px 12px;
+  }
+
+  .lm-v2-page.lm-use-case-page--intro-updated .lm-use-case-disclosure {
+    width: calc(100% - 32px);
+    padding: 12px 16px;
+  }
+}
+
+@media (max-width: 360px) {
+  .lm-v2-page.lm-use-case-page--intro-updated .lm-v2-hero__copy h1 {
+    font-size: 28px;
+  }
+}

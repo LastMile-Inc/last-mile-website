@@ -151,7 +151,7 @@ export function PlatformPage() {
             <h1 id="pf-hero-title">Bring your systems and your team together.</h1>
             <p className="pf-lead">Last Mile brings equipment information, AI assistance, and everyday work into one connected platform. See what needs attention, organize the response, and check the result.</p>
             <div className="pf-actions">
-              <a className="button" href={demoUrl} onClick={() => trackEvent("cta_demo_click", { placement: "platform_hero", destination: demoUrl })}>Book a demo <ArrowUpRight size={16} aria-hidden="true" /></a>
+              <a className="button" href={demoUrl} onClick={() => trackEvent("cta_demo_click", { placement: "platform_hero", destination: demoUrl })}>Request a demo <ArrowUpRight size={16} aria-hidden="true" /></a>
               <a className="text-link" href="#products">Explore the four products <ArrowRight size={17} aria-hidden="true" /></a>
             </div>
           </div>
@@ -203,7 +203,7 @@ export function PlatformPage() {
             <h2 id="pf-closing-title">See how Last Mile could work in your operation.</h2>
             <p>Bring one problem your team spends too much time chasing. We’ll walk through the platform and discuss how it could fit your equipment, systems, and people.</p>
           </div>
-          <a className="button closing-button" href={demoUrl} onClick={() => trackEvent("cta_demo_click", { placement: "platform_closing", destination: demoUrl })}>Book a demo <ArrowUpRight size={16} aria-hidden="true" /></a>
+          <a className="button closing-button" href={demoUrl} onClick={() => trackEvent("cta_demo_click", { placement: "platform_closing", destination: demoUrl })}>Request a demo <ArrowUpRight size={16} aria-hidden="true" /></a>
         </section>
       </main>
     </>

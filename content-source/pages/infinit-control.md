@@ -2,7 +2,7 @@
 content_id: PAGE-CONTROL-001
 status: approved
 owner: Infinit-Control Product Marketing
-last_reviewed: 2026-08-26
+last_reviewed: 2026-10-16
 claim_maturity: [designed, demonstrated]
 depends_on: [PROD-CONTROL-001, CLAIMS-REGISTRY-001]
 used_by: [/infinit-control]
@@ -12,44 +12,44 @@ used_by: [/infinit-control]
 
 ## Job
 
-Show an operator-centered, role-based surface that distinguishes live state, work state, authority, and physical outcome. Do not frame the product as generic BI or a SCADA replacement.
+Show how Infinit-Control gives each role a clear, governed view of operating conditions, responsibilities, work, and outcomes—with the context and authority needed to respond—and clearly distinguishes work status from established operating recovery.
 
 ## Hero
 
 **Eyebrow:** INFINIT-CONTROL
 
-**H1:** Put the accountable response in front of every role.
+**H1:** Know what needs action. See what changed.
 
-**Body:** Infinit-Control gives each role a governed view of current state, canonical topology, evidence, ownership, work, authority, return measurements, and verified Outcomes.
+**Body:** Give each role a clear view of operating conditions, responsibilities, work, and outcomes—with the context and authority needed to respond.
 
-## Connected response framing
+**Hero visual:** `field-command-v2.png` (`1536×1024`, `3:2` aspect ratio), delivered at `/images/platform/field-command-v2-{640,960,1280,1536}.{avif,webp}` with `.png` fallback and captioned `Concept illustration`.
 
-Render a four-product connected-response strip immediately after the hero. Highlight Infinit-Control as the role-based surface that keeps the full accountable response visible without claiming to perform verification alone.
+## Role-based explanation
 
-**Operating artifact:** Show the Cooling Loop B operating Condition, severity in text and icon, owner, asset and location, current measurements, trends, freshness, work state, required return measurements, and result state.
+Explain the questions each role needs answered using documented capabilities (`CLM-CTRL-001`, `CLM-CTRL-002`, `CLM-CTRL-003`) without implying unrestricted authority for every role:
 
-## Measurement credibility
+- **Operators:** `What needs attention, and what can I do?`
+- **Shift leads:** `Who owns the response, and where is progress blocked?`
+- **Leaders:** `Where is risk accumulating, and what results have been established?`
 
-**Heading:** Every state explains itself.
+## Supporting oversight image (`mission-control-v2`)
 
-**Body:** Important measurements show a numerical value, engineering unit, expected or reference band, state icon and text, and meaningful trend or freshness. Stale, quarantined, unresolved, or missing inputs are shown as No valid data and cannot support a recovered result.
+After the role-based explanation, render `mission-control-v2.png` (`1672×941`, `16:9` aspect ratio), delivered at `/images/platform/mission-control-v2-{640,960,1280,1672}.{avif,webp}` with `.png` fallback and captioned `Concept illustration`.
 
-## Role surfaces
+**Heading:** Keep the wider operation in view.
 
-- Operator case: current condition, owner, evidence, required action, and result.
-- Facility/site: protection, capacity, active Conditions, and coordination.
-- Reliability: topology, recurrence, history, work, and outcome patterns.
-- Executive: aggregated operating outcomes with drill-through to evidence.
-- Administrator: source, mapping, workflow, and product health kept separate from plant state.
+**Body:** Bring conditions, ongoing responses, and outcome evidence into a shared view across the operation.
 
-## Boundary
+Present the image as an illustration of broader oversight; do not suggest that Last Mile requires a physical control room or proprietary hardware.
 
-**Heading:** A management surface above control—not a replacement HMI.
+## Work status versus operating result
 
-**Body:** PLCs, DCS, SIS, SCADA, and local HMIs retain deterministic control and safety responsibilities. Infinit-Control presents the cross-system operating response and exposes customer-authorized actions without claiming independent field authority.
+Include a concise illustrative example reusing the approved Cooling Loop B (`CHWP-02` / `SAP WO-18427`) reference scenario to show that:
+- Work status and operating condition are distinct.
+- Completed work may still require additional evidence.
+- Recovery is established using the relevant operating evidence.
 
-## CTA
+Include the exact statement:
+`Completed work is one milestone. Operating evidence determines whether recovery is established or further response is needed.`
 
-**Heading:** Follow a real operating condition from evidence to result.
-
-**CTA:** Explore operating use cases
+Label synthetic/reference examples as illustrative and preserve `CLM-OUTCOME-001` / `CLM-CTRL-003` (`Stale, quarantined, unresolved, or missing inputs are shown as No valid data and cannot support a recovered result.`).

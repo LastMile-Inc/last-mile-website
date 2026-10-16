@@ -3,27 +3,77 @@ import { EditorialHero, EditorialSection, InlineLink, NextStep } from "@/app/com
 import { createBreadcrumbSchema } from "@/app/lib/structuredData";
 
 const resourceGroups = [
-  { title: "PMO Implementation Hub", copy: "Interactive rollout models, implementation wave gates, and the reference Synapse parallel-run schema for delivery planning.", link: ["Open the PMO Implementation Hub", "/resources/pmo-implementation-hub"] },
-  { title: "Build and Proof", copy: "Demonstration milestones, architecture briefs, reference-use-case updates, and product progress.", link: ["Review the cooling proof", "/use-cases/data-center-cooling"] },
-  { title: "Architect Reference Center", copy: "Interactive protocol-fit guidance, telemetry sizing, zero-trust deployment views, and downloadable control-mapping matrices for customer architects.", link: ["Open the Architect Reference Center", "/resources/architect-reference-center"] },
-  { title: "Industrial Concepts", copy: "Canonical explanations of UNS and SSOM, interoperability, OPC UA, operational memory, industrial AI, OT security, and related architectures.", link: ["Explore Industrial Concepts", "/resources/industrial-concepts"] },
-  { title: "Signal 2 Action", copy: "Current episodes, the editorial thesis, and an invitation for practitioners with a useful operating perspective.", link: ["Visit Signal 2 Action", "/signal-to-action"] },
-  { title: "Company News", copy: "Current milestones, partnerships, corporate updates, and a clearly labeled historical record.", link: ["Read News and Updates", "/company/newsroom"] },
+  {
+    title: "See an operating example",
+    copy: "Follow an issue from the first operating evidence through coordinated work and verification.",
+    link: ["See an operating example", "/use-cases"],
+  },
+  {
+    title: "Evaluate the architecture",
+    copy: "Review source connections, deployment boundaries, telemetry sizing, and technical reference material.",
+    link: ["Evaluate the architecture", "/resources/architect-reference-center"],
+  },
+  {
+    title: "Plan an implementation",
+    copy: "Explore rollout considerations, responsibilities, and the criteria for a useful starting scope.",
+    link: ["Plan an implementation", "/resources/pmo-implementation-hub"],
+  },
+  {
+    title: "Explore industrial intelligence",
+    copy: "Understand operational context, interoperability, industrial AI, and the concepts behind the platform.",
+    link: ["Explore industrial intelligence", "/resources/industrial-concepts"],
+  },
+  {
+    title: "Listen to Signal 2 Action",
+    copy: "Explore practical perspectives on connecting industrial information, decisions, and action.",
+    link: ["Listen to Signal 2 Action", "/signal-to-action"],
+  },
+  {
+    title: "Company news",
+    copy: "Read company updates and the historical archive.",
+    link: ["Company news", "/company/newsroom"],
+  },
 ] as const;
 
 export function ResourcesPage() {
-  const description = "Explore Last Mile architecture, product progress, cooling proof, operational perspectives, Signal 2 Action, and current company news.";
-  return <><SEO title="Resources | Last Mile Build, Proof, and Perspectives" description={description} canonicalPath="/resources" jsonLd={createBreadcrumbSchema([{ name: "Home", path: "/" }, { name: "Resources", path: "/resources" }])} />
-    <div className="lm-v2-page">
-      <EditorialHero eyebrow="Resources" title="Follow the build. Inspect the reasoning. Evaluate the proof." intro="The current Last Mile Platform, its reference proof, and its operating point of view come first. Historical material remains available as corporate context, not current product evidence." primary={{ label: "Inspect the Platform", to: "/platform" }} secondary={{ label: "Discuss Your Operation", to: "/contact?intent=operation" }} />
-      <EditorialSection title="Choose the kind of evidence you need." tone="grid">
-        <div className="lm-resource-grid">{resourceGroups.map((group) => <article key={group.title}><h3>{group.title}</h3><p>{group.copy}</p><InlineLink to={group.link[1]}>{group.link[0]}</InlineLink></article>)}</div>
-      </EditorialSection>
-      <EditorialSection eyebrow="Historical context" title="Prior strategic chapter.">
-        <p className="lm-v2-large-copy">Older releases and episodes that foreground the company’s former ServiceNow chapter remain part of the public record. They are not presented as proof of the independent Last Mile Platform.</p>
-        <InlineLink to="/company/newsroom">Open the company news archive</InlineLink>
-      </EditorialSection>
-      <NextStep title="Move from the point of view to the architecture." copy="The Platform page shows what remains in the existing stack, what Last Mile contributes, and which claims are demonstrable today." label="Explore the Platform" to="/platform" secondary={{ label: "Discuss Your Operation", to: "/contact?intent=operation" }} />
-    </div>
-  </>;
+  const description = "Explore operating examples, architecture guidance, and practical explanations for evaluating Last Mile with your operations, engineering, and IT teams.";
+  return (
+    <>
+      <SEO
+        title="Resources | Last Mile"
+        description={description}
+        canonicalPath="/resources"
+        jsonLd={createBreadcrumbSchema([
+          { name: "Home", path: "/" },
+          { name: "Resources", path: "/resources" },
+        ])}
+      />
+      <div className="lm-v2-page">
+        <EditorialHero
+          eyebrow="Resources"
+          title="See how Last Mile fits your operation."
+          intro="Explore operating examples, architecture guidance, and practical explanations for evaluating Last Mile with your operations, engineering, and IT teams."
+          primary={{ label: "Explore operating examples", to: "/use-cases" }}
+          secondary={{ label: "Request a demo", to: "/demo" }}
+        />
+        <EditorialSection title="Choose the kind of evidence you need." tone="grid">
+          <div className="lm-resource-grid">
+            {resourceGroups.map((group) => (
+              <article key={group.title}>
+                <h3>{group.title}</h3>
+                <p>{group.copy}</p>
+                <InlineLink to={group.link[1]}>{group.link[0]}</InlineLink>
+              </article>
+            ))}
+          </div>
+        </EditorialSection>
+        <NextStep
+          title="Bring your operation into the conversation."
+          copy="Explore the examples, review the architecture, and talk with us about a practical starting point for your team."
+          label="Request a demo"
+          to="/demo"
+        />
+      </div>
+    </>
+  );
 }

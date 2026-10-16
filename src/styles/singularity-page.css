@@ -1,0 +1,860 @@
+/* Singularity product page (/singularity). Scoped to main.lm-product-detail.lm-singularity; shared --lm-* tokens remain authoritative. */
+
+body.lm-makeover main.lm-product-detail.lm-singularity {
+  background: var(--lm-surface);
+  color: var(--lm-ink);
+}
+
+body.lm-makeover .lm-singularity h1,
+body.lm-makeover .lm-singularity h2,
+body.lm-makeover .lm-singularity h3 {
+  text-wrap: balance;
+  color: var(--lm-ink);
+}
+
+body.lm-makeover .lm-singularity p {
+  text-wrap: pretty;
+}
+
+/* Section A: Hero */
+body.lm-makeover .lm-singularity .singularity-hero {
+  display: grid;
+  grid-template-columns: minmax(0, 1.02fr) minmax(0, 0.98fr);
+  gap: 56px;
+  align-items: center;
+  padding-block: 68px 76px;
+}
+
+body.lm-makeover .lm-singularity .singularity-hero > * {
+  min-width: 0;
+}
+
+body.lm-makeover .lm-singularity .singularity-hero h1 {
+  margin-top: 22px;
+  font-size: clamp(42px, 4.6vw, 66px);
+  line-height: 1.04;
+  letter-spacing: -2.6px;
+  font-weight: 500;
+  max-width: 14ch;
+}
+
+body.lm-makeover .lm-singularity .singularity-hero-lead {
+  margin-top: 24px;
+  max-width: 58ch;
+  font-size: 19px;
+  line-height: 1.62;
+  color: var(--lm-copy);
+}
+
+body.lm-makeover .lm-singularity .singularity-hero .hero-actions {
+  margin-top: 30px;
+}
+
+body.lm-makeover .lm-singularity .singularity-hero-figure {
+  margin: 0;
+  padding: 14px;
+  background: var(--lm-surface);
+  border: 1px solid var(--lm-steel);
+  border-radius: 12px;
+  box-shadow: 0 24px 50px -36px color-mix(in srgb, var(--lm-ink) 40%, transparent);
+}
+
+body.lm-makeover .lm-singularity .singularity-hero-media {
+  border-radius: 8px;
+  overflow: hidden;
+  border: 1px solid var(--lm-wash);
+  background: var(--lm-canvas);
+  aspect-ratio: 4 / 3;
+}
+
+body.lm-makeover .lm-singularity .singularity-hero-media picture,
+body.lm-makeover .lm-singularity .singularity-hero-media img {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+}
+
+body.lm-makeover .lm-singularity .singularity-figure-caption {
+  margin-top: 10px;
+  padding-inline: 4px;
+  font-size: 13px;
+  line-height: 1.4;
+  letter-spacing: 0.2px;
+  color: var(--lm-copy);
+}
+
+/* Shared Section Spacing & Header */
+body.lm-makeover .lm-singularity .singularity-section {
+  padding-block: 88px;
+  border-top: 1px solid var(--lm-wash);
+}
+
+body.lm-makeover .lm-singularity .singularity-section--canvas {
+  background: var(--lm-canvas);
+  border-top: 1px solid var(--lm-steel);
+  border-bottom: 1px solid var(--lm-steel);
+}
+
+body.lm-makeover .lm-singularity .singularity-section-header {
+  max-width: 760px;
+  margin-bottom: 40px;
+}
+
+body.lm-makeover .lm-singularity .singularity-section-header--wide {
+  max-width: 840px;
+}
+
+body.lm-makeover .lm-singularity .singularity-section-header h2 {
+  margin-top: 18px;
+  font-size: clamp(32px, 3.4vw, 48px);
+  line-height: 1.1;
+  letter-spacing: -1.8px;
+}
+
+body.lm-makeover .lm-singularity .singularity-section-lead {
+  margin-top: 18px;
+  max-width: 68ch;
+  font-size: 18px;
+  line-height: 1.62;
+  color: var(--lm-copy);
+}
+
+/* Section B: Main Explanatory Image (semantic-operating-record-v3) */
+body.lm-makeover .lm-singularity .singularity-record-figure {
+  margin: 0;
+  padding: 16px;
+  background: var(--lm-surface);
+  border: 1px solid var(--lm-steel);
+  border-radius: 12px;
+  box-shadow: 0 24px 50px -36px color-mix(in srgb, var(--lm-ink) 38%, transparent);
+}
+
+body.lm-makeover .lm-singularity .singularity-record-canvas {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1672 / 941;
+  border-radius: 8px;
+  overflow: hidden;
+  border: 1px solid var(--lm-wash);
+  background: var(--lm-surface);
+}
+
+body.lm-makeover .lm-singularity .singularity-record-canvas picture,
+body.lm-makeover .lm-singularity .singularity-record-img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+body.lm-makeover .lm-singularity .singularity-record-leaders {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 2;
+}
+
+body.lm-makeover .lm-singularity .singularity-record-leaders line {
+  stroke: var(--lm-steel);
+  stroke-width: 2;
+  stroke-dasharray: 4 3;
+}
+
+body.lm-makeover .lm-singularity .singularity-record-leaders circle {
+  fill: var(--lm-surface);
+  stroke: var(--lm-blue-dark);
+  stroke-width: 2.2;
+}
+
+/* Three Live Labels Aligned to Composition */
+body.lm-makeover .lm-singularity .singularity-record-labels {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 3;
+}
+
+body.lm-makeover .lm-singularity .singularity-record-pill {
+  position: absolute;
+  top: 4.5%;
+  transform: translateX(-50%);
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 8px 16px;
+  background: color-mix(in srgb, var(--lm-surface) 95%, var(--lm-wash));
+  border: 1px solid var(--lm-steel);
+  border-top: 2px solid var(--lm-blue-dark);
+  border-radius: 999px;
+  box-shadow: 0 8px 20px -12px color-mix(in srgb, var(--lm-ink) 32%, transparent);
+  white-space: nowrap;
+}
+
+body.lm-makeover .lm-singularity .singularity-record-pill-num {
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--lm-blue-dark);
+}
+
+body.lm-makeover .lm-singularity .singularity-record-pill strong {
+  font-size: clamp(12px, 1.02vw, 14.5px);
+  font-weight: 700;
+  letter-spacing: -0.2px;
+  color: var(--lm-ink);
+}
+
+body.lm-makeover .lm-singularity .singularity-record-pill--left {
+  left: 23.2%;
+}
+
+body.lm-makeover .lm-singularity .singularity-record-pill--center {
+  left: 50.5%;
+}
+
+body.lm-makeover .lm-singularity .singularity-record-pill--right {
+  left: 80%;
+}
+
+body.lm-makeover .lm-singularity .singularity-record-mobile-markers {
+  display: none;
+}
+
+body.lm-makeover .lm-singularity .singularity-record-caption {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px 20px;
+  margin-top: 12px;
+  padding-inline: 4px;
+  font-size: 13px;
+  line-height: 1.45;
+  color: var(--lm-copy);
+}
+
+body.lm-makeover .lm-singularity .singularity-record-caption span:first-child {
+  font-weight: 600;
+  color: var(--lm-ink);
+}
+
+body.lm-makeover .lm-singularity .singularity-composition-grid {
+  margin-top: 18px;
+  padding-top: 18px;
+  border-top: 1px solid var(--lm-wash);
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
+}
+
+body.lm-makeover .lm-singularity .singularity-composition-card {
+  padding: 20px 22px;
+  background: var(--lm-canvas);
+  border: 1px solid var(--lm-wash);
+  border-top: 3px solid var(--lm-blue);
+  border-radius: 8px;
+}
+
+body.lm-makeover .lm-singularity .singularity-composition-heading {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+}
+
+body.lm-makeover .lm-singularity .singularity-composition-heading span {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--lm-blue-dark);
+}
+
+body.lm-makeover .lm-singularity .singularity-composition-heading h3 {
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 1.3;
+  letter-spacing: -0.3px;
+}
+
+body.lm-makeover .lm-singularity .singularity-composition-card p {
+  margin-top: 8px;
+  font-size: 15px;
+  line-height: 1.6;
+  color: var(--lm-copy);
+}
+
+/* Section C: Editorial Example + Four Operational Questions */
+body.lm-makeover .lm-singularity .singularity-editorial-example {
+  margin-bottom: 52px;
+  padding: 28px 32px;
+  background: var(--lm-canvas);
+  border: 1px solid var(--lm-wash);
+  border-left: 3px solid var(--lm-blue-dark);
+  border-radius: 10px;
+  max-width: 840px;
+}
+
+body.lm-makeover .lm-singularity .singularity-example-label {
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.9px;
+  text-transform: uppercase;
+  color: var(--lm-blue-dark);
+  margin-bottom: 8px;
+}
+
+body.lm-makeover .lm-singularity .singularity-editorial-example h2 {
+  margin: 0;
+  font-size: clamp(24px, 2.4vw, 30px);
+  line-height: 1.2;
+  letter-spacing: -0.7px;
+  color: var(--lm-ink);
+}
+
+body.lm-makeover .lm-singularity .singularity-example-copy {
+  margin: 12px 0 0;
+  font-size: 16.5px;
+  line-height: 1.6;
+  color: var(--lm-ink);
+}
+
+body.lm-makeover .lm-singularity .singularity-example-followup {
+  margin: 10px 0 0;
+  font-size: 15.5px;
+  line-height: 1.6;
+  color: var(--lm-copy);
+}
+
+body.lm-makeover .lm-singularity .singularity-questions-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 24px;
+}
+
+body.lm-makeover .lm-singularity .singularity-question-card {
+  padding: 30px 32px;
+  background: var(--lm-surface);
+  border: 1px solid var(--lm-steel);
+  border-top: 3px solid var(--lm-blue);
+  border-radius: 8px;
+  box-shadow: var(--lm-shadow-sm);
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+body.lm-makeover .lm-singularity .singularity-question-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+body.lm-makeover .lm-singularity .singularity-question-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+  height: 38px;
+  border-radius: 8px;
+  background: var(--lm-wash);
+  color: var(--lm-blue-dark);
+  flex-shrink: 0;
+}
+
+body.lm-makeover .lm-singularity .singularity-question-role {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--lm-blue-dark);
+  background: var(--lm-canvas);
+  border: 1px solid var(--lm-wash);
+  padding: 4px 10px;
+  border-radius: 999px;
+}
+
+body.lm-makeover .lm-singularity .singularity-question-card h3 {
+  font-size: 22px;
+  font-weight: 600;
+  line-height: 1.28;
+  letter-spacing: -0.5px;
+}
+
+body.lm-makeover .lm-singularity .singularity-question-card p {
+  font-size: 16px;
+  line-height: 1.65;
+  color: var(--lm-copy);
+}
+
+/* Section D: Optional Technical Section */
+body.lm-makeover .lm-singularity .singularity-tech-wrapper {
+  padding: 36px 40px;
+  background: var(--lm-surface);
+  border: 1px solid var(--lm-steel);
+  border-radius: 12px;
+  box-shadow: var(--lm-shadow-sm);
+}
+
+body.lm-makeover .lm-singularity .singularity-tech-intro {
+  max-width: 820px;
+}
+
+body.lm-makeover .lm-singularity .singularity-tech-intro h2 {
+  margin-top: 16px;
+  font-size: clamp(26px, 2.8vw, 36px);
+  line-height: 1.15;
+  letter-spacing: -1.2px;
+}
+
+body.lm-makeover .lm-singularity .singularity-tech-intro > p:not(.eyebrow) {
+  margin-top: 14px;
+  font-size: 16px;
+  line-height: 1.65;
+  color: var(--lm-copy);
+}
+
+body.lm-makeover .lm-singularity .singularity-tech-details {
+  margin-top: 24px;
+  border: 1px solid var(--lm-steel);
+  border-radius: 8px;
+  background: var(--lm-canvas);
+  overflow: hidden;
+}
+
+body.lm-makeover .lm-singularity .singularity-tech-summary {
+  list-style: none;
+  cursor: pointer;
+  padding: 18px 22px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--lm-blue-dark);
+  background: var(--lm-wash);
+  transition: background-color 0.16s ease;
+}
+
+body.lm-makeover .lm-singularity .singularity-tech-summary::-webkit-details-marker {
+  display: none;
+}
+
+body.lm-makeover .lm-singularity .singularity-tech-summary:hover {
+  background: color-mix(in srgb, var(--lm-wash) 75%, var(--lm-steel));
+}
+
+body.lm-makeover .lm-singularity .singularity-tech-details[open] .singularity-tech-summary svg {
+  transform: rotate(180deg);
+}
+
+body.lm-makeover .lm-singularity .singularity-tech-body {
+  padding: 28px 24px;
+  display: grid;
+  gap: 28px;
+}
+
+body.lm-makeover .lm-singularity .singularity-tech-block h3 {
+  font-size: 19px;
+  font-weight: 600;
+  line-height: 1.3;
+  letter-spacing: -0.3px;
+}
+
+body.lm-makeover .lm-singularity .singularity-tech-block > p {
+  margin-top: 8px;
+  font-size: 15px;
+  line-height: 1.6;
+  color: var(--lm-copy);
+}
+
+body.lm-makeover .lm-singularity .singularity-crosswalk-grid {
+  margin-top: 16px;
+  display: grid;
+  grid-template-columns: minmax(0, 1.3fr) auto minmax(0, 0.9fr);
+  gap: 18px;
+  align-items: center;
+}
+
+body.lm-makeover .lm-singularity .singularity-crosswalk-sources {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+}
+
+body.lm-makeover .lm-singularity .singularity-crosswalk-chip {
+  padding: 10px 12px;
+  background: var(--lm-surface);
+  border: 1px solid var(--lm-steel);
+  border-radius: 6px;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+body.lm-makeover .lm-singularity .singularity-crosswalk-chip strong {
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--lm-blue-dark);
+}
+
+body.lm-makeover .lm-singularity .singularity-crosswalk-chip span {
+  font-size: 12.5px;
+  color: var(--lm-ink);
+  word-break: break-word;
+}
+
+body.lm-makeover .lm-singularity .singularity-crosswalk-arrow {
+  color: var(--lm-blue-dark);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+body.lm-makeover .lm-singularity .singularity-crosswalk-target {
+  padding: 18px 20px;
+  background: var(--lm-surface);
+  border: 1px solid var(--lm-blue);
+  border-left: 4px solid var(--lm-blue-dark);
+  border-radius: 8px;
+}
+
+body.lm-makeover .lm-singularity .singularity-crosswalk-tag {
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--lm-blue-dark);
+}
+
+body.lm-makeover .lm-singularity .singularity-crosswalk-target strong {
+  display: block;
+  margin-top: 6px;
+  font-size: 18px;
+  color: var(--lm-ink);
+}
+
+body.lm-makeover .lm-singularity .singularity-crosswalk-target p {
+  margin-top: 6px;
+  font-size: 14px;
+  line-height: 1.5;
+  color: var(--lm-copy);
+}
+
+body.lm-makeover .lm-singularity .singularity-comparison-table {
+  margin-top: 14px;
+  background: var(--lm-surface);
+  border: 1px solid var(--lm-steel);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+body.lm-makeover .lm-singularity .singularity-comparison-row {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+  padding: 12px 16px;
+  border-top: 1px solid var(--lm-wash);
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+body.lm-makeover .lm-singularity .singularity-comparison-row--head {
+  border-top: 0;
+  background: var(--lm-wash);
+  font-weight: 700;
+  color: var(--lm-ink);
+}
+
+body.lm-makeover .lm-singularity .singularity-tech-note {
+  margin-top: 10px;
+  font-size: 13.5px;
+  color: var(--lm-copy);
+}
+
+body.lm-makeover .lm-singularity .singularity-tech-columns {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 24px;
+}
+
+body.lm-makeover .lm-singularity .singularity-outcome-pills {
+  list-style: none;
+  margin: 12px 0 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+body.lm-makeover .lm-singularity .singularity-outcome-pills li {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 12px;
+  background: var(--lm-surface);
+  border: 1px solid var(--lm-steel);
+  border-radius: 999px;
+  font-size: 13px;
+}
+
+body.lm-makeover .lm-singularity .singularity-outcome-pills span {
+  font-weight: 700;
+  color: var(--lm-blue-dark);
+}
+
+body.lm-makeover .lm-singularity .singularity-resource-links {
+  margin-top: 22px;
+  padding-top: 18px;
+  border-top: 1px solid var(--lm-wash);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px 24px;
+}
+
+/* Section E: Connected Platform and Closing CTA */
+body.lm-makeover .lm-singularity .singularity-platform-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 20px;
+}
+
+body.lm-makeover .lm-singularity .singularity-platform-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 18px;
+  padding: 24px;
+  background: var(--lm-surface);
+  border: 1px solid var(--lm-steel);
+  border-radius: 6px;
+  box-shadow: var(--lm-shadow-sm);
+  transition: border-color 0.2s, transform 0.2s, box-shadow 0.2s;
+}
+
+body.lm-makeover .lm-singularity .singularity-platform-card:hover {
+  border-color: var(--lm-blue);
+  transform: translateY(-2px);
+  box-shadow: var(--lm-shadow-md);
+}
+
+body.lm-makeover .lm-singularity .singularity-platform-card--current {
+  background: var(--lm-wash);
+  border-color: var(--lm-blue);
+  border-top: 3px solid var(--lm-blue-dark);
+}
+
+body.lm-makeover .lm-singularity .singularity-platform-badge {
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1.1px;
+  text-transform: uppercase;
+  color: var(--lm-blue-dark);
+  margin-bottom: 8px;
+}
+
+body.lm-makeover .lm-singularity .singularity-platform-card h3 {
+  font-size: 21px;
+  line-height: 1.25;
+  letter-spacing: -0.4px;
+}
+
+body.lm-makeover .lm-singularity .singularity-platform-card p {
+  margin-top: 10px;
+  font-size: 15px;
+  line-height: 1.6;
+}
+
+body.lm-makeover .lm-singularity .singularity-platform-card-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--lm-blue-dark);
+}
+
+body.lm-makeover .lm-singularity .singularity-closing-panel {
+  margin-top: 64px;
+  padding: 44px 48px;
+  background: var(--lm-wash);
+  border: 1px solid var(--lm-steel);
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 40px;
+}
+
+body.lm-makeover .lm-singularity .singularity-closing-copy h2 {
+  font-size: clamp(28px, 3vw, 40px);
+  line-height: 1.14;
+  letter-spacing: -1.4px;
+  max-width: 22ch;
+}
+
+body.lm-makeover .lm-singularity .singularity-closing-actions {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  flex-wrap: wrap;
+  flex-shrink: 0;
+}
+
+/* Responsive Breakpoints */
+@media (max-width: 1080px) {
+  body.lm-makeover .lm-singularity .singularity-hero {
+    grid-template-columns: 1fr;
+    gap: 36px;
+    padding-block: 52px 60px;
+  }
+
+  body.lm-makeover .lm-singularity .singularity-hero h1 {
+    max-width: 16ch;
+  }
+
+  body.lm-makeover .lm-singularity .singularity-composition-grid {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+
+  body.lm-makeover .lm-singularity .singularity-crosswalk-grid {
+    grid-template-columns: 1fr;
+  }
+
+  body.lm-makeover .lm-singularity .singularity-crosswalk-arrow {
+    display: none;
+  }
+
+  body.lm-makeover .lm-singularity .singularity-tech-columns {
+    grid-template-columns: 1fr;
+  }
+
+  body.lm-makeover .lm-singularity .singularity-platform-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  body.lm-makeover .lm-singularity .singularity-closing-panel {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 36px 32px;
+  }
+}
+
+@media (max-width: 800px) {
+  body.lm-makeover .lm-singularity .singularity-section {
+    padding-block: 60px;
+  }
+
+  body.lm-makeover .lm-singularity .singularity-questions-grid {
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+}
+
+@media (max-width: 680px) {
+  /* On narrow mobile, replace overlay pills on the graphic with clean numbered markers and rely on the 3-part composition breakdown immediately below */
+  body.lm-makeover .lm-singularity .singularity-record-leaders,
+  body.lm-makeover .lm-singularity .singularity-record-labels {
+    display: none;
+  }
+
+  body.lm-makeover .lm-singularity .singularity-record-mobile-markers {
+    display: block;
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    z-index: 3;
+  }
+
+  body.lm-makeover .lm-singularity .singularity-mobile-marker {
+    position: absolute;
+    top: 8%;
+    transform: translateX(-50%);
+    width: 24px;
+    height: 24px;
+    border-radius: 999px;
+    background: var(--lm-blue-dark);
+    color: var(--lm-surface);
+    font-size: 12px;
+    font-weight: 700;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 6px color-mix(in srgb, var(--lm-ink) 28%, transparent);
+  }
+
+  body.lm-makeover .lm-singularity .singularity-mobile-marker--left {
+    left: 23.2%;
+  }
+
+  body.lm-makeover .lm-singularity .singularity-mobile-marker--center {
+    left: 50.5%;
+  }
+
+  body.lm-makeover .lm-singularity .singularity-mobile-marker--right {
+    left: 80%;
+  }
+}
+
+@media (max-width: 580px) {
+  body.lm-makeover .lm-singularity .singularity-hero {
+    padding-block: 36px 48px;
+    gap: 28px;
+  }
+
+  body.lm-makeover .lm-singularity .singularity-hero h1 {
+    font-size: clamp(34px, 9vw, 44px);
+    letter-spacing: -1.6px;
+  }
+
+  body.lm-makeover .lm-singularity .singularity-hero-lead {
+    font-size: 17px;
+  }
+
+  body.lm-makeover .lm-singularity .singularity-hero-figure,
+  body.lm-makeover .lm-singularity .singularity-record-figure {
+    padding: 12px;
+  }
+
+  body.lm-makeover .lm-singularity .singularity-section {
+    padding-block: 48px;
+  }
+
+  body.lm-makeover .lm-singularity .singularity-section-header {
+    margin-bottom: 28px;
+  }
+
+  body.lm-makeover .lm-singularity .singularity-question-card {
+    padding: 22px 20px;
+  }
+
+  body.lm-makeover .lm-singularity .singularity-question-top {
+    flex-wrap: wrap;
+  }
+
+  body.lm-makeover .lm-singularity .singularity-tech-wrapper {
+    padding: 24px 18px;
+  }
+
+  body.lm-makeover .lm-singularity .singularity-crosswalk-sources {
+    grid-template-columns: 1fr;
+  }
+
+  body.lm-makeover .lm-singularity .singularity-platform-card {
+    padding: 22px 20px;
+  }
+
+  body.lm-makeover .lm-singularity .singularity-platform-grid {
+    grid-template-columns: 1fr;
+  }
+
+  body.lm-makeover .lm-singularity .singularity-closing-panel {
+    margin-top: 44px;
+    padding: 28px 22px;
+    gap: 24px;
+  }
+}

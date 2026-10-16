@@ -6,7 +6,6 @@
       "articleRoute": "/resources/industrial-concepts/uns-and-ssom",
       "collectionIndex": 1,
       "usages": [
-        { "route": "/infinit-signal", "mode": "compact_summary", "sourceFile": "src/app/pages/InfinitSignalPage.tsx" },
         { "route": "/singularity", "mode": "compact_summary", "sourceFile": "src/app/pages/SSOMPage.tsx" },
         { "route": "/ecosystem", "mode": "compact_summary", "sourceFile": "src/app/pages/EcosystemPage.tsx" }
       ]
@@ -25,7 +24,6 @@
       "articleRoute": "/resources/industrial-concepts/opc-ua",
       "collectionIndex": 3,
       "usages": [
-        { "route": "/infinit-signal", "mode": "link_only", "sourceFile": "src/app/pages/InfinitSignalPage.tsx" },
         { "route": "/ecosystem", "mode": "link_only", "sourceFile": "src/app/pages/EcosystemPage.tsx" }
       ]
     },

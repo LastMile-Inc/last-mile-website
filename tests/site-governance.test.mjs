@@ -66,14 +66,20 @@ test("every use case uses the code-native governed process map and required disc
   }
 });
 
-test("homepage and platform use approved imagery and inventory while concepts hide governance enums", () => {
+test("homepage, platform, and infinit-signal use approved imagery and inventory while concepts hide governance enums", () => {
   const home = read("src/app/pages/HomePage.tsx");
   const platform = read("src/app/pages/PlatformPage.tsx");
+  const infinitSignal = read("src/app/pages/InfinitSignalPage.tsx");
+  const singularity = read("src/app/pages/SSOMPage.tsx");
+  const infinitFlow = read("src/app/pages/InfinitFlowPage.tsx");
+  const infinitControl = read("src/app/pages/InfinitControlPage.tsx");
   const howItWorks = read("src/app/pages/HowItWorksPage.tsx");
   const article = read("src/app/pages/IndustrialConceptArticlePage.tsx");
   const inventory = JSON.parse(read("content-source/image-inventory.json"));
-  assert.match(home, /home-chuck-hero\.(?:avif|webp|jpg)/);
-  assert.match(home, /width=\{443\} height=\{540\} loading="eager" fetchPriority="high"/);
+  assert.match(home, /home-chuck-hero-(?:400|600|800|1086)\.(?:avif|webp)/);
+  assert.match(home, /home-chuck-hero\.jpg/);
+  assert.match(home, /width=\{1086\}[\s\S]*?height=\{1448\}[\s\S]*?loading="eager"[\s\S]*?fetchPriority="high"/);
+  assert.match(home, /alt="Chuck wearing a blue hard hat and safety glasses on a factory floor\."/);
   assert.doesNotMatch(home, /image-caption/);
   assert.doesNotMatch(home, /<Screenshot\b/);
   assert.doesNotMatch(home, /robots="noindex,\s*nofollow"/);
@@ -82,11 +88,59 @@ test("homepage and platform use approved imagery and inventory while concepts hi
   for (const basename of ["platform-inspection-team", "platform-infinit-signal", "platform-singularity", "platform-infinit-flow", "platform-infinit-control"]) {
     assert.ok(platform.includes(basename), `PlatformPage missing ${basename}`);
   }
-  assert.equal(inventory.activeAssets.length, 6);
+  assert.match(infinitSignal, /platform-infinit-signal/);
+  assert.match(infinitSignal, /signal-handoff-web-v3/);
+  assert.doesNotMatch(infinitSignal, /ai-ready-handoff-v2/);
+  assert.match(infinitSignal, /Make operational data dependable\./);
+  assert.match(infinitSignal, /From incoming signals to usable operational context\./);
+  assert.match(infinitSignal, /alt="Packaging-line cameras and sensors with conceptual graphics showing organized operating information\."/);
+  assert.doesNotMatch(infinitSignal, /Step 1 of 4|COR-DC-04182|NBIRTH|DBIRTH|NDEATH|DDEATH|NodeId|SSOM-conformant CORs|Kubernetes|OpenShift/);
+  assert.match(singularity, /platform-singularity/);
+  assert.match(singularity, /semantic-operating-record-v3/);
+  assert.match(singularity, /SINGULARITY · THE OPERATIONAL WORLD MODEL/);
+  assert.match(singularity, /Give AI and your team the context to act\./);
+  assert.match(singularity, /Different sources\. One connected understanding\./);
+  assert.match(infinitFlow, /infinit-flow-control-room/);
+  assert.match(infinitFlow, /orchestration-routing-web-v4/);
+  assert.doesNotMatch(infinitFlow, /orchestration-routing-v3|Verified recovery/i);
+  assert.match(infinitFlow, /Keep work moving across people and systems\./);
+  assert.match(infinitFlow, /Keep the response moving through every handoff\./);
+  assert.match(infinitFlow, /Automate within the rules of your operation\./);
+  for (const label of ["Operating context", "Rules and approvals", "People and systems", "Progress and evidence"]) {
+    assert.ok(infinitFlow.includes(label), `InfinitFlowPage missing ${label}`);
+  }
+  assert.match(infinitControl, /field-command-v2/);
+  assert.match(infinitControl, /mission-control-v2/);
+  assert.match(infinitControl, /Know what needs action\. See what changed\./);
+  assert.match(infinitControl, /Keep the wider operation in view\./);
+  assert.match(infinitControl, /The work is complete\. Is the operation recovered\?/);
+  assert.match(infinitControl, /Completed work is one milestone\. Operating evidence determines\s+whether recovery is established or further response is needed\./);
+  const useCasePage = read("src/app/pages/OperatingUseCasePage.tsx");
+  assert.match(useCasePage, /manufacturing-compressed-air/);
+  assert.match(useCasePage, /cold-storage-refrigeration-v2/);
+  assert.match(useCasePage, /municipal-wastewater/);
+  assert.match(useCasePage, /Keep compressed-air issues connected to the response\./);
+  assert.match(useCasePage, /Carry refrigeration issues through to verified recovery\./);
+  assert.match(useCasePage, /Keep lift-station response coordinated\./);
+  assert.equal(inventory.activeAssets.length, 15);
   assert.equal(inventory.reservedAssets.length, 6);
   assert.match(howItWorks, /accountable-operations-loop-v3\.png/);
+  assert.match(howItWorks, /Keep evidence, decisions, coordinated work, and verification\s+connected throughout the response\./);
+  assert.match(howItWorks, /Completed work is one milestone\. Operating evidence determines\s+whether recovery is established or further response is needed\./);
+  for (const stage of ["Evidence", "Understand", "Decide", "Coordinate", "Act", "Verify"]) {
+    assert.match(howItWorks, new RegExp(`name:\\s*"${stage}"`));
+  }
   const shot = read("src/app/components/makeover/ProductShot.tsx");
   assert.match(shot, /Screenshot Placeholder/);
+  const ourService = read("src/app/pages/OurServicePage.tsx");
+  const aboutPage = read("src/app/pages/AboutPage.tsx");
+  const siteShell = read("src/app/components/makeover/SiteShell.tsx");
+  assert.doesNotMatch(howItWorks, /<Screenshot\b/);
+  assert.doesNotMatch(ourService, /<Screenshot\b/);
+  assert.doesNotMatch(aboutPage, /industrial-orchestration-hero-v3\.png/);
+  for (const cleanRoute of ["/how-it-works", "/industries", "/why-last-mile", "/our-service", "/about", "/demo", "/private-beta"]) {
+    assert.ok(siteShell.includes(`"${cleanRoute}"`), `SiteShell routesWithoutReviewChrome missing ${cleanRoute}`);
+  }
   for (const page of ["DemoPage", "PrivateBetaPage"]) {
     const content = read(`src/app/pages/${page}.tsx`);
     assert.match(content, /ContactLastMileForm/);

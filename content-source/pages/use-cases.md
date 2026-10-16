@@ -2,7 +2,7 @@
 content_id: PAGE-USECASES-001
 status: approved
 owner: Use-Case Product Marketing
-last_reviewed: 2026-08-06
+last_reviewed: 2026-10-16
 claim_maturity: [demonstrated]
 depends_on: [USECASE-DC-COOLING-001, USECASE-WW-001, USECASE-AIR-001, USECASE-COLD-001, CLAIMS-REGISTRY-001]
 used_by: [/use-cases, /use-cases/data-center-cooling, /use-cases/municipal-wastewater, /use-cases/manufacturing-compressed-air, /use-cases/cold-storage-refrigeration]
@@ -16,16 +16,16 @@ Present four recognizable operating problems using the canonical use-case contra
 
 ## Canonical routes
 
-- `/use-cases/data-center-cooling`
-- `/use-cases/municipal-wastewater`
-- `/use-cases/manufacturing-compressed-air`
-- `/use-cases/cold-storage-refrigeration`
+- `/use-cases/data-center-cooling` (aliases `/data-center-cooling`, `/use-cases/data-centers`)
+- `/use-cases/municipal-wastewater` (alias `/use-cases/wastewater-lift-station`)
+- `/use-cases/manufacturing-compressed-air` (aliases `/use-cases/manufacturing`, `/use-cases/compressed-air-header`)
+- `/use-cases/cold-storage-refrigeration` (aliases `/use-cases/cold-storage`, `/use-cases/cold-storage-evaporator`)
 
-The legacy `/data-center-cooling` route redirects permanently to the canonical cooling route. Competing older use-case aliases redirect and are not canonical destinations.
+The legacy `/data-center-cooling` route and short-form aliases redirect permanently to their canonical routes and are not canonical sitemap destinations.
 
 ## Shared detail structure
 
-Each detail page renders identity, ownership, incident measurements, system and people boundaries, the Accountable Operations Loop (Evidence -> Understand -> Decide -> Coordinate -> Act -> Verify -> Evidence), AUTO/ASSIST/HUMAN AUTHORITY, work and provider handoffs, recovery contract, result branches, program metrics versus event proof, source basis, expandable process map, proof posture, and a direct operating-response CTA.
+Each detail page renders a buyer-facing introduction and primary visual (for compressed-air, cold-storage, and wastewater use cases), identity, ownership, incident measurements, system and people boundaries, the Accountable Operations Loop (Evidence -> Understand -> Decide -> Coordinate -> Act -> Verify -> Evidence), AUTO/ASSIST/HUMAN AUTHORITY, work and provider handoffs, recovery contract, result branches, program metrics versus event proof, source basis, expandable process map, proof posture, and a direct operating-response CTA.
 
 ## Publication boundary
 

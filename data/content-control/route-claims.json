@@ -150,7 +150,7 @@
         {
           "route": "/infinit-signal",
           "sourceFile": "src/app/pages/InfinitSignalPage.tsx",
-          "wording": "Infinit-Signal continuously acquires configured outputs from the systems you already operate, preserves their original evidence, and classifies time, quality, duplication, replay, and identity before data enters the Last Mile operating model."
+          "wording": "Infinit-Signal brings information from your existing equipment and systems into Last Mile, checks its quality, and preserves where it came from."
         },
         {
           "route": "/platform",
@@ -170,7 +170,7 @@
         {
           "route": "/infinit-signal",
           "sourceFile": "src/app/pages/InfinitSignalPage.tsx",
-          "wording": "Source families and named products are representative architecture patterns"
+          "wording": "Connections are configured around your environment and approved during implementation."
         }
       ]
     },
@@ -183,11 +183,6 @@
         "/resources/industrial-concepts/uns-and-ssom"
       ],
       "uses": [
-        {
-          "route": "/infinit-signal",
-          "sourceFile": "src/app/pages/InfinitSignalPage.tsx",
-          "wording": "The UNS remains the customer's communication and discovery fabric."
-        },
         {
           "route": "/ecosystem",
           "sourceFile": "src/app/pages/EcosystemPage.tsx",

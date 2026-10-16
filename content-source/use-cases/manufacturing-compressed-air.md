@@ -2,13 +2,19 @@
 content_id: USECASE-AIR-001
 status: approved
 owner: Use-Case Product and Domain Review
-last_reviewed: 2026-08-06
+last_reviewed: 2026-10-16
 claim_maturity: [demonstrated]
 depends_on: [PROD-SIGNAL-001, PROD-SINGULARITY-001, PROD-FLOW-001, PROD-CONTROL-001]
 used_by: [/platform, /use-cases/manufacturing-compressed-air, demos]
 ---
 
 # Manufacturing Compressed Air - Reference Scenario
+
+## Introductory presentation
+
+- **Headline:** Keep compressed-air issues connected to the response.
+- **Supporting copy:** Bring operating signals, equipment context, and coordinated work together so teams can follow a pressure issue through investigation, action, and verification.
+- **Primary introductory visual:** `manufacturing-compressed-air.webp` (`1024×640`, delivered via `/images/use-cases/manufacturing-compressed-air-{640,800,1024}.{avif,webp}` and `.webp` fallback; labeled `Concept illustration`).
 
 ## Public thesis
 

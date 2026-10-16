@@ -1,0 +1,613 @@
+/* Locally scoped styles for /infinit-flow (.lm-infinit-flow) */
+
+body.lm-makeover .lm-infinit-flow {
+  color: var(--lm-ink);
+}
+
+/* Section A: Hero */
+body.lm-makeover .lm-infinit-flow .flow-hero {
+  display: grid;
+  grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.05fr);
+  gap: 52px;
+  align-items: center;
+  padding-block: 68px 80px;
+}
+
+body.lm-makeover .lm-infinit-flow .flow-hero-copy {
+  max-width: 580px;
+}
+
+body.lm-makeover .lm-infinit-flow .flow-hero h1 {
+  margin-top: 20px;
+  font-size: clamp(38px, 4.4vw, 60px);
+  line-height: 1.04;
+  letter-spacing: -2.2px;
+}
+
+body.lm-makeover .lm-infinit-flow .flow-hero-lead {
+  margin-top: 22px;
+  max-width: 54ch;
+  font-size: clamp(18px, 1.35vw, 20px);
+  line-height: 1.62;
+  color: var(--lm-copy);
+}
+
+body.lm-makeover .lm-infinit-flow .flow-hero-figure {
+  margin: 0;
+  padding: 16px;
+  background: var(--lm-surface);
+  border: 1px solid var(--lm-steel);
+  border-radius: 12px;
+  box-shadow: 0 24px 50px -36px color-mix(in srgb, var(--lm-ink) 38%, transparent);
+}
+
+body.lm-makeover .lm-infinit-flow .flow-hero-media {
+  border-radius: 8px;
+  overflow: hidden;
+  border: 1px solid var(--lm-wash);
+  background: var(--lm-wash);
+  aspect-ratio: 1672 / 941;
+}
+
+body.lm-makeover .lm-infinit-flow .flow-hero-media picture,
+body.lm-makeover .lm-infinit-flow .flow-hero-media img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+body.lm-makeover .lm-infinit-flow .flow-figure-caption {
+  margin-top: 10px;
+  padding-inline: 4px;
+  font-size: 13px;
+  line-height: 1.4;
+  letter-spacing: 0.2px;
+  color: var(--lm-copy);
+}
+
+/* Shared Section Spacing & Header */
+body.lm-makeover .lm-infinit-flow .flow-section {
+  padding-block: 88px;
+  border-top: 1px solid var(--lm-wash);
+}
+
+body.lm-makeover .lm-infinit-flow .flow-section--canvas {
+  background: var(--lm-canvas);
+  border-top: 1px solid var(--lm-steel);
+  border-bottom: 1px solid var(--lm-steel);
+}
+
+body.lm-makeover .lm-infinit-flow .flow-section-header {
+  max-width: 760px;
+  margin-bottom: 40px;
+}
+
+body.lm-makeover .lm-infinit-flow .flow-section-header--wide {
+  max-width: 840px;
+}
+
+body.lm-makeover .lm-infinit-flow .flow-section-header h2 {
+  margin-top: 18px;
+  font-size: clamp(32px, 3.4vw, 48px);
+  line-height: 1.1;
+  letter-spacing: -1.8px;
+}
+
+body.lm-makeover .lm-infinit-flow .flow-section-lead {
+  margin-top: 18px;
+  max-width: 68ch;
+  font-size: 18px;
+  line-height: 1.62;
+  color: var(--lm-copy);
+}
+
+/* Section B: Main Explanatory Image (Industrial Data Flow Network.png -> orchestration-routing-web-v4) */
+body.lm-makeover .lm-infinit-flow .flow-routing-figure {
+  margin: 0;
+  padding: 20px 24px 24px;
+  background: var(--lm-surface);
+  border: 1px solid var(--lm-wash);
+  border-radius: 12px;
+  box-shadow: none;
+}
+
+body.lm-makeover .lm-infinit-flow .flow-routing-canvas {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1672 / 941;
+  border-radius: 6px;
+  overflow: hidden;
+  border: none;
+  background: var(--lm-surface);
+}
+
+body.lm-makeover .lm-infinit-flow .flow-routing-canvas picture,
+body.lm-makeover .lm-infinit-flow .flow-routing-img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+body.lm-makeover .lm-infinit-flow .flow-routing-leaders {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 2;
+}
+
+body.lm-makeover .lm-infinit-flow .flow-routing-leaders line,
+body.lm-makeover .lm-infinit-flow .flow-routing-leaders polyline {
+  stroke: var(--lm-blue-dark);
+  stroke-width: 2;
+  stroke-dasharray: 4 3;
+}
+
+body.lm-makeover .lm-infinit-flow .flow-routing-leaders circle {
+  fill: var(--lm-surface);
+  stroke: var(--lm-blue-dark);
+  stroke-width: 2.4;
+}
+
+body.lm-makeover .lm-infinit-flow .flow-routing-overlay {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 3;
+}
+
+body.lm-makeover .lm-infinit-flow .flow-routing-tag {
+  position: absolute;
+  padding: 8px 14px;
+  background: color-mix(in srgb, var(--lm-surface) 95%, var(--lm-wash));
+  border: 1px solid var(--lm-wash);
+  border-top: 2px solid var(--lm-blue-dark);
+  border-radius: 6px;
+  box-shadow: none;
+  text-align: center;
+}
+
+body.lm-makeover .lm-infinit-flow .flow-routing-tag strong {
+  display: block;
+  font-size: clamp(11.5px, 1vw, 13.5px);
+  font-weight: 700;
+  line-height: 1.25;
+  letter-spacing: -0.2px;
+  color: var(--lm-ink);
+}
+
+body.lm-makeover .lm-infinit-flow .flow-routing-tag--left {
+  left: 10.5%;
+  top: 17.5%;
+  transform: translateX(-50%);
+  width: 17.5%;
+}
+
+body.lm-makeover .lm-infinit-flow .flow-routing-tag--center {
+  left: 38.6%;
+  top: 9.8%;
+  transform: translateX(-50%);
+  width: 20%;
+}
+
+body.lm-makeover .lm-infinit-flow .flow-routing-tag--destinations {
+  left: 57.5%;
+  top: 9.8%;
+  transform: translateX(-50%);
+  width: 16%;
+}
+
+body.lm-makeover .lm-infinit-flow .flow-routing-tag--return {
+  right: 1.8%;
+  top: 23.8%;
+  width: 19.2%;
+}
+
+body.lm-makeover .lm-infinit-flow .flow-routing-caption {
+  margin-top: 12px;
+  padding-inline: 2px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 8px 24px;
+  font-size: 13px;
+  line-height: 1.45;
+  color: var(--lm-copy);
+}
+
+body.lm-makeover .lm-infinit-flow .flow-routing-caption > span:first-child {
+  font-weight: 600;
+  color: var(--lm-ink);
+}
+
+/* Simple 4-Column Editorial Breakdown Below Illustration (no card backgrounds or shadows) */
+body.lm-makeover .lm-infinit-flow .flow-routing-breakdown {
+  margin: 20px 0 0;
+  padding: 20px 0 0;
+  border-top: 1px solid var(--lm-wash);
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 24px;
+}
+
+body.lm-makeover .lm-infinit-flow .flow-routing-column h3 {
+  margin: 0;
+  font-size: 17px;
+  font-weight: 600;
+  line-height: 1.28;
+  letter-spacing: -0.3px;
+  color: var(--lm-ink);
+}
+
+body.lm-makeover .lm-infinit-flow .flow-routing-column p {
+  margin: 8px 0 0;
+  font-size: 14.5px;
+  line-height: 1.58;
+  color: var(--lm-copy);
+}
+
+/* Section C: Authority & Automation (Concise Editorial Layout) */
+body.lm-makeover .lm-infinit-flow .flow-editorial-layout {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 32px;
+  align-items: start;
+}
+
+body.lm-makeover .lm-infinit-flow .flow-editorial-column {
+  padding: 32px;
+  background: var(--lm-surface);
+  border: 1px solid var(--lm-steel);
+  border-radius: 12px;
+}
+
+body.lm-makeover .lm-infinit-flow .flow-editorial-column--wash {
+  background: color-mix(in srgb, var(--lm-wash) 46%, var(--lm-surface));
+  border-top: 3px solid var(--lm-blue-dark);
+}
+
+body.lm-makeover .lm-infinit-flow .flow-editorial-intro h3 {
+  margin: 0;
+  font-size: 24px;
+  line-height: 1.2;
+  letter-spacing: -0.6px;
+  color: var(--lm-ink);
+}
+
+body.lm-makeover .lm-infinit-flow .flow-editorial-intro p {
+  margin: 12px 0 0;
+  font-size: 15.5px;
+  line-height: 1.62;
+  color: var(--lm-copy);
+}
+
+body.lm-makeover .lm-infinit-flow .flow-action-ledger,
+body.lm-makeover .lm-infinit-flow .flow-handoff-ledger {
+  margin: 24px 0 0;
+  padding: 0;
+}
+
+body.lm-makeover .lm-infinit-flow .flow-action-row {
+  padding: 18px 0;
+  border-top: 1px solid var(--lm-steel);
+}
+
+body.lm-makeover .lm-infinit-flow .flow-action-row:last-child {
+  padding-bottom: 0;
+}
+
+body.lm-makeover .lm-infinit-flow .flow-action-row dt {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+}
+
+body.lm-makeover .lm-infinit-flow .flow-action-mode {
+  padding: 3px 9px;
+  border-radius: 999px;
+  background: var(--lm-wash);
+  border: 1px solid var(--lm-steel);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.9px;
+  text-transform: uppercase;
+  color: var(--lm-blue-dark);
+}
+
+body.lm-makeover .lm-infinit-flow .flow-action-row dt strong {
+  font-size: 17px;
+  line-height: 1.3;
+  color: var(--lm-ink);
+}
+
+body.lm-makeover .lm-infinit-flow .flow-action-row dd {
+  margin: 8px 0 0;
+}
+
+body.lm-makeover .lm-infinit-flow .flow-action-row dd p {
+  margin: 0;
+  font-size: 15px;
+  line-height: 1.58;
+  color: var(--lm-copy);
+}
+
+body.lm-makeover .lm-infinit-flow .flow-action-policy-rule {
+  margin-top: 8px !important;
+  padding: 8px 12px;
+  background: var(--lm-canvas);
+  border-left: 3px solid var(--lm-blue);
+  border-radius: 0 6px 6px 0;
+  font-size: 14px !important;
+  font-weight: 600;
+  color: var(--lm-ink) !important;
+}
+
+body.lm-makeover .lm-infinit-flow .flow-tech-details {
+  margin-top: 20px;
+  border: 1px solid var(--lm-wash);
+  border-radius: 8px;
+  background: var(--lm-canvas);
+  padding: 12px 16px;
+}
+
+body.lm-makeover .lm-infinit-flow .flow-tech-details summary {
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--lm-blue-dark);
+}
+
+body.lm-makeover .lm-infinit-flow .flow-tech-details-body {
+  margin-top: 10px;
+  padding-top: 10px;
+  border-top: 1px solid var(--lm-wash);
+}
+
+body.lm-makeover .lm-infinit-flow .flow-tech-details-body p {
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.55;
+  color: var(--lm-copy);
+}
+
+body.lm-makeover .lm-infinit-flow .flow-editorial-concept-link {
+  margin: 22px 0 0;
+  padding-top: 18px;
+  border-top: 1px solid var(--lm-wash);
+}
+
+body.lm-makeover .lm-infinit-flow .flow-handoff-row {
+  padding: 16px 0;
+  border-top: 1px solid var(--lm-steel);
+}
+
+body.lm-makeover .lm-infinit-flow .flow-handoff-row:last-child {
+  padding-bottom: 0;
+}
+
+body.lm-makeover .lm-infinit-flow .flow-handoff-row dt {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+body.lm-makeover .lm-infinit-flow .flow-handoff-index {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  color: var(--lm-blue-dark);
+}
+
+body.lm-makeover .lm-infinit-flow .flow-handoff-row dt strong {
+  font-size: 17px;
+  line-height: 1.3;
+  color: var(--lm-ink);
+}
+
+body.lm-makeover .lm-infinit-flow .flow-handoff-row dd {
+  margin: 6px 0 0;
+  font-size: 15px;
+  line-height: 1.58;
+  color: var(--lm-copy);
+}
+
+/* Section D: Connected Platform Grid & Closing Panel */
+body.lm-makeover .lm-infinit-flow .flow-platform-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 18px;
+}
+
+body.lm-makeover .lm-infinit-flow .flow-platform-card {
+  padding: 24px 22px;
+  background: var(--lm-surface);
+  border: 1px solid var(--lm-steel);
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+}
+
+body.lm-makeover .lm-infinit-flow .flow-platform-card.is-current {
+  border-top: 3px solid var(--lm-blue);
+  box-shadow: 0 18px 36px -28px color-mix(in srgb, var(--lm-ink) 35%, transparent);
+}
+
+body.lm-makeover .lm-infinit-flow .flow-platform-card-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+body.lm-makeover .lm-infinit-flow .flow-platform-step {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 1.2px;
+  color: var(--lm-blue-dark);
+}
+
+body.lm-makeover .lm-infinit-flow .flow-platform-badge {
+  padding: 3px 9px;
+  border-radius: 999px;
+  background: var(--lm-wash);
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--lm-blue-dark);
+}
+
+body.lm-makeover .lm-infinit-flow .flow-platform-card h3 {
+  margin: 12px 0 0;
+  font-size: 20px;
+  line-height: 1.2;
+  letter-spacing: -0.4px;
+}
+
+body.lm-makeover .lm-infinit-flow .flow-platform-role {
+  margin: 4px 0 0;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--lm-blue-dark);
+}
+
+body.lm-makeover .lm-infinit-flow .flow-platform-summary {
+  margin: 10px 0 16px;
+  font-size: 14.5px;
+  line-height: 1.55;
+  color: var(--lm-copy);
+  flex: 1;
+}
+
+body.lm-makeover .lm-infinit-flow .flow-closing-panel {
+  margin-top: 48px;
+  padding: 36px 40px;
+  background: var(--lm-surface);
+  border: 1px solid var(--lm-steel);
+  border-radius: 12px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 28px;
+}
+
+body.lm-makeover .lm-infinit-flow .flow-closing-copy {
+  max-width: 620px;
+}
+
+body.lm-makeover .lm-infinit-flow .flow-closing-copy h2 {
+  margin: 12px 0 0;
+  font-size: clamp(26px, 2.8vw, 36px);
+  line-height: 1.12;
+  letter-spacing: -1.2px;
+}
+
+body.lm-makeover .lm-infinit-flow .flow-closing-copy p:last-child {
+  margin: 12px 0 0;
+  font-size: 17px;
+  line-height: 1.58;
+  color: var(--lm-copy);
+}
+
+body.lm-makeover .lm-infinit-flow .flow-closing-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 20px;
+}
+
+/* Responsive Breakpoints */
+@media (max-width: 1080px) {
+  body.lm-makeover .lm-infinit-flow .flow-hero {
+    grid-template-columns: 1fr;
+    gap: 36px;
+    padding-block: 48px 60px;
+  }
+
+  body.lm-makeover .lm-infinit-flow .flow-hero-copy {
+    max-width: 100%;
+  }
+
+  body.lm-makeover .lm-infinit-flow .flow-routing-overlay,
+  body.lm-makeover .lm-infinit-flow .flow-routing-leaders {
+    display: none;
+  }
+
+  body.lm-makeover .lm-infinit-flow .flow-routing-mobile-markers {
+    display: block;
+  }
+
+  body.lm-makeover .lm-infinit-flow .flow-routing-breakdown {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  body.lm-makeover .lm-infinit-flow .flow-editorial-layout {
+    grid-template-columns: 1fr;
+  }
+
+  body.lm-makeover .lm-infinit-flow .flow-platform-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 720px) {
+  body.lm-makeover .lm-infinit-flow .flow-section {
+    padding-block: 60px;
+  }
+
+  body.lm-makeover .lm-infinit-flow .flow-routing-breakdown {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 580px) {
+  body.lm-makeover .lm-infinit-flow .flow-hero {
+    padding-block: 36px 48px;
+    gap: 28px;
+  }
+
+  body.lm-makeover .lm-infinit-flow .flow-hero h1 {
+    font-size: clamp(34px, 9vw, 44px);
+    letter-spacing: -1.6px;
+  }
+
+  body.lm-makeover .lm-infinit-flow .flow-hero-lead {
+    font-size: 17px;
+  }
+
+  body.lm-makeover .lm-infinit-flow .flow-hero-figure,
+  body.lm-makeover .lm-infinit-flow .flow-routing-figure {
+    padding: 12px;
+  }
+
+  body.lm-makeover .lm-infinit-flow .flow-mobile-badge {
+    width: 19px;
+    height: 19px;
+    font-size: 10px;
+  }
+
+  body.lm-makeover .lm-infinit-flow .flow-section {
+    padding-block: 48px;
+  }
+
+  body.lm-makeover .lm-infinit-flow .flow-section-header {
+    margin-bottom: 28px;
+  }
+
+  body.lm-makeover .lm-infinit-flow .flow-editorial-column {
+    padding: 22px 18px;
+  }
+
+  body.lm-makeover .lm-infinit-flow .flow-platform-grid {
+    grid-template-columns: 1fr;
+  }
+
+  body.lm-makeover .lm-infinit-flow .flow-closing-panel {
+    margin-top: 36px;
+    padding: 26px 20px;
+    gap: 20px;
+  }
+}

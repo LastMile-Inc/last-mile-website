@@ -2,72 +2,82 @@
 content_id: PAGE-SIGNAL-001
 status: approved
 owner: Infinit-Signal Product Marketing
-last_reviewed: 2026-08-26
+last_reviewed: 2026-10-16
 claim_maturity: [designed, reference_architecture]
-depends_on: [PROD-SIGNAL-001, CONCEPT-UNS-001, CLAIMS-REGISTRY-001]
+depends_on: [PROD-SIGNAL-001, CLAIMS-REGISTRY-001]
 used_by: [/infinit-signal]
 ---
 
-# Infinit-Signal Page Contract and Copy
+# Infinit-Signal Page Contract and Copy (`/infinit-signal`)
 
 ## Job
 
-Explain how operational inputs are acquired, preserved, qualified, resolved, and handed into Singularity. Do not explain the complete outcome loop or imply validated connectors.
+Answer the buyer question: **"How does Last Mile make operational data dependable without losing where it came from or passing noisy readings downstream?"** Keep the tone buyer-friendly and consistent with `/` and `/platform`. Do not expose internal record identifiers, protocol flags, or unvalidated connector claims.
 
-## Hero
+## A. Hero
 
-**Eyebrow:** INFINIT-SIGNAL
+- **Eyebrow:** `INFINIT-SIGNAL`
+- **H1:** `Make operational data dependable.`
+- **Supporting copy:** `Capture operational information, check its quality, and preserve its source—so downstream decisions and workflows start with a dependable foundation.`
+- **Primary CTA:** `Book a demo` -> `/demo`
+- **Secondary link:** `Explore the platform` -> `/platform`
+- **Hero visual:** Approved Infinit-Signal concept asset (`AI-Powered Factory Inspection Line(1).png`, delivered as `platform-infinit-signal` in a `4:3` frame, `1448x1086`).
+  - **Caption:** `Concept illustration`
+  - **Alt:** `Packaging-line cameras and sensors with conceptual graphics showing organized operating information.`
 
-**H1:** Qualify industrial evidence before the response begins.
+## B. Main Explanatory Illustration
 
-**Body:** Infinit-Signal consumes configured outputs from the systems you already operate, preserves their original evidence, and classifies time, quality, duplication, replay, and identity before data enters the Last Mile operating model.
+- **Eyebrow:** `FROM SOURCE TO SHARED CONTEXT`
+- **Section headline:** `From incoming signals to usable operational context.`
+- **Supporting copy:** `Infinit-Signal prepares incoming information for use. Singularity connects it to operational context. Infinit-Flow and Infinit-Control use that context to support coordinated work and oversight.`
+- **Explanatory illustration:** `Futuristic Factory-to-AI Data Pipeline.png` (`1672x941`, delivered as `signal-handoff-web-v3`, cleaned replacement for `ai-ready-handoff-v2.png`).
+  - **Caption:** `Concept illustration`
+- **Three live region headings aligned to the corresponding regions:**
+  - **Left/qualification region:** `Infinit-Signal — Ingest and qualify.`
+  - **Central context region:** `Singularity — Shared operational context.`
+  - **Right region:** `Connected work and oversight — Infinit-Flow + Infinit-Control.`
+- **Five live labels aligned to the five qualification rows:**
+  1. `Preserve source identity`
+  2. `Preserve event time`
+  3. `Check data quality`
+  4. `Recognize repeated delivery`
+  5. `Structure consistent records`
+- **Connected capabilities framing:** Explain the three regions as connected capabilities rather than a mandatory one-way architecture, a physical Singularity appliance, or independent parallel sources of truth. Explain the right-hand region collectively without inventing individual features for the five right-hand icon rows. On mobile, present the labels in a clearly associated explanation directly below the illustration.
 
-## Connected response framing
+## C. Record-Handling Example
 
-Render a four-product connected-response strip immediately after the hero. Highlight Infinit-Signal as the product that starts the accountable response by qualifying source evidence before Singularity, Infinit-Flow, and Infinit-Control use it.
+- **Compact selectable example (`Illustrative example`) covering four documented conditions:**
+  - **Current information (`Accepted`):** Preserves source identity, event time, and arrival time; checks quality against the configured profile; structures a consistent canonical operational record for Singularity.
+  - **Repeated delivery (`Duplicate`):** Recognizes repeated delivery of the same event within the governed deduplication window, records the duplicate and arrival evidence, and prevents the repeated message from being applied a second time to current operational state.
+  - **Delayed information (`Replay / backfill`):** Preserves the original source event time alongside the later arrival time, classifies the record as replay/backfill, and allows event-time history in Singularity to update while live decisions follow configured replay policy rather than treating delayed data as a new live event.
+  - **Incomplete information (`Quarantined`):** Preserves the incoming record, source details, and arrival time for remediation and review, while quarantining the incomplete record so it cannot influence live operational state.
+- **Boundary note:** Infinit-Signal qualifies incoming operational records and preserves source and timing evidence. It does not independently diagnose equipment problems, authorize physical actions, or verify operational recovery.
 
-**Operating artifact:** Show the Cooling Loop B qualified evidence envelope from `USECASE-DC-COOLING-001`, including source authority, event time, latency, quality, duplicate/replay classification, mapping confidence, accepted/quarantined counts, and the rejected duplicate and stale pressure record.
+## D. Fit With Existing Systems
 
-## What enters. What is checked. What leaves.
+- **Eyebrow:** `BUILT AROUND YOUR EXISTING OPERATIONS`
+- **H2:** `Keep the systems you rely on. Make their information more useful.`
+- **Two-column comparison:**
+  - **Your existing systems**
+    - `Continue running equipment, monitoring, building, historian, and maintenance systems.`
+    - `Remain the source of original operating records.`
+    - `Work with your site’s security and access requirements.`
+  - **Infinit-Signal**
+    - `Receives configured operational inputs.`
+    - `Checks timing, completeness, and consistency.`
+    - `Preserves source details for review.`
+    - `Passes reliable information into Singularity.`
+- **Qualification note:** `Connections are configured around your environment and approved during implementation.`
 
-### What enters
+## E. Connected Platform and Closing CTA
 
-MQTT and customer UNS subscriptions; Sparkplug; OPC UA; SCADA, BMS, and MES outputs; historians and industrial data platforms; APIs, files, and service-system records.
-
-### What is checked
-
-Source authority, schema, event time, receive time, freshness, quality, units, retained-message context, duplication, replay/backfill, asset mapping, policy, and evidence integrity.
-
-### What leaves
-
-SSOM-conformant canonical operational records with original source identity, time, quality, mapping version, lineage, and evidence reference—accepted once for Singularity and governed consumers.
-
-## Unified Namespace section
-
-**Eyebrow:** UNIFIED NAMESPACE
-
-**Heading:** Keep the real-time fabric. Add the operational contract.
-
-**Body:** A Unified Namespace makes current operational information discoverable and available across systems. Infinit-Signal consumes configured UNS subscriptions while preserving the original publisher, topic, timestamp, quality, QoS, retained-message flag, and session context. It then classifies freshness, duplicates, replay, and unresolved assets before the information enters Singularity.
-
-**Boundary:** The UNS remains the customer's communication and discovery fabric. Singularity's SSOM contract supplies canonical identity, relationships, evidence, provenance, history, and lifecycle continuity. A topic path remains a source address—it does not automatically become the identity of the asset.
-
-**Link:** Read: UNS and SSOM - moving industrial data is not the same as making it accountable.
-
-## Quality section
-
-**Heading:** Preserve what arrived. Make every acceptance decision visible.
-
-**Body:** Accepted, warning, quarantined, rejected, duplicate, and replayed records retain reason codes and evidence. A stale or unresolved value may remain available for diagnosis without being allowed to influence a live Condition or verified Outcome.
-
-## Boundary runtime section
-
-**Heading:** Software-defined at the customer boundary.
-
-**Body:** Where customer architecture requires local collection or store-and-forward, Infinit-Signal is designed to run as customer-approved software on a VM, container, Kubernetes/OpenShift environment, private cloud, or existing edge compute. Last Mile does not require proprietary hardware.
-
-## CTA
-
-**Heading:** Turn source data into governed operational evidence.
-
-**CTA:** See how Singularity gives it durable meaning
+- **Heading:** `One connected platform, built on dependable information.`
+- **Four linked product cards:**
+  - **Infinit-Signal** (`/infinit-signal`, current page): `Brings in and checks operational data from your existing systems.`
+  - **Singularity** (`/singularity`): `Connects equipment, systems, and history into shared context.`
+  - **Infinit-Flow** (`/infinit-flow`): `Guides the work from issue to verified resolution.`
+  - **Infinit-Control** (`/infinit-control`): `Gives operators and leaders a clear view of status and outcomes.`
+- **Closing CTA:**
+  - **Heading:** `See how your operating information becomes a foundation for action.`
+  - **Primary CTA:** `Book a demo` -> `/demo`
+  - **Secondary link:** `Explore Singularity` -> `/singularity`

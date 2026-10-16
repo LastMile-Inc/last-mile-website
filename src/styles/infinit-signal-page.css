@@ -1,0 +1,910 @@
+/* Infinit-Signal product page (/infinit-signal). Scoped to main.lm-product-detail.lm-infinit-signal; shared --lm-* tokens remain authoritative. */
+
+body.lm-makeover main.lm-product-detail.lm-infinit-signal {
+  background: var(--lm-surface);
+  color: var(--lm-ink);
+}
+
+body.lm-makeover .lm-infinit-signal h1,
+body.lm-makeover .lm-infinit-signal h2,
+body.lm-makeover .lm-infinit-signal h3,
+body.lm-makeover .lm-infinit-signal h4 {
+  text-wrap: balance;
+  color: var(--lm-ink);
+}
+
+body.lm-makeover .lm-infinit-signal p {
+  text-wrap: pretty;
+}
+
+/* Section A: Hero */
+body.lm-makeover .lm-infinit-signal .signal-hero {
+  display: grid;
+  grid-template-columns: minmax(0, 1.02fr) minmax(0, 0.98fr);
+  gap: 56px;
+  align-items: center;
+  padding-block: 68px 76px;
+}
+
+body.lm-makeover .lm-infinit-signal .signal-hero > * {
+  min-width: 0;
+}
+
+body.lm-makeover .lm-infinit-signal .signal-hero h1 {
+  margin-top: 22px;
+  font-size: clamp(42px, 4.6vw, 66px);
+  line-height: 1.04;
+  letter-spacing: -2.6px;
+  font-weight: 500;
+  max-width: 13ch;
+}
+
+body.lm-makeover .lm-infinit-signal .signal-hero-lead {
+  margin-top: 24px;
+  max-width: 56ch;
+  font-size: 19px;
+  line-height: 1.62;
+  color: var(--lm-copy);
+}
+
+body.lm-makeover .lm-infinit-signal .signal-hero .hero-actions {
+  margin-top: 30px;
+}
+
+body.lm-makeover .lm-infinit-signal .signal-hero-figure {
+  margin: 0;
+  padding: 14px;
+  background: var(--lm-surface);
+  border: 1px solid var(--lm-steel);
+  border-radius: 12px;
+  box-shadow: 0 24px 50px -36px color-mix(in srgb, var(--lm-ink) 40%, transparent);
+}
+
+body.lm-makeover .lm-infinit-signal .signal-hero-media {
+  border-radius: 8px;
+  overflow: hidden;
+  border: 1px solid var(--lm-wash);
+  background: var(--lm-canvas);
+  aspect-ratio: 4 / 3;
+}
+
+body.lm-makeover .lm-infinit-signal .signal-hero-media picture,
+body.lm-makeover .lm-infinit-signal .signal-hero-media img {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+}
+
+body.lm-makeover .lm-infinit-signal .signal-figure-caption {
+  margin-top: 10px;
+  padding-inline: 4px;
+  font-size: 13px;
+  line-height: 1.4;
+  letter-spacing: 0.2px;
+  color: var(--lm-copy);
+}
+
+/* Shared Section Spacing & Header */
+body.lm-makeover .lm-infinit-signal .signal-section {
+  padding-block: 88px;
+  border-top: 1px solid var(--lm-wash);
+}
+
+body.lm-makeover .lm-infinit-signal .signal-section--canvas {
+  background: var(--lm-canvas);
+  border-top: 1px solid var(--lm-steel);
+  border-bottom: 1px solid var(--lm-steel);
+}
+
+body.lm-makeover .lm-infinit-signal .signal-section-header {
+  max-width: 760px;
+  margin-bottom: 40px;
+}
+
+body.lm-makeover .lm-infinit-signal .signal-section-header--wide {
+  max-width: 840px;
+}
+
+body.lm-makeover .lm-infinit-signal .signal-section-header h2 {
+  margin-top: 18px;
+  font-size: clamp(32px, 3.4vw, 48px);
+  line-height: 1.1;
+  letter-spacing: -1.8px;
+}
+
+body.lm-makeover .lm-infinit-signal .signal-section-lead {
+  margin-top: 18px;
+  max-width: 68ch;
+  font-size: 18px;
+  line-height: 1.62;
+  color: var(--lm-copy);
+}
+
+/* Section B: Main Explanatory Image (Futuristic Factory-to-AI Data Pipeline / signal-handoff-web-v3) */
+body.lm-makeover .lm-infinit-signal .signal-pipeline-figure {
+  margin: 0;
+  padding: 20px 24px 24px;
+  background: var(--lm-surface);
+  border: 1px solid var(--lm-wash);
+  border-radius: 12px;
+  box-shadow: none;
+}
+
+body.lm-makeover .lm-infinit-signal .signal-pipeline-canvas {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1672 / 941;
+  border-radius: 6px;
+  overflow: hidden;
+  border: none;
+  background: var(--lm-surface);
+}
+
+body.lm-makeover .lm-infinit-signal .signal-pipeline-canvas picture,
+body.lm-makeover .lm-infinit-signal .signal-pipeline-img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+body.lm-makeover .lm-infinit-signal .signal-pipeline-leaders {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 2;
+}
+
+body.lm-makeover .lm-infinit-signal .signal-pipeline-leaders line {
+  stroke: var(--lm-steel);
+  stroke-width: 2;
+  stroke-dasharray: 4 3;
+}
+
+body.lm-makeover .lm-infinit-signal .signal-pipeline-leaders circle {
+  fill: var(--lm-surface);
+  stroke: var(--lm-blue-dark);
+  stroke-width: 2.2;
+}
+
+/* Desktop Region Headings Overlay */
+body.lm-makeover .lm-infinit-signal .signal-pipeline-regions-overlay {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 3;
+}
+
+body.lm-makeover .lm-infinit-signal .signal-region-tag {
+  position: absolute;
+  padding: 6px 10px;
+  background: color-mix(in srgb, var(--lm-surface) 95%, var(--lm-wash));
+  border: 1px solid var(--lm-wash);
+  border-top: 2px solid var(--lm-blue-dark);
+  border-radius: 6px;
+  box-shadow: none;
+  text-align: center;
+}
+
+body.lm-makeover .lm-infinit-signal .signal-region-product {
+  display: block;
+  font-size: clamp(9.5px, 0.78vw, 11px);
+  font-weight: 700;
+  letter-spacing: 0.4px;
+  text-transform: uppercase;
+  color: var(--lm-blue-dark);
+  margin-bottom: 2px;
+}
+
+body.lm-makeover .lm-infinit-signal .signal-region-tag strong {
+  display: block;
+  font-size: clamp(10.5px, 0.88vw, 12.5px);
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: -0.15px;
+  color: var(--lm-ink);
+}
+
+body.lm-makeover .lm-infinit-signal .signal-region-tag--left {
+  left: 48%;
+  top: 4.4%;
+  transform: translateX(-50%);
+  width: 20.5%;
+}
+
+body.lm-makeover .lm-infinit-signal .signal-region-tag--center {
+  left: 71.2%;
+  top: 4.4%;
+  transform: translateX(-50%);
+  width: 20.5%;
+}
+
+body.lm-makeover .lm-infinit-signal .signal-region-tag--right {
+  right: 0.8%;
+  top: 4.4%;
+  width: 16%;
+}
+
+/* Desktop Five Qualification Row Labels */
+body.lm-makeover .lm-infinit-signal .signal-pipeline-rows-overlay {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 3;
+}
+
+body.lm-makeover .lm-infinit-signal .signal-row-label {
+  position: absolute;
+  left: 44.1%;
+  width: 11.7%;
+  transform: translateY(-50%);
+  display: flex;
+  align-items: baseline;
+  gap: 5px;
+  font-size: clamp(10.5px, 0.88vw, 12.5px);
+  font-weight: 600;
+  line-height: 1.2;
+  letter-spacing: -0.15px;
+  color: var(--lm-ink);
+}
+
+body.lm-makeover .lm-infinit-signal .signal-row-num {
+  font-weight: 700;
+  color: var(--lm-blue-dark);
+  flex-shrink: 0;
+}
+
+body.lm-makeover .lm-infinit-signal .signal-row-text {
+  display: block;
+}
+
+body.lm-makeover .lm-infinit-signal .signal-row-label--1 {
+  top: 28.16%;
+}
+
+body.lm-makeover .lm-infinit-signal .signal-row-label--2 {
+  top: 37.73%;
+}
+
+body.lm-makeover .lm-infinit-signal .signal-row-label--3 {
+  top: 47.02%;
+}
+
+body.lm-makeover .lm-infinit-signal .signal-row-label--4 {
+  top: 56.38%;
+}
+
+body.lm-makeover .lm-infinit-signal .signal-row-label--5 {
+  top: 65.78%;
+}
+
+/* Right-hand collective header label inside the card top slot */
+body.lm-makeover .lm-infinit-signal .signal-pipeline-right-collective {
+  position: absolute;
+  left: 89.1%;
+  width: 9.6%;
+  top: 28.8%;
+  transform: translateY(-50%);
+  z-index: 3;
+  pointer-events: none;
+  font-size: clamp(9.5px, 0.78vw, 11.5px);
+  font-weight: 700;
+  line-height: 1.22;
+  letter-spacing: -0.1px;
+  color: var(--lm-blue-dark);
+}
+
+/* Mobile/tablet numbered markers (hidden on desktop) */
+body.lm-makeover .lm-infinit-signal .signal-pipeline-mobile-markers {
+  display: none;
+}
+
+body.lm-makeover .lm-infinit-signal .signal-pipeline-caption {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px 20px;
+  margin-top: 12px;
+  padding-inline: 2px;
+  font-size: 13px;
+  line-height: 1.45;
+  color: var(--lm-copy);
+}
+
+body.lm-makeover .lm-infinit-signal .signal-pipeline-caption span:first-child {
+  font-weight: 600;
+  color: var(--lm-ink);
+}
+
+/* Simple editorial columns below illustration (no card backgrounds or shadows) */
+body.lm-makeover .lm-infinit-signal .signal-regions-breakdown {
+  margin-top: 20px;
+  padding-top: 20px;
+  border-top: 1px solid var(--lm-wash);
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 28px;
+}
+
+body.lm-makeover .lm-infinit-signal .signal-region-column {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+body.lm-makeover .lm-infinit-signal .signal-region-column h3 {
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 1.3;
+  letter-spacing: -0.3px;
+  color: var(--lm-ink);
+}
+
+body.lm-makeover .lm-infinit-signal .signal-region-column p {
+  font-size: 15px;
+  line-height: 1.6;
+  color: var(--lm-copy);
+}
+
+/* Section C: Compact Selectable Record-Handling Example */
+body.lm-makeover .lm-infinit-signal .signal-record-example {
+  margin-top: 44px;
+  padding: 32px;
+  background: var(--lm-surface);
+  border: 1px solid var(--lm-steel);
+  border-radius: 12px;
+  box-shadow: var(--lm-shadow-sm);
+}
+
+body.lm-makeover .lm-infinit-signal .signal-record-example-header {
+  max-width: 760px;
+  margin-bottom: 24px;
+}
+
+body.lm-makeover .lm-infinit-signal .signal-example-badge {
+  display: inline-block;
+  padding: 4px 10px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1.1px;
+  text-transform: uppercase;
+  color: var(--lm-blue-dark);
+  background: var(--lm-wash);
+  border-radius: 999px;
+}
+
+body.lm-makeover .lm-infinit-signal .signal-record-example-header h3 {
+  margin-top: 12px;
+  font-size: clamp(24px, 2.4vw, 32px);
+  line-height: 1.18;
+  letter-spacing: -0.9px;
+}
+
+body.lm-makeover .lm-infinit-signal .signal-record-example-header p {
+  margin-top: 10px;
+  font-size: 16px;
+  line-height: 1.6;
+  color: var(--lm-copy);
+}
+
+body.lm-makeover .lm-infinit-signal .signal-record-tabs {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 12px;
+}
+
+body.lm-makeover .lm-infinit-signal .signal-record-tab {
+  appearance: none;
+  padding: 14px 16px;
+  background: var(--lm-canvas);
+  border: 1px solid var(--lm-steel);
+  border-radius: 8px;
+  text-align: left;
+  font-family: inherit;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  transition: border-color 0.16s ease, background-color 0.16s ease, box-shadow 0.16s ease;
+}
+
+body.lm-makeover .lm-infinit-signal .signal-record-tab:hover {
+  border-color: var(--lm-blue);
+  background: var(--lm-wash);
+}
+
+body.lm-makeover .lm-infinit-signal .signal-record-tab:focus-visible {
+  outline: 2px solid var(--lm-blue);
+  outline-offset: 2px;
+}
+
+body.lm-makeover .lm-infinit-signal .signal-record-tab.is-active {
+  background: var(--lm-blue-dark);
+  border-color: var(--lm-blue-dark);
+  color: var(--lm-surface);
+}
+
+body.lm-makeover .lm-infinit-signal .signal-record-tab-title {
+  font-size: 15px;
+  font-weight: 600;
+  line-height: 1.3;
+  color: var(--lm-ink);
+}
+
+body.lm-makeover .lm-infinit-signal .signal-record-tab-state {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--lm-blue-dark);
+}
+
+body.lm-makeover .lm-infinit-signal .signal-record-tab.is-active .signal-record-tab-title,
+body.lm-makeover .lm-infinit-signal .signal-record-tab.is-active .signal-record-tab-state {
+  color: var(--lm-surface);
+}
+
+body.lm-makeover .lm-infinit-signal .signal-record-panel {
+  margin-top: 18px;
+  padding: 26px 28px;
+  background: var(--lm-canvas);
+  border: 1px solid var(--lm-steel);
+  border-left: 4px solid var(--lm-blue);
+  border-radius: 8px;
+  min-height: 310px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+body.lm-makeover .lm-infinit-signal .signal-record-panel-top {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px 20px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid var(--lm-steel);
+}
+
+body.lm-makeover .lm-infinit-signal .signal-record-classification {
+  display: inline-block;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--lm-blue-dark);
+}
+
+body.lm-makeover .lm-infinit-signal .signal-record-panel-top h4 {
+  margin-top: 6px;
+  font-size: 22px;
+  font-weight: 600;
+  line-height: 1.25;
+  letter-spacing: -0.4px;
+}
+
+body.lm-makeover .lm-infinit-signal .signal-record-summary {
+  margin-top: 6px;
+  font-size: 15px;
+  line-height: 1.55;
+  color: var(--lm-copy);
+}
+
+body.lm-makeover .lm-infinit-signal .signal-record-synthetic-tag {
+  padding: 5px 10px;
+  background: var(--lm-surface);
+  border: 1px solid var(--lm-steel);
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--lm-copy);
+  white-space: nowrap;
+}
+
+body.lm-makeover .lm-infinit-signal .signal-record-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 0.96fr) minmax(0, 1.04fr);
+  gap: 24px;
+  align-items: start;
+}
+
+body.lm-makeover .lm-infinit-signal .signal-record-envelope,
+body.lm-makeover .lm-infinit-signal .signal-record-behavior-block {
+  padding: 18px 20px;
+  background: var(--lm-surface);
+  border: 1px solid var(--lm-wash);
+  border-radius: 6px;
+}
+
+body.lm-makeover .lm-infinit-signal .signal-record-envelope h5,
+body.lm-makeover .lm-infinit-signal .signal-record-behavior-block h5 {
+  margin: 0 0 10px;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.7px;
+  text-transform: uppercase;
+  color: var(--lm-blue-dark);
+}
+
+body.lm-makeover .lm-infinit-signal .signal-record-dl {
+  margin: 0;
+  display: grid;
+  gap: 10px;
+}
+
+body.lm-makeover .lm-infinit-signal .signal-record-dl div {
+  display: grid;
+  grid-template-columns: 120px minmax(0, 1fr);
+  gap: 10px;
+  font-size: 14px;
+  line-height: 1.45;
+  padding-top: 8px;
+  border-top: 1px solid var(--lm-wash);
+}
+
+body.lm-makeover .lm-infinit-signal .signal-record-dl div:first-child {
+  padding-top: 0;
+  border-top: 0;
+}
+
+body.lm-makeover .lm-infinit-signal .signal-record-dl dt {
+  font-weight: 600;
+  color: var(--lm-copy);
+}
+
+body.lm-makeover .lm-infinit-signal .signal-record-dl dd {
+  margin: 0;
+  font-weight: 500;
+  color: var(--lm-ink);
+}
+
+body.lm-makeover .lm-infinit-signal .signal-record-behavior {
+  display: grid;
+  gap: 14px;
+}
+
+body.lm-makeover .lm-infinit-signal .signal-record-behavior-block p {
+  font-size: 15px;
+  line-height: 1.6;
+  color: var(--lm-ink);
+}
+
+body.lm-makeover .lm-infinit-signal .signal-record-boundary {
+  padding-top: 14px;
+  border-top: 1px solid var(--lm-steel);
+  font-size: 14px;
+  line-height: 1.55;
+  color: var(--lm-copy);
+}
+
+body.lm-makeover .lm-infinit-signal .signal-record-boundary strong {
+  color: var(--lm-ink);
+}
+
+/* Section D: Fit With Existing Systems */
+body.lm-makeover .lm-infinit-signal .signal-fit-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 28px;
+}
+
+body.lm-makeover .lm-infinit-signal .signal-fit-column {
+  padding: 32px;
+  background: var(--lm-surface);
+  border: 1px solid var(--lm-steel);
+  border-radius: 6px;
+  box-shadow: var(--lm-shadow-sm);
+}
+
+body.lm-makeover .lm-infinit-signal .signal-fit-column--highlight {
+  background: linear-gradient(180deg, var(--lm-surface) 0%, var(--lm-canvas) 100%);
+  border-top: 3px solid var(--lm-blue);
+}
+
+body.lm-makeover .lm-infinit-signal .signal-fit-column h3 {
+  font-size: 24px;
+  line-height: 1.25;
+  letter-spacing: -0.5px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid var(--lm-wash);
+}
+
+body.lm-makeover .lm-infinit-signal .signal-fit-list {
+  list-style: none;
+  margin: 20px 0 0;
+  padding: 0;
+  display: grid;
+  gap: 14px;
+}
+
+body.lm-makeover .lm-infinit-signal .signal-fit-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  font-size: 16px;
+  line-height: 1.6;
+  color: var(--lm-ink);
+}
+
+body.lm-makeover .lm-infinit-signal .signal-fit-list li svg {
+  flex-shrink: 0;
+  margin-top: 4px;
+  color: var(--lm-blue-dark);
+}
+
+body.lm-makeover .lm-infinit-signal .signal-qualification-note {
+  margin-top: 24px;
+  padding: 16px 20px;
+  background: var(--lm-wash);
+  border-left: 3px solid var(--lm-blue);
+  border-radius: 4px;
+  font-size: 15px;
+  line-height: 1.6;
+  color: var(--lm-ink);
+}
+
+/* Section E: Connected Platform and Closing CTA */
+body.lm-makeover .lm-infinit-signal .signal-platform-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 20px;
+}
+
+body.lm-makeover .lm-infinit-signal .signal-platform-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 18px;
+  padding: 24px;
+  background: var(--lm-surface);
+  border: 1px solid var(--lm-steel);
+  border-radius: 6px;
+  box-shadow: var(--lm-shadow-sm);
+  transition: border-color 0.2s, transform 0.2s, box-shadow 0.2s;
+}
+
+body.lm-makeover .lm-infinit-signal .signal-platform-card:hover {
+  border-color: var(--lm-blue);
+  transform: translateY(-2px);
+  box-shadow: var(--lm-shadow-md);
+}
+
+body.lm-makeover .lm-infinit-signal .signal-platform-card--current {
+  background: var(--lm-wash);
+  border-color: var(--lm-blue);
+  border-top: 3px solid var(--lm-blue-dark);
+}
+
+body.lm-makeover .lm-infinit-signal .signal-platform-badge {
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1.1px;
+  text-transform: uppercase;
+  color: var(--lm-blue-dark);
+  margin-bottom: 8px;
+}
+
+body.lm-makeover .lm-infinit-signal .signal-platform-card h3 {
+  font-size: 21px;
+  line-height: 1.25;
+  letter-spacing: -0.4px;
+}
+
+body.lm-makeover .lm-infinit-signal .signal-platform-card p {
+  margin-top: 10px;
+  font-size: 15px;
+  line-height: 1.6;
+}
+
+body.lm-makeover .lm-infinit-signal .signal-platform-card-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--lm-blue-dark);
+}
+
+body.lm-makeover .lm-infinit-signal .signal-closing-panel {
+  margin-top: 64px;
+  padding: 44px 48px;
+  background: var(--lm-wash);
+  border: 1px solid var(--lm-steel);
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 40px;
+}
+
+body.lm-makeover .lm-infinit-signal .signal-closing-copy h2 {
+  font-size: clamp(28px, 3vw, 40px);
+  line-height: 1.14;
+  letter-spacing: -1.4px;
+  max-width: 22ch;
+}
+
+body.lm-makeover .lm-infinit-signal .signal-closing-actions {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  flex-wrap: wrap;
+  flex-shrink: 0;
+}
+
+/* Responsive Breakpoints */
+@media (max-width: 1080px) {
+  body.lm-makeover .lm-infinit-signal .signal-hero {
+    grid-template-columns: 1fr;
+    gap: 36px;
+    padding-block: 52px 60px;
+  }
+
+  body.lm-makeover .lm-infinit-signal .signal-hero h1 {
+    max-width: 16ch;
+  }
+
+  /* When the illustration becomes narrower than 1080px, replace dense in-card text overlays with clean numbered markers and rely on the structured breakdown directly below the image */
+  body.lm-makeover .lm-infinit-signal .signal-pipeline-leaders,
+  body.lm-makeover .lm-infinit-signal .signal-pipeline-regions-overlay,
+  body.lm-makeover .lm-infinit-signal .signal-pipeline-rows-overlay,
+  body.lm-makeover .lm-infinit-signal .signal-pipeline-right-collective {
+    display: none;
+  }
+
+  body.lm-makeover .lm-infinit-signal .signal-pipeline-mobile-markers {
+    display: block;
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    z-index: 3;
+  }
+
+  body.lm-makeover .lm-infinit-signal .signal-mobile-row-badge {
+    position: absolute;
+    left: 49.5%;
+    transform: translate(-50%, -50%);
+    width: 24px;
+    height: 24px;
+    border-radius: 999px;
+    background: var(--lm-blue-dark);
+    color: var(--lm-surface);
+    font-size: 12px;
+    font-weight: 700;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 6px color-mix(in srgb, var(--lm-ink) 28%, transparent);
+  }
+
+  body.lm-makeover .lm-infinit-signal .signal-mobile-row-badge--1 {
+    top: 28.16%;
+  }
+
+  body.lm-makeover .lm-infinit-signal .signal-mobile-row-badge--2 {
+    top: 37.73%;
+  }
+
+  body.lm-makeover .lm-infinit-signal .signal-mobile-row-badge--3 {
+    top: 47.02%;
+  }
+
+  body.lm-makeover .lm-infinit-signal .signal-mobile-row-badge--4 {
+    top: 56.38%;
+  }
+
+  body.lm-makeover .lm-infinit-signal .signal-mobile-row-badge--5 {
+    top: 65.78%;
+  }
+
+  body.lm-makeover .lm-infinit-signal .signal-regions-breakdown {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+
+  body.lm-makeover .lm-infinit-signal .signal-record-tabs {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  body.lm-makeover .lm-infinit-signal .signal-record-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  body.lm-makeover .lm-infinit-signal .signal-platform-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  body.lm-makeover .lm-infinit-signal .signal-closing-panel {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 36px 32px;
+  }
+}
+
+@media (max-width: 800px) {
+  body.lm-makeover .lm-infinit-signal .signal-section {
+    padding-block: 60px;
+  }
+
+  body.lm-makeover .lm-infinit-signal .signal-fit-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+}
+
+@media (max-width: 580px) {
+  body.lm-makeover .lm-infinit-signal .signal-hero {
+    padding-block: 36px 48px;
+    gap: 28px;
+  }
+
+  body.lm-makeover .lm-infinit-signal .signal-hero h1 {
+    font-size: clamp(34px, 9vw, 44px);
+    letter-spacing: -1.6px;
+  }
+
+  body.lm-makeover .lm-infinit-signal .signal-hero-lead {
+    font-size: 17px;
+  }
+
+  body.lm-makeover .lm-infinit-signal .signal-hero-figure,
+  body.lm-makeover .lm-infinit-signal .signal-pipeline-figure {
+    padding: 12px;
+  }
+
+  body.lm-makeover .lm-infinit-signal .signal-mobile-row-badge {
+    width: 15px;
+    height: 15px;
+    font-size: 9px;
+  }
+
+  body.lm-makeover .lm-infinit-signal .signal-section {
+    padding-block: 48px;
+  }
+
+  body.lm-makeover .lm-infinit-signal .signal-section-header {
+    margin-bottom: 28px;
+  }
+
+  body.lm-makeover .lm-infinit-signal .signal-record-example {
+    padding: 22px 18px;
+  }
+
+  body.lm-makeover .lm-infinit-signal .signal-record-tabs {
+    grid-template-columns: 1fr;
+  }
+
+  body.lm-makeover .lm-infinit-signal .signal-record-panel {
+    padding: 20px 18px;
+  }
+
+  body.lm-makeover .lm-infinit-signal .signal-record-dl div {
+    grid-template-columns: 1fr;
+    gap: 2px;
+  }
+
+  body.lm-makeover .lm-infinit-signal .signal-fit-column,
+  body.lm-makeover .lm-infinit-signal .signal-platform-card {
+    padding: 22px 20px;
+  }
+
+  body.lm-makeover .lm-infinit-signal .signal-platform-grid {
+    grid-template-columns: 1fr;
+  }
+
+  body.lm-makeover .lm-infinit-signal .signal-closing-panel {
+    margin-top: 44px;
+    padding: 28px 22px;
+    gap: 24px;
+  }
+}

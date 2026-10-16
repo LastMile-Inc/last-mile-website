@@ -28,7 +28,7 @@ Later on 2026-10-15 the founder accepted the recovered structure and design and 
 
 **Secondary CTA:** Explore the platform — /platform
 
-**Visual:** the approved industrial worker portrait card (`/images/home/home-chuck-hero.{avif,webp,jpg}`, native 443×540 portrait from `Picture10.jpg`, not upscaled and without a caption strip over the portrait). No screenshot placeholders, simulated dashboards, or process tables in the hero.
+**Visual:** the approved industrial worker portrait card (`chuck.png` -> `/images/home/home-chuck-hero-{400,600,800,1086}.{avif,webp}` and `/images/home/home-chuck-hero.jpg`, native 1086×1448 portrait at 3:4 aspect ratio, superseding `Picture10(1).jpg`, without a caption strip over the portrait, alt `"Chuck wearing a blue hard hat and safety glasses on a factory floor."`). No screenshot placeholders, simulated dashboards, or process tables in the hero.
 
 ## 2. Problem and response — why follow-through matters
 

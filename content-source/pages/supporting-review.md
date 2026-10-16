@@ -14,7 +14,7 @@ The founder approved continuing the homepage direction into supporting pages and
 
 ## Page purposes and primary headings
 
-- /how-it-works: A warning should start a response. Follow one illustrative cooling issue through understanding, coordinated action, and evidence of recovery. Retain the full canonical names Infinit-Signal, Singularity, Infinit-Flow, and Infinit-Control in the product family.
+- /how-it-works: A warning should start a response. Include the interactive labeled Accountable Operations ring (`accountable-operations-loop-v3.png`, heading `Accountable Operations`, supporting copy `Keep evidence, decisions, coordinated work, and verification connected throughout the response.`, six live clockwise labels `1. Evidence`, `2. Understand`, `3. Decide`, `4. Coordinate`, `5. Act`, `6. Verify`, center text `ACCOUNTABLE OPERATIONS` / `From first warning to verified result`, one selectable stage explanation area, and milestone note `Completed work is one milestone. Operating evidence determines whether recovery is established or further response is needed.`). Follow one illustrative cooling issue through understanding, coordinated action, and evidence of recovery. Retain the full canonical names Infinit-Signal, Singularity, Infinit-Flow, and Infinit-Control in the product family.
 - /industries: Your operation is specific. Your response should be, too. Offer manufacturing, data-center facilities, and cold-storage scenarios as illustrative starting points, not deployment references.
 - /why-last-mile: Choose the follow-through. Expect it from everyone. Explain verified outcomes, clear ownership, customer authority, and the personal service relationship.
 - /our-service: Good Service Remembers...Great Service Anticipates. Explain named operations engineers, platform health reporting, proactive contact, two-way chat, and regular conversations. The ambition is to earn the highest service ratings; no achieved rating or competitor exclusivity claim.
@@ -30,6 +30,6 @@ The demo and beta routes must not link back to themselves on preview.lastmileinc
 
 ## Visual and access scope
 
-Carry the approved light design across these routes, with responsive navigation, keyboard-accessible tabs and dialogs, and existing screenshot briefs. Add screenshot 05 for the built-in chat. Keep existing platform, product, reference, resource, contact, and legal routes accessible. Deeper existing pages retain their established layout in this review increment.
+Carry the approved light design across these routes, with responsive navigation, keyboard-accessible tabs, and code-native operational response and service channel cards (until verified product screenshots are supplied). Keep existing platform, product, reference, resource, contact, and legal routes accessible. Deeper existing pages retain their established layout in this review increment.
 
 The founder’s test server is reached through preview.lastmileinc.ai and runs Vite on port 5173. The project must support that exact hostname and port without opening host access to arbitrary domains. Repository changes are authorized; merging and server deployment remain separate actions.

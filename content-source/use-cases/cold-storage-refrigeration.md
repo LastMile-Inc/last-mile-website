@@ -2,13 +2,19 @@
 content_id: USECASE-COLD-001
 status: approved
 owner: Use-Case Product and Domain Review
-last_reviewed: 2026-08-06
+last_reviewed: 2026-10-16
 claim_maturity: [demonstrated]
 depends_on: [PROD-SIGNAL-001, PROD-SINGULARITY-001, PROD-FLOW-001, PROD-CONTROL-001]
 used_by: [/platform, /use-cases/cold-storage-refrigeration, demos]
 ---
 
 # Cold-Storage Refrigeration - Reference Scenario
+
+## Introductory presentation
+
+- **Headline:** Carry refrigeration issues through to verified recovery.
+- **Supporting copy:** Connect abnormal conditions to the affected equipment, responsible teams, and follow-up evidence—so completed work can be checked against the operating result.
+- **Primary introductory visual:** `cold-storage-refrigeration-v2.webp` (`1024×576`, delivered via `/images/use-cases/cold-storage-refrigeration-v2-{640,800,1024}.{avif,webp}` and `.webp` fallback; labeled `Concept illustration` and treated as refrigeration context rather than a documented customer installation).
 
 ## Public thesis
 

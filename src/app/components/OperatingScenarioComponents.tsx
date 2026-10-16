@@ -69,8 +69,24 @@ export function AuthorityStrip({ response }: { response: OperatingScenario["resp
   return <div className="lm-authority-strip" aria-label="Response authority modes">{response.map((step) => <article key={`${step.stage}-${step.mode}`}><span>{step.stage}</span><strong>{step.mode}</strong><p>{step.detail}</p></article>)}</div>;
 }
 
+function resolveTimelineStage(scenario: OperatingScenario, time: string, event: string) {
+  const byStage = (stage: string) => scenario.response.find((step) => step.stage === stage);
+  if (/acknowledg/i.test(event)) {
+    const ownerPerson = scenario.people[0]?.role ?? "Customer owner";
+    return { stage: "Coordinate", mode: "HUMAN AUTHORITY" as const, product: `${ownerPerson} · Infinit-Control`, detail: "" };
+  }
+  if (time === "Work" || /inspection|repair|Product protection|field work marked complete/i.test(event)) return byStage("Act");
+  if (time === "Recovery" || /recovery|stability|drawdown|recurrence|measurement window/i.test(event)) return byStage("Verify");
+  if (/dispatch|assigned|work order|\bWO-\d+/i.test(event)) return byStage("Coordinate");
+  if (/estimate|Condition created/i.test(event)) return byStage("Understand");
+  return byStage("Evidence");
+}
+
 export function ResponseTimeline({ scenario, compact = false }: { scenario: OperatingScenario; compact?: boolean }) {
-  return <ol className={`lm-response-timeline${compact ? " is-compact" : ""}`} aria-label={`${scenario.operatingProblem} response timeline`}>{scenario.timeline.map(([time, event], index) => <li key={`${time}-${event}`}><span>{time}</span><div><strong>{event}</strong>{!compact && scenario.response[index] ? <small>{scenario.response[index].mode} · {scenario.response[index].product}</small> : null}</div></li>)}</ol>;
+  return <ol className={`lm-response-timeline${compact ? " is-compact" : ""}`} aria-label={`${scenario.operatingProblem} response timeline`}>{scenario.timeline.map(([time, event]) => {
+    const matchedStage = resolveTimelineStage(scenario, time, event);
+    return <li key={`${time}-${event}`}><span>{time}</span><div><strong>{event}</strong>{!compact && matchedStage ? <small>{matchedStage.mode} · {matchedStage.product}</small> : null}</div></li>;
+  })}</ol>;
 }
 
 export function RecoveryContractPanel({ scenario }: { scenario: OperatingScenario }) {

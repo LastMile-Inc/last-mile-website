@@ -1,0 +1,680 @@
+/* Locally scoped styles for /infinit-control (.lm-infinit-control) */
+
+body.lm-makeover .lm-infinit-control {
+  color: var(--lm-ink);
+}
+
+/* Section A: Hero */
+body.lm-makeover .lm-infinit-control .control-hero {
+  display: grid;
+  grid-template-columns: minmax(0, 0.96fr) minmax(0, 1.04fr);
+  gap: 52px;
+  align-items: center;
+  padding-block: 68px 80px;
+}
+
+body.lm-makeover .lm-infinit-control .control-hero-copy {
+  max-width: 580px;
+}
+
+body.lm-makeover .lm-infinit-control .control-hero h1 {
+  margin-top: 20px;
+  font-size: clamp(38px, 4.4vw, 60px);
+  line-height: 1.04;
+  letter-spacing: -2.2px;
+}
+
+body.lm-makeover .lm-infinit-control .control-hero-lead {
+  margin-top: 22px;
+  max-width: 54ch;
+  font-size: clamp(18px, 1.35vw, 20px);
+  line-height: 1.62;
+  color: var(--lm-copy);
+}
+
+body.lm-makeover .lm-infinit-control .control-hero-figure {
+  margin: 0;
+  padding: 16px;
+  background: var(--lm-surface);
+  border: 1px solid var(--lm-steel);
+  border-radius: 12px;
+  box-shadow: 0 24px 50px -36px color-mix(in srgb, var(--lm-ink) 38%, transparent);
+}
+
+body.lm-makeover .lm-infinit-control .control-hero-media {
+  border-radius: 8px;
+  overflow: hidden;
+  border: 1px solid var(--lm-wash);
+  background: var(--lm-wash);
+  aspect-ratio: 1536 / 1024;
+}
+
+body.lm-makeover .lm-infinit-control .control-hero-media picture,
+body.lm-makeover .lm-infinit-control .control-hero-media img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+body.lm-makeover .lm-infinit-control .control-figure-caption {
+  margin-top: 10px;
+  padding-inline: 4px;
+  font-size: 13px;
+  line-height: 1.4;
+  letter-spacing: 0.2px;
+  color: var(--lm-copy);
+}
+
+/* Shared Section Spacing & Header */
+body.lm-makeover .lm-infinit-control .control-section {
+  padding-block: 88px;
+  border-top: 1px solid var(--lm-wash);
+}
+
+body.lm-makeover .lm-infinit-control .control-section--canvas {
+  background: var(--lm-canvas);
+  border-top: 1px solid var(--lm-steel);
+  border-bottom: 1px solid var(--lm-steel);
+}
+
+body.lm-makeover .lm-infinit-control .control-section-header {
+  max-width: 760px;
+  margin-bottom: 40px;
+}
+
+body.lm-makeover .lm-infinit-control .control-section-header--wide {
+  max-width: 860px;
+}
+
+body.lm-makeover .lm-infinit-control .control-section-header h2 {
+  margin-top: 18px;
+  font-size: clamp(30px, 3.2vw, 46px);
+  line-height: 1.12;
+  letter-spacing: -1.6px;
+}
+
+body.lm-makeover .lm-infinit-control .control-section-lead {
+  margin-top: 18px;
+  max-width: 68ch;
+  font-size: 18px;
+  line-height: 1.62;
+  color: var(--lm-copy);
+}
+
+/* Section B: Role-Based Explanation */
+body.lm-makeover .lm-infinit-control .control-roles-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 22px;
+}
+
+body.lm-makeover .lm-infinit-control .control-role-card {
+  padding: 28px 26px;
+  background: var(--lm-surface);
+  border: 1px solid var(--lm-steel);
+  border-top: 3px solid var(--lm-blue);
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 18px 38px -32px color-mix(in srgb, var(--lm-ink) 35%, transparent);
+}
+
+body.lm-makeover .lm-infinit-control .control-role-card-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+body.lm-makeover .lm-infinit-control .control-role-number {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 1.2px;
+  color: var(--lm-blue-dark);
+}
+
+body.lm-makeover .lm-infinit-control .control-role-tag {
+  padding: 4px 11px;
+  border-radius: 999px;
+  background: var(--lm-wash);
+  border: 1px solid var(--lm-steel);
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--lm-ink);
+}
+
+body.lm-makeover .lm-infinit-control .control-role-question {
+  margin: 18px 0 0;
+  font-size: 22px;
+  line-height: 1.24;
+  letter-spacing: -0.5px;
+  color: var(--lm-ink);
+}
+
+body.lm-makeover .lm-infinit-control .control-role-summary {
+  margin: 12px 0 0;
+  font-size: 15.5px;
+  line-height: 1.6;
+  color: var(--lm-copy);
+}
+
+body.lm-makeover .lm-infinit-control .control-role-list {
+  margin: 18px 0 0;
+  padding: 16px 0 0 18px;
+  border-top: 1px solid var(--lm-wash);
+  display: grid;
+  gap: 10px;
+  font-size: 14px;
+  line-height: 1.55;
+  color: var(--lm-copy);
+}
+
+body.lm-makeover .lm-infinit-control .control-authority-boundary {
+  margin-top: 28px;
+  padding: 26px 30px;
+  background: var(--lm-surface);
+  border: 1px solid var(--lm-steel);
+  border-radius: 12px;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 28px;
+}
+
+body.lm-makeover .lm-infinit-control .control-authority-boundary-block h3 {
+  margin: 0;
+  font-size: 18px;
+  line-height: 1.3;
+  letter-spacing: -0.3px;
+  color: var(--lm-ink);
+}
+
+body.lm-makeover .lm-infinit-control .control-authority-boundary-block p {
+  margin: 8px 0 0;
+  font-size: 14.5px;
+  line-height: 1.6;
+  color: var(--lm-copy);
+}
+
+body.lm-makeover .lm-infinit-control .control-tech-details {
+  margin-top: 20px;
+  border: 1px solid var(--lm-wash);
+  border-radius: 8px;
+  background: var(--lm-surface);
+  padding: 12px 16px;
+}
+
+body.lm-makeover .lm-infinit-control .control-tech-details summary {
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--lm-blue-dark);
+}
+
+body.lm-makeover .lm-infinit-control .control-tech-details-body {
+  margin-top: 10px;
+  padding-top: 10px;
+  border-top: 1px solid var(--lm-wash);
+}
+
+body.lm-makeover .lm-infinit-control .control-tech-details-body p {
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.55;
+  color: var(--lm-copy);
+}
+
+/* Section C: Supporting Oversight Image (mission-control-v2.png) */
+body.lm-makeover .lm-infinit-control .control-oversight-figure {
+  margin: 0;
+  padding: 16px;
+  background: var(--lm-surface);
+  border: 1px solid var(--lm-steel);
+  border-radius: 12px;
+  box-shadow: 0 24px 50px -36px color-mix(in srgb, var(--lm-ink) 38%, transparent);
+}
+
+body.lm-makeover .lm-infinit-control .control-oversight-media {
+  width: 100%;
+  aspect-ratio: 1672 / 941;
+  border-radius: 8px;
+  overflow: hidden;
+  border: 1px solid var(--lm-wash);
+  background: var(--lm-wash);
+}
+
+body.lm-makeover .lm-infinit-control .control-oversight-media picture,
+body.lm-makeover .lm-infinit-control .control-oversight-media img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+body.lm-makeover .lm-infinit-control .control-oversight-caption {
+  margin-top: 12px;
+  padding-inline: 4px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 8px 24px;
+  font-size: 13px;
+  line-height: 1.45;
+  color: var(--lm-copy);
+}
+
+body.lm-makeover .lm-infinit-control .control-oversight-caption > span:first-child {
+  font-weight: 600;
+  color: var(--lm-ink);
+}
+
+/* Section D: Work Status Versus Operating Result */
+body.lm-makeover .lm-infinit-control .control-example-shell {
+  padding: 28px;
+  background: var(--lm-surface);
+  border: 1px solid var(--lm-steel);
+  border-radius: 12px;
+  box-shadow: 0 20px 44px -34px color-mix(in srgb, var(--lm-ink) 36%, transparent);
+}
+
+body.lm-makeover .lm-infinit-control .control-example-header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 14px 24px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid var(--lm-wash);
+}
+
+body.lm-makeover .lm-infinit-control .control-example-badge {
+  display: inline-block;
+  padding: 4px 10px;
+  border-radius: 999px;
+  background: var(--lm-wash);
+  border: 1px solid var(--lm-steel);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.9px;
+  text-transform: uppercase;
+  color: var(--lm-blue-dark);
+}
+
+body.lm-makeover .lm-infinit-control .control-example-header h3 {
+  margin: 10px 0 0;
+  font-size: 22px;
+  line-height: 1.24;
+  letter-spacing: -0.4px;
+}
+
+body.lm-makeover .lm-infinit-control .control-example-context {
+  margin: 0;
+  font-size: 13.5px;
+  font-weight: 600;
+  color: var(--lm-copy);
+}
+
+body.lm-makeover .lm-infinit-control .control-example-tabs {
+  margin-top: 20px;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 10px;
+}
+
+body.lm-makeover .lm-infinit-control .control-example-tab {
+  appearance: none;
+  text-align: left;
+  padding: 13px 14px;
+  background: var(--lm-canvas);
+  border: 1px solid var(--lm-steel);
+  border-radius: 8px;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  transition: background-color 140ms ease, border-color 140ms ease;
+}
+
+body.lm-makeover .lm-infinit-control .control-example-tab:hover {
+  background: var(--lm-wash);
+}
+
+body.lm-makeover .lm-infinit-control .control-example-tab.is-active {
+  background: var(--lm-surface);
+  border-color: var(--lm-blue);
+  border-top: 3px solid var(--lm-blue);
+  box-shadow: 0 10px 22px -16px color-mix(in srgb, var(--lm-ink) 35%, transparent);
+}
+
+body.lm-makeover .lm-infinit-control .control-example-tab-num {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  color: var(--lm-blue-dark);
+}
+
+body.lm-makeover .lm-infinit-control .control-example-tab-text {
+  font-size: 13.5px;
+  font-weight: 700;
+  line-height: 1.3;
+  color: var(--lm-ink);
+}
+
+body.lm-makeover .lm-infinit-control .control-example-panel {
+  margin-top: 20px;
+  padding: 24px;
+  background: var(--lm-canvas);
+  border: 1px solid var(--lm-steel);
+  border-radius: 10px;
+}
+
+body.lm-makeover .lm-infinit-control .control-example-summary-rows {
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 10px;
+}
+
+body.lm-makeover .lm-infinit-control .control-summary-row {
+  display: grid;
+  grid-template-columns: 145px minmax(0, 1fr);
+  align-items: baseline;
+  gap: 12px;
+  padding: 10px 14px;
+  background: var(--lm-surface);
+  border: 1px solid var(--lm-wash);
+  border-left: 3px solid var(--lm-blue-dark);
+  border-radius: 6px;
+}
+
+body.lm-makeover .lm-infinit-control .control-summary-row dt {
+  font-size: 13.5px;
+  font-weight: 700;
+  color: var(--lm-blue-dark);
+}
+
+body.lm-makeover .lm-infinit-control .control-summary-row dd {
+  margin: 0;
+  font-size: 15px;
+  line-height: 1.5;
+  color: var(--lm-ink);
+}
+
+body.lm-makeover .lm-infinit-control .control-summary-row dd strong {
+  font-weight: 700;
+  color: var(--lm-ink);
+}
+
+body.lm-makeover .lm-infinit-control .control-summary-meta {
+  font-size: 13.5px;
+  color: var(--lm-copy);
+}
+
+body.lm-makeover .lm-infinit-control .control-example-measurements {
+  margin-top: 20px;
+  padding-top: 18px;
+  border-top: 1px solid var(--lm-steel);
+}
+
+body.lm-makeover .lm-infinit-control .control-example-measurements-title {
+  margin: 0 0 12px;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.9px;
+  text-transform: uppercase;
+  color: var(--lm-blue-dark);
+}
+
+body.lm-makeover .lm-infinit-control .control-measurements-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(195px, 1fr));
+  gap: 12px;
+}
+
+body.lm-makeover .lm-infinit-control .control-measurement-item {
+  padding: 12px 14px;
+  background: var(--lm-surface);
+  border: 1px solid var(--lm-steel);
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+body.lm-makeover .lm-infinit-control .control-measurement-name {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--lm-copy);
+}
+
+body.lm-makeover .lm-infinit-control .control-measurement-value {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--lm-ink);
+}
+
+body.lm-makeover .lm-infinit-control .control-measurement-ref {
+  font-size: 12px;
+  line-height: 1.4;
+  color: var(--lm-copy);
+}
+
+body.lm-makeover .lm-infinit-control .control-example-disclosure {
+  margin: 18px 0 0;
+  padding-top: 14px;
+  border-top: 1px solid var(--lm-wash);
+  font-size: 13px;
+  line-height: 1.5;
+  color: var(--lm-copy);
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px 20px;
+}
+
+body.lm-makeover .lm-infinit-control .control-inline-link {
+  font-size: 13.5px;
+}
+
+/* Section E: Connected Platform Grid & Closing Panel */
+body.lm-makeover .lm-infinit-control .control-platform-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 18px;
+}
+
+body.lm-makeover .lm-infinit-control .control-platform-card {
+  padding: 24px 22px;
+  background: var(--lm-surface);
+  border: 1px solid var(--lm-steel);
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+}
+
+body.lm-makeover .lm-infinit-control .control-platform-card.is-current {
+  border-top: 3px solid var(--lm-blue);
+  box-shadow: 0 18px 36px -28px color-mix(in srgb, var(--lm-ink) 35%, transparent);
+}
+
+body.lm-makeover .lm-infinit-control .control-platform-card-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+body.lm-makeover .lm-infinit-control .control-platform-step {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 1.2px;
+  color: var(--lm-blue-dark);
+}
+
+body.lm-makeover .lm-infinit-control .control-platform-badge {
+  padding: 3px 9px;
+  border-radius: 999px;
+  background: var(--lm-wash);
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--lm-blue-dark);
+}
+
+body.lm-makeover .lm-infinit-control .control-platform-card h3 {
+  margin: 12px 0 0;
+  font-size: 20px;
+  line-height: 1.2;
+  letter-spacing: -0.4px;
+}
+
+body.lm-makeover .lm-infinit-control .control-platform-role {
+  margin: 4px 0 0;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--lm-blue-dark);
+}
+
+body.lm-makeover .lm-infinit-control .control-platform-summary {
+  margin: 10px 0 16px;
+  font-size: 14.5px;
+  line-height: 1.55;
+  color: var(--lm-copy);
+  flex: 1;
+}
+
+body.lm-makeover .lm-infinit-control .control-closing-panel {
+  margin-top: 48px;
+  padding: 36px 40px;
+  background: var(--lm-surface);
+  border: 1px solid var(--lm-steel);
+  border-radius: 12px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 28px;
+}
+
+body.lm-makeover .lm-infinit-control .control-closing-copy {
+  max-width: 620px;
+}
+
+body.lm-makeover .lm-infinit-control .control-closing-copy h2 {
+  margin: 12px 0 0;
+  font-size: clamp(26px, 2.8vw, 36px);
+  line-height: 1.12;
+  letter-spacing: -1.2px;
+}
+
+body.lm-makeover .lm-infinit-control .control-closing-copy p:last-child {
+  margin: 12px 0 0;
+  font-size: 17px;
+  line-height: 1.58;
+  color: var(--lm-copy);
+}
+
+body.lm-makeover .lm-infinit-control .control-closing-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 20px;
+}
+
+/* Responsive Breakpoints */
+@media (max-width: 1080px) {
+  body.lm-makeover .lm-infinit-control .control-hero {
+    grid-template-columns: 1fr;
+    gap: 36px;
+    padding-block: 48px 60px;
+  }
+
+  body.lm-makeover .lm-infinit-control .control-hero-copy {
+    max-width: 100%;
+  }
+
+  body.lm-makeover .lm-infinit-control .control-roles-grid {
+    grid-template-columns: 1fr;
+  }
+
+  body.lm-makeover .lm-infinit-control .control-authority-boundary {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  body.lm-makeover .lm-infinit-control .control-example-tabs {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  body.lm-makeover .lm-infinit-control .control-example-comparison {
+    grid-template-columns: 1fr;
+  }
+
+  body.lm-makeover .lm-infinit-control .control-platform-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 720px) {
+  body.lm-makeover .lm-infinit-control .control-section {
+    padding-block: 60px;
+  }
+}
+
+@media (max-width: 580px) {
+  body.lm-makeover .lm-infinit-control .control-hero {
+    padding-block: 36px 48px;
+    gap: 28px;
+  }
+
+  body.lm-makeover .lm-infinit-control .control-hero h1 {
+    font-size: clamp(34px, 9vw, 44px);
+    letter-spacing: -1.6px;
+  }
+
+  body.lm-makeover .lm-infinit-control .control-hero-lead {
+    font-size: 17px;
+  }
+
+  body.lm-makeover .lm-infinit-control .control-hero-figure,
+  body.lm-makeover .lm-infinit-control .control-oversight-figure {
+    padding: 12px;
+  }
+
+  body.lm-makeover .lm-infinit-control .control-section {
+    padding-block: 48px;
+  }
+
+  body.lm-makeover .lm-infinit-control .control-section-header {
+    margin-bottom: 28px;
+  }
+
+  body.lm-makeover .lm-infinit-control .control-role-card,
+  body.lm-makeover .lm-infinit-control .control-authority-boundary,
+  body.lm-makeover .lm-infinit-control .control-example-shell {
+    padding: 22px 18px;
+  }
+
+  body.lm-makeover .lm-infinit-control .control-example-tabs {
+    grid-template-columns: 1fr;
+  }
+
+  body.lm-makeover .lm-infinit-control .control-example-panel {
+    padding: 18px 16px;
+  }
+
+  body.lm-makeover .lm-infinit-control .control-summary-row {
+    grid-template-columns: 1fr;
+    gap: 4px;
+  }
+
+  body.lm-makeover .lm-infinit-control .control-platform-grid {
+    grid-template-columns: 1fr;
+  }
+
+  body.lm-makeover .lm-infinit-control .control-closing-panel {
+    margin-top: 36px;
+    padding: 26px 20px;
+    gap: 20px;
+  }
+}

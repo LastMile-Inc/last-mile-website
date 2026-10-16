@@ -2,74 +2,69 @@
 content_id: PAGE-SINGULARITY-001
 status: approved
 owner: Singularity Product Marketing
-last_reviewed: 2026-08-26
+last_reviewed: 2026-10-16
 claim_maturity: [designed, reference_architecture]
 depends_on: [PROD-SINGULARITY-001, CONCEPT-SEMANTIC-001, CONCEPT-UNS-001, CLAIMS-REGISTRY-001]
 used_by: [/singularity]
 ---
 
-# Singularity Page Contract and Copy
+# Singularity Page Contract and Copy (`/singularity`)
 
 ## Job
 
-Explain the difference between distributed data and durable operational meaning. Establish SSOM as the open contract and Singularity as Last Mile's governed operational memory without overclaiming a completed world model.
+Explain how Singularity connects equipment, conditions, dependencies, history, work, and outcomes in a shared operational world model so people and AI can understand an issue in the context of the operation. Establish SSOM (Standardized Semantic Object Model) as the open semantic contract inside Singularity without overclaiming a completed world model or introducing unsupported data ownership, AI training rights, privacy, certification, or security claims.
 
-## Hero
+## A. Hero
 
-**Eyebrow:** SINGULARITY
+- **Eyebrow:** `SINGULARITY · THE OPERATIONAL WORLD MODEL`
+- **H1:** `Give AI and your team the context to act.`
+- **Supporting copy:** `Connect assets, conditions, dependencies, history, work, and outcomes in a shared operational world model—so people and AI can understand an issue in the context of the operation.`
+- **Primary CTA:** `Book a demo` -> `/demo`
+- **Secondary link:** `Explore the platform` -> `/platform`
+- **Hero visual:** Approved Singularity concept asset (`Smart Water Treatment Plant Monitoring(1).png`, delivered as `platform-singularity` in a `4:3` frame, `1448x1086`).
+  - **Caption:** `Concept illustration`
+  - **Alt:** `Concept illustration of water facility engineers reviewing how equipment, systems, and readings relate`
 
-**H1:** Give the response one durable operational memory.
+## B. Main Explanatory Illustration
 
-**Body:** Singularity connects assets, observations, Conditions, evidence, decisions, work, return measurements, and Outcomes across the systems and sites that each see only part of the operating story.
+- **Eyebrow:** `SHARED OPERATIONAL CONTEXT`
+- **Section headline:** `Different sources. One connected understanding.`
+- **Supporting copy:** `Bring equipment information, readings, relationships, time, and records into a connected view without losing where the information came from.`
+- **Explanatory illustration:** `semantic-operating-record-v3.png` (`1672x941`, delivered as `semantic-operating-record-v3`).
+  - **Caption:** `Concept illustration`
+- **Three live labels aligned to the composition:**
+  - `Source information`
+  - `Connected context`
+  - `Shared operating record`
 
-## Connected response framing
+## C. Operational Context Questions
 
-Render a four-product connected-response strip immediately after the hero. Highlight Singularity as the product that turns qualified evidence into durable operational meaning for the rest of the response.
+Concise explanations addressing the four operational questions using canonical Singularity capabilities and showing how Singularity supplies shared context across `Infinit-Signal`, `Singularity`, `Infinit-Flow`, and `Infinit-Control`:
 
-**Subordinate label:** Governed operational memory implementing the open SSOM contract.
+1. **What equipment and processes does this issue affect?**
+   - Connects equipment identities and physical, process, control, location, and dependency relationships so teams and AI see upstream and downstream impact across the operation.
+2. **What conditions and history help explain it?**
+   - Connects qualified observations, events, and Conditions from `Infinit-Signal` with operating history, prior occurrences, and past interventions in time order.
+3. **What work is underway, and who is responsible?**
+   - Links the active Condition to accountable owners, authorized decisions, and coordinated `Infinit-Flow` tasks, approvals, work orders, and dispatches across systems.
+4. **What evidence will show whether the response worked?**
+   - Evaluates qualified return measurements, operating bands, and stability windows against an explicit Outcome contract—distinguishing `Recovery established`, `Partial recovery`, `Failed intervention`, `Recurrence detected`, and `Insufficient return data` for `Infinit-Control` rather than treating ticket closure as proof.
 
-**Operating artifact:** Show the complete `CHWP-02` source-identity crosswalk and resolved topology from `USECASE-DC-COOLING-001`. Preserve every scoped source identity and validity period.
+## D. Optional Technical Reference: SSOM, Identity Crosswalk, and Governance Boundaries
 
-## SSOM distinction
+- Presented as an optional expandable technical reference section plus links to canonical Industrial Concepts resources (`/resources/industrial-concepts/semantic-interoperability`, `/resources/industrial-concepts/uns-and-ssom`, `/resources/industrial-concepts/digital-twins`, `/resources/industrial-concepts/industrial-ai`, `/resources/industrial-concepts/data-spaces`).
+- **SSOM expansion:** `The Standardized Semantic Object Model defines portable operational meaning, identity, relationships, temporal semantics, quality, evidence, provenance, conformance, and profiles.`
+- **Singularity runtime role:** `Singularity is Last Mile's governed operational-memory and OT world-model product implementing the open SSOM semantic and evidence contract.`
+- **Scoped source-identity crosswalk:** Shows how `Source tag`, `MQTT topic`, `OPC UA NodeId`, `Historian point`, `SAP equipment`, and `Provider record` resolve to one canonical operational asset (`Cooling Loop B · CHWP-02`) while preserving every scoped external identity and validity period.
+- **Conformance & Data Trust boundaries:**
+  - `SSOM conformance and MQTT/Sparkplug compatibility are separate conformance domains.`
+  - `The architecture separates customer operations from cross-site learning. SSOM conformance does not grant contribution rights. Purpose, consent, minimization, transformation, provenance, retention, and model scope remain explicit, and aggregate learning cannot rewrite customer canonical facts.`
 
-**Heading:** An open semantic contract inside a governed Last Mile product.
+## E. Connected Platform and Closing CTA
 
-**Body:** SSOM defines portable operational meaning and conformance. Singularity implements that contract through canonical journals, identity and topology services, current-state projections, condition and outcome services, evidence, replay, policy, and governed learning.
-
-## Identity section
-
-**Heading:** One pump. Five names. One shared operational identity.
-
-**Copy:** Source tags, MQTT topics, OPC UA NodeIds, historian points, SAP equipment, and provider records remain visible as scoped external identities. Singularity connects them to one canonical asset without erasing their source meaning or history.
-
-## UNS comparison
-
-**Heading:** Distribution is not the same as meaning.
-
-| Unified Namespace | Singularity / SSOM |
-|---|---|
-| Distributes current information | Preserves governed operational memory |
-| Uses topics and source identifiers | Resolves canonical asset identity |
-| Carries payload and source metadata | Preserves quality, provenance, evidence, and lineage |
-| Exposes state changes | Connects Conditions, decisions, actions, and Outcomes |
-| Usually presents a navigable hierarchy | Represents many-to-many and time-varying relationships |
-
-**Link:** Read the complete UNS and SSOM explanation.
-
-## Outcome section
-
-**Heading:** Remember what worked—not just what was attempted.
-
-**Body:** Singularity preserves the difference between a recommendation, an authorized action, a work-system receipt, and a verified physical result. Recovery, partial recovery, failed intervention, recurrence, and insufficient return data remain distinct evidence-backed states.
-
-## Data Trust section
-
-**Heading:** Learn across operations without making consent implicit.
-
-**Body:** The architecture separates customer operations from cross-site learning. SSOM conformance does not grant contribution rights. Purpose, consent, minimization, transformation, provenance, retention, and model scope remain explicit.
-
-## CTA
-
-**Heading:** See how governed meaning becomes coordinated response.
-
-**CTA:** Explore Infinit-Flow
+- **Heading:** `Shared context across every stage of the response.`
+- **Four linked product cards:** `Infinit-Signal`, `Singularity` (current page), `Infinit-Flow`, `Infinit-Control`.
+- **Closing CTA:**
+  - **Heading:** `See how shared operational context guides coordinated action.`
+  - **Primary CTA:** `Book a demo` -> `/demo`
+  - **Secondary link:** `Explore Infinit-Flow` -> `/infinit-flow`

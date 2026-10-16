@@ -1,30 +1,39 @@
 {
   "schemaVersion": 1,
-  "lastUpdated": "2026-10-15",
-  "scope": "Home (/) and Platform (/platform) approved imagery and reserved supporting-page assets",
+  "lastUpdated": "2026-10-16",
+  "scope": "Home (/), Platform (/platform), Infinit-Signal (/infinit-signal), Singularity (/singularity), Infinit-Flow (/infinit-flow), Infinit-Control (/infinit-control), and Use Cases (/use-cases/*) approved imagery and reserved supporting-page assets",
   "activeAssets": [
     {
       "status": "active",
       "deliveryBasename": "home-chuck-hero",
-      "sourceFilename": "Picture10.jpg",
-      "canonicalSpecName": "Picture10(1).jpg",
-      "preservedOriginalPath": "assets/originals/2026-10-approved/Picture10.jpg",
+      "sourceFilename": "chuck.png",
+      "canonicalSpecName": "chuck.png",
+      "preservedOriginalPath": "assets/originals/2026-10-approved/chuck.png",
       "originalDimensions": {
-        "width": 443,
-        "height": 540
+        "width": 1086,
+        "height": 1448
       },
-      "originalBytes": 62822,
-      "originalSha256": "10107aa47d58871e",
+      "originalBytes": 2393434,
+      "originalSha256": "0bdf0cc9ca76f2d2",
       "route": "/",
+      "routes": [
+        "/"
+      ],
       "placement": "Home hero",
-      "alt": "Industrial worker in hard hat, safety glasses, and high-visibility vest on a factory floor",
+      "alt": "Chuck wearing a blue hard hat and safety glasses on a factory floor.",
       "caption": null,
       "deliveryFiles": [
-        "public/images/home/home-chuck-hero.avif",
-        "public/images/home/home-chuck-hero.webp",
+        "public/images/home/home-chuck-hero-400.avif",
+        "public/images/home/home-chuck-hero-400.webp",
+        "public/images/home/home-chuck-hero-600.avif",
+        "public/images/home/home-chuck-hero-600.webp",
+        "public/images/home/home-chuck-hero-800.avif",
+        "public/images/home/home-chuck-hero-800.webp",
+        "public/images/home/home-chuck-hero-1086.avif",
+        "public/images/home/home-chuck-hero-1086.webp",
         "public/images/home/home-chuck-hero.jpg"
       ],
-      "notes": "Native 443x540 portrait; not upscaled. At 340-400 CSS px desktop width, 2x Retina displays have a ~1.11x-1.30x pixel-density ratio."
+      "notes": "Native 1086x1448 portrait (3:4 aspect ratio); supersedes Picture10(1).jpg (443x540). Delivered at 400w, 600w, 800w, and 1086w in AVIF/WebP with an optimized JPEG fallback so the raw PNG is never served by default."
     },
     {
       "status": "active",
@@ -39,6 +48,9 @@
       "originalBytes": 2091641,
       "originalSha256": "dee0988d5dccb191",
       "route": "/platform",
+      "routes": [
+        "/platform"
+      ],
       "placement": "Platform hero",
       "alt": "Two industrial workers in safety gear reviewing equipment information on a tablet beside plant machinery",
       "caption": null,
@@ -67,9 +79,13 @@
       },
       "originalBytes": 2235833,
       "originalSha256": "7b9959d57967392b",
-      "route": "/platform",
-      "placement": "Platform Infinit-Signal section",
-      "alt": "Concept illustration of factory operators and equipment connected to incoming equipment readings",
+      "route": "/platform, /infinit-signal",
+      "routes": [
+        "/platform",
+        "/infinit-signal"
+      ],
+      "placement": "Platform Infinit-Signal section and /infinit-signal hero",
+      "alt": "Packaging-line cameras and sensors with conceptual graphics showing organized operating information.",
       "caption": "Concept illustration",
       "deliveryFiles": [
         "public/images/platform/platform-infinit-signal-640.avif",
@@ -82,7 +98,39 @@
         "public/images/platform/platform-infinit-signal-1448.webp",
         "public/images/platform/platform-infinit-signal.png"
       ],
-      "notes": "4:3 aspect ratio (1448x1086 native)."
+      "notes": "4:3 aspect ratio (1448x1086 native). Shared across Platform Infinit-Signal section and /infinit-signal hero."
+    },
+    {
+      "status": "active",
+      "deliveryBasename": "signal-handoff-web-v3",
+      "sourceFilename": "Futuristic Factory-to-AI Data Pipeline.png",
+      "canonicalSpecName": "Futuristic Factory-to-AI Data Pipeline.png",
+      "preservedOriginalPath": "assets/originals/2026-10-approved/Futuristic Factory-to-AI Data Pipeline.png",
+      "originalDimensions": {
+        "width": 1672,
+        "height": 941
+      },
+      "originalBytes": 2031717,
+      "originalSha256": "4aeaa09d6c823339",
+      "route": "/infinit-signal",
+      "routes": [
+        "/infinit-signal"
+      ],
+      "placement": "/infinit-signal main explanatory illustration",
+      "alt": "Conceptual illustration showing factory equipment signals entering Infinit-Signal for five qualification checks, connecting into Singularity for shared operational context, and supporting coordinated work and oversight in Infinit-Flow and Infinit-Control.",
+      "caption": "Concept illustration",
+      "deliveryFiles": [
+        "public/images/platform/signal-handoff-web-v3-640.avif",
+        "public/images/platform/signal-handoff-web-v3-640.webp",
+        "public/images/platform/signal-handoff-web-v3-960.avif",
+        "public/images/platform/signal-handoff-web-v3-960.webp",
+        "public/images/platform/signal-handoff-web-v3-1280.avif",
+        "public/images/platform/signal-handoff-web-v3-1280.webp",
+        "public/images/platform/signal-handoff-web-v3-1672.avif",
+        "public/images/platform/signal-handoff-web-v3-1672.webp",
+        "public/images/platform/signal-handoff-web-v3.png"
+      ],
+      "notes": "16:9 aspect ratio (1672x941 native). Cleaned replacement for ai-ready-handoff-v2.png with live HTML/SVG region headings and qualification row labels."
     },
     {
       "status": "active",
@@ -96,8 +144,12 @@
       },
       "originalBytes": 2632219,
       "originalSha256": "ee3608717f3c001a",
-      "route": "/platform",
-      "placement": "Platform Singularity section",
+      "route": "/platform, /singularity",
+      "routes": [
+        "/platform",
+        "/singularity"
+      ],
+      "placement": "Platform Singularity section and /singularity hero",
       "alt": "Concept illustration of water facility engineers reviewing how equipment, systems, and readings relate",
       "caption": "Concept illustration",
       "deliveryFiles": [
@@ -111,7 +163,39 @@
         "public/images/platform/platform-singularity-1448.webp",
         "public/images/platform/platform-singularity.png"
       ],
-      "notes": "4:3 aspect ratio (1448x1086 native)."
+      "notes": "4:3 aspect ratio (1448x1086 native). Shared across Platform Singularity section and /singularity hero."
+    },
+    {
+      "status": "active",
+      "deliveryBasename": "semantic-operating-record-v3",
+      "sourceFilename": "semantic-operating-record-v3.png",
+      "canonicalSpecName": "semantic-operating-record-v3.png",
+      "preservedOriginalPath": "assets/originals/2026-10-approved/semantic-operating-record-v3.png",
+      "originalDimensions": {
+        "width": 1672,
+        "height": 941
+      },
+      "originalBytes": 2044473,
+      "originalSha256": "e6191b18615d17f7",
+      "route": "/singularity",
+      "routes": [
+        "/singularity"
+      ],
+      "placement": "/singularity main explanatory illustration",
+      "alt": "Conceptual illustration showing six disparate operational sources passing through a connected context layer into one shared operating record.",
+      "caption": "Concept illustration",
+      "deliveryFiles": [
+        "public/images/platform/semantic-operating-record-v3-640.avif",
+        "public/images/platform/semantic-operating-record-v3-640.webp",
+        "public/images/platform/semantic-operating-record-v3-960.avif",
+        "public/images/platform/semantic-operating-record-v3-960.webp",
+        "public/images/platform/semantic-operating-record-v3-1280.avif",
+        "public/images/platform/semantic-operating-record-v3-1280.webp",
+        "public/images/platform/semantic-operating-record-v3-1672.avif",
+        "public/images/platform/semantic-operating-record-v3-1672.webp",
+        "public/images/platform/semantic-operating-record-v3.png"
+      ],
+      "notes": "16:9 aspect ratio (1672x941 native). Displayed with live HTML labels for Source information, Connected context, and Shared operating record."
     },
     {
       "status": "active",
@@ -126,6 +210,9 @@
       "originalBytes": 2446649,
       "originalSha256": "38ef0432b545339e",
       "route": "/platform",
+      "routes": [
+        "/platform"
+      ],
       "placement": "Platform Infinit-Flow section",
       "alt": "Concept illustration of field operators coordinating work across equipment and systems",
       "caption": "Concept illustration",
@@ -155,6 +242,9 @@
       "originalBytes": 2267954,
       "originalSha256": "57f764f55f520b91",
       "route": "/platform",
+      "routes": [
+        "/platform"
+      ],
       "placement": "Platform Infinit-Control section",
       "alt": "Concept illustration of an oilfield technician reviewing equipment status and operational readings on a tablet",
       "caption": "Concept illustration",
@@ -170,6 +260,224 @@
         "public/images/platform/platform-infinit-control.png"
       ],
       "notes": "4:3 aspect ratio (1448x1086 native)."
+    },
+    {
+      "status": "active",
+      "deliveryBasename": "infinit-flow-control-room",
+      "sourceFilename": "infinit-flow-control-room.png",
+      "canonicalSpecName": "infinit-flow-control-room.png",
+      "preservedOriginalPath": "assets/originals/2026-10-approved/infinit-flow-control-room.png",
+      "originalDimensions": {
+        "width": 1672,
+        "height": 941
+      },
+      "originalBytes": 1669543,
+      "originalSha256": "05c6a17d36643650",
+      "route": "/infinit-flow",
+      "routes": [
+        "/infinit-flow"
+      ],
+      "placement": "/infinit-flow hero",
+      "alt": "Concept illustration of an industrial display showing a coordinated workflow diagram in front of a manufacturing facility.",
+      "caption": "Concept illustration",
+      "deliveryFiles": [
+        "public/images/platform/infinit-flow-control-room-640.avif",
+        "public/images/platform/infinit-flow-control-room-640.webp",
+        "public/images/platform/infinit-flow-control-room-960.avif",
+        "public/images/platform/infinit-flow-control-room-960.webp",
+        "public/images/platform/infinit-flow-control-room-1280.avif",
+        "public/images/platform/infinit-flow-control-room-1280.webp",
+        "public/images/platform/infinit-flow-control-room-1672.avif",
+        "public/images/platform/infinit-flow-control-room-1672.webp",
+        "public/images/platform/infinit-flow-control-room.png"
+      ],
+      "notes": "16:9 aspect ratio (1672x941 native). Treated as a conceptual product illustration."
+    },
+    {
+      "status": "active",
+      "deliveryBasename": "orchestration-routing-web-v4",
+      "sourceFilename": "Industrial Data Flow Network.png",
+      "canonicalSpecName": "Industrial Data Flow Network.png",
+      "preservedOriginalPath": "assets/originals/2026-10-approved/Industrial Data Flow Network.png",
+      "originalDimensions": {
+        "width": 1672,
+        "height": 941
+      },
+      "originalBytes": 1887567,
+      "originalSha256": "d5510cbe6e0a5079",
+      "route": "/infinit-flow",
+      "routes": [
+        "/infinit-flow"
+      ],
+      "placement": "/infinit-flow main explanatory illustration",
+      "alt": "Conceptual illustration showing operating context routing through response rules and approvals to people and connected systems, with progress and return evidence converging at a right-hand return junction.",
+      "caption": "Concept illustration",
+      "deliveryFiles": [
+        "public/images/platform/orchestration-routing-web-v4-640.avif",
+        "public/images/platform/orchestration-routing-web-v4-640.webp",
+        "public/images/platform/orchestration-routing-web-v4-960.avif",
+        "public/images/platform/orchestration-routing-web-v4-960.webp",
+        "public/images/platform/orchestration-routing-web-v4-1280.avif",
+        "public/images/platform/orchestration-routing-web-v4-1280.webp",
+        "public/images/platform/orchestration-routing-web-v4-1672.avif",
+        "public/images/platform/orchestration-routing-web-v4-1672.webp",
+        "public/images/platform/orchestration-routing-web-v4.png"
+      ],
+      "notes": "16:9 aspect ratio (1672x941 native). Simplified replacement for orchestration-routing-v3.png with live HTML/SVG labels."
+    },
+    {
+      "status": "active",
+      "deliveryBasename": "field-command-v2",
+      "sourceFilename": "field-command-v2.png",
+      "canonicalSpecName": "field-command-v2.png",
+      "preservedOriginalPath": "assets/originals/2026-10-approved/field-command-v2.png",
+      "originalDimensions": {
+        "width": 1536,
+        "height": 1024
+      },
+      "originalBytes": 1995983,
+      "originalSha256": "d25b726e8bb286d0",
+      "route": "/infinit-control",
+      "routes": [
+        "/infinit-control"
+      ],
+      "placement": "/infinit-control hero",
+      "alt": "Concept illustration of a field technician beside a pump assembly reviewing operating conditions, ownership, work status, and trend data on a tablet.",
+      "caption": "Concept illustration",
+      "deliveryFiles": [
+        "public/images/platform/field-command-v2-640.avif",
+        "public/images/platform/field-command-v2-640.webp",
+        "public/images/platform/field-command-v2-960.avif",
+        "public/images/platform/field-command-v2-960.webp",
+        "public/images/platform/field-command-v2-1280.avif",
+        "public/images/platform/field-command-v2-1280.webp",
+        "public/images/platform/field-command-v2-1536.avif",
+        "public/images/platform/field-command-v2-1536.webp",
+        "public/images/platform/field-command-v2.png"
+      ],
+      "notes": "3:2 aspect ratio (1536x1024 native). Treated as a conceptual illustration."
+    },
+    {
+      "status": "active",
+      "deliveryBasename": "mission-control-v2",
+      "sourceFilename": "mission-control-v2.png",
+      "canonicalSpecName": "mission-control-v2.png",
+      "preservedOriginalPath": "assets/originals/2026-10-approved/mission-control-v2.png",
+      "originalDimensions": {
+        "width": 1672,
+        "height": 941
+      },
+      "originalBytes": 2009630,
+      "originalSha256": "50578610ee0289be",
+      "route": "/infinit-control",
+      "routes": [
+        "/infinit-control"
+      ],
+      "placement": "/infinit-control supporting oversight illustration",
+      "alt": "Concept illustration of operations staff reviewing conditions, ongoing responses, and outcome evidence across a shared operational view.",
+      "caption": "Concept illustration",
+      "deliveryFiles": [
+        "public/images/platform/mission-control-v2-640.avif",
+        "public/images/platform/mission-control-v2-640.webp",
+        "public/images/platform/mission-control-v2-960.avif",
+        "public/images/platform/mission-control-v2-960.webp",
+        "public/images/platform/mission-control-v2-1280.avif",
+        "public/images/platform/mission-control-v2-1280.webp",
+        "public/images/platform/mission-control-v2-1672.avif",
+        "public/images/platform/mission-control-v2-1672.webp",
+        "public/images/platform/mission-control-v2.png"
+      ],
+      "notes": "16:9 aspect ratio (1672x941 native). Presented as an illustration of broader oversight across the operation."
+    },
+    {
+      "status": "active",
+      "deliveryBasename": "manufacturing-compressed-air",
+      "sourceFilename": "manufacturing-compressed-air.webp",
+      "canonicalSpecName": "manufacturing-compressed-air.webp",
+      "preservedOriginalPath": "assets/originals/2026-10-approved/manufacturing-compressed-air.webp",
+      "originalDimensions": {
+        "width": 1024,
+        "height": 640
+      },
+      "originalBytes": 78356,
+      "originalSha256": "b16593fa3b28885d",
+      "route": "/use-cases/manufacturing-compressed-air",
+      "routes": [
+        "/use-cases/manufacturing-compressed-air"
+      ],
+      "placement": "/use-cases/manufacturing-compressed-air introductory visual",
+      "alt": "Concept illustration of a utilities technician holding a tablet and checking a pressure gauge on a vertical air receiver tank beside compressed-air dryers and compressor cabinets.",
+      "caption": "Concept illustration",
+      "deliveryFiles": [
+        "public/images/use-cases/manufacturing-compressed-air-640.avif",
+        "public/images/use-cases/manufacturing-compressed-air-640.webp",
+        "public/images/use-cases/manufacturing-compressed-air-800.avif",
+        "public/images/use-cases/manufacturing-compressed-air-800.webp",
+        "public/images/use-cases/manufacturing-compressed-air-1024.avif",
+        "public/images/use-cases/manufacturing-compressed-air-1024.webp",
+        "public/images/use-cases/manufacturing-compressed-air.webp"
+      ],
+      "notes": "16:10 aspect ratio (1024x640 native). Primary introductory visual for the compressed-air use case."
+    },
+    {
+      "status": "active",
+      "deliveryBasename": "cold-storage-refrigeration-v2",
+      "sourceFilename": "cold-storage-refrigeration-v2.webp",
+      "canonicalSpecName": "cold-storage-refrigeration-v2.webp",
+      "preservedOriginalPath": "assets/originals/2026-10-approved/cold-storage-refrigeration-v2.webp",
+      "originalDimensions": {
+        "width": 1024,
+        "height": 576
+      },
+      "originalBytes": 90322,
+      "originalSha256": "c93d6e5c0bd00ef8",
+      "route": "/use-cases/cold-storage-refrigeration",
+      "routes": [
+        "/use-cases/cold-storage-refrigeration"
+      ],
+      "placement": "/use-cases/cold-storage-refrigeration introductory visual",
+      "alt": "Concept illustration of a refrigeration machinery room with compressor racks, insulated piping, and pressure gauges beside an open doorway into a palletized cold-storage freezer.",
+      "caption": "Concept illustration",
+      "deliveryFiles": [
+        "public/images/use-cases/cold-storage-refrigeration-v2-640.avif",
+        "public/images/use-cases/cold-storage-refrigeration-v2-640.webp",
+        "public/images/use-cases/cold-storage-refrigeration-v2-800.avif",
+        "public/images/use-cases/cold-storage-refrigeration-v2-800.webp",
+        "public/images/use-cases/cold-storage-refrigeration-v2-1024.avif",
+        "public/images/use-cases/cold-storage-refrigeration-v2-1024.webp",
+        "public/images/use-cases/cold-storage-refrigeration-v2.webp"
+      ],
+      "notes": "16:9 aspect ratio (1024x576 native). Primary introductory visual for the cold-storage refrigeration use case; presented as refrigeration context rather than a documented customer installation."
+    },
+    {
+      "status": "active",
+      "deliveryBasename": "municipal-wastewater",
+      "sourceFilename": "municipal-wastewater.webp",
+      "canonicalSpecName": "municipal-wastewater.webp",
+      "preservedOriginalPath": "assets/originals/2026-10-approved/municipal-wastewater.webp",
+      "originalDimensions": {
+        "width": 1024,
+        "height": 640
+      },
+      "originalBytes": 91254,
+      "originalSha256": "8d5b04be1945f643",
+      "route": "/use-cases/municipal-wastewater",
+      "routes": [
+        "/use-cases/municipal-wastewater"
+      ],
+      "placement": "/use-cases/municipal-wastewater introductory visual",
+      "alt": "Concept illustration of a wastewater operator in a hard hat overlooking a concrete lift-station wet well with vertical pumps, discharge piping, and isolation valves.",
+      "caption": "Concept illustration",
+      "deliveryFiles": [
+        "public/images/use-cases/municipal-wastewater-640.avif",
+        "public/images/use-cases/municipal-wastewater-640.webp",
+        "public/images/use-cases/municipal-wastewater-800.avif",
+        "public/images/use-cases/municipal-wastewater-800.webp",
+        "public/images/use-cases/municipal-wastewater-1024.avif",
+        "public/images/use-cases/municipal-wastewater-1024.webp",
+        "public/images/use-cases/municipal-wastewater.webp"
+      ],
+      "notes": "16:10 aspect ratio (1024x640 native). Primary introductory visual for the municipal wastewater lift-station use case."
     }
   ],
   "reservedAssets": [
@@ -184,7 +492,7 @@
       "originalBytes": 2378949,
       "originalSha256": "06622689bbb6061f",
       "displayedOn": [],
-      "notes": "Reserved for upcoming supporting-page reviews. Do not display on Home or Platform."
+      "notes": "Reserved for upcoming supporting-page reviews. Do not display on Home, Platform, or Infinit-Signal."
     },
     {
       "status": "reserved",
@@ -197,7 +505,7 @@
       "originalBytes": 2271167,
       "originalSha256": "85f6cbbbfbeed6e8",
       "displayedOn": [],
-      "notes": "Reserved for upcoming supporting-page reviews. Do not display on Home or Platform."
+      "notes": "Reserved for upcoming supporting-page reviews. Do not display on Home, Platform, or Infinit-Signal."
     },
     {
       "status": "reserved",
@@ -210,7 +518,7 @@
       "originalBytes": 2029611,
       "originalSha256": "b2ff27de5bc4990d",
       "displayedOn": [],
-      "notes": "Reserved for upcoming supporting-page reviews. Do not display on Home or Platform."
+      "notes": "Reserved for upcoming supporting-page reviews. Do not display on Home, Platform, or Infinit-Signal."
     },
     {
       "status": "reserved",
@@ -223,7 +531,7 @@
       "originalBytes": 2389534,
       "originalSha256": "f9dcfaddfdd99c20",
       "displayedOn": [],
-      "notes": "Reserved for upcoming supporting-page reviews. Do not display on Home or Platform."
+      "notes": "Reserved for upcoming supporting-page reviews. Do not display on Home, Platform, or Infinit-Signal."
     },
     {
       "status": "reserved",
@@ -236,7 +544,7 @@
       "originalBytes": 2394687,
       "originalSha256": "52c2deeaba45b7c3",
       "displayedOn": [],
-      "notes": "Reserved for upcoming supporting-page reviews. Do not display on Home or Platform."
+      "notes": "Reserved for upcoming supporting-page reviews. Do not display on Home, Platform, or Infinit-Signal."
     },
     {
       "status": "reserved",
@@ -249,10 +557,23 @@
       "originalBytes": 2345674,
       "originalSha256": "616cd17b3f551e51",
       "displayedOn": [],
-      "notes": "Reserved for upcoming supporting-page reviews. Do not display on Home or Platform."
+      "notes": "Reserved for upcoming supporting-page reviews. Do not display on Home, Platform, or Infinit-Signal."
     }
   ],
   "supersededAssets": [
+    {
+      "status": "superseded_not_displayed",
+      "sourceFilename": "Picture10.jpg",
+      "preservedOriginalPath": "assets/originals/2026-10-approved/Picture10.jpg",
+      "originalDimensions": {
+        "width": 443,
+        "height": 540
+      },
+      "originalBytes": 62822,
+      "originalSha256": "10107aa47d58871e",
+      "displayedOn": [],
+      "notes": "Superseded candidate asset; preserved in originals only and not displayed on any route."
+    },
     {
       "status": "superseded_not_displayed",
       "sourceFilename": "Connected Automotive Assembly Line.png",
@@ -263,6 +584,32 @@
       },
       "originalBytes": 2400714,
       "originalSha256": "9dc10b19729a6446",
+      "displayedOn": [],
+      "notes": "Superseded candidate asset; preserved in originals only and not displayed on any route."
+    },
+    {
+      "status": "superseded_not_displayed",
+      "sourceFilename": "ai-ready-handoff-v2.png",
+      "preservedOriginalPath": "assets/originals/2026-10-approved/ai-ready-handoff-v2.png",
+      "originalDimensions": {
+        "width": 1672,
+        "height": 941
+      },
+      "originalBytes": 2165519,
+      "originalSha256": "55e2e4441404e970",
+      "displayedOn": [],
+      "notes": "Superseded candidate asset; preserved in originals only and not displayed on any route."
+    },
+    {
+      "status": "superseded_not_displayed",
+      "sourceFilename": "orchestration-routing-v3.png",
+      "preservedOriginalPath": "assets/originals/2026-10-approved/orchestration-routing-v3.png",
+      "originalDimensions": {
+        "width": 1672,
+        "height": 941
+      },
+      "originalBytes": 1827971,
+      "originalSha256": "6589b6326c54d4c2",
       "displayedOn": [],
       "notes": "Superseded candidate asset; preserved in originals only and not displayed on any route."
     }

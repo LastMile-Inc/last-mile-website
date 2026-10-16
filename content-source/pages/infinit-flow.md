@@ -2,7 +2,7 @@
 content_id: PAGE-FLOW-001
 status: approved
 owner: Infinit-Flow Product Marketing
-last_reviewed: 2026-08-26
+last_reviewed: 2026-10-16
 claim_maturity: [designed, reference_architecture]
 depends_on: [PROD-FLOW-001, CLAIMS-REGISTRY-001]
 used_by: [/infinit-flow]
@@ -12,52 +12,51 @@ used_by: [/infinit-flow]
 
 ## Job
 
-Explain governed, asset-aware condition-to-outcome orchestration. Show why drag-and-drop remains type-safe and why work completion does not end verification.
+Explain how Infinit-Flow coordinates tasks, approvals, and approved automated actions around a shared operational issue across people and systems—preserving responsibilities, approval gates, work status, and return evidence for the next step without implying unrestricted autonomous control or that returned work completion automatically establishes physical recovery.
 
 ## Hero
 
 **Eyebrow:** INFINIT-FLOW
 
-**H1:** Orchestrate the operating response without losing the condition.
+**H1:** Keep work moving across people and systems.
 
-**Body:** Infinit-Flow creates one durable case across operators, work systems, providers, approvals, evidence, and return measurements. It automates the digital steps policy allows and keeps physical authority where operations require it.
+**Body:** Coordinate tasks, approvals, and approved automated actions around a shared operational issue—so responsibility, progress, and next steps stay connected.
 
-## Connected response framing
+**Hero visual:** `infinit-flow-control-room.png` (`1672×941`, `16:9` aspect ratio), delivered at `/images/platform/infinit-flow-control-room-{640,960,1280,1672}.{avif,webp}` with `.png` fallback and captioned `Concept illustration`.
 
-Render a four-product connected-response strip immediately after the hero. Highlight Infinit-Flow as the orchestration engine that carries one accountable case across people, systems, providers, and verification.
+## Main explanatory image (`orchestration-routing-web-v4`)
 
-**Operating artifact:** Show the Cooling Loop B reference timeline from command through qualified Condition, acknowledgement, SAP work, provider dispatch, field completion, stability completion, and recovery. Label the applicable AUTO, ASSIST, and HUMAN AUTHORITY boundaries.
+Directly below the hero introduction, render `Industrial Data Flow Network.png` (`1672×941`, delivered as `orchestration-routing-web-v4`, simplified replacement for `orchestration-routing-v3.png`; do not show both versions).
 
-## Canvas section
+**Heading:** One response. Coordinated across the work.
 
-**Heading:** Start with the kind of asset and response—not an empty box.
+**Body:** Connect the operating context to the people and systems involved in the response. Keep responsibilities, approvals, and updates visible as the work progresses.
 
-**Body:** Choose an operational object type and intent. Infinit-Flow returns only assets compatible with the required SSOM class, capability, tenant, site, role, quality, and freshness. Simple controls appear first; expert semantic and lineage detail remains available when needed.
+**Live labels aligned to the composition:**
+- Left: `Operating context`
+- Central branching area: `Response rules and approvals`
+- Destination area: `People and connected systems`
+- Right return junction: `Progress and return evidence`
 
-## Runtime section
+Preserve the three destination scenes and the right-hand return junction. Do not label the junction `Verified recovery`—returned updates and completed work do not automatically establish recovery. Do not imply that the illustration documents support for every enterprise integration.
 
-**Heading:** Built for the hours, days, retries, and handoffs of real work.
+## Authority and automation
 
-**Body:** Durable execution preserves timers, acknowledgement targets, approvals, retries, idempotency, external commands, receipts, provider handoffs, and exceptions. Workflow versions stay pinned so a live response does not change underneath the operator.
+**Heading:** Automate within the rules of your operation.
 
-## Authority section
+Explain documented permissions, approval requirements, and authorized automation in plain language (`CLM-FLOW-001`, `CLM-FLOW-002`, `CLM-FLOW-003`, `CLM-FLOW-004`, `CLM-OUTCOME-001`).
 
-**AUTO:** execute an authorized digital step.
-**ASSIST:** assemble evidence or recommend the response.
-**HUMAN AUTHORITY:** retain physical-work, safety, LOTO, and control authority under customer policy.
+Distinguish:
+- **Recommended action** (`ASSIST`): assemble evidence or recommend the next response for human review.
+- **Approved action** (`HUMAN AUTHORITY`): retain physical-work, safety, LOTO, and control authority under customer policy (`Retain physical-work, safety, LOTO, and control authority under customer policy.`).
+- **Executed action** (`AUTO`): execute only an authorized digital step that customer policy explicitly allows.
 
-## Verification section
-
-**Heading:** Work completion starts the measurement window.
-
-**Body:** When the field task or work order closes, Infinit-Flow asks Singularity to evaluate the configured return measurements. The response branches explicitly to recovered, partial, failed, recurrent, or insufficient-data states.
-
-## CTA
-
-**Heading:** Put one accountable case in front of every role.
-
-**CTA:** Explore Infinit-Control
+Explain in a concise editorial layout (rather than four nested feature cards) how every handoff preserves:
+- Responsibility.
+- Required approval.
+- Work status.
+- Return evidence for the next step (`When the field task or work order closes, Infinit-Flow asks Singularity to evaluate the configured return measurements. Work-system state is contextual evidence only; it cannot set the physical result.`).
 
 ## Exclusions
 
-No claim of autonomous plant control, validated external connectors, or generic no-code replacement for controls engineering.
+No claim of autonomous plant control, validated external connectors for every enterprise system, or that work completion alone proves physical recovery.

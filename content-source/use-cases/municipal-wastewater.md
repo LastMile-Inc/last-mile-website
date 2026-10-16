@@ -2,13 +2,19 @@
 content_id: USECASE-WW-001
 status: approved
 owner: Use-Case Product and Domain Review
-last_reviewed: 2026-08-06
+last_reviewed: 2026-10-16
 claim_maturity: [demonstrated]
 depends_on: [PROD-SIGNAL-001, PROD-SINGULARITY-001, PROD-FLOW-001, PROD-CONTROL-001]
 used_by: [/platform, /use-cases/municipal-wastewater, demos]
 ---
 
 # Municipal Wastewater Pumping - Reference Scenario
+
+## Introductory presentation
+
+- **Headline:** Keep lift-station response coordinated.
+- **Supporting copy:** Connect station conditions, equipment context, and response work so teams can understand what needs attention and track the result.
+- **Primary introductory visual:** `municipal-wastewater.webp` (`1024×640`, delivered via `/images/use-cases/municipal-wastewater-{640,800,1024}.{avif,webp}` and `.webp` fallback; labeled `Concept illustration`).
 
 ## Public thesis
 

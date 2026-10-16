@@ -1,71 +1,675 @@
-import { SEO } from "@/app/components/SEO";
-import { ConnectedResponseStrip, EditorialHero, EditorialSection, InlineLink, NextStep } from "@/app/components/NarrativeComponents";
-import { EvidenceEnvelope } from "@/app/components/OperatingScenarioComponents";
-import { createBreadcrumbSchema, createProductSchema } from "@/app/lib/structuredData";
+import { useRef, useState, type KeyboardEvent } from "react";
+import {
+  ArrowRight,
+  ArrowUpRight,
+  CheckCircle2,
+  ShieldCheck,
+} from "lucide-react";
+import { SEO } from "../components/SEO";
+import { trackEvent } from "../lib/analytics";
+import { createBreadcrumbSchema, createProductSchema } from "../lib/structuredData";
+import "@/styles/infinit-signal-page.css";
 
-const pipeline = [
-  {
-    title: "What enters",
-    items: [
-      "MQTT and customer UNS subscriptions",
-      "Sparkplug and OPC UA",
-      "SCADA, BMS, and MES outputs",
-      "Historians and industrial data platforms",
-      "APIs, files, and service-system records",
-    ],
-  },
-  {
-    title: "What is checked",
-    items: [
-      "Source authority, schema, and evidence integrity",
-      "Event time, receive time, freshness, and quality",
-      "Units, retained-message context, duplication, and replay",
-      "Asset mapping, policy, and destination eligibility",
-    ],
-  },
-  {
-    title: "What leaves",
-    items: [
-      "SSOM-conformant canonical operational records",
-      "Original source identity, time, quality, and mapping version",
-      "Lineage and evidence references accepted once for Singularity",
-      "Explicit quarantine or rejection evidence when acceptance fails",
-    ],
-  },
+const demoUrl = "/demo";
+const pageDescription =
+  "Infinit-Signal brings information from your existing equipment and systems into Last Mile, checks its quality, and preserves where it came from.";
+
+const qualificationLabels = [
+  { number: "1.", label: "Preserve source identity" },
+  { number: "2.", label: "Preserve event time" },
+  { number: "3.", label: "Check data quality" },
+  { number: "4.", label: "Recognize repeated delivery" },
+  { number: "5.", label: "Structure consistent records" },
 ] as const;
 
-const qualityStates = ["Accepted", "Warning", "Quarantined", "Rejected", "Duplicate", "Replay / backfill"] as const;
+type RecordConditionExample = {
+  id: string;
+  tabLabel: string;
+  classification: string;
+  summary: string;
+  sourceIdentity: string;
+  eventTime: string;
+  arrivalTime: string;
+  payloadSummary: string;
+  handlingBehavior: string;
+  downstreamEffect: string;
+};
+
+const recordHandlingExamples: readonly RecordConditionExample[] = [
+  {
+    id: "current",
+    tabLabel: "Current information",
+    classification: "Accepted",
+    summary:
+      "A current reading arrives from an approved source with valid structure, identity, and timing.",
+    sourceIdentity: "BMS-DC03-01 · Point B3_CHW_P02_DP",
+    eventTime: "14:32:23.184 local (measured at equipment)",
+    arrivalTime: "14:32:24.984 local (received by Infinit-Signal)",
+    payloadSummary: "Differential pressure · 11.6 psid · Quality: Good",
+    handlingBehavior:
+      "Infinit-Signal preserves the original source identity, records both the source event time and the arrival time, checks data quality against the configured profile, and structures a consistent canonical operational record.",
+    downstreamEffect:
+      "Accepted into Singularity so current operational context, downstream workflows in Infinit-Flow, and views in Infinit-Control reflect the reading with its full provenance.",
+  },
+  {
+    id: "repeated",
+    tabLabel: "Repeated delivery",
+    classification: "Duplicate",
+    summary:
+      "A transport retry or second path delivers the same source event again.",
+    sourceIdentity: "BMS-DC03-01 · Point B3_CHW_P02_DP (redelivery)",
+    eventTime: "14:32:23.184 local (same source event timestamp)",
+    arrivalTime: "14:32:25.612 local (second arrival)",
+    payloadSummary: "Differential pressure · 11.6 psid · Sequence match",
+    handlingBehavior:
+      "Infinit-Signal recognizes the repeated delivery within the governed deduplication window using source identity, event time, and deduplication keys. The duplicate arrival is counted and preserved as evidence rather than silently dropped.",
+    downstreamEffect:
+      "Prevented from being applied a second time to current operational state in Singularity, avoiding duplicate alerts or repeated follow-up.",
+  },
+  {
+    id: "delayed",
+    tabLabel: "Delayed information",
+    classification: "Replay / backfill",
+    summary:
+      "Buffered readings arrive after a temporary connection interruption has recovered.",
+    sourceIdentity: "HIST-DC03-01 · Point DC03_CHWP02_AMPS (recovered buffer)",
+    eventTime: "14:18:10.000 local (earlier operating event)",
+    arrivalTime: "14:32:28.420 local (arrived after reconnect)",
+    payloadSummary: "Motor current · 18.4 A · Buffered historical sample",
+    handlingBehavior:
+      "Infinit-Signal preserves the distinction between when the reading occurred (event time) and when it arrived (arrival time), classifying the record as replay/backfill rather than a new live event.",
+    downstreamEffect:
+      "Event-time history in Singularity can be updated accurately while live operational state and decisions follow configured replay policy instead of treating old data as a current change.",
+  },
+  {
+    id: "incomplete",
+    tabLabel: "Incomplete information",
+    classification: "Quarantined",
+    summary:
+      "An incoming record is missing required engineering context or cannot be mapped to a governed source contract.",
+    sourceIdentity: "GW-DC03-AUX · Unmapped tag AUX_P02_RAW",
+    eventTime: "14:32:29.050 local (reported by gateway)",
+    arrivalTime: "14:32:29.910 local (received by Infinit-Signal)",
+    payloadSummary: "Value: 11.6 · Engineering unit missing · Unresolved mapping",
+    handlingBehavior:
+      "Infinit-Signal preserves the raw record, source details, event time, and arrival time, and places the record in quarantine with the qualification reason rather than discarding it or guessing missing fields.",
+    downstreamEffect:
+      "Held for review and remediation; quarantined records are not allowed to alter canonical operational state in Singularity.",
+  },
+];
+
+const existingSystemsPoints = [
+  "Continue running equipment, monitoring, building, historian, and maintenance systems.",
+  "Remain the source of original operating records.",
+  "Work with your site’s security and access requirements.",
+];
+
+const infinitSignalPoints = [
+  "Receives configured operational inputs.",
+  "Checks timing, completeness, and consistency.",
+  "Preserves source details for review.",
+  "Passes reliable information into Singularity.",
+];
+
+const platformCards = [
+  {
+    name: "Infinit-Signal",
+    href: "/infinit-signal",
+    current: true,
+    badge: "Current page",
+    description:
+      "Brings in and checks operational data from your existing systems.",
+    cta: "Viewing Infinit-Signal",
+  },
+  {
+    name: "Singularity",
+    href: "/singularity",
+    current: false,
+    badge: "Shared context",
+    description:
+      "Connects equipment, systems, and history into shared context.",
+    cta: "Explore Singularity",
+  },
+  {
+    name: "Infinit-Flow",
+    href: "/infinit-flow",
+    current: false,
+    badge: "Coordinated response",
+    description: "Guides the work from issue to verified resolution.",
+    cta: "Explore Infinit-Flow",
+  },
+  {
+    name: "Infinit-Control",
+    href: "/infinit-control",
+    current: false,
+    badge: "Operational visibility",
+    description:
+      "Gives operators and leaders a clear view of status and outcomes.",
+    cta: "Explore Infinit-Control",
+  },
+];
 
 export function InfinitSignalPage() {
-  const description = "Infinit-Signal preserves and qualifies configured industrial evidence before creating SSOM-conformant canonical operational records for Singularity.";
-  return <>
-    <SEO title="Infinit-Signal | Know Which Industrial Evidence Is Fit to Act On" description={description} canonicalPath="/infinit-signal" jsonLd={[createProductSchema("Infinit-Signal", "/infinit-signal", description), createBreadcrumbSchema([{ name: "Home", path: "/" }, { name: "Infinit-Signal", path: "/infinit-signal" }])]} />
-    <div className="lm-v2-page">
-      <EditorialHero eyebrow="INFINIT-SIGNAL · OBSERVE + QUALIFY" title="Qualify industrial evidence before the response begins." intro="Infinit-Signal continuously acquires configured outputs from the systems you already operate, preserves their original evidence, and classifies time, quality, duplication, replay, and identity before data enters the Last Mile operating model." support="Connected response role: supply trusted source evidence to Singularity before orchestration or operator views begin." primary={{ label: "Discuss Your Source Environment", to: "/contact?intent=architecture" }} secondary={{ label: "See the Cooling Use Case", to: "/use-cases/data-center-cooling" }} visual={<EvidenceEnvelope />} />
-      <ConnectedResponseStrip activeProduct="Infinit-Signal" intro="Infinit-Signal starts the connected response by deciding what source evidence is trustworthy enough to influence identity, orchestration, and proof." />
+  const [selectedExampleIndex, setSelectedExampleIndex] = useState(0);
+  const tabRefs = useRef<Array<HTMLButtonElement | null>>([]);
+  const activeExample = recordHandlingExamples[selectedExampleIndex];
 
-      <EditorialSection title="What enters. What is checked. What leaves." tone="grid">
-        <div className="lm-pipeline">{pipeline.map((stage) => <article key={stage.title}><h3>{stage.title}</h3><ul className="lm-v2-list">{stage.items.map((item) => <li key={item}>{item}</li>)}</ul></article>)}</div>
-        <p className="lm-v2-caveat">Source families and named products are representative architecture patterns, not claims of certified or validated production integrations.</p>
-        <InlineLink to="/resources/industrial-concepts/opc-ua">How OPC UA and Companion Specification source meaning is preserved</InlineLink>
-      </EditorialSection>
+  const handleExampleKeyDown = (
+    event: KeyboardEvent<HTMLButtonElement>,
+    index: number,
+  ) => {
+    const count = recordHandlingExamples.length;
+    let nextIndex: number | null = null;
 
-      <EditorialSection eyebrow="UNIFIED NAMESPACE" title="Keep the real-time fabric. Add the operational contract.">
-        <p className="lm-v2-large-copy">A Unified Namespace makes current operational information discoverable and available across systems. Infinit-Signal consumes configured UNS subscriptions while preserving the original publisher, topic, timestamp, quality, QoS, retained-message flag, and session context. It then classifies freshness, duplicates, replay, and unresolved assets before the information enters Singularity.</p>
-        <div className="lm-v2-note"><span>Boundary</span><h3>The UNS remains the customer&apos;s communication and discovery fabric.</h3><p>Singularity&apos;s SSOM contract supplies canonical identity, relationships, evidence, provenance, history, and lifecycle continuity. A topic path remains a source address—it does not automatically become the identity of the asset. MQTT is not synonymous with a UNS, and broker publication does not automatically constitute accepted operational truth.</p></div>
-        <InlineLink to="/resources/industrial-concepts/uns-and-ssom">Read: UNS and SSOM—moving industrial data is not the same as making it accountable</InlineLink>
-      </EditorialSection>
+    if (event.key === "ArrowRight" || event.key === "ArrowDown") {
+      nextIndex = (index + 1) % count;
+    } else if (event.key === "ArrowLeft" || event.key === "ArrowUp") {
+      nextIndex = (index - 1 + count) % count;
+    } else if (event.key === "Home") {
+      nextIndex = 0;
+    } else if (event.key === "End") {
+      nextIndex = count - 1;
+    }
 
-      <EditorialSection title="Preserve what arrived. Make every acceptance decision visible." tone="grid">
-        <p className="lm-v2-large-copy">Accepted, warning, quarantined, rejected, duplicate, and replayed records retain reason codes and evidence. A stale or unresolved value may remain available for diagnosis without being allowed to influence a live Condition or verified Outcome.</p>
-        <div className="lm-signal-states">{qualityStates.map((state, index) => <article key={state}><span>{String(index + 1).padStart(2, "0")}</span><h3>{state}</h3></article>)}</div>
-      </EditorialSection>
+    if (nextIndex !== null) {
+      event.preventDefault();
+      setSelectedExampleIndex(nextIndex);
+      tabRefs.current[nextIndex]?.focus();
+    }
+  };
 
-      <EditorialSection title="Software-defined at the customer boundary.">
-        <p className="lm-v2-large-copy">Where customer architecture requires local collection or store-and-forward, Infinit-Signal is designed to run as customer-approved software on a VM, container, Kubernetes/OpenShift environment, private cloud, or existing edge compute. Last Mile does not require proprietary hardware.</p>
-      </EditorialSection>
+  return (
+    <main className="lm-product-detail lm-infinit-signal" id="main">
+      <SEO
+        title="Infinit-Signal | Make Operational Data Dependable"
+        description={pageDescription}
+        canonicalPath="/infinit-signal"
+        jsonLd={[
+          createProductSchema("Infinit-Signal", "/infinit-signal", pageDescription),
+          createBreadcrumbSchema([
+            { name: "Home", path: "/" },
+            { name: "Platform", path: "/platform" },
+            { name: "Infinit-Signal", path: "/infinit-signal" },
+          ]),
+        ]}
+      />
 
-      <NextStep title="Turn source data into governed operational evidence." copy="See how Singularity gives qualified records durable identity, meaning, evidence, and history." label="Explore Singularity" to="/singularity" secondary={{ label: "Discuss Your Source Environment", to: "/contact?intent=architecture" }} />
-    </div>
-  </>;
+      {/* A. Hero */}
+      <section className="signal-hero wrap" aria-labelledby="signal-hero-title">
+        <div className="signal-hero-copy">
+          <p className="eyebrow">
+            <span className="little-line" />
+            INFINIT-SIGNAL
+          </p>
+          <h1 id="signal-hero-title">Make operational data dependable.</h1>
+          <p className="signal-hero-lead">
+            Capture operational information, check its quality, and preserve its
+            source—so downstream decisions and workflows start with a dependable
+            foundation.
+          </p>
+          <div className="hero-actions">
+            <a
+              className="button"
+              href={demoUrl}
+              onClick={() =>
+                trackEvent("cta_demo_click", {
+                  placement: "infinit_signal_hero",
+                  destination: demoUrl,
+                })
+              }
+            >
+              Request a demo <ArrowUpRight size={16} aria-hidden="true" />
+            </a>
+            <a href="/platform" className="text-link">
+              Explore the platform <ArrowRight size={17} aria-hidden="true" />
+            </a>
+          </div>
+        </div>
+
+        <figure className="signal-hero-figure">
+          <div className="signal-hero-media">
+            <picture>
+              <source
+                type="image/avif"
+                srcSet="/images/platform/platform-infinit-signal-640.avif 640w, /images/platform/platform-infinit-signal-960.avif 960w, /images/platform/platform-infinit-signal-1280.avif 1280w, /images/platform/platform-infinit-signal-1448.avif 1448w"
+                sizes="(max-width: 1080px) calc(100vw - 64px), 580px"
+              />
+              <source
+                type="image/webp"
+                srcSet="/images/platform/platform-infinit-signal-640.webp 640w, /images/platform/platform-infinit-signal-960.webp 960w, /images/platform/platform-infinit-signal-1280.webp 1280w, /images/platform/platform-infinit-signal-1448.webp 1448w"
+                sizes="(max-width: 1080px) calc(100vw - 64px), 580px"
+              />
+              <img
+                src="/images/platform/platform-infinit-signal.png"
+                alt="Packaging-line cameras and sensors with conceptual graphics showing organized operating information."
+                width={1448}
+                height={1086}
+                loading="eager"
+                fetchPriority="high"
+                decoding="async"
+              />
+            </picture>
+          </div>
+          <figcaption className="signal-figure-caption">
+            Concept illustration
+          </figcaption>
+        </figure>
+      </section>
+
+      {/* B. Main Explanatory Image + Record-Handling Example */}
+      <section
+        className="signal-section signal-section--canvas"
+        aria-labelledby="signal-handoff-title"
+      >
+        <div className="wrap">
+          <div className="signal-section-header signal-section-header--wide">
+            <p className="eyebrow">
+              <span className="little-line" />
+              FROM SOURCE TO SHARED CONTEXT
+            </p>
+            <h2 id="signal-handoff-title">
+              From incoming signals to usable operational context.
+            </h2>
+            <p className="signal-section-lead">
+              Infinit-Signal prepares incoming information for use. Singularity
+              connects it to operational context. Infinit-Flow and
+              Infinit-Control use that context to support coordinated work and
+              oversight.
+            </p>
+          </div>
+
+          <figure
+            className="signal-pipeline-figure"
+            aria-label="Conceptual illustration of Infinit-Signal qualification, Singularity shared operational context, and connected work and oversight"
+          >
+            <div className="signal-pipeline-canvas">
+              <picture>
+                <source
+                  type="image/avif"
+                  srcSet="/images/platform/signal-handoff-web-v3-640.avif 640w, /images/platform/signal-handoff-web-v3-960.avif 960w, /images/platform/signal-handoff-web-v3-1280.avif 1280w, /images/platform/signal-handoff-web-v3-1672.avif 1672w"
+                  sizes="(max-width: 1320px) calc(100vw - 48px), 1260px"
+                />
+                <source
+                  type="image/webp"
+                  srcSet="/images/platform/signal-handoff-web-v3-640.webp 640w, /images/platform/signal-handoff-web-v3-960.webp 960w, /images/platform/signal-handoff-web-v3-1280.webp 1280w, /images/platform/signal-handoff-web-v3-1672.webp 1672w"
+                  sizes="(max-width: 1320px) calc(100vw - 48px), 1260px"
+                />
+                <img
+                  className="signal-pipeline-img"
+                  src="/images/platform/signal-handoff-web-v3.png"
+                  alt="Conceptual illustration showing factory equipment signals entering Infinit-Signal for five qualification checks, connecting into Singularity for shared operational context, and supporting coordinated work and oversight in Infinit-Flow and Infinit-Control."
+                  width={1672}
+                  height={941}
+                  loading="eager"
+                  decoding="async"
+                />
+              </picture>
+
+              {/* Subtle SVG leader lines connecting the top region headings to the 3 regions on desktop */}
+              <svg
+                className="signal-pipeline-leaders"
+                viewBox="0 0 1672 941"
+                preserveAspectRatio="none"
+                aria-hidden="true"
+              >
+                <line x1="802" y1="145" x2="802" y2="192" />
+                <circle cx="802" cy="192" r="4" />
+                <line x1="1190" y1="145" x2="1190" y2="196" />
+                <circle cx="1190" cy="196" r="4" />
+                <line x1="1532" y1="168" x2="1532" y2="224" />
+                <circle cx="1532" cy="224" r="4" />
+              </svg>
+
+              {/* Desktop live region headings aligned to the three regions */}
+              <div className="signal-pipeline-regions-overlay">
+                <div className="signal-region-tag signal-region-tag--left">
+                  <span className="signal-region-product">Infinit-Signal</span>
+                  <strong>Qualify incoming information</strong>
+                </div>
+                <div className="signal-region-tag signal-region-tag--center">
+                  <span className="signal-region-product">Singularity</span>
+                  <strong>Connect operational context</strong>
+                </div>
+                <div className="signal-region-tag signal-region-tag--right">
+                  <span className="signal-region-product">
+                    Infinit-Flow + Infinit-Control
+                  </span>
+                  <strong>Coordinate work and oversight</strong>
+                </div>
+              </div>
+
+              {/* Desktop five live qualification row labels aligned inside the five qualification rows */}
+              <ol
+                className="signal-pipeline-rows-overlay"
+                aria-label="Infinit-Signal qualification checks"
+              >
+                {qualificationLabels.map((item, idx) => (
+                  <li
+                    key={item.label}
+                    className={`signal-row-label signal-row-label--${idx + 1}`}
+                  >
+                    <span className="signal-row-num">{item.number}</span>
+                    <span className="signal-row-text">{item.label}</span>
+                  </li>
+                ))}
+              </ol>
+
+              {/* Collective label in the right-hand card header area on desktop */}
+              <div
+                className="signal-pipeline-right-collective"
+                aria-hidden="true"
+              >
+                <span>Coordinated workflows &amp; operational views</span>
+              </div>
+
+              {/* Compact numbered markers on tablet/mobile where full text moves below the image */}
+              <div
+                className="signal-pipeline-mobile-markers"
+                aria-hidden="true"
+              >
+                <span className="signal-mobile-row-badge signal-mobile-row-badge--1">
+                  1
+                </span>
+                <span className="signal-mobile-row-badge signal-mobile-row-badge--2">
+                  2
+                </span>
+                <span className="signal-mobile-row-badge signal-mobile-row-badge--3">
+                  3
+                </span>
+                <span className="signal-mobile-row-badge signal-mobile-row-badge--4">
+                  4
+                </span>
+                <span className="signal-mobile-row-badge signal-mobile-row-badge--5">
+                  5
+                </span>
+              </div>
+            </div>
+
+            <figcaption className="signal-pipeline-caption">
+              <span>Concept illustration</span>
+              <span>
+                Connected software capabilities across the Last Mile platform—not
+                a physical appliance or isolated data silos.
+              </span>
+            </figcaption>
+
+            {/* Simple editorial columns below the illustration */}
+            <div
+              className="signal-regions-breakdown"
+              aria-label="Connected capability stages"
+            >
+              <div className="signal-region-column">
+                <h3>Qualify incoming information</h3>
+                <p>
+                  Preserve source identity and timing, check quality, recognize
+                  repeated delivery, and prepare consistent records for use
+                  across Last Mile.
+                </p>
+              </div>
+
+              <div className="signal-region-column">
+                <h3>Connect operational context</h3>
+                <p>
+                  Singularity connects qualified records to equipment,
+                  dependencies, operating history, and ongoing work while
+                  retaining their source references.
+                </p>
+                <a href="/singularity" className="text-link">
+                  Explore Singularity <ArrowRight size={16} aria-hidden="true" />
+                </a>
+              </div>
+
+              <div className="signal-region-column">
+                <h3>Coordinate work and oversight</h3>
+                <p>
+                  Infinit-Flow coordinates approved work across people and
+                  systems. Infinit-Control keeps conditions, responsibilities,
+                  progress, and results visible.
+                </p>
+              </div>
+            </div>
+          </figure>
+
+          {/* C. Compact Selectable Record-Handling Example */}
+          <div
+            className="signal-record-example"
+            aria-labelledby="signal-record-example-title"
+          >
+            <div className="signal-record-example-header">
+              <div>
+                <span className="signal-example-badge">
+                  Illustrative example
+                </span>
+                <h3 id="signal-record-example-title">
+                  How Infinit-Signal handles incoming operational records
+                </h3>
+                <p>
+                  Select a condition to see how Infinit-Signal preserves the
+                  distinction between when an event occurred at the source
+                  (event time) and when it arrived (arrival time).
+                </p>
+              </div>
+            </div>
+
+            <div
+              className="signal-record-tabs"
+              role="tablist"
+              aria-label="Incoming operational record conditions"
+            >
+              {recordHandlingExamples.map((example, idx) => {
+                const isSelected = idx === selectedExampleIndex;
+                return (
+                  <button
+                    key={example.id}
+                    ref={(el) => {
+                      tabRefs.current[idx] = el;
+                    }}
+                    id={`signal-record-tab-${example.id}`}
+                    type="button"
+                    role="tab"
+                    aria-selected={isSelected}
+                    aria-controls="signal-record-panel"
+                    tabIndex={isSelected ? 0 : -1}
+                    className={`signal-record-tab${isSelected ? " is-active" : ""}`}
+                    onClick={() => setSelectedExampleIndex(idx)}
+                    onKeyDown={(e) => handleExampleKeyDown(e, idx)}
+                  >
+                    <span className="signal-record-tab-title">
+                      {example.tabLabel}
+                    </span>
+                    <span className="signal-record-tab-state">
+                      {example.classification}
+                    </span>
+                  </button>
+                );
+              })}
+            </div>
+
+            <div
+              id="signal-record-panel"
+              role="tabpanel"
+              aria-labelledby={`signal-record-tab-${activeExample.id}`}
+              className="signal-record-panel"
+            >
+              <div className="signal-record-panel-top">
+                <div>
+                  <span className="signal-record-classification">
+                    Documented state: {activeExample.classification}
+                  </span>
+                  <h4>{activeExample.tabLabel}</h4>
+                  <p className="signal-record-summary">
+                    {activeExample.summary}
+                  </p>
+                </div>
+                <span className="signal-record-synthetic-tag">
+                  Synthetic illustrative record
+                </span>
+              </div>
+
+              <div className="signal-record-grid">
+                <div className="signal-record-envelope">
+                  <h5>Illustrative source &amp; timing fields</h5>
+                  <dl className="signal-record-dl">
+                    <div>
+                      <dt>Source identity</dt>
+                      <dd>{activeExample.sourceIdentity}</dd>
+                    </div>
+                    <div>
+                      <dt>Event time</dt>
+                      <dd>{activeExample.eventTime}</dd>
+                    </div>
+                    <div>
+                      <dt>Arrival time</dt>
+                      <dd>{activeExample.arrivalTime}</dd>
+                    </div>
+                    <div>
+                      <dt>Observed payload</dt>
+                      <dd>{activeExample.payloadSummary}</dd>
+                    </div>
+                  </dl>
+                </div>
+
+                <div className="signal-record-behavior">
+                  <div className="signal-record-behavior-block">
+                    <h5>How Infinit-Signal handles it</h5>
+                    <p>{activeExample.handlingBehavior}</p>
+                  </div>
+                  <div className="signal-record-behavior-block">
+                    <h5>Downstream effect in Singularity</h5>
+                    <p>{activeExample.downstreamEffect}</p>
+                  </div>
+                </div>
+              </div>
+
+              <p className="signal-record-boundary">
+                <strong>Product boundary:</strong> Infinit-Signal qualifies
+                incoming records and preserves source and timing evidence. It
+                does not independently diagnose equipment problems, authorize
+                actions, or verify operational recovery.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* D. Fit With Existing Systems */}
+      <section
+        className="signal-section"
+        aria-labelledby="signal-fit-title"
+      >
+        <div className="wrap">
+          <div className="signal-section-header">
+            <p className="eyebrow">
+              <span className="little-line" />
+              BUILT AROUND YOUR EXISTING OPERATIONS
+            </p>
+            <h2 id="signal-fit-title">
+              Keep the systems you rely on. Make their information more useful.
+            </h2>
+            <p className="signal-section-lead">
+              Infinit-Signal brings information from your existing equipment and
+              systems into Last Mile, checks its quality, and preserves where it
+              came from.
+            </p>
+          </div>
+
+          <div className="signal-fit-grid">
+            <div className="signal-fit-column">
+              <h3>Your existing systems</h3>
+              <ul className="signal-fit-list">
+                {existingSystemsPoints.map((point) => (
+                  <li key={point}>
+                    <ShieldCheck size={19} aria-hidden="true" />
+                    <span>{point}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            <div className="signal-fit-column signal-fit-column--highlight">
+              <h3>Infinit-Signal</h3>
+              <ul className="signal-fit-list">
+                {infinitSignalPoints.map((point) => (
+                  <li key={point}>
+                    <CheckCircle2 size={19} aria-hidden="true" />
+                    <span>{point}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+
+          <p className="signal-qualification-note">
+            Connections are configured around your environment and approved
+            during implementation.
+          </p>
+        </div>
+      </section>
+
+      {/* E. Connected Platform and Closing CTA */}
+      <section
+        className="signal-section signal-section--canvas"
+        aria-labelledby="signal-connected-platform-title"
+      >
+        <div className="wrap">
+          <div className="signal-section-header">
+            <p className="eyebrow">
+              <span className="little-line" />
+              CONNECTED PLATFORM
+            </p>
+            <h2 id="signal-connected-platform-title">
+              One connected platform, built on dependable information.
+            </h2>
+          </div>
+
+          <div className="signal-platform-grid">
+            {platformCards.map((card) => (
+              <a
+                key={card.name}
+                href={card.href}
+                className={`signal-platform-card${card.current ? " signal-platform-card--current" : ""}`}
+                aria-current={card.current ? "page" : undefined}
+              >
+                <div>
+                  <span className="signal-platform-badge">{card.badge}</span>
+                  <h3>{card.name}</h3>
+                  <p>{card.description}</p>
+                </div>
+                <span className="signal-platform-card-link">
+                  {card.cta}{" "}
+                  {!card.current && <ArrowRight size={15} aria-hidden="true" />}
+                </span>
+              </a>
+            ))}
+          </div>
+
+          <div className="signal-closing-panel">
+            <div className="signal-closing-copy">
+              <h2>
+                See how your operating information becomes a foundation for
+                action.
+              </h2>
+            </div>
+            <div className="signal-closing-actions">
+              <a
+                className="button"
+                href={demoUrl}
+                onClick={() =>
+                  trackEvent("cta_demo_click", {
+                    placement: "infinit_signal_closing",
+                    destination: demoUrl,
+                  })
+                }
+              >
+                Request a demo <ArrowUpRight size={16} aria-hidden="true" />
+              </a>
+              <a href="/singularity" className="text-link">
+                Explore Singularity <ArrowRight size={17} aria-hidden="true" />
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+  );
 }

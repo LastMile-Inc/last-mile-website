@@ -1,7 +1,6 @@
 import { Outlet, useLocation } from "react-router";
 import { useEffect } from "react";
-import { Navbar } from "./Navbar";
-import { Footer } from "./Footer";
+import { SiteHeader, SiteFooter } from "./makeover/SiteShell";
 import { NetworkBackground } from "./NetworkBackground";
 import { useScrollReveal } from "../hooks/useScrollReveal";
 
@@ -144,10 +143,14 @@ export function Root() {
 
   return (
     <div className="lm-site">
-      <Navbar />
+      <div className="lm-shared-chrome">
+        <SiteHeader />
+      </div>
       <NetworkBackground />
-      <main key={location.pathname} className="lm-main"><Outlet /></main>
-      <Footer />
+      <main id="main" key={location.pathname} className="lm-main"><Outlet /></main>
+      <div className="lm-shared-chrome">
+        <SiteFooter />
+      </div>
     </div>
   );
 }
