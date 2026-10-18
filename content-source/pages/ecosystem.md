@@ -4,7 +4,7 @@ status: approved
 owner: Ecosystem Product Marketing
 last_reviewed: 2026-08-06
 claim_maturity: [reference_architecture, designed]
-depends_on: [GOV-DOCTRINE-001, PROD-SIGNAL-001, CONCEPT-UNS-001, CONCEPT-OPCUA-001, CLAIMS-REGISTRY-001]
+depends_on: [GOV-DOCTRINE-001, PROD-SIGNAL-001, CONCEPT-UNS-001, CLAIMS-REGISTRY-001]
 used_by: [/ecosystem]
 ---
 

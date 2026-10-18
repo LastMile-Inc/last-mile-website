@@ -21,5 +21,18 @@
 /sitemap.xml /sitemap.xml 200
 /logo.png    /logo.png    200
 
+# Withdrawn public resources and downloads
+/resources/architect-reference-center 410
+/resources/pmo-implementation-hub 410
+/downloads/architect-reference/* 410
+/resources/industrial-concepts/semantic-interoperability 410
+/resources/industrial-concepts/opc-ua 410
+/resources/industrial-concepts/digital-twins 410
+/resources/industrial-concepts/industry-5-0 410
+/resources/industrial-concepts/ot-security 410
+/resources/industrial-concepts/data-spaces 410
+/resources/industrial-concepts/composable-manufacturing 410
+/resources/industrial-concepts/lights-out-operations 410
+
 # SPA fallback - redirect all other requests to index.html
 /*    /index.html   200

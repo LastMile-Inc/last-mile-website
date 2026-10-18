@@ -236,11 +236,6 @@ body.lm-makeover .lm-singularity .singularity-record-caption {
   color: var(--lm-copy);
 }
 
-body.lm-makeover .lm-singularity .singularity-record-caption span:first-child {
-  font-weight: 600;
-  color: var(--lm-ink);
-}
-
 body.lm-makeover .lm-singularity .singularity-composition-grid {
   margin-top: 18px;
   padding-top: 18px;
@@ -554,6 +549,7 @@ body.lm-makeover .lm-singularity .singularity-comparison-table {
 body.lm-makeover .lm-singularity .singularity-comparison-row {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
+  align-items: center;
   gap: 16px;
   padding: 12px 16px;
   border-top: 1px solid var(--lm-wash);

@@ -218,11 +218,6 @@ body.lm-makeover .lm-infinit-flow .flow-routing-caption {
   color: var(--lm-copy);
 }
 
-body.lm-makeover .lm-infinit-flow .flow-routing-caption > span:first-child {
-  font-weight: 600;
-  color: var(--lm-ink);
-}
-
 /* Simple 4-Column Editorial Breakdown Below Illustration (no card backgrounds or shadows) */
 body.lm-makeover .lm-infinit-flow .flow-routing-breakdown {
   margin: 20px 0 0;

@@ -108,12 +108,14 @@
 .lm-shared-chrome .brand img {
   width: 57px;
   height: auto;
+  aspect-ratio: 710 / 426;
+  object-fit: contain;
 }
 
 .lm-shared-chrome .brand > span {
-  font-size: 23px;
+  font-size: 22px;
   font-weight: 700;
-  letter-spacing: -1.2px;
+  letter-spacing: 2.2px;
 }
 
 .lm-shared-chrome .brand-period {
@@ -176,7 +178,7 @@
 
 .lm-shared-chrome .site-footer {
   border-top: 1px solid var(--lm-steel);
-  padding-top: 47px;
+  padding-top: 30px;
   background: var(--lm-surface);
 }
 
@@ -184,7 +186,7 @@
   display: flex;
   justify-content: space-between;
   gap: 60px;
-  padding-bottom: 43px;
+  padding-bottom: 26px;
 }
 
 .lm-shared-chrome .footer-top > div > p {
@@ -200,7 +202,7 @@
 .lm-shared-chrome .footer-links > div {
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: 12px;
   font-size: 14px;
 }
 
@@ -208,7 +210,7 @@
   color: var(--lm-copy);
   font-size: 12px;
   letter-spacing: 0.7px;
-  margin-bottom: 5px;
+  margin-bottom: 3px;
 }
 
 .lm-shared-chrome .footer-links a {
@@ -226,7 +228,7 @@
   justify-content: space-between;
   gap: 22px;
   border-top: 1px solid var(--lm-wash);
-  padding-block: 23px;
+  padding-block: 16px;
   font-size: 12px;
   color: var(--lm-copy);
 }
@@ -304,9 +306,9 @@ body.lm-makeover .nav-dropdown-trigger[aria-expanded="true"] svg,
 body.lm-makeover .platform-submenu,
 .lm-shared-chrome .platform-submenu {
   position: absolute;
-  top: calc(100% + 4px);
-  left: 0;
-  min-width: 268px;
+  top: 100%;
+  left: -8px;
+  min-width: 280px;
   padding: 10px;
   background: var(--lm-surface);
   border: 1px solid var(--lm-steel);
@@ -316,6 +318,16 @@ body.lm-makeover .platform-submenu,
   flex-direction: column;
   gap: 2px;
   z-index: 60;
+}
+
+body.lm-makeover .platform-submenu::before,
+.lm-shared-chrome .platform-submenu::before {
+  content: "";
+  position: absolute;
+  top: -12px;
+  left: 0;
+  right: 0;
+  height: 12px;
 }
 
 body.lm-makeover .platform-submenu a,
@@ -368,6 +380,28 @@ body.lm-makeover .mobile-nav a.mobile-nav-sublink,
 .lm-shared-chrome .mobile-nav a.mobile-nav-sublink {
   padding-left: 14px;
   font-size: 13px;
+  color: var(--lm-copy);
+  align-items: center;
+}
+
+body.lm-makeover .mobile-nav .mobile-nav-sublink-copy,
+.lm-shared-chrome .mobile-nav .mobile-nav-sublink-copy {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+body.lm-makeover .mobile-nav .mobile-nav-sublink-copy strong,
+.lm-shared-chrome .mobile-nav .mobile-nav-sublink-copy strong {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--lm-ink);
+}
+
+body.lm-makeover .mobile-nav .mobile-nav-sublink-copy span,
+.lm-shared-chrome .mobile-nav .mobile-nav-sublink-copy span {
+  font-size: 12px;
+  font-weight: 400;
   color: var(--lm-copy);
 }
 
@@ -470,7 +504,7 @@ body.lm-makeover .mobile-nav a.mobile-nav-sublink,
   }
   .lm-shared-chrome .brand > span {
     font-size: 17px;
-    letter-spacing: -0.8px;
+    letter-spacing: 1.5px;
   }
   .lm-shared-chrome .brand {
     gap: 8px;
@@ -486,5 +520,55 @@ body.lm-makeover .mobile-nav a.mobile-nav-sublink,
   }
   .lm-shared-chrome .header-demo svg {
     width: 13px;
+  }
+}
+
+/* Shared brand character spacing & tightened footer padding across both body.lm-makeover and .lm-shared-chrome */
+body.lm-makeover .brand > span,
+.lm-shared-chrome .brand > span {
+  letter-spacing: 2.2px;
+}
+
+body.lm-makeover .site-footer,
+.lm-shared-chrome .site-footer {
+  padding-top: 30px;
+}
+
+body.lm-makeover .footer-top,
+.lm-shared-chrome .footer-top {
+  padding-bottom: 26px;
+}
+
+body.lm-makeover .footer-links > div,
+.lm-shared-chrome .footer-links > div {
+  gap: 12px;
+}
+
+body.lm-makeover .footer-links > div > span,
+.lm-shared-chrome .footer-links > div > span {
+  margin-bottom: 3px;
+}
+
+body.lm-makeover .footer-bottom,
+.lm-shared-chrome .footer-bottom {
+  padding-block: 16px;
+}
+
+@media (max-width: 580px) {
+  body.lm-makeover .brand > span,
+  .lm-shared-chrome .brand > span {
+    letter-spacing: 1.5px;
+  }
+  body.lm-makeover .site-footer,
+  .lm-shared-chrome .site-footer {
+    padding-top: 24px;
+  }
+  body.lm-makeover .footer-top,
+  .lm-shared-chrome .footer-top {
+    padding-bottom: 20px;
+  }
+  body.lm-makeover .footer-bottom,
+  .lm-shared-chrome .footer-bottom {
+    padding-block: 14px;
   }
 }

@@ -1,6 +1,40 @@
 # Latest handoff
 
-Updated: 2026-10-16
+Updated: 2026-10-17
+
+## Resources section cleanup and targeted copy/punctuation refinements (2026-10-17)
+
+- **Branch**: `review/resources-cleanup-2026-10-17` (all pre-existing uncommitted refinements preserved).
+- **Four general site edits**:
+  - Updated `/infinit-flow` explanatory heading to `"You got workflows?  We do workflows."`
+  - Updated `/why-last-mile` hero headline to `"The platform Industry has been waiting for."`
+  - Removed `"concept illustration"` and `"conceptual illustration"` labels across the site.
+  - Removed em-dashes (`—`) across active pages and shared components while preserving archived historical press releases intact.
+- **Withdrawn hubs, downloads, and concept articles**:
+  - Withdrew `/resources/architect-reference-center` and `/resources/pmo-implementation-hub` and removed `/downloads/architect-reference/last-mile-{soc-2,iso-27001,iec-62443}-reference-matrix.csv` from `public/downloads/`, preserving source files in `archive/2026-10-withdrawn-resources/`.
+  - Withdrew eight uncurated `/resources/industrial-concepts/*` routes (`semantic-interoperability`, `opc-ua`, `digital-twins`, `industry-5-0`, `ot-cybersecurity`, `data-spaces`, `plug-and-produce`, `autonomous-operations`). Direct URLs to withdrawn pages render `<NotFound />` in the SPA and have `410 Gone` rules in `public/.htaccess` and `public/_redirects`.
+- **Rebuilt `/resources` and curated `/resources/industrial-concepts`**:
+  - Rebuilt `/resources` with `"See Accountable Operations in practice."`, one featured operating example (`"When a normal temperature hides a cooling problem."`), three simple article rows, three optional additional examples (`Compressed-air response`, `Lift-station response`, `Refrigeration response`), and a closing CTA (`"Start with one operating challenge."`).
+  - Curated `/resources/industrial-concepts` (`"Accountable Operations, explained"`) to three rewritten plain-English articles: `operational-outcome-thread` (`"Why closing a ticket isn't the same as fixing the problem"`), `industrial-ai` (`"Where AI helps in operations, and where people stay in charge"`), and `uns-and-ssom` (`"Why equipment data needs shared context before teams can act"`).
+- **Simplified `/use-cases` and four operating scenarios**:
+  - Updated `/use-cases` index (`"Illustrative operating scenarios"`) and simplified `/use-cases/data-center-cooling`, `/use-cases/municipal-wastewater`, `/use-cases/manufacturing-compressed-air`, and `/use-cases/cold-storage-refrigeration` to the five-part narrative structure (`What needs attention`, `Who needs to respond`, `How the response stays connected`, `How recovery is checked`, and closing CTA), one 6-stage process explanation (`Evidence → Understand → Decide → Coordinate → Act → Verify`), one compact evidence table, role titles instead of fictional personal names, and the required top illustrative notice.
+- **`/why-last-mile` “Why Now?” section (`WhyLastMilePage.tsx`, `supporting-pages.css`, `supporting-review.md`)**:
+  - Added the `"Why Now?"` section (`"Industry is moving fast. Give your team the capacity to keep pace."`) immediately below the `"WHY LAST MILE"` hero introduction and before the `"ACCOUNTABLE OPERATIONS"` outcome band (`"Keep the response connected until the result is clear."`), with two supporting editorial columns on desktop (`"Your team already has a day job."` and `"More data should mean clearer decisions."`) and the closing line (`"Put your existing systems, and your team’s expertise, to work together."`).
+- **Navigation `"Home"` link & direct `contact@lastmileinc.ai` form delivery (`SiteShell.tsx`, `ContactLastMileForm.tsx`, `ContactForm.tsx`, `OEMForm.tsx`, `submitContactEmail.ts`, `public/api/contact.php`)**:
+  - Added `"Home"` (`href="/"`) to the left of `"Platform"` in desktop navigation and at the top of mobile navigation.
+  - Replaced all HubSpot CRM (`api.hsforms.com`) and EmailJS form submissions with `/api/contact.php` (`public/api/contact.php`) and `src/app/lib/submitContactEmail.ts`, sending all website inquiries (`/demo`, `/private-beta`, `/contact`, and OEM/partner forms) directly to `contact@lastmileinc.ai` with Exchange-friendly headers (`X-LastMile-Inquiry-Type`, `X-LastMile-Organization`, `X-LastMile-Source-Page`, `Reply-To`) and a structured JSON payload block, and presenting a clean confirmation message (`"Thank you for reaching out. We have received your message and will be with you shortly."`).
+
+## Final content and branding refinement (2026-10-17)
+
+- **Protected pages (`/` and `/platform`)**: Preserved `HomePage.tsx` and `PlatformPage.tsx` page bodies, hero headlines, supporting copy, hero images, section order, image placements, layouts, and interactions untouched; only the shared updated company logo (`public/logo.png`) and product submenu descriptions appear on them via `SiteShell.tsx`. Suggested plain-English body-copy improvements for Home and Platform are reported separately.
+- **Company logo replacement (`last-mile-logo-hd.png`)**: Preserved the untouched original (`1024×426` RGBA) at `assets/originals/2026-10-approved/last-mile-logo-hd.png`, updated `public/logo.png` (`710×426` RGBA, trimming only pure `alpha == 0` horizontal empty margins while preserving 100% of visible artwork and aspect ratio) and `public/favicon.png` (`64×64` RGBA symbol-only rings), and updated `SiteShell.tsx`, `Navbar.tsx`, `Footer.tsx`, `shared-chrome.css`, and `website-review.css` with `aria-label="Last Mile home"` and explicit `710 / 426` aspect-ratio sizing.
+- **Product menu descriptions (`SiteShell.tsx` & compact product cards)**: Updated to the four approved descriptions (`Infinit-Signal`: `"Reliable data from your existing systems"`, `Singularity`: `"Understand your equipment in context"`, `Infinit-Flow`: `"Keep work moving across teams and systems"`, `Infinit-Control`: `"See what needs attention and what changed"`).
+- **Specific scenario, recovery, and alignment fixes**:
+  - **`/how-it-works` (`HowItWorksPage.tsx`)**: Updated the cooling walkthrough example and supporting card rows to match the linked Data Center Cooling Redundancy scenario (`CHWP-02` failed start while room temperature remains in range, followed by post-work verification of pump operation, pressure, temperature, and stability period).
+  - **`/use-cases/data-center-cooling` (`OperatingScenarioComponents.tsx`)**: Attributed `14:32:18` (`RUN command issued`) and `14:32:23` (`Pump status remains Stopped`) to `BMS / SCADA (BMS-DC03-01)`, kept `AUTO · Infinit-Signal` on `14:32:26` (`Infinit-Signal accepts the qualified mismatch`), and attributed `14:39:28` (`Provider dispatch M-88214 accepted`) to `Mechanical service provider · Recorded in Infinit-Flow`.
+  - **`/infinit-control` (`InfinitControlPage.tsx`)**: Replaced the duplicated `Why` sentence in `Work complete · Stability in progress` with `"Pressure and the required stability window have not met the recovery criteria."`
+  - **`/demo` (`DemoPage.tsx`, `supporting-pages.css`)**: Top-aligned the left introduction with the top of the right-hand form content area on desktop (`> 1080px`).
+- **Plain-English editorial pass & `/about` status**: Refined buyer-facing explanations on `/infinit-signal`, `/singularity` (including the plain-English explanation of `operational world model`), `/infinit-flow`, `/infinit-control`, `/how-it-works`, `/about`, and Category B resource/use-case introductions while preserving technical contracts inside existing `<details>` disclosures. Left `/about` factual identity copy unchanged (`Founder biography material still needed`).
 
 ## Sales-content and presentation refinement (2026-10-16)
 

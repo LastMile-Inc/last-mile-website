@@ -1,7 +1,7 @@
 import { useRef, useState, type CSSProperties, type KeyboardEvent } from "react";
 import { SEO } from "@/app/components/SEO";
 import { ArrowRight, ArrowUpRight } from "lucide-react";
-import { PageIntro, ClosingCTA, ServiceNote } from "@/app/components/makeover/SiteShell";
+import { PageIntro, ClosingCTA } from "@/app/components/makeover/SiteShell";
 import "@/styles/how-it-works-ring.css";
 import "@/styles/supporting-pages.css";
 
@@ -133,15 +133,15 @@ const steps = [
     stages: "EVIDENCE + UNDERSTAND",
     title: "Start with the whole story.",
     text: "A reading has changed. What does it mean for the equipment, the people, and the work depending on it? Bring the current conditions and useful history together before choosing the next step.",
-    example: "A cooling unit is running warmer than expected. Your team can examine the change alongside recent performance and service history.",
+    example: "A required cooling pump has not started, even though room temperature remains within range. Your team connects the pump readings, cooling dependencies, and recent service history to understand the loss of protection.",
     proof: "The question: What needs our attention, and why?",
     card: {
       bar: "OPERATING RECORD · COOLING LOOP B",
       badge: "1. Evidence · 2. Understand",
       heading: "Connect the warning to the equipment and history",
       rows: [
-        ["Signal source", "BMS telemetry + historian trend qualified by Infinit-Signal"],
-        ["Equipment context", "Cooling Loop B secondary chilled-water circuit and dependent zone"],
+        ["Signal source", "BMS and historian pump readings checked by Infinit-Signal"],
+        ["Equipment context", "Cooling Loop B secondary chilled-water pump (CHWP-02) and protected room"],
         ["Operating history", "Recent valve and pump activity linked in Singularity"],
       ],
       footerLabel: "Products in play:",
@@ -156,13 +156,13 @@ const steps = [
     example: "The responsible person reviews the proposed cooling response. The team knows who is taking action, what has been approved, and what happens next.",
     proof: "The question: Who is doing what, with whose approval?",
     card: {
-      bar: "GOVERNED RESPONSE · OWNER & AUTHORITY",
+      bar: "COORDINATED RESPONSE · OWNER & APPROVALS",
       badge: "3. Decide · 4. Coordinate · 5. Act",
-      heading: "Route the work while keeping physical authority explicit",
+      heading: "Route the work while keeping responsibility and approvals clear",
       rows: [
         ["Responsible owner", "Shift facilities lead assigned to the active response"],
-        ["Approval boundary", "Physical equipment intervention held for customer authorization"],
-        ["Connected systems", "Work order and status updates synchronized with the maintenance record"],
+        ["Required approval", "Physical equipment work held for facility authorization"],
+        ["Connected systems", "Work order and service dispatch updates synchronized with the maintenance record"],
       ],
       footerLabel: "Products in play:",
       footerValue: "Infinit-Flow + Infinit-Control",
@@ -173,16 +173,16 @@ const steps = [
     stages: "VERIFY",
     title: "Let the operation prove the result.",
     text: "After the action, check the operating evidence. The result should be visible in the equipment’s performance, with a clear record of the response that led there.",
-    example: "The team checks whether temperature returns to the expected range. Those readings show whether the response achieved the intended recovery.",
+    example: "After the work, the team checks pump operation, pressure, temperature, and the required stability period to establish whether cooling protection has been restored.",
     proof: "The question: What tells us the response worked?",
     card: {
-      bar: "OUTCOME VERIFICATION · RETURN EVIDENCE",
+      bar: "OUTCOME VERIFICATION · EQUIPMENT READINGS",
       badge: "6. Verify",
-      heading: "Separate work completion from verified recovery",
+      heading: "Separate work completion from confirmed recovery",
       rows: [
-        ["Work milestone", "Field inspection and adjustment recorded as complete"],
-        ["Return evidence", "Flow, differential pressure, and supply temperature evaluated over stability window"],
-        ["Recorded outcome", "Recovery established only when current valid readings remain in range"],
+        ["Work milestone", "Pump inspection and service work recorded as complete"],
+        ["Readings after work", "Pump operation, flow, differential pressure, and supply temperature checked over the stability period"],
+        ["Recorded outcome", "Cooling protection confirmed only when current valid readings stay in range"],
       ],
       footerLabel: "Reference scenario:",
       footerValue: "Data Center Cooling Redundancy",
@@ -227,7 +227,7 @@ export function HowItWorksPage() {
           label="HOW LAST MILE WORKS"
           title="A warning should"
           accent="start a response."
-          description="Follow the work from the first sign of trouble to evidence that the operation has recovered. That’s the Accountable Operations Loop."
+          description="We have developed a structured method to keep your teams in command and control of your complex operations.  We call it the Accountable Operations Loop."
         >
           <div className="hero-actions">
             <a className="button" href="/demo">
@@ -404,17 +404,9 @@ export function HowItWorksPage() {
         <section id="follow-the-response" className="walkthrough wrap section-space">
           <div className="section-top">
             <div>
-              <p className="eyebrow">FOLLOW A COOLING ISSUE</p>
-              <h2>
-                One issue.
-                <br />
-                The complete follow-through.
-              </h2>
+              <p className="eyebrow">WATCH THE AOL IN ACTION</p>
+              <h2>Use Case: Follow this cooling issue.</h2>
             </div>
-            <p className="section-intro">
-              An illustrative example. In your demo, we’ll discuss the
-              equipment, approvals, and operating conditions that matter to you.
-            </p>
           </div>
           {steps.map((step) => (
             <article className="walkthrough-row" key={step.id}>
@@ -459,61 +451,6 @@ export function HowItWorksPage() {
           ))}
         </section>
 
-        <section className="band section-space">
-          <div className="wrap">
-            <p className="eyebrow">THE PRODUCT FAMILY</p>
-            <h2>
-              Four products.
-              <br />
-              <span>One connected response.</span>
-            </h2>
-            <div className="product-family">
-              <article>
-                <span>01</span>
-                <h3>Infinit-Signal</h3>
-                <p>Bring operating conditions into view.</p>
-                <a className="text-link" href="/infinit-signal">
-                  Explore Infinit-Signal <ArrowRight size={16} />
-                </a>
-              </article>
-              <article>
-                <span>02</span>
-                <h3>Singularity</h3>
-                <p>Connect the facts so the issue makes sense.</p>
-                <a className="text-link" href="/singularity">
-                  Explore Singularity <ArrowRight size={16} />
-                </a>
-              </article>
-              <article>
-                <span>03</span>
-                <h3>Infinit-Flow</h3>
-                <p>Coordinate the decisions and work that move the response forward.</p>
-                <a className="text-link" href="/infinit-flow">
-                  Explore Infinit-Flow <ArrowRight size={16} />
-                </a>
-              </article>
-              <article>
-                <span>04</span>
-                <h3>Infinit-Control</h3>
-                <p>Keep the people, progress, and outcomes in view across the response.</p>
-                <a className="text-link" href="/infinit-control">
-                  Explore Infinit-Control <ArrowRight size={16} />
-                </a>
-              </article>
-            </div>
-            <p className="plain-note">
-              We’ll discuss the right starting point for your operation in the
-              demo.
-            </p>
-          </div>
-        </section>
-
-        <section className="wrap section-space">
-          <ServiceNote
-            title="The platform has a team behind it."
-            text="While Last Mile connects your operating response, our operations team looks after the Last Mile platform. Health checks and proactive outreach help us stay ahead of issues affecting your experience."
-          />
-        </section>
         <ClosingCTA
           title="Bring your team’s next question."
           text="Let’s walk through how a response could work in your operation."

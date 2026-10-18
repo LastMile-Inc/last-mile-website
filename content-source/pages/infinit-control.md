@@ -2,7 +2,7 @@
 content_id: PAGE-CONTROL-001
 status: approved
 owner: Infinit-Control Product Marketing
-last_reviewed: 2026-10-16
+last_reviewed: 2026-10-17
 claim_maturity: [designed, demonstrated]
 depends_on: [PROD-CONTROL-001, CLAIMS-REGISTRY-001]
 used_by: [/infinit-control]
@@ -46,7 +46,7 @@ Present the image as an illustration of broader oversight; do not suggest that L
 
 Include a concise illustrative example reusing the approved Cooling Loop B (`CHWP-02` / `SAP WO-18427`) reference scenario to show that:
 - Work status and operating condition are distinct.
-- Completed work may still require additional evidence.
+- Completed work may still require additional evidence (in the `Work complete · Stability in progress` state, `Why` states `Pressure and the required stability window have not met the recovery criteria.` without duplicating the `Operating result` summary).
 - Recovery is established using the relevant operating evidence.
 
 Include the exact statement:

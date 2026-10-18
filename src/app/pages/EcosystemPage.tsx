@@ -29,7 +29,7 @@ const categories = [
 
 const handoffs = [
   ["MQTT transport and customer UNS", "HiveMQ", "Configured MQTT/Sparkplug subscriptions, topic/session metadata, QoS, retain state", "Qualifies evidence and maps source addresses to governed operational identity", "Does not replace the broker or treat delivery as truth"],
-  ["Industrial DataOps and source modeling", "HighByte Intelligence Hub", "Modeled MQTT, Sparkplug, OPC UA, REST, or approved outputs", "Preserves source references and creates SSOM-conformant records", "Representative pathway; not a validated connector claim"],
+  ["Industrial DataOps and source modeling", "HighByte Intelligence Hub", "Modeled MQTT, Sparkplug, OPC UA, REST, or approved outputs", "Preserves source references and creates SSOM-conformant records", "Does not replace industrial integration and modeling"],
   ["SCADA/HMI and gateway execution", "Ignition", "Approved tags, alarms, events, paths, timestamps, and quality", "Connects source evidence to one Condition and outcome thread", "Does not replace visualization or supervisory control"],
   ["PLC and machine control", "Rockwell Automation", "Customer-approved equipment state and alarms through an established boundary", "Retains the source identity and operating context", "Does not alter PLC or safety logic"],
   ["Historian and operations applications", "AVEVA", "Approved history, event, asset, and status interfaces", "Preserves time, revision, lineage, and cross-system context", "Does not replace historian, engineering, or process applications"],
@@ -51,13 +51,11 @@ export function EcosystemPage() {
 
       <EditorialSection eyebrow="TECHNOLOGY HANDOFFS" title="Make the boundary concrete at every interface.">
         <AccessibleDataTable caption="Representative industrial technology handoffs" headers={["Existing responsibility", "Representative systems", "Representative handoff", "What Last Mile adds", "Explicit boundary"]} rows={handoffs} />
-        <p className="lm-v2-caveat">Every row is a representative integration pathway with validation status to be confirmed. Product names do not imply certification, partnership, endorsement, or completed production integration.</p>
       </EditorialSection>
 
-      <EditorialSection eyebrow="Representative ecosystems" title="Names illustrate where the operating thread crosses—not a privileged architecture.">
-        <p className="lm-v2-large-copy">Product and company names illustrate representative industrial ecosystems. Inclusion does not imply partnership, certification, or a validated production integration. Last Mile is designed to operate without requiring one automation, broker, historian, work, facilities, or service platform.</p>
-        <p className="lm-v2-caveat">Every named work system remains an optional external system of record; none is a platform foundation or prerequisite.</p>
-        <div className="lm-concept-links"><InlineLink to="/resources/industrial-concepts/semantic-interoperability">Connected is not yet interoperable</InlineLink><InlineLink to="/resources/industrial-concepts/opc-ua">OPC UA and Companion Specifications</InlineLink><InlineLink to="/resources/industrial-concepts/ot-security">OT security and explicit trust boundaries</InlineLink></div>
+      <EditorialSection eyebrow="Representative ecosystems" title="Names show where the operating thread crosses, not a privileged architecture.">
+        <p className="lm-v2-large-copy">Last Mile operates without requiring one automation, broker, historian, work, facilities, or service platform. Every named work system remains an optional external system of record; none is a platform foundation or prerequisite.</p>
+        <div className="lm-concept-links"><InlineLink to="/resources/industrial-concepts/operational-outcome-thread">From warning to confirmed result</InlineLink><InlineLink to="/resources/industrial-concepts/uns-and-ssom">Unified Namespace and SSOM</InlineLink><InlineLink to="/resources/industrial-concepts/industrial-ai">How AI supports operations under your team's authority</InlineLink></div>
       </EditorialSection>
 
       <NextStep title="See how source evidence becomes one governed operating model." copy="Infinit-Signal preserves each source's evidence and authority before creating canonical operational records for Singularity." label="Explore Infinit-Signal" to="/infinit-signal" secondary={{ label: "Discuss Your Operational Stack", to: "/contact?intent=architecture" }} />

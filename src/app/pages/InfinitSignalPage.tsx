@@ -47,24 +47,24 @@ const recordHandlingExamples: readonly RecordConditionExample[] = [
     arrivalTime: "14:32:24.984 local (received by Infinit-Signal)",
     payloadSummary: "Differential pressure · 11.6 psid · Quality: Good",
     handlingBehavior:
-      "Infinit-Signal preserves the original source identity, records both the source event time and the arrival time, checks data quality against the configured profile, and structures a consistent canonical operational record.",
+      "Infinit-Signal preserves the original source identity, records both the source event time and the arrival time, checks data quality against the configured profile, and structures a consistent operational record.",
     downstreamEffect:
-      "Accepted into Singularity so current operational context, downstream workflows in Infinit-Flow, and views in Infinit-Control reflect the reading with its full provenance.",
+      "Accepted into Singularity so current operational context, coordinated workflows in Infinit-Flow, and views in Infinit-Control reflect the reading and where the information came from.",
   },
   {
     id: "repeated",
     tabLabel: "Repeated delivery",
     classification: "Duplicate",
     summary:
-      "A transport retry or second path delivers the same source event again.",
+      "A network retry or second connection path delivers the same equipment reading again.",
     sourceIdentity: "BMS-DC03-01 · Point B3_CHW_P02_DP (redelivery)",
     eventTime: "14:32:23.184 local (same source event timestamp)",
     arrivalTime: "14:32:25.612 local (second arrival)",
     payloadSummary: "Differential pressure · 11.6 psid · Sequence match",
     handlingBehavior:
-      "Infinit-Signal recognizes the repeated delivery within the governed deduplication window using source identity, event time, and deduplication keys. The duplicate arrival is counted and preserved as evidence rather than silently dropped.",
+      "Infinit-Signal recognizes the repeated delivery using source identity, event time, and delivery keys. The duplicate arrival is counted and preserved as a record rather than silently dropped.",
     downstreamEffect:
-      "Prevented from being applied a second time to current operational state in Singularity, avoiding duplicate alerts or repeated follow-up.",
+      "Prevented from being applied a second time to current equipment state in Singularity, avoiding duplicate alerts or repeated follow-up.",
   },
   {
     id: "delayed",
@@ -79,22 +79,22 @@ const recordHandlingExamples: readonly RecordConditionExample[] = [
     handlingBehavior:
       "Infinit-Signal preserves the distinction between when the reading occurred (event time) and when it arrived (arrival time), classifying the record as replay/backfill rather than a new live event.",
     downstreamEffect:
-      "Event-time history in Singularity can be updated accurately while live operational state and decisions follow configured replay policy instead of treating old data as a current change.",
+      "Event-time history in Singularity is updated accurately while live operational status and decisions follow your replay rules instead of treating older readings as a new change.",
   },
   {
     id: "incomplete",
     tabLabel: "Incomplete information",
     classification: "Quarantined",
     summary:
-      "An incoming record is missing required engineering context or cannot be mapped to a governed source contract.",
+      "An incoming reading is missing required engineering units or cannot be matched to an approved source definition.",
     sourceIdentity: "GW-DC03-AUX · Unmapped tag AUX_P02_RAW",
     eventTime: "14:32:29.050 local (reported by gateway)",
     arrivalTime: "14:32:29.910 local (received by Infinit-Signal)",
     payloadSummary: "Value: 11.6 · Engineering unit missing · Unresolved mapping",
     handlingBehavior:
-      "Infinit-Signal preserves the raw record, source details, event time, and arrival time, and places the record in quarantine with the qualification reason rather than discarding it or guessing missing fields.",
+      "Infinit-Signal preserves the raw record, source details, event time, and arrival time, and places the record in quarantine with the reason it was held rather than discarding it or guessing missing fields.",
     downstreamEffect:
-      "Held for review and remediation; quarantined records are not allowed to alter canonical operational state in Singularity.",
+      "Held for review and correction; quarantined records do not change the live equipment state in Singularity.",
   },
 ];
 
@@ -117,8 +117,7 @@ const platformCards = [
     href: "/infinit-signal",
     current: true,
     badge: "Current page",
-    description:
-      "Brings in and checks operational data from your existing systems.",
+    description: "Reliable data from your existing systems.",
     cta: "Viewing Infinit-Signal",
   },
   {
@@ -126,8 +125,7 @@ const platformCards = [
     href: "/singularity",
     current: false,
     badge: "Shared context",
-    description:
-      "Connects equipment, systems, and history into shared context.",
+    description: "Understand your equipment in context.",
     cta: "Explore Singularity",
   },
   {
@@ -135,7 +133,7 @@ const platformCards = [
     href: "/infinit-flow",
     current: false,
     badge: "Coordinated response",
-    description: "Guides the work from issue to verified resolution.",
+    description: "Keep work moving across teams and systems.",
     cta: "Explore Infinit-Flow",
   },
   {
@@ -143,8 +141,7 @@ const platformCards = [
     href: "/infinit-control",
     current: false,
     badge: "Operational visibility",
-    description:
-      "Gives operators and leaders a clear view of status and outcomes.",
+    description: "See what needs attention and what changed.",
     cta: "Explore Infinit-Control",
   },
 ];
@@ -204,7 +201,7 @@ export function InfinitSignalPage() {
           <h1 id="signal-hero-title">Make operational data dependable.</h1>
           <p className="signal-hero-lead">
             Capture operational information, check its quality, and preserve its
-            source—so downstream decisions and workflows start with a dependable
+            source, so downstream decisions and workflows start with a dependable
             foundation.
           </p>
           <div className="hero-actions">
@@ -241,7 +238,7 @@ export function InfinitSignalPage() {
               />
               <img
                 src="/images/platform/platform-infinit-signal.png"
-                alt="Packaging-line cameras and sensors with conceptual graphics showing organized operating information."
+                alt="Packaging-line cameras and sensors with graphics showing organized operating information."
                 width={1448}
                 height={1086}
                 loading="eager"
@@ -250,9 +247,6 @@ export function InfinitSignalPage() {
               />
             </picture>
           </div>
-          <figcaption className="signal-figure-caption">
-            Concept illustration
-          </figcaption>
         </figure>
       </section>
 
@@ -280,7 +274,7 @@ export function InfinitSignalPage() {
 
           <figure
             className="signal-pipeline-figure"
-            aria-label="Conceptual illustration of Infinit-Signal qualification, Singularity shared operational context, and connected work and oversight"
+            aria-label="Diagram of Infinit-Signal qualification, Singularity shared operational context, and connected work and oversight"
           >
             <div className="signal-pipeline-canvas">
               <picture>
@@ -297,7 +291,7 @@ export function InfinitSignalPage() {
                 <img
                   className="signal-pipeline-img"
                   src="/images/platform/signal-handoff-web-v3.png"
-                  alt="Conceptual illustration showing factory equipment signals entering Infinit-Signal for five qualification checks, connecting into Singularity for shared operational context, and supporting coordinated work and oversight in Infinit-Flow and Infinit-Control."
+                  alt="Diagram showing factory equipment signals entering Infinit-Signal for five qualification checks, connecting into Singularity for shared operational context, and supporting coordinated work and oversight in Infinit-Flow and Infinit-Control."
                   width={1672}
                   height={941}
                   loading="eager"
@@ -386,9 +380,8 @@ export function InfinitSignalPage() {
             </div>
 
             <figcaption className="signal-pipeline-caption">
-              <span>Concept illustration</span>
               <span>
-                Connected software capabilities across the Last Mile platform—not
+                Connected software capabilities across the Last Mile platform, not
                 a physical appliance or isolated data silos.
               </span>
             </figcaption>
@@ -437,9 +430,6 @@ export function InfinitSignalPage() {
           >
             <div className="signal-record-example-header">
               <div>
-                <span className="signal-example-badge">
-                  Illustrative example
-                </span>
                 <h3 id="signal-record-example-title">
                   How Infinit-Signal handles incoming operational records
                 </h3>
@@ -501,14 +491,11 @@ export function InfinitSignalPage() {
                     {activeExample.summary}
                   </p>
                 </div>
-                <span className="signal-record-synthetic-tag">
-                  Synthetic illustrative record
-                </span>
               </div>
 
               <div className="signal-record-grid">
                 <div className="signal-record-envelope">
-                  <h5>Illustrative source &amp; timing fields</h5>
+                  <h5>Source &amp; timing fields</h5>
                   <dl className="signal-record-dl">
                     <div>
                       <dt>Source identity</dt>

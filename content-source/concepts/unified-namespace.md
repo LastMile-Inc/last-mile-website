@@ -2,60 +2,53 @@
 content_id: CONCEPT-UNS-001
 status: approved
 owner: Industrial Architecture
-last_reviewed: 2026-08-06
+last_reviewed: 2026-10-17
 claim_maturity: [perspective, reference_architecture]
 depends_on: [PROD-SIGNAL-001, PROD-SINGULARITY-001]
 used_by: [/infinit-signal, /singularity, /ecosystem, /resources/industrial-concepts/uns-and-ssom]
 ---
 
-# Unified Namespace and SSOM
+# Connected data needs operating context.
 
 ## Canonical position
 
-A Unified Namespace and SSOM are complementary. The UNS is the customer's real-time communication and discovery fabric. SSOM is the vendor-neutral semantic and evidence contract. Infinit-Signal bridges them by preserving UNS runtime context while producing governed SSOM-conformant records for Singularity.
-
-## Site placement
-
-- Full article: Resources -> Industrial Concepts.
-- Infinit-Signal: primary compact explanation after inputs/checks/outputs.
-- Singularity: short “distribution is not meaning” comparison.
-- Ecosystem: broker/UNS boundary.
-- Platform: one representative source label only; do not add another large section.
+A reading becomes more useful when your team knows which asset it belongs to, when it was captured, whether it can be trusted, and what needs attention.
 
 ## Publication-ready article
 
-### UNS and SSOM: moving industrial data is not the same as making it accountable
+### Connected data needs operating context.
 
-A Unified Namespace can solve an important industrial problem: it gives publishers and consumers a shared, event-driven place to make current operational information available. In many implementations, MQTT supplies publish/subscribe transport and Sparkplug adds an industrial topic namespace, payload representation, and session-state model. This can reduce point-to-point integration and make plant information easier to discover.
+#### Connecting data sources is only the first step
 
-But availability is not the same as operational truth.
+Most industrial facilities already collect thousands of data points across controllers, SCADA screens, historians, and maintenance software. Making those data sources reachable over a network is an important first step, because it reduces isolated data silos and allows current values to move between systems. However, moving a number from one system to another does not automatically make that reading useful to the people responsible for acting on it.
 
-A topic path tells a consumer where information was published. It does not, by itself, establish that two source identifiers refer to the same physical asset, that a retained message is current, that a value arrived in event-time order, that a replay should influence a live decision, or that a cleared alarm proves the underlying impairment is gone. Those questions require identity, time, quality, provenance, evidence, policy, and lifecycle continuity.
+When an abnormal reading appears, operators and engineers immediately have practical questions. Which specific piece of equipment produced this value? Did the reading happen just now, or is it a delayed or repeated message? How does this asset affect the line, room, or utility loop around it, and is maintenance work already underway? Answering those questions requires operating context, not just network transport.
 
-That is the division of responsibility between a customer UNS and Last Mile. Infinit-Signal subscribes to configured sources and preserves publisher, topic, QoS, retain flag, timestamp, session, Sparkplug birth/death, sequence, alias, and source-quality context. It classifies freshness, duplicates, retained messages, replay, and unresolved mappings before a record can influence the operating model. The original topic remains visible as a source address; it does not silently become canonical asset identity.
+#### What makes a reading usable across teams and systems
 
-Singularity then applies the SSOM contract. It gives assets stable identities and scoped external aliases, represents many-to-many and time-varying relationships, preserves accepted history and evidence, and connects Conditions, decisions, actions, return measurements, and verified Outcomes. Current state can still be distributed through the UNS, but the evidence chain remains durable outside the broker's session and retention behavior.
+For teams and software to work from the same understanding, raw readings need consistent supporting details. Clear asset identity links a control tag, historian point, and maintenance equipment number to the same physical machine without erasing the original source identifiers. Engineering units and timestamps make it clear what was measured and when the event actually occurred in the process.
 
-The result is not a choice between UNS and SSOM. The UNS makes industrial information available. SSOM makes that information portable, interpretable, governable, and accountable across systems and time.
+Data quality checks help separate current, trustworthy readings from missing, stale, or duplicated messages before they trigger unnecessary alarms or mislead a recovery check. Relationships show what upstream or downstream equipment depends on the asset, so teams can judge operational impact quickly and coordinate the right response.
 
-### Boundary summary
+#### Preserving meaning with a shared data structure
 
-| Customer UNS | Infinit-Signal | Singularity / SSOM |
-|---|---|---|
-| Topics, transport, session, distribution | Subscription, preservation, qualification, mapping, COR creation | Canonical identity, topology, Conditions, history, evidence, Outcomes |
-| Current-state availability | Live/replay/stale/duplicate classification | Durable time-correct operational memory |
-| Source/runtime identifiers | Source-to-canonical crosswalk | Canonical identity and lifecycle continuity |
-| MQTT/Sparkplug compatibility | Separate compatibility and mapping evidence | SSOM conformance and semantic governance |
+Without a shared structure, every integration or report has to rebuild that context from scratch, and different tools can interpret the same event in different ways. A shared operational data structure preserves asset identity, timing, quality, system relationships, active issues, and follow-up results so they stay connected as work moves from initial warning to resolution.
+
+Crucially, organizing operating context in a shared model does not require ripping out or replacing existing plant and enterprise software. Control systems continue to handle local monitoring and equipment control, historians keep long-term time-series archives, and maintenance systems remain the system of record for work orders and asset history.
+
+#### How UNS, OPC UA, and SSOM fit with existing systems
+
+Several technical approaches often appear in architecture discussions around industrial data. A Unified Namespace (UNS), commonly built with MQTT and Sparkplug conventions, provides a shared messaging structure for publishing and discovering current events across a site. Standards such as OPC UA and its companion specifications help describe equipment information and context at the source.
+
+Last Mile works alongside these investments using SSOM (Standardized Semantic Object Model), which is Last Mile’s shared operational data model inside Singularity. Infinit-Signal checks incoming source readings and preserves where they came from, while Singularity uses SSOM to connect equipment identity, relationships, issues, response work, and post-work verification.
 
 ## What this looks like in an operating response
 
-Cooling-pump state arrives on `dc03/chw/loop-b/chwp-02/state`. The customer UNS transports that publication and retains its broker, topic, QoS, session, and publisher responsibilities. Infinit-Signal preserves that context, rejects a duplicate event and a pressure sample stale by 47 seconds, and maps the accepted source identities to canonical asset `CHWP-02`. Singularity then carries one accountable Cooling Loop B Condition through work and telemetry-established recovery; the topic never becomes the asset identity or the recovery decision by itself.
+In a facility cooling response, a pump status update arrives from a building control topic while motor current is logged in a historian and equipment records live in maintenance software. Rather than treating the message topic as the whole story, incoming checks verify that the reading is current, set aside a duplicate message, and link the update to the shared record for that pump and the cooling loop it supports.
+
+Because the equipment identity, loop role, maintenance work order, and subsequent pressure and current readings are connected in one context, operations and maintenance teams can follow the response from the initial pump fault through field repair and post-work verification while each underlying system retains its established role.
 
 ## Sources
 
-- Eclipse Sparkplug Specification - MQTT topic namespace, payload, and session state: https://sparkplug.eclipse.org/specification/
-- Supplied paper, *SSOM and Unified Namespace: Complementary Roles*.
-
-## Prohibited implications
-
-Last Mile owns the UNS; MQTT equals UNS; a topic is canonical identity; broker publication equals accepted truth; Sparkplug conformance equals SSOM conformance.
+- Eclipse Sparkplug Specification: https://sparkplug.eclipse.org/specification/
+- OPC Foundation Unified Architecture: https://opcfoundation.org/about/opc-technologies/opc-ua/

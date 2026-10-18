@@ -12,7 +12,7 @@ test("municipal wastewater current-rate estimate is 06:40 and is labeled as arit
   const level = operatingScenarios.wastewater.incident.find((item) => item.id === "ww_level").numericValue;
   const rate = operatingScenarios.wastewater.incident.find((item) => item.id === "ww_rate").numericValue;
   assert.equal(Math.round(((9 - level) / rate) * 60), 400);
-  assert.match(operatingScenarios.wastewater.proofPosture.join(" "), /current-rate linear estimate, not a predictive model/i);
+  assert.match(operatingScenarios.wastewater.proofPosture.join(" "), /06:40 constant-rate level projection/i);
 });
 
 test("compressed-air calculations and disclosed deltas remain exact", () => {
@@ -23,7 +23,7 @@ test("compressed-air calculations and disclosed deltas remain exact", () => {
   assert.equal(Math.round((103 - 97.1) * 10) / 10, 5.9);
   assert.equal(Math.round(((5.9 / 103) * 100) * 10) / 10, 5.7);
   assert.match(operatingScenarios.air.recovery.join(" "), /−600 SCFM · −114 kW/);
-  assert.match(operatingScenarios.air.proofPosture.join(" "), /not savings/i);
+  assert.match(operatingScenarios.air.proofPosture.join(" "), /measured-point deltas/i);
 });
 
 test("cold-storage superheat differences preserve Fahrenheit and kelvin representations", () => {
@@ -57,12 +57,12 @@ test("use-case routes are canonical, legacy aliases redirect permanently, and si
   }
 });
 
-test("every use case uses the code-native governed process map and required disclosure", () => {
+test("every use case uses the code-native governed process map and has no illustrative disclaimer", () => {
   const components = read("src/app/components/OperatingScenarioComponents.tsx");
-  for (const stage of ["Evidence", "Qualify", "Coordinate", "Work", "Verify"]) assert.match(components, new RegExp(`name: "${stage}"`));
+  for (const stage of ["Evidence", "Understand", "Decide", "Coordinate", "Act", "Verify"]) assert.match(components, new RegExp(`name: "${stage}"`));
   assert.doesNotMatch(components, /<img|processMap\.src|condition-to-outcome\.png/i);
   for (const scenario of operatingScenarioList) {
-    assert.match(scenario.disclosure, /controlled Last Mile demonstration/i);
+    assert.equal(scenario.disclosure, "");
   }
 });
 
@@ -93,7 +93,7 @@ test("homepage, platform, and infinit-signal use approved imagery and inventory 
   assert.doesNotMatch(infinitSignal, /ai-ready-handoff-v2/);
   assert.match(infinitSignal, /Make operational data dependable\./);
   assert.match(infinitSignal, /From incoming signals to usable operational context\./);
-  assert.match(infinitSignal, /alt="Packaging-line cameras and sensors with conceptual graphics showing organized operating information\."/);
+  assert.match(infinitSignal, /alt="Packaging-line cameras and sensors with graphics showing organized operating information\."/);
   assert.doesNotMatch(infinitSignal, /Step 1 of 4|COR-DC-04182|NBIRTH|DBIRTH|NDEATH|DDEATH|NodeId|SSOM-conformant CORs|Kubernetes|OpenShift/);
   assert.match(singularity, /platform-singularity/);
   assert.match(singularity, /semantic-operating-record-v3/);
@@ -104,7 +104,7 @@ test("homepage, platform, and infinit-signal use approved imagery and inventory 
   assert.match(infinitFlow, /orchestration-routing-web-v4/);
   assert.doesNotMatch(infinitFlow, /orchestration-routing-v3|Verified recovery/i);
   assert.match(infinitFlow, /Keep work moving across people and systems\./);
-  assert.match(infinitFlow, /Keep the response moving through every handoff\./);
+  assert.match(infinitFlow, /You got workflows\?\s+We do workflows\./);
   assert.match(infinitFlow, /Automate within the rules of your operation\./);
   for (const label of ["Operating context", "Rules and approvals", "People and systems", "Progress and evidence"]) {
     assert.ok(infinitFlow.includes(label), `InfinitFlowPage missing ${label}`);
@@ -160,3 +160,25 @@ test("primary navigation includes keyboard, outside-click, escape, and mobile di
   assert.match(navigation, /MobileGroup/);
   for (const scenario of operatingScenarioList) assert.ok(navigation.includes(scenario.route));
 });
+
+test("withdrawn hubs, CSV downloads, and retired concept articles are removed from public routes and sitemap", () => {
+  const routes = read("src/app/routes.ts");
+  const sitemap = read("public/sitemap.xml");
+  for (const withdrawn of [
+    "/resources/architect-reference-center",
+    "/resources/pmo-implementation-hub",
+    "/resources/industrial-concepts/semantic-interoperability",
+    "/resources/industrial-concepts/opc-ua",
+    "/resources/industrial-concepts/digital-twins",
+    "/resources/industrial-concepts/industry-5-0",
+    "/resources/industrial-concepts/ot-cybersecurity",
+    "/resources/industrial-concepts/data-spaces",
+    "/resources/industrial-concepts/plug-and-produce",
+    "/resources/industrial-concepts/autonomous-operations",
+  ]) {
+    assert.ok(!routes.includes(withdrawn.slice(1)), `routes.ts still includes withdrawn path ${withdrawn}`);
+    assert.ok(!sitemap.includes(withdrawn), `sitemap.xml still includes withdrawn path ${withdrawn}`);
+  }
+  assert.equal(fs.existsSync(path.join(root, "public/downloads")), false);
+});
+

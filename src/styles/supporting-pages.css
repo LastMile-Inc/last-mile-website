@@ -72,7 +72,7 @@ body.lm-makeover .lm-supporting-card__rows li {
   background: var(--lm-canvas);
   border: 1px solid var(--lm-wash);
   border-radius: 6px;
-  align-items: baseline;
+  align-items: center;
 }
 
 body.lm-makeover .lm-supporting-card__rows span {
@@ -196,6 +196,23 @@ body.lm-makeover .lm-form__next-step {
   color: var(--lm-copy);
 }
 
+/* Top-align /demo left introduction with the top of the right form content area on desktop */
+@media (min-width: 801px) {
+  body.lm-makeover .demo-page-hero {
+    align-items: start;
+  }
+
+  body.lm-makeover .demo-page-hero > div:first-child {
+    padding-top: 43px;
+  }
+}
+
+@media (min-width: 801px) and (max-width: 1200px) {
+  body.lm-makeover .demo-page-hero > div:first-child {
+    padding-top: 33px;
+  }
+}
+
 @media (max-width: 900px) {
   body.lm-makeover .lm-about-charter {
     grid-template-columns: 1fr;
@@ -218,3 +235,95 @@ body.lm-makeover .lm-form__next-step {
     padding: 22px 18px;
   }
 }
+
+/* Why Now? editorial section on /why-last-mile */
+body.lm-makeover .why-now-section {
+  padding-top: 64px;
+  padding-bottom: 76px;
+  border-top: 1px solid var(--lm-steel);
+}
+
+body.lm-makeover .why-now-header {
+  max-width: 820px;
+}
+
+body.lm-makeover .why-now-header .eyebrow {
+  text-transform: uppercase;
+}
+
+body.lm-makeover .why-now-header h2 {
+  margin-top: 18px;
+  max-width: 780px;
+}
+
+body.lm-makeover .why-now-intro {
+  margin-top: 22px;
+  max-width: 720px;
+  font-size: 19px;
+  line-height: 1.6;
+  color: var(--lm-ink);
+}
+
+body.lm-makeover .why-now-columns {
+  margin-top: 44px;
+  padding-top: 32px;
+  border-top: 1px solid var(--lm-wash);
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 64px;
+  align-items: start;
+}
+
+body.lm-makeover .why-now-point h3 {
+  font-size: 27px;
+  line-height: 1.2;
+  letter-spacing: -0.7px;
+  color: var(--lm-ink);
+}
+
+body.lm-makeover .why-now-point p {
+  margin-top: 14px;
+  font-size: 16px;
+  line-height: 1.68;
+  color: var(--lm-copy);
+  max-width: 560px;
+}
+
+body.lm-makeover .why-now-closing {
+  margin-top: 38px;
+  padding-top: 24px;
+  border-top: 1px solid var(--lm-wash);
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 1.55;
+  color: var(--lm-ink);
+}
+
+@media (max-width: 800px) {
+  body.lm-makeover .why-now-section {
+    padding-top: 48px;
+    padding-bottom: 56px;
+  }
+
+  body.lm-makeover .why-now-intro {
+    font-size: 17px;
+  }
+
+  body.lm-makeover .why-now-columns {
+    margin-top: 32px;
+    padding-top: 24px;
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+
+  body.lm-makeover .why-now-point h3 {
+    font-size: 24px;
+  }
+
+  body.lm-makeover .why-now-closing {
+    margin-top: 28px;
+    padding-top: 20px;
+    font-size: 16px;
+  }
+}
+

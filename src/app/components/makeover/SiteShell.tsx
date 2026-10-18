@@ -20,9 +20,11 @@ const routesWithoutReviewChrome = new Set([
   "/demo",
   "/private-beta",
   "/resources",
-  "/resources/architect-reference-center",
-  "/resources/pmo-implementation-hub",
   "/resources/industrial-concepts",
+  "/resources/industrial-concepts/operational-outcome-thread",
+  "/resources/industrial-concepts/industrial-ai",
+  "/resources/industrial-concepts/uns-and-ssom",
+  "/ecosystem",
   "/signal-to-action",
   "/company/newsroom",
   "/contact",
@@ -31,6 +33,7 @@ const routesWithoutReviewChrome = new Set([
   "/use-cases",
   "/use-cases/manufacturing-compressed-air",
   "/use-cases/data-center-cooling",
+  "/use-cases/municipal-wastewater",
   "/use-cases/cold-storage-refrigeration",
 ]);
 
@@ -40,10 +43,10 @@ function useShowReviewChrome() {
 }
 
 const platformProducts = [
-  { name: "Infinit-Signal", href: "/infinit-signal", summary: "Operational data qualification" },
-  { name: "Singularity", href: "/singularity", summary: "Shared operational context" },
-  { name: "Infinit-Flow", href: "/infinit-flow", summary: "Governed response coordination" },
-  { name: "Infinit-Control", href: "/infinit-control", summary: "Operational visibility & oversight" },
+  { name: "Infinit-Signal", href: "/infinit-signal", summary: "Reliable data from your existing systems" },
+  { name: "Singularity", href: "/singularity", summary: "Understand your equipment in context" },
+  { name: "Infinit-Flow", href: "/infinit-flow", summary: "Keep work moving across teams and systems" },
+  { name: "Infinit-Control", href: "/infinit-control", summary: "See what needs attention and what changed" },
 ] as const;
 
 const primaryNavigation = [
@@ -56,10 +59,8 @@ const primaryNavigation = [
 export function Brand() {
   return (
     <a className="brand" href="/" aria-label="Last Mile home">
-      <img src="/logo.png" alt="" width="57" height="30" />
-      <span>
-        LAST MILE<span className="brand-period">.</span>
-      </span>
+      <img src="/last-mile-logo-hd.png" alt="" width="57" height="34" />
+      <span>LAST MILE</span>
     </a>
   );
 }
@@ -73,16 +74,41 @@ export function SiteHeader() {
   const dropdownRef = useRef<HTMLDivElement>(null);
   const dropdownButtonRef = useRef<HTMLButtonElement>(null);
   const submenuItemRefs = useRef<Array<HTMLAnchorElement | null>>([]);
+  const closeTimeoutRef = useRef<number | null>(null);
   const showReviewChrome = useShowReviewChrome();
+
+  const clearCloseTimeout = () => {
+    if (closeTimeoutRef.current !== null) {
+      window.clearTimeout(closeTimeoutRef.current);
+      closeTimeoutRef.current = null;
+    }
+  };
+
+  const handleDropdownMouseEnter = () => {
+    clearCloseTimeout();
+    setPlatformMenuOpen(true);
+  };
+
+  const handleDropdownMouseLeave = () => {
+    clearCloseTimeout();
+    closeTimeoutRef.current = window.setTimeout(() => {
+      setPlatformMenuOpen(false);
+    }, 180);
+  };
 
   const isPlatformRoute =
     pathname === "/platform" ||
     platformProducts.some((product) => pathname === product.href);
 
   useEffect(() => {
+    clearCloseTimeout();
     setOpen(false);
     setPlatformMenuOpen(false);
   }, [pathname]);
+
+  useEffect(() => {
+    return () => clearCloseTimeout();
+  }, []);
 
   useEffect(() => {
     if (!open && !platformMenuOpen) return;
@@ -164,11 +190,17 @@ export function SiteHeader() {
       <header className="header" ref={headerRef}>
         <Brand />
         <nav className="desktop-nav" aria-label="Main navigation">
+          <a
+            href="/"
+            aria-current={pathname === "/" ? "page" : undefined}
+          >
+            Home
+          </a>
           <div
             className="nav-dropdown"
             ref={dropdownRef}
-            onMouseEnter={() => setPlatformMenuOpen(true)}
-            onMouseLeave={() => setPlatformMenuOpen(false)}
+            onMouseEnter={handleDropdownMouseEnter}
+            onMouseLeave={handleDropdownMouseLeave}
           >
             <a
               href="/platform"
@@ -189,7 +221,10 @@ export function SiteHeader() {
               aria-haspopup="menu"
               aria-expanded={platformMenuOpen}
               aria-controls="platform-submenu"
-              onClick={() => setPlatformMenuOpen((prev) => !prev)}
+              onClick={() => {
+                clearCloseTimeout();
+                setPlatformMenuOpen((prev) => !prev);
+              }}
               onKeyDown={handleTriggerKeyDown}
             >
               <ChevronDown size={15} aria-hidden="true" />
@@ -259,6 +294,14 @@ export function SiteHeader() {
             aria-label="Mobile navigation"
           >
             <a
+              href="/"
+              onClick={() => setOpen(false)}
+              aria-current={pathname === "/" ? "page" : undefined}
+            >
+              Home
+              <ArrowUpRight size={18} />
+            </a>
+            <a
               href="/platform"
               onClick={() => setOpen(false)}
               aria-current={pathname === "/platform" ? "page" : undefined}
@@ -275,7 +318,10 @@ export function SiteHeader() {
                 onClick={() => setOpen(false)}
                 aria-current={pathname === product.href ? "page" : undefined}
               >
-                {product.name}
+                <span className="mobile-nav-sublink-copy">
+                  <strong>{product.name}</strong>
+                  <span>{product.summary}</span>
+                </span>
                 <ArrowUpRight size={16} />
               </a>
             ))}
@@ -313,11 +359,6 @@ export function SiteFooter() {
         <div className="footer-top">
           <div>
             <Brand />
-            <p>
-              From the first warning
-              <br />
-              to a proven result.
-            </p>
           </div>
           <div className="footer-links">
             <div>

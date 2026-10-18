@@ -263,11 +263,6 @@ body.lm-makeover .lm-infinit-control .control-oversight-caption {
   color: var(--lm-copy);
 }
 
-body.lm-makeover .lm-infinit-control .control-oversight-caption > span:first-child {
-  font-weight: 600;
-  color: var(--lm-ink);
-}
-
 /* Section D: Work Status Versus Operating Result */
 body.lm-makeover .lm-infinit-control .control-example-shell {
   padding: 28px;
@@ -378,7 +373,7 @@ body.lm-makeover .lm-infinit-control .control-example-summary-rows {
 body.lm-makeover .lm-infinit-control .control-summary-row {
   display: grid;
   grid-template-columns: 145px minmax(0, 1fr);
-  align-items: baseline;
+  align-items: center;
   gap: 12px;
   padding: 10px 14px;
   background: var(--lm-surface);

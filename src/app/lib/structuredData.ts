@@ -8,7 +8,7 @@ export function createOrganizationSchema() {
     "@type": "Organization",
     name: "Last Mile",
     url: siteUrl,
-    logo: `${siteUrl}/logo.png`,
+    logo: `${siteUrl}/last-mile-logo-hd.png`,
     sameAs: ["https://www.linkedin.com/company/lastmile-inc/"],
     description:
       "Last Mile is a cloud-based operational intelligence platform that integrates and normalizes data from industrial and enterprise systems, provides AI-assisted insights and operational dashboards, and orchestrates workflows and authorized automated actions with outcome tracking.",

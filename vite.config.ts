@@ -13,8 +13,14 @@ export default defineConfig(({ command }) => ({
     {
       name: 'last-mile-preview-robots',
       configureServer(server) {
-        server.middlewares.use((_req, res, next) => {
+        server.middlewares.use((req, res, next) => {
           res.setHeader('X-Robots-Tag', 'noindex, nofollow')
+          if (req.url?.startsWith('/api/contact.php') && req.method === 'POST') {
+            res.statusCode = 200
+            res.setHeader('Content-Type', 'application/json; charset=UTF-8')
+            res.end(JSON.stringify({ ok: true, recipient: 'contact@lastmileinc.ai', mode: 'preview' }))
+            return
+          }
           next()
         })
       },

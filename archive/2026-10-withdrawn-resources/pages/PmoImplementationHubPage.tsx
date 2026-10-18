@@ -356,7 +356,7 @@ export function PmoImplementationHubPage() {
         <EditorialHero
           eyebrow="Implementation Planning"
           title="PMO Implementation Hub for a phased Last Mile rollout."
-          intro="Model the operator load, sequence the implementation waves, and stage a governed parallel-run without expanding the site's public product model."
+          intro="Estimate staffing effort, plan rollout phases from an agreed starting scope, and run Last Mile alongside your existing systems before cutover."
           support="Last Mile Synapse is the implementation label for the open-protocol edge gateway workstream that stages source acquisition for Infinit-Signal during rollout."
           primary={{ label: "Model the rollout", to: "/resources/pmo-implementation-hub#fte-calculators" }}
           secondary={{ label: "Discuss your implementation", to: "/contact?intent=operation" }}

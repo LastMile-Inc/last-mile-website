@@ -4,6 +4,7 @@ import { Loader2, CheckCircle2 } from "lucide-react";
 import { Button } from "@/app/components/ui/button";
 import { Input } from "@/app/components/ui/input";
 import { Label } from "@/app/components/ui/label";
+import { submitContactEmail } from "@/app/lib/submitContactEmail";
 
 interface FormData {
   firstname: string;
@@ -31,33 +32,17 @@ export function ContactForm() {
     setIsError(false);
 
     try {
-      const response = await fetch(
-        'https://api.hsforms.com/submissions/v3/integration/submit/245388543/df5ed043-2fec-4e13-ae18-e1d17257e1da',
-        {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({
-            fields: [
-              { name: 'firstname', value: data.firstname },
-              { name: 'lastname', value: data.lastname },
-              { name: 'email', value: data.email },
-              { name: 'company', value: data.company },
-              { name: 'hs_role', value: data.role },
-              { name: 'message', value: data.message },
-            ],
-            context: {
-              pageUri: 'https://lastmileinc.ai/contact',
-              pageName: 'Contact',
-            },
-          }),
-        }
-      );
-
-      if (!response.ok) {
-        const errBody = await response.json().catch(() => null);
-        console.error('HubSpot submission error', response.status, JSON.stringify(errBody, null, 2));
-        throw new Error('Submission failed');
-      }
+      await submitContactEmail({
+        firstname: data.firstname,
+        lastname: data.lastname,
+        email: data.email,
+        company: data.company,
+        role: data.role,
+        intent: "contact",
+        intentLabel: "General contact inquiry",
+        message: data.message,
+        pageName: "Contact",
+      });
 
       setIsSubmitting(false);
       setIsSuccess(true);
@@ -79,17 +64,10 @@ export function ContactForm() {
         <div className="w-20 h-20 bg-[#1d7cd8]/20 rounded-full flex items-center justify-center mx-auto mb-6">
           <CheckCircle2 className="text-[#1d7cd8] w-10 h-10" />
         </div>
-        <h3 className="text-2xl font-bold text-white mb-2">Message Received</h3>
-        <p className="text-slate-400 mb-8">
-          Our intelligence team will reach out to you within 24 hours.
+        <h3 className="text-2xl font-bold text-white mb-2">Thank you for reaching out.</h3>
+        <p className="text-slate-400">
+          We have received your message and will be with you shortly.
         </p>
-        <button
-          type="button"
-          onClick={() => setIsSuccess(false)}
-          className="text-[#1d7cd8] font-semibold hover:text-[#75ADE6] transition-colors"
-        >
-          Send another message
-        </button>
       </div>
     );
   }

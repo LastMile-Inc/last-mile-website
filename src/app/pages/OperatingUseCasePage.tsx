@@ -1,23 +1,16 @@
 import { ExternalLink } from "lucide-react";
-import { Navigate, useParams } from "react-router";
+import { useParams } from "react-router";
 import { SEO } from "@/app/components/SEO";
 import { EditorialHero, EditorialSection, InlineLink, NextStep } from "@/app/components/NarrativeComponents";
-import {
-  AccessibleDataTable,
-  AuthorityStrip,
-  ExpandableProcessMap,
-  MeasurementGrid,
-  OperatingConditionPanel,
-  RecoveryContractPanel,
-  ResponseTimeline,
-  ScenarioProofPanel,
-} from "@/app/components/OperatingScenarioComponents";
+import { AccessibleDataTable } from "@/app/components/OperatingScenarioComponents";
 import {
   getOperatingScenario,
-  resultBranchDefinitions,
+  ragLabel,
+  type OperatingScenario,
   type OperatingScenarioKey,
 } from "@/app/pages/platformReferenceData";
 import { createBreadcrumbSchema } from "@/app/lib/structuredData";
+import { NotFound } from "./NotFound";
 import "@/styles/use-case-page.css";
 
 type UseCaseIntroConfig = {
@@ -41,19 +34,19 @@ const useCaseIntroConfigs: Partial<Record<OperatingScenarioKey, UseCaseIntroConf
     imageHeight: 640,
     aspect: "16-10",
     imageAlt:
-      "Concept illustration of an industrial compressor room with compressed-air header piping and pressure monitoring context",
+      "Industrial compressor room with compressed-air header piping and pressure monitoring context",
     captionContext: "Compressed-air header and distribution context",
   },
   refrigeration: {
     headline: "Carry refrigeration issues through to verified recovery.",
     supportingCopy:
-      "Connect abnormal conditions to the affected equipment, responsible teams, and follow-up evidence—so completed work can be checked against the operating result.",
+      "Connect abnormal conditions to the affected equipment, responsible teams, and follow-up evidence so completed work can be checked against the operating result.",
     imageBasename: "cold-storage-refrigeration-v2",
     imageWidth: 1024,
     imageHeight: 576,
     aspect: "16-9",
     imageAlt:
-      "Concept illustration of cold-storage refrigeration piping, insulated headers, and temperature-controlled facility equipment",
+      "Cold-storage refrigeration piping, insulated headers, and temperature-controlled facility equipment",
     captionContext: "Cold-storage refrigeration context",
   },
   wastewater: {
@@ -65,7 +58,7 @@ const useCaseIntroConfigs: Partial<Record<OperatingScenarioKey, UseCaseIntroConf
     imageHeight: 640,
     aspect: "16-10",
     imageAlt:
-      "Concept illustration of a municipal wastewater lift station with wet-well pumping infrastructure and control monitoring context",
+      "Municipal wastewater lift station with wet-well pumping infrastructure and control monitoring context",
     captionContext: "Lift-station pumping and wet-well context",
   },
 };
@@ -99,134 +92,224 @@ function UseCaseIntroMedia({ config }: { config: UseCaseIntroConfig }) {
       </div>
       <figcaption className="uc-intro-media__caption">
         <span>{captionContext}</span>
-        <span className="uc-intro-media__tag">Concept illustration</span>
       </figcaption>
     </figure>
+  );
+}
+
+function CoolingIntroSummary({ scenario }: { scenario: OperatingScenario }) {
+  return (
+    <section className="lm-v2-note" aria-label="Cooling scenario summary">
+      <span>Operating scenario</span>
+      <h3>{scenario.condition}</h3>
+      <p>{scenario.conditionDetail}</p>
+      <dl className="lm-scenario-identity">
+        {scenario.identity.map(([label, value]) => (
+          <div key={label}>
+            <dt>{label}</dt>
+            <dd>{value}</dd>
+          </div>
+        ))}
+      </dl>
+    </section>
   );
 }
 
 export function OperatingUseCasePage() {
   const { useCaseSlug } = useParams();
   const scenario = getOperatingScenario(useCaseSlug ?? "");
-  if (!scenario) return <Navigate to="/use-cases" replace />;
+  if (!scenario) return <NotFound />;
 
   const introConfig = useCaseIntroConfigs[scenario.key];
-  const heroTitle = introConfig ? introConfig.headline : scenario.thesis;
+  const heroTitle =
+    scenario.key === "cooling"
+      ? "When a normal temperature hides a cooling problem."
+      : introConfig
+        ? introConfig.headline
+        : scenario.thesis;
   const heroIntro = introConfig
     ? introConfig.supportingCopy
-    : `See how ${scenario.condition} becomes one accountable response across evidence, systems, people, work, authority, and verified return measurements.`;
+    : "Connect equipment status, facilities response, and post-work checks so the team can verify that backup cooling protection has been restored.";
 
-  const operatorRealityTitle =
+  const attentionTitle =
     scenario.key === "air"
       ? "Find the air loss before production does."
       : scenario.key === "cooling"
-        ? "A normal temperature can hide a loss of cooling protection."
-        : "The alarm is evidence. The operating Condition is the accountable object.";
+        ? "A normal room temperature can hide a loss of backup cooling capacity."
+        : scenario.key === "wastewater"
+          ? "Running status alone does not confirm pumping capacity."
+          : "Room air temperature is often a late warning of refrigeration trouble.";
 
-  const operatorRealityIntro =
+  const attentionIntro =
     scenario.key === "air"
-      ? "Compressed-air demand stays high after production stops, while pressure falls in one zone. Bring the readings, production schedule, and maintenance response together to investigate the loss—and check that the repair restored performance."
+      ? "Compressed-air demand stays higher than expected after production stops, while header pressure falls in one plant zone. Combining compressor output, zone pressure, and the production schedule points to a distribution or demand-side loss rather than compressor inefficiency."
       : scenario.key === "cooling"
-        ? "The room is still within its temperature range, but a required pump has not started. Connect the equipment evidence, facilities response, and service work—and verify that redundancy has been restored."
-        : introConfig
-          ? `${scenario.thesis} See how ${scenario.condition} becomes one accountable response across evidence, systems, people, work, authority, and verified return measurements.`
-          : undefined;
+        ? "Hall 3 remains within its recommended inlet temperature range for ASHRAE Class A1 to A4 equipment, but secondary pump CHWP-02 failed to start when commanded and loop differential pressure is falling."
+        : scenario.key === "wastewater"
+          ? "Duty pump P-102 reports running, but elevated motor current, low discharge flow, and a rising wet-well level show that pumping capacity is degraded while standby capacity is unavailable."
+          : "Freezer room air is beginning to rise while low suction pressure, elevated superheat, low fan current, and a delayed defrost cycle point to degraded evaporator capacity before product temperature exceeds its site threshold.";
 
-  const isConsolidatedLoop = scenario.key === "air" || scenario.key === "cooling";
+  const evidenceRows = scenario.incident.map((item) => [
+    item.name,
+    item.value,
+    item.reference,
+    ragLabel(item),
+  ]);
 
-  const description = `${scenario.operatingProblem}: a controlled Last Mile reference scenario connecting qualified evidence, accountable work, human authority, and telemetry-established recovery.`;
-  return <>
-    <SEO
-      title={`${scenario.menuLabel} | Last Mile Use Case`}
-      description={description}
-      canonicalPath={scenario.route}
-      keywords={`${scenario.operatingProblem}, industrial operational intelligence, work-order closure versus physical recovery, condition-to-outcome accountability`}
-      jsonLd={createBreadcrumbSchema([{ name: "Home", path: "/" }, { name: "Use Cases", path: "/use-cases" }, { name: scenario.menuLabel, path: scenario.route }])}
-    />
-    <article className={`lm-v2-page lm-use-case-page${introConfig ? " lm-use-case-page--intro-updated" : ""}`}>
-      <EditorialHero
-        eyebrow={`${scenario.industry} · controlled reference scenario`}
-        title={heroTitle}
-        intro={heroIntro}
-        primary={{ label: "Discuss This Operating Response", to: `/contact?intent=operation&scenario=${scenario.slug}` }}
-        secondary={{ label: "All Operating Use Cases", to: "/use-cases" }}
-        visual={introConfig ? <UseCaseIntroMedia config={introConfig} /> : <OperatingConditionPanel scenario={scenario} compact />}
+  const description = `${scenario.operatingProblem}: a Last Mile operating scenario showing how equipment readings, team responsibilities, coordinated work, and recovery verification stay connected.`;
+
+  return (
+    <>
+      <SEO
+        title={`${scenario.menuLabel} | Last Mile`}
+        description={description}
+        canonicalPath={scenario.route}
+        keywords={`${scenario.operatingProblem}, industrial operational intelligence, work-order closure versus physical recovery, condition-to-outcome accountability`}
+        jsonLd={createBreadcrumbSchema([
+          { name: "Home", path: "/" },
+          { name: "Use Cases", path: "/use-cases" },
+          { name: scenario.menuLabel, path: scenario.route },
+        ])}
       />
-
-      <p className="lm-reference-disclosure lm-use-case-disclosure">{scenario.disclosure}</p>
-
-      <EditorialSection eyebrow="OPERATOR'S REALITY" title={operatorRealityTitle} intro={operatorRealityIntro} tone="grid">
-        <div className="lm-v2-columns-2">
-          <article className="lm-v2-note"><span>Condition</span><h3>{scenario.condition}</h3><p>{scenario.conditionDetail}</p></article>
-          <article className="lm-v2-note"><span>Ownership</span><h3>{scenario.owner}</h3><p>One named owner remains visible while control, work, provider, and safety responsibilities stay with their established systems and people.</p></article>
-        </div>
-        <dl className="lm-scenario-identity">{scenario.identity.map(([label, value]) => <div key={label}><dt>{label}</dt><dd>{value}</dd></div>)}</dl>
-      </EditorialSection>
-
-      <EditorialSection eyebrow="INCIDENT SNAPSHOT" title="The measurements show why this is more than one alarm.">
-        <MeasurementGrid measurements={scenario.incident} />
-      </EditorialSection>
-
-      <EditorialSection title="The response crosses systems that each retain a specific responsibility." tone="grid">
-        <AccessibleDataTable
-          caption={`${scenario.menuLabel} system and evidence handoffs`}
-          headers={["System or role", "Evidence contributed", "Responsibility retained"]}
-          rows={scenario.systems.map((system) => [system.name, system.evidence, system.retains])}
+      <article className={`lm-v2-page lm-use-case-page${introConfig ? " lm-use-case-page--intro-updated" : ""}`}>
+        <EditorialHero
+          eyebrow={`${scenario.industry} · Operating scenario`}
+          title={heroTitle}
+          intro={heroIntro}
+          primary={{ label: "Discuss your operation", to: `/contact?intent=operation&scenario=${scenario.slug}` }}
+          secondary={{ label: "All operating scenarios", to: "/use-cases" }}
+          visual={introConfig ? <UseCaseIntroMedia config={introConfig} /> : <CoolingIntroSummary scenario={scenario} />}
         />
-      </EditorialSection>
 
-      <EditorialSection title="People and authority remain explicit.">
-        <div className="lm-people-authority">{scenario.people.map((person) => <article key={person.role}><h3>{person.role}</h3><p>{person.authority}</p></article>)}</div>
-      </EditorialSection>
+        {/* 1. What needs attention */}
+        <EditorialSection
+          eyebrow="1. WHAT NEEDS ATTENTION"
+          title={attentionTitle}
+          intro={attentionIntro}
+          tone="grid"
+        >
+          <div className="lm-v2-columns-2">
+            <article className="lm-v2-note">
+              <span>Operating issue</span>
+              <h3>{scenario.condition}</h3>
+              <p>{scenario.conditionDetail}</p>
+            </article>
+            <article className="lm-v2-note">
+              <span>Responsible role</span>
+              <h3>{scenario.owner}</h3>
+              <p>
+                One responsible role stays visible across the response while local control, maintenance records, and field safety remain with the customer&apos;s established systems and people.
+              </p>
+            </article>
+          </div>
+          <AccessibleDataTable
+            caption={`${scenario.menuLabel}: incident evidence and site reference basis (snapshot at issue qualification)`}
+            headers={["Measurement", "Observed reading", "Site reference basis", "Status"]}
+            rows={evidenceRows}
+          />
+        </EditorialSection>
 
-      <EditorialSection eyebrow="THE ACCOUNTABLE OPERATIONS LOOP" title="Evidence → Understand → Decide → Coordinate → Act → Verify ↻" tone="grid">
-        <ol className="lm-response-stages" aria-label={isConsolidatedLoop ? "Accountable Operations stages, modes, and responsible parties" : undefined}>
-          {scenario.response.map((step, index) => (
-            <li key={step.stage}>
-              <span>{String(index + 1).padStart(2, "0")}</span>
-              <div>
-                <h3>{step.stage}</h3>
-                <strong>{isConsolidatedLoop ? `${step.mode} · ${step.product}` : step.product}</strong>
-                <p>{step.detail}</p>
-              </div>
-            </li>
-          ))}
-        </ol>
-        {!isConsolidatedLoop ? <AuthorityStrip response={scenario.response} /> : null}
-      </EditorialSection>
+        {/* 2. Who needs to respond */}
+        <EditorialSection
+          eyebrow="2. WHO NEEDS TO RESPOND"
+          title="Clear ownership across people and connected systems."
+          intro="Each role and system contributes specific information while keeping its established operational and safety responsibilities."
+        >
+          <div className="lm-people-authority">
+            {scenario.people.map((person) => (
+              <article key={person.role}>
+                <h3>{person.role}</h3>
+                <p>{person.authority}</p>
+              </article>
+            ))}
+          </div>
+          <div className="lm-systems-retained">
+            {scenario.systems.map((system) => (
+              <article key={system.name} className="lm-v2-note">
+                <span>{system.name}</span>
+                <p>{system.evidence}</p>
+                <small>Retains: {system.retains}</small>
+              </article>
+            ))}
+          </div>
+        </EditorialSection>
 
-      <EditorialSection eyebrow="WORK AND HANDOFFS" title="Work state advances the response. It does not set the result.">
-        <div className="lm-v2-columns-2"><ResponseTimeline scenario={scenario} /><article className="lm-v2-note"><span>Work-system and provider records</span><h3>Context retained with the Condition</h3><ul className="lm-v2-list">{scenario.workHandoffs.map((handoff) => <li key={handoff}>{handoff}</li>)}</ul></article></div>
-      </EditorialSection>
+        {/* 3. How the response stays connected */}
+        <EditorialSection
+          eyebrow="3. HOW THE RESPONSE STAYS CONNECTED"
+          title="Evidence → Understand → Decide → Coordinate → Act → Verify"
+          intro="The Accountable Operations Loop keeps the issue, approvals, and work connected across teams from the initial warning through post-work verification."
+          tone="grid"
+        >
+          <ol
+            className="lm-response-stages"
+            aria-label="Accountable Operations stages, modes, and responsible parties"
+          >
+            {scenario.response.map((step, index) => (
+              <li key={step.stage}>
+                <span>{String(index + 1).padStart(2, "0")}</span>
+                <div>
+                  <h3>{step.stage}</h3>
+                  <strong>{`${step.mode} · ${step.product}`}</strong>
+                  <p>{step.detail}</p>
+                </div>
+              </li>
+            ))}
+          </ol>
+        </EditorialSection>
 
-      <EditorialSection eyebrow="RECOVERY CONTRACT" title="Define the return measurements before declaring recovery." tone="grid">
-        <RecoveryContractPanel scenario={scenario} />
-        <div className="lm-reference-recovery"><h3>Reference recovery dataset</h3><ul>{scenario.recovery.map((item) => <li key={item}>{item}</li>)}</ul><p>{scenario.resultSummary}</p></div>
-        <InlineLink to="/resources/industrial-concepts/operational-outcome-thread">Why the operational outcome thread continues beyond work closure</InlineLink>
-      </EditorialSection>
+        {/* 4. How recovery is checked */}
+        <EditorialSection
+          eyebrow="4. HOW RECOVERY IS CHECKED"
+          title="Completed work records the task. Operating measurements check the result."
+          intro="Closing a work order or contractor dispatch records that the field task finished. Recovery is checked against subsequent equipment readings across the site's agreed observation period, while authorized personnel retain acceptance responsibility."
+        >
+          <div className="lm-v2-columns-2">
+            <article className="lm-v2-note">
+              <span>Recovery criteria ({scenario.stabilityPeriod})</span>
+              <h3>What is checked after the work</h3>
+              <ul className="lm-v2-list">
+                {scenario.recoveryCriteria.map((criterion) => (
+                  <li key={criterion}>{criterion}</li>
+                ))}
+              </ul>
+            </article>
+            <article className="lm-v2-note">
+              <span>Post-work evaluation</span>
+              <h3>How the outcome is recorded</h3>
+              <p>{scenario.resultSummary}</p>
+              <p style={{ marginTop: "12px" }}>
+                If required readings are missing, stale, or still outside the site&apos;s agreed range after the work order closes, the operating result remains unresolved. If the same abnormal condition returns within the configured follow-up window ({scenario.recurrenceWindow}), the issue can be reopened with its prior history intact.
+              </p>
+            </article>
+          </div>
+          <div style={{ marginTop: "20px" }}>
+            <InlineLink to="/resources/industrial-concepts/operational-outcome-thread">
+              Read why a closed work order doesn&apos;t prove the problem is fixed
+            </InlineLink>
+          </div>
+          <ul className="lm-reference-sources" style={{ marginTop: "24px" }}>
+            {scenario.referenceBasis.map((source) => (
+              <li key={source.url}>
+                <a href={source.url} target="_blank" rel="noreferrer">
+                  <strong>{source.label}</strong>
+                  <ExternalLink aria-hidden="true" />
+                </a>
+                <p>{source.note}</p>
+              </li>
+            ))}
+          </ul>
+        </EditorialSection>
 
-      <EditorialSection title="Every result branch remains visible and evidence-backed.">
-        <div className="lm-result-branches">{resultBranchDefinitions.map((branch, index) => <article key={branch}><span>{String(index + 1).padStart(2, "0")}</span><p>{branch}</p></article>)}</div>
-      </EditorialSection>
-
-      <EditorialSection title="Program metrics are not event-proof criteria." tone="grid">
-        <div className="lm-v2-columns-2"><article className="lm-v2-note"><span>Program metrics</span><h3>Useful over time—not proof of this event</h3><ul className="lm-v2-list">{scenario.programMetrics.map((item) => <li key={item}>{item}</li>)}</ul></article><article className="lm-v2-note"><span>Event proof</span><h3>Measurements that establish this result</h3><ul className="lm-v2-list">{scenario.eventProof.map((item) => <li key={item}>{item}</li>)}</ul></article></div>
-      </EditorialSection>
-
-      <EditorialSection title="Reference basis and controlled assumptions.">
-        <ul className="lm-reference-sources">{scenario.referenceBasis.map((source) => <li key={source.url}><a href={source.url} target="_blank" rel="noreferrer"><strong>{source.label}</strong><ExternalLink aria-hidden="true" /></a><p>{source.note}</p></li>)}</ul>
-        <p className="lm-v2-caveat">The cited sources support technical reasonableness. Equipment limits, commissioned setpoints, operating bands, response authority, and acceptance criteria remain customer- and site-specific.</p>
-      </EditorialSection>
-
-      <EditorialSection title="Inspect the complete condition-to-outcome process map." tone="grid">
-        <ExpandableProcessMap scenario={scenario} textVersion={<ol className="lm-process-text-steps">{scenario.response.map((step) => <li key={step.stage}><strong>{step.stage} · {step.mode}</strong><span>{step.detail}</span></li>)}</ol>} />
-      </EditorialSection>
-
-      <EditorialSection eyebrow="PROOF STATUS" title="Demonstrable reference logic without a customer-production claim.">
-        <ScenarioProofPanel scenario={scenario} />
-      </EditorialSection>
-
-      <NextStep title={`Map the ${scenario.operatingProblem.toLowerCase()} response in your environment.`} copy="Bring the source systems, identities, operating owner, work handoffs, authority rules, and return measurements. We will map where accountability currently breaks." label="Discuss This Operating Response" to={`/contact?intent=operation&scenario=${scenario.slug}`} secondary={{ label: "Explore the Platform", to: "/platform" }} />
-    </article>
-  </>;
+        {/* 5. One relevant CTA */}
+        <NextStep
+          title="Start with one operating challenge."
+          copy="Tell us what happens today, which systems are involved, and where the response loses continuity."
+          label="Discuss your operation"
+          to={`/contact?intent=operation&scenario=${scenario.slug}`}
+          secondary={{ label: "Explore Resources", to: "/resources" }}
+        />
+      </article>
+    </>
+  );
 }

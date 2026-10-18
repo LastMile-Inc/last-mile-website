@@ -4,15 +4,7 @@ import { Loader2, CheckCircle2, Upload, FileText, AlertCircle } from "lucide-rea
 import { Button } from "@/app/components/ui/button";
 import { Input } from "@/app/components/ui/input";
 import { Label } from "@/app/components/ui/label";
-import emailjs from "@emailjs/browser";
-
-// EmailJS Configuration
-// To enable email functionality, sign up at https://www.emailjs.com/
-// and replace these placeholder values with your actual credentials:
-const EMAILJS_SERVICE_ID = "YOUR_SERVICE_ID"; // e.g., "service_abc123"
-const EMAILJS_TEMPLATE_ID = "YOUR_TEMPLATE_ID"; // e.g., "template_xyz789"
-const EMAILJS_PUBLIC_KEY = "YOUR_PUBLIC_KEY"; // e.g., "user_123456789"
-// Set the recipient email in your EmailJS template to: partners@lastmileinc.ai
+import { submitContactEmail } from "@/app/lib/submitContactEmail";
 
 interface FormData {
   name: string;
@@ -42,66 +34,31 @@ export function OEMForm() {
     setError(null);
 
     try {
-      // Convert file to base64 if present
-      let fileData = null;
-      if (uploadedFile) {
-        const reader = new FileReader();
-        fileData = await new Promise((resolve, reject) => {
-          reader.onload = () => resolve(reader.result);
-          reader.onerror = reject;
-          reader.readAsDataURL(uploadedFile);
-        });
-      }
-
-      // Prepare email parameters
-      const emailParams = {
-        to_email: "partners@lastmileinc.ai",
-        from_name: data.name,
-        from_email: data.email,
+      await submitContactEmail({
+        name: data.name,
+        email: data.email,
         company: data.company,
         role: data.role,
+        intent: "partner-oem",
+        intentLabel: "OEM / Ecosystem Technical Inquiry",
         message: data.message,
-        api_docs_url: data.apiDocsUrl || "Not provided",
-        file_name: uploadedFile ? uploadedFile.name : "No file attached",
-        file_data: fileData || "No file attached",
-      };
-
-      // Send email using EmailJS
-      // NOTE: Replace the placeholder credentials above with real EmailJS credentials
-      // For now, this will log the data and simulate a successful submission
-      if (
-        EMAILJS_SERVICE_ID === "YOUR_SERVICE_ID" ||
-        EMAILJS_TEMPLATE_ID === "YOUR_TEMPLATE_ID" ||
-        EMAILJS_PUBLIC_KEY === "YOUR_PUBLIC_KEY"
-      ) {
-        // Demo mode - just log and show success
-        console.log("=== OEM Portal Form Submission (Demo Mode) ===");
-        console.log("Email would be sent to: partners@lastmileinc.ai");
-        console.log("Form Data:", emailParams);
-        await new Promise((resolve) => setTimeout(resolve, 1500));
-      } else {
-        // Production mode - actually send email
-        await emailjs.send(
-          EMAILJS_SERVICE_ID,
-          EMAILJS_TEMPLATE_ID,
-          emailParams,
-          EMAILJS_PUBLIC_KEY
-        );
-      }
+        apiDocsUrl: data.apiDocsUrl || "Not provided",
+        fileName: uploadedFile ? uploadedFile.name : "Not provided",
+        pageName: "OEM / Ecosystem Inquiry",
+      });
 
       setIsSubmitting(false);
       setIsSuccess(true);
 
-      // Reset after showing success message
       setTimeout(() => {
         setIsSuccess(false);
         reset();
         setUploadedFile(null);
       }, 5000);
     } catch (err) {
-      console.error("Error sending email:", err);
+      console.error("Error sending inquiry:", err);
       setError(
-        "Failed to send your submission. Please try again or contact us directly at partners@lastmileinc.ai"
+        "Failed to send your submission. Please try again or contact us directly at contact@lastmileinc.ai"
       );
       setIsSubmitting(false);
     }
@@ -139,17 +96,10 @@ export function OEMForm() {
         <div className="w-20 h-20 bg-[#1d7cd8]/20 rounded-full flex items-center justify-center mx-auto mb-6">
           <CheckCircle2 className="text-[#1d7cd8] w-10 h-10" />
         </div>
-        <h3 className="text-2xl font-bold text-white mb-2">Technical Data Received</h3>
-        <p className="text-slate-400 mb-8">
-          Our technical team will review your submission and reach out within 24 hours.
+        <h3 className="text-2xl font-bold text-white mb-2">Thank you for reaching out.</h3>
+        <p className="text-slate-400">
+          We have received your message and will be with you shortly.
         </p>
-        <button
-          type="button"
-          onClick={() => setIsSuccess(false)}
-          className="text-[#1d7cd8] font-semibold hover:text-[#75ADE6] transition-colors"
-        >
-          Submit another request
-        </button>
       </div>
     );
   }

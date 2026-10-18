@@ -319,11 +319,6 @@ body.lm-makeover .lm-infinit-signal .signal-pipeline-caption {
   color: var(--lm-copy);
 }
 
-body.lm-makeover .lm-infinit-signal .signal-pipeline-caption span:first-child {
-  font-weight: 600;
-  color: var(--lm-ink);
-}
-
 /* Simple editorial columns below illustration (no card backgrounds or shadows) */
 body.lm-makeover .lm-infinit-signal .signal-regions-breakdown {
   margin-top: 20px;
@@ -543,6 +538,7 @@ body.lm-makeover .lm-infinit-signal .signal-record-dl {
 body.lm-makeover .lm-infinit-signal .signal-record-dl div {
   display: grid;
   grid-template-columns: 120px minmax(0, 1fr);
+  align-items: center;
   gap: 10px;
   font-size: 14px;
   line-height: 1.45;

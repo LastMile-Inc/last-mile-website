@@ -86,7 +86,7 @@ export function HomePage() {
           </div>
           <Tabs value={industry} onValueChange={setIndustry} className="industry-tabs">
             <TabsList className="industry-list" aria-label="Industry examples">{industries.map((item) => <TabsTrigger className="industry-trigger" key={item.name} value={item.name}><item.icon size={18} aria-hidden="true" />{item.name}</TabsTrigger>)}</TabsList>
-            {industries.map((item) => <TabsContent value={item.name} key={item.name} className="industry-panel"><span className="industry-icon" aria-hidden="true"><item.icon size={35} strokeWidth={1.1} /></span><h3>{item.title}</h3><p>{item.text}</p><div className="industry-challenges">{item.challenge}</div><small>Example use</small></TabsContent>)}
+            {industries.map((item) => <TabsContent value={item.name} key={item.name} className="industry-panel"><span className="industry-icon" aria-hidden="true"><item.icon size={35} strokeWidth={1.1} /></span><h3>{item.title}</h3><p>{item.text}</p><div className="industry-challenges">{item.challenge}</div></TabsContent>)}
           </Tabs>
         </div>
       </section>

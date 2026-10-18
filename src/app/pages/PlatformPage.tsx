@@ -73,7 +73,6 @@ function ProductIllustration({ basename, alt }: { basename: string; alt: string 
           />
         </picture>
       </div>
-      <figcaption className="pf-caption">Concept illustration</figcaption>
     </figure>
   );
 }
@@ -89,7 +88,7 @@ const products: Product[] = [
     href: "/infinit-signal",
     linkLabel: "Explore Infinit-Signal",
     imageBasename: "platform-infinit-signal",
-    imageAlt: "Concept illustration of factory operators and equipment connected to incoming equipment readings",
+    imageAlt: "Factory operators and equipment connected to incoming equipment readings",
   },
   {
     id: "singularity",
@@ -101,7 +100,7 @@ const products: Product[] = [
     href: "/singularity",
     linkLabel: "Explore Singularity",
     imageBasename: "platform-singularity",
-    imageAlt: "Concept illustration of water facility engineers reviewing how equipment, systems, and readings relate",
+    imageAlt: "Water facility engineers reviewing how equipment, systems, and readings relate",
   },
   {
     id: "infinit-flow",
@@ -113,7 +112,7 @@ const products: Product[] = [
     href: "/infinit-flow",
     linkLabel: "Explore Infinit-Flow",
     imageBasename: "platform-infinit-flow",
-    imageAlt: "Concept illustration of field operators coordinating work across equipment and systems",
+    imageAlt: "Field operators coordinating work across equipment and systems",
   },
   {
     id: "infinit-control",
@@ -125,7 +124,7 @@ const products: Product[] = [
     href: "/infinit-control",
     linkLabel: "Explore Infinit-Control",
     imageBasename: "platform-infinit-control",
-    imageAlt: "Concept illustration of an oilfield technician reviewing equipment status and operational readings on a tablet",
+    imageAlt: "Oilfield technician reviewing equipment status and operational readings on a tablet",
   },
 ];
 
@@ -148,7 +147,7 @@ export function PlatformPage() {
         <section className="pf-hero wrap" aria-labelledby="pf-hero-title">
           <div className="pf-hero-copy">
             <p className="eyebrow"><span className="little-line" /> THE LAST MILE PLATFORM</p>
-            <h1 id="pf-hero-title">Bring your systems and your team together.</h1>
+            <h1 id="pf-hero-title">We bring your systems and your team together.</h1>
             <p className="pf-lead">Last Mile brings equipment information, AI assistance, and everyday work into one connected platform. See what needs attention, organize the response, and check the result.</p>
             <div className="pf-actions">
               <a className="button" href={demoUrl} onClick={() => trackEvent("cta_demo_click", { placement: "platform_hero", destination: demoUrl })}>Request a demo <ArrowUpRight size={16} aria-hidden="true" /></a>
@@ -156,12 +155,55 @@ export function PlatformPage() {
             </div>
           </div>
           <PlatformHeroMedia />
-          <ul className="pf-hero-products" aria-label="The four products in the Last Mile platform">
-            <li><RadioTower size={18} aria-hidden="true" /><div><strong>Infinit-Signal</strong><span>Bring information together</span></div></li>
-            <li className="is-shared"><Network size={18} aria-hidden="true" /><div><strong>Singularity</strong><span>Understand your operation</span><em>Shared information used across the platform</em></div></li>
-            <li><Workflow size={18} aria-hidden="true" /><div><strong>Infinit-Flow</strong><span>Organize the work</span></div></li>
-            <li><LayoutDashboard size={18} aria-hidden="true" /><div><strong>Infinit-Control</strong><span>See and manage what matters</span></div></li>
-          </ul>
+        </section>
+
+        <section className="band section-space">
+          <div className="wrap">
+            <p className="eyebrow">THE PRODUCT FAMILY</p>
+            <h2>
+              Four products.
+              <br />
+              <span>One connected response.</span>
+            </h2>
+            <div className="product-family">
+              <article>
+                <span>01</span>
+                <h3>Infinit-Signal</h3>
+                <p>Reliable data from your existing systems.</p>
+                <a className="text-link" href="/infinit-signal">
+                  Explore Infinit-Signal <ArrowRight size={16} />
+                </a>
+              </article>
+              <article>
+                <span>02</span>
+                <h3>Singularity</h3>
+                <p>Understand your equipment in context.</p>
+                <a className="text-link" href="/singularity">
+                  Explore Singularity <ArrowRight size={16} />
+                </a>
+              </article>
+              <article>
+                <span>03</span>
+                <h3>Infinit-Flow</h3>
+                <p>Keep work moving across teams and systems.</p>
+                <a className="text-link" href="/infinit-flow">
+                  Explore Infinit-Flow <ArrowRight size={16} />
+                </a>
+              </article>
+              <article>
+                <span>04</span>
+                <h3>Infinit-Control</h3>
+                <p>See what needs attention and what changed.</p>
+                <a className="text-link" href="/infinit-control">
+                  Explore Infinit-Control <ArrowRight size={16} />
+                </a>
+              </article>
+            </div>
+            <p className="plain-note">
+              We’ll discuss the right starting point for your operation in the
+              demo.
+            </p>
+          </div>
         </section>
 
         <section className="pf-products" id="products" aria-labelledby="pf-products-title">
@@ -191,7 +233,7 @@ export function PlatformPage() {
           <div className="pf-fit-intro">
             <h2 id="pf-fit-title">Work with the systems you already use.</h2>
             <p>Last Mile connects information and work across your existing equipment and business software. We’ll review your systems with you to confirm the connections and starting scope.</p>
-            <a className="text-link pf-fit-link" href="/resources/architect-reference-center" onClick={() => trackEvent("cta_explore_platform_click", { placement: "platform_fit", destination: "/resources/architect-reference-center" })}>Explore technical details <ArrowRight size={16} aria-hidden="true" /></a>
+            <a className="text-link pf-fit-link" href="/resources/industrial-concepts/uns-and-ssom" onClick={() => trackEvent("cta_explore_platform_click", { placement: "platform_fit", destination: "/resources/industrial-concepts/uns-and-ssom" })}>Explore technical details <ArrowRight size={16} aria-hidden="true" /></a>
           </div>
           <ul className="pf-fit-list">
             {systemFit.map((item) => <li key={item.title}><h3>{item.title}</h3><p>{item.text}</p></li>)}

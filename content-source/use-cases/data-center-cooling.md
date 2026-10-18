@@ -82,15 +82,15 @@ Quarantine detail: one duplicate event and one pressure sample stale by 47 secon
 
 ## Reference timeline
 
-- 14:32:18 - RUN command issued.
-- 14:32:23 - Pump status remains Stopped.
-- 14:32:26 - Infinit-Signal accepts the qualified mismatch.
-- 14:34:07 - Maya Chen acknowledges the response, 01:49 after issue creation.
-- 14:35:10 - SAP `WO-18427` created.
-- 14:39:28 - Provider dispatch `M-88214` accepted.
-- 15:02:41 - Field work marked complete in SAP.
-- 15:17:41 - Fifteen-minute measurement window completes.
-- 15:17:42 - Recovery established if the recovery dataset is selected.
+- 14:32:18 - RUN command issued (source control system: `BMS / SCADA (BMS-DC03-01)`).
+- 14:32:23 - Pump status remains Stopped (source observation: `BMS / SCADA (BMS-DC03-01)`).
+- 14:32:26 - Infinit-Signal accepts the qualified mismatch (`AUTO · Infinit-Signal`).
+- 14:34:07 - Maya Chen acknowledges the response, 01:49 after issue creation (`HUMAN AUTHORITY · Maya Chen`).
+- 14:35:10 - SAP `WO-18427` created (`AUTO · Infinit-Flow`).
+- 14:39:28 - Provider dispatch `M-88214` accepted (`Mechanical service provider · Recorded in Infinit-Flow`).
+- 15:02:41 - Field work marked complete in SAP (`HUMAN AUTHORITY · SAP EAM / technician`).
+- 15:17:41 - Fifteen-minute measurement window completes (`AUTO · Singularity`).
+- 15:17:42 - Recovery established if the recovery dataset is selected (`AUTO · Singularity + Infinit-Control`).
 
 Work completion occurs 15 minutes before operating recovery is established.
 

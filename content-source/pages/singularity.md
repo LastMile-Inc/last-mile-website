@@ -4,7 +4,7 @@ status: approved
 owner: Singularity Product Marketing
 last_reviewed: 2026-10-16
 claim_maturity: [designed, reference_architecture]
-depends_on: [PROD-SINGULARITY-001, CONCEPT-SEMANTIC-001, CONCEPT-UNS-001, CLAIMS-REGISTRY-001]
+depends_on: [PROD-SINGULARITY-001, CONCEPT-UNS-001, CLAIMS-REGISTRY-001]
 used_by: [/singularity]
 ---
 

@@ -2,18 +2,19 @@ import { ContactLastMileForm } from "@/app/components/ContactLastMileForm";
 import { SEO } from "@/app/components/SEO";
 import { ArrowRight } from "lucide-react";
 import { ServiceNote } from "@/app/components/makeover/SiteShell";
+import "@/styles/supporting-pages.css";
 
 export function DemoPage() {
   return (
     <>
       <SEO
         title={"Request a demo | Last Mile"}
-        description={"Walk through an example, explore how the platform fits your systems, and ask the questions that matter to your team. Bring a use case—or start with one of ours."}
+        description={"Walk through an example, explore how the platform fits your systems, and ask the questions that matter to your team. Bring a use case, or start with one of ours."}
         canonicalPath="/demo"
         robots="noindex, nofollow"
       />
       <main id="main">
-        <section className="conversion-hero wrap">
+        <section className="conversion-hero wrap demo-page-hero">
           <div>
             <p className="eyebrow">SEE LAST MILE IN ACTION</p>
             <h1>
@@ -21,7 +22,7 @@ export function DemoPage() {
               <span>from warning to verified recovery.</span>
             </h1>
             <p className="page-lead">
-              Walk through an example, explore how the platform fits your systems, and ask the questions that matter to your team. Bring a use case—or start with one of ours.
+              Walk through an example, explore how the platform fits your systems, and ask the questions that matter to your team. Bring a use case, or start with one of ours.
             </p>
           </div>
           <aside className="request-panel" id="request">

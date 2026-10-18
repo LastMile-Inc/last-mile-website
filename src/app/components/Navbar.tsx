@@ -11,17 +11,15 @@ const products = [
 
 const useCases = [
   ["/use-cases", "All Operating Use Cases"],
-  ["/use-cases/data-center-cooling", "Cooling Redundancy — Data Centers"],
-  ["/use-cases/municipal-wastewater", "Pumping Capacity — Municipal Wastewater"],
-  ["/use-cases/manufacturing-compressed-air", "Compressed-Air Loss — Manufacturing"],
-  ["/use-cases/cold-storage-refrigeration", "Refrigeration Capacity — Cold Storage"],
+  ["/use-cases/data-center-cooling", "Cooling Redundancy · Data Centers"],
+  ["/use-cases/municipal-wastewater", "Pumping Capacity · Municipal Wastewater"],
+  ["/use-cases/manufacturing-compressed-air", "Compressed-Air Loss · Manufacturing"],
+  ["/use-cases/cold-storage-refrigeration", "Refrigeration Capacity · Cold Storage"],
 ] as const;
 
 const resources = [
   ["/resources", "Resources Overview"],
-  ["/resources/pmo-implementation-hub", "PMO Implementation Hub"],
-  ["/resources/architect-reference-center", "Architect Reference Center (Technical)"],
-  ["/resources/industrial-concepts", "Industrial Concepts (Technical)"],
+  ["/resources/industrial-concepts", "Accountable Operations, explained"],
   ["/ecosystem", "Industrial Ecosystem"],
   ["/signal-to-action", "Signal 2 Action"],
   ["/company/newsroom", "News and Updates"],
@@ -46,7 +44,7 @@ export function Navbar() {
   return (
     <nav ref={navRef} className="lm-nav" aria-label="Primary navigation" onMouseLeave={() => setOpenMenu(null)} onKeyDown={(event) => { if (event.key === "Escape" && mobileOpen) { setMobileOpen(false); } }}>
       <div className="lm-nav__inner">
-        <Link to="/" className="lm-nav__brand"><img src="/logo.png" width="64" height="41" alt="" /><strong><span>Last</span> <span>Mile</span></strong></Link>
+        <Link to="/" className="lm-nav__brand" aria-label="Last Mile home"><img src="/last-mile-logo-hd.png" width="64" height="38" alt="" /><strong><span>Last</span> <span>Mile</span></strong></Link>
         <div className="lm-nav__links">
           <NavLink to="/" label="Home" active={active("/")} />
           <NavLink to="/platform" label="Platform" active={active("/platform")} />

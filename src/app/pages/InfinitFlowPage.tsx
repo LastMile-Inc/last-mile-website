@@ -39,21 +39,21 @@ const actionDistinctions = [
     mode: "ASSIST",
     title: "A recommended action",
     summary:
-      "Infinit-Flow assembles the relevant operating context, historical precedent, and suggested next step for an operator or engineer to review. No system request or operational change occurs until an authorized person decides how to proceed.",
+      "Infinit-Flow brings together the relevant equipment context, operating history, and suggested next step for an operator or engineer to review. Nothing changes in your systems until an authorized person decides how to proceed.",
   },
   {
     mode: "HUMAN AUTHORITY",
     title: "An approved action",
     summary:
-      "Actions that cross operational, maintenance, or safety boundaries pause at explicit approval checkpoints. Responsible personnel review the scope and record their decision.",
+      "Steps that affect physical equipment, maintenance, or safety wait at clear approval checkpoints. The responsible person reviews the scope and records the decision before work proceeds.",
     canonicalRule:
-      "Retain physical-work, safety, LOTO, and control authority under customer policy.",
+      "Physical work, safety procedures, lockout/tagout, and equipment control remain under your team's authority.",
   },
   {
     mode: "AUTO",
     title: "An executed action",
     summary:
-      "When customer policy explicitly authorizes a bounded digital step—such as opening a linked work request, routing a notification, or logging a case update—Infinit-Flow executes that step and records the receipt.",
+      "When your rules explicitly allow a specific digital step, such as opening a linked work request, sending a team notification, or updating a case record, Infinit-Flow runs that step and logs the confirmation.",
   },
 ] as const;
 
@@ -61,22 +61,22 @@ const handoffPreservedItems = [
   {
     term: "Responsibility",
     detail:
-      "Who owns the overall response and who is accountable for the current step across operations, maintenance, or external service teams.",
+      "Who owns the overall response and who is responsible for the current step across operations, maintenance, or external service teams.",
   },
   {
     term: "Required approval",
     detail:
-      "Which role or named authority must approve a step before work is dispatched, escalated, or closed.",
+      "Which role or person must approve a step before work is dispatched, escalated, or closed.",
   },
   {
     term: "Work status",
     detail:
-      "Whether a task or external work order is queued, acknowledged, in progress, blocked, or marked complete—tracked alongside durable timers and retries.",
+      "Whether a task or external work order is waiting, accepted, in progress, blocked, or marked complete, tracked with clear timing and follow-up.",
   },
   {
     term: "Return evidence for the next step",
     detail:
-      "What operating readings and stability criteria must be checked after the work finishes. When the field task or work order closes, Infinit-Flow asks Singularity to evaluate the configured return measurements. Work-system state is contextual evidence only; it cannot set the physical result.",
+      "What equipment readings and stability checks must be reviewed after the work finishes. Closing a work order records that the task finished, while Singularity checks the equipment readings after the work to confirm whether the issue is resolved.",
   },
 ] as const;
 
@@ -84,9 +84,8 @@ const connectedProducts = [
   {
     step: "01",
     name: "Infinit-Signal",
-    role: "Dependable operational data",
-    summary:
-      "Captures operational signals, checks data quality, and preserves source identity and event time.",
+    role: "Reliable data",
+    summary: "Reliable data from your existing systems.",
     href: "/infinit-signal",
     current: false,
   },
@@ -94,26 +93,23 @@ const connectedProducts = [
     step: "02",
     name: "Singularity",
     role: "The operational world model",
-    summary:
-      "Connects assets, conditions, dependencies, history, work, and outcomes in a shared operational world model.",
+    summary: "Understand your equipment in context.",
     href: "/singularity",
     current: false,
   },
   {
     step: "03",
     name: "Infinit-Flow",
-    role: "Governed orchestration",
-    summary:
-      "Coordinates tasks, approvals, and approved automated actions across people and connected systems.",
+    role: "Coordinated work",
+    summary: "Keep work moving across teams and systems.",
     href: "/infinit-flow",
     current: true,
   },
   {
     step: "04",
     name: "Infinit-Control",
-    role: "Role-based operational views",
-    summary:
-      "Gives operators, shift leads, and leaders a clear view of conditions, ownership, work status, and outcome evidence.",
+    role: "Role-based visibility",
+    summary: "See what needs attention and what changed.",
     href: "/infinit-control",
     current: false,
   },
@@ -122,7 +118,7 @@ const connectedProducts = [
 export function InfinitFlowPage() {
   const demoUrl = "/demo?source=infinit-flow";
   const pageDescription =
-    "Infinit-Flow coordinates tasks, approvals, and approved automated actions around a shared operational issue—so responsibility, progress, and next steps stay connected.";
+    "Infinit-Flow coordinates tasks, approvals, and approved automated actions around a shared operational issue, so responsibility, progress, and next steps stay connected.";
 
   return (
     <main className="lm-product-detail lm-infinit-flow" id="main">
@@ -152,7 +148,7 @@ export function InfinitFlowPage() {
           </h1>
           <p className="flow-hero-lead">
             Coordinate tasks, approvals, and approved automated actions around a
-            shared operational issue—so responsibility, progress, and next steps
+            shared operational issue, so responsibility, progress, and next steps
             stay connected.
           </p>
           <div className="hero-actions">
@@ -189,7 +185,7 @@ export function InfinitFlowPage() {
               />
               <img
                 src="/images/platform/infinit-flow-control-room.png"
-                alt="Concept illustration of an industrial display showing a coordinated workflow diagram in front of a manufacturing facility."
+                alt="Industrial display showing a coordinated workflow diagram in front of a manufacturing facility."
                 width={1672}
                 height={941}
                 loading="eager"
@@ -198,9 +194,6 @@ export function InfinitFlowPage() {
               />
             </picture>
           </div>
-          <figcaption className="flow-figure-caption">
-            Concept illustration
-          </figcaption>
         </figure>
       </section>
 
@@ -216,7 +209,7 @@ export function InfinitFlowPage() {
               COORDINATED RESPONSE ROUTING
             </p>
             <h2 id="flow-routing-title">
-              Keep the response moving through every handoff.
+              You got workflows?  We do workflows.
             </h2>
             <p className="flow-section-lead">
               When an issue crosses operations, maintenance, and service
@@ -227,7 +220,7 @@ export function InfinitFlowPage() {
 
           <figure
             className="flow-routing-figure"
-            aria-label="Conceptual illustration of Infinit-Flow connecting operating context, rules and approvals, people and systems, and progress and evidence"
+            aria-label="Diagram of Infinit-Flow connecting operating context, rules and approvals, people and systems, and progress and evidence"
           >
             <div className="flow-routing-canvas">
               <picture>
@@ -244,7 +237,7 @@ export function InfinitFlowPage() {
                 <img
                   className="flow-routing-img"
                   src="/images/platform/orchestration-routing-web-v4.png"
-                  alt="Conceptual illustration showing operating context routing through rules and approvals to people and systems, with progress and evidence connected across the response."
+                  alt="Diagram showing operating context routing through rules and approvals to people and systems, with progress and evidence connected across the response."
                   width={1672}
                   height={941}
                   loading="eager"
@@ -294,11 +287,10 @@ export function InfinitFlowPage() {
             </div>
 
             <figcaption className="flow-routing-caption">
-              <span>Concept illustration</span>
               <span className="flow-routing-caption-note">
                 Configured connections to your existing operational, work, and
                 notification systems are scoped during implementation. Returned
-                updates and completed work provide evidence for the next check—they
+                updates and completed work provide evidence for the next check; they
                 do not automatically establish physical recovery.
               </span>
             </figcaption>
@@ -346,11 +338,11 @@ export function InfinitFlowPage() {
               <div className="flow-editorial-intro">
                 <h3>Clear boundaries for every action</h3>
                 <p>
-                  Infinit-Flow determines what should happen next and creates one
-                  durable Response across operators, work systems, providers,
-                  approvals, evidence, and return measurements. It executes only
-                  the digital steps policy allows and keeps physical authority
-                  where operations require it.
+                  Infinit-Flow helps your team decide what should happen next
+                  and keeps operators, maintenance systems, service providers,
+                  approvals, and equipment checks connected in one response. It
+                  runs only the digital steps your rules allow and keeps
+                  physical equipment authority with your team.
                 </p>
               </div>
 
@@ -377,14 +369,31 @@ export function InfinitFlowPage() {
               </dl>
 
               <details className="flow-tech-details">
-                <summary>Technical details: Asset compatibility and selection</summary>
+                <summary>
+                  Technical details: Governance, authority, and asset selection
+                </summary>
                 <div className="flow-tech-details-body">
+                  <p>
+                    Infinit-Flow determines what should happen next and creates
+                    one durable Response across operators, work systems,
+                    providers, approvals, evidence, and return measurements. It
+                    executes only the digital steps policy allows and keeps
+                    physical authority where operations require it. Retain
+                    physical-work, safety, LOTO, and control authority under
+                    customer policy.
+                  </p>
                   <p>
                     Choose an operational object type and intent. Infinit-Flow
                     returns only assets compatible with the required SSOM class,
                     capability, tenant, site, role, quality, and freshness.
                     Simple controls appear first; expert semantic and lineage
                     detail remains available when needed.
+                  </p>
+                  <p>
+                    When the field task or work order closes, Infinit-Flow asks
+                    Singularity to evaluate the configured return measurements.
+                    Work-system state is contextual evidence only; it cannot set
+                    the physical result.
                   </p>
                 </div>
               </details>
@@ -449,7 +458,7 @@ export function InfinitFlowPage() {
             </h2>
             <p className="flow-section-lead">
               Infinit-Flow turns shared operational context from Singularity
-              into coordinated work—and hands live response progress and outcome
+              into coordinated work, and hands live response progress and outcome
               checks to Infinit-Control.
             </p>
           </div>

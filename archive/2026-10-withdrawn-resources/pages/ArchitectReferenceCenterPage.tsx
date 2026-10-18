@@ -71,7 +71,7 @@ export function ArchitectReferenceCenterPage() {
         <EditorialHero
           eyebrow="Architect reference"
           title="Customer Architect Reference Center"
-          intro="Evaluate source-fit, model the telemetry footprint, inspect zero-trust deployment boundaries, and download review-ready control mappings without leaving the Last Mile site."
+          intro="Evaluate how your existing protocols fit, estimate data volume, review deployment security boundaries, and download security control mappings."
           support="Reference architecture only. This center does not claim certified connector support, production attestation, or customer compliance."
           primary={{
             label: "Open the calculators",

@@ -9,7 +9,6 @@ import {
 import {
   coolingReference,
   outcomes,
-  referenceDisclosure,
   type ResultKey,
 } from "@/app/pages/platformReferenceData";
 import "@/styles/infinit-control-page.css";
@@ -20,10 +19,10 @@ const rolePerspectives = [
     role: "Operators",
     question: "What needs attention, and what can I do?",
     summary:
-      "See the active operational issue, current readings alongside their expected operating band, recent trend and freshness, and the specific response steps authorized for the operator’s role and site.",
+      "See the active operating issue, current equipment readings alongside their expected range, how recent each reading is, and the response steps permitted for your role and site.",
     details: [
-      "Presents the affected asset, upstream and downstream dependencies, and recent service context in one case view.",
-      "Exposes only the acknowledgements, task updates, and bounded actions that customer policy authorizes for that operator.",
+      "Shows the affected equipment, connected dependencies, and recent service history in one view.",
+      "Shows only the acknowledgements, task updates, and actions your organization permits for that role.",
     ],
   },
   {
@@ -31,10 +30,10 @@ const rolePerspectives = [
     role: "Shift leads",
     question: "Who owns the response, and where is progress blocked?",
     summary:
-      "Track named ownership, acknowledgement timers, pending approvals, external work orders, and provider dispatches across active issues—so handoffs between shifts and teams stay visible.",
+      "Track who owns each response, acknowledgement times, pending approvals, work orders, and service dispatches, so handoffs between shifts and teams stay clear.",
     details: [
-      "Highlights where a response is waiting on an approval gate, maintenance dispatch, or post-work stability window.",
-      "Separates work-order progress from equipment operating state so closed tickets are never mistaken for physical recovery.",
+      "Shows where a response is waiting on an approval, maintenance dispatch, or post-work stability period.",
+      "Separates work-order progress from equipment readings so closed tickets are never mistaken for confirmed recovery.",
     ],
   },
   {
@@ -43,10 +42,10 @@ const rolePerspectives = [
     question:
       "Where is risk accumulating, and what results have been established?",
     summary:
-      "Review cross-system conditions, protection and capacity exposure, recurring issues, and verified outcomes backed by post-work operating evidence rather than raw alarm counts.",
+      "Review operating conditions across systems, protection and capacity risks, recurring issues, and confirmed results backed by equipment readings after the work.",
     details: [
-      "Connects site and portfolio summaries directly to the underlying operating record, work history, and verification evidence.",
-      "Distinguishes established recovery from partial, failed, recurrent, or insufficient-data outcomes.",
+      "Connects site and portfolio summaries directly to the operating record, work history, and verification evidence.",
+      "Separates confirmed recovery from partial recovery, failed work, recurring issues, or missing data.",
     ],
   },
 ] as const;
@@ -78,7 +77,7 @@ const milestoneStates: Array<{
     key: "insufficient",
     tabLabel: "Work complete · No valid data",
     milestoneSummary:
-      "The work order is closed, but return readings are stale or unavailable—preventing the platform from declaring recovery until valid evidence arrives.",
+      "The work order is closed, but return readings are stale or unavailable, preventing the platform from declaring recovery until valid evidence arrives.",
   },
 ];
 
@@ -86,36 +85,36 @@ const connectedProducts = [
   {
     step: "01",
     name: "Infinit-Signal",
-    role: "Dependable operational data",
+    role: "Reliable data from your existing systems",
     summary:
-      "Captures operational signals, checks data quality, and preserves source identity and event time.",
+      "Collects operational information, checks its quality, and preserves where it came from and when it happened.",
     href: "/infinit-signal",
     current: false,
   },
   {
     step: "02",
     name: "Singularity",
-    role: "The operational world model",
+    role: "Understand your equipment in context",
     summary:
-      "Connects assets, conditions, dependencies, history, work, and outcomes in a shared operational world model.",
+      "Connects equipment, relationships, history, work, and outcome evidence in a shared operational world model.",
     href: "/singularity",
     current: false,
   },
   {
     step: "03",
     name: "Infinit-Flow",
-    role: "Governed orchestration",
+    role: "Keep work moving across teams and systems",
     summary:
-      "Coordinates tasks, approvals, and approved automated actions across people and connected systems.",
+      "Coordinates tasks, approvals, and authorized automated steps across people and connected systems.",
     href: "/infinit-flow",
     current: false,
   },
   {
     step: "04",
     name: "Infinit-Control",
-    role: "Role-based operational views",
+    role: "See what needs attention and what changed",
     summary:
-      "Gives each role a clear view of operating conditions, responsibilities, work, and outcomes.",
+      "Gives each role a clear view of operating conditions, responsibilities, work, and results.",
     href: "/infinit-control",
     current: true,
   },
@@ -124,7 +123,7 @@ const connectedProducts = [
 export function InfinitControlPage() {
   const demoUrl = "/demo?source=infinit-control";
   const pageDescription =
-    "Infinit-Control gives each role a clear view of operating conditions, responsibilities, work, and outcomes—with the context and authority needed to respond.";
+    "Infinit-Control gives each role a clear view of operating conditions, responsibilities, work, and outcomes, with the context and authority needed to respond.";
 
   const [selectedIdx, setSelectedIdx] = useState(0);
   const tabRefs = useRef<Array<HTMLButtonElement | null>>([]);
@@ -188,7 +187,7 @@ export function InfinitControlPage() {
           </h1>
           <p className="control-hero-lead">
             Give each role a clear view of operating conditions,
-            responsibilities, work, and outcomes—with the context and authority
+            responsibilities, work, and outcomes, with the context and authority
             needed to respond.
           </p>
           <div className="hero-actions">
@@ -225,7 +224,7 @@ export function InfinitControlPage() {
               />
               <img
                 src="/images/platform/field-command-v2.png"
-                alt="Concept illustration of a field technician beside a pump assembly reviewing operating conditions, ownership, work status, and trend data on a tablet."
+                alt="Field technician beside a pump assembly reviewing operating conditions, ownership, work status, and trend data on a tablet."
                 width={1536}
                 height={1024}
                 loading="eager"
@@ -234,9 +233,6 @@ export function InfinitControlPage() {
               />
             </picture>
           </div>
-          <figcaption className="control-figure-caption">
-            Concept illustration
-          </figcaption>
         </figure>
       </section>
 
@@ -289,37 +285,41 @@ export function InfinitControlPage() {
 
           <div className="control-authority-boundary">
             <div className="control-authority-boundary-block">
-              <h3>Scoped authority—not unrestricted control</h3>
+              <h3>Clear permissions, not unrestricted control</h3>
               <p>
-                Every view and action respects tenant, site, and role
-                permissions. PLCs, DCS, SIS, SCADA, BMS, and local HMIs retain
-                deterministic control and safety responsibilities;
-                Infinit-Control coordinates the cross-system operational
-                response and exposes only the actions authorized by customer
-                policy.
+                Each person sees the issues and actions relevant to their role
+                and site. Existing control and safety systems, such as PLCs,
+                SCADA, and BMS, keep local equipment control, while
+                Infinit-Control coordinates the response across systems and
+                shows only the actions your rules allow.
               </p>
             </div>
             <div className="control-authority-boundary-block">
-              <h3>Know when the data needs attention.</h3>
+              <h3>Know when readings need attention</h3>
               <p>
-                Important measurements show a numerical value, engineering unit,
-                expected or reference band, state icon and text, and meaningful
-                trend or freshness. Stale, quarantined, unresolved, or missing
-                inputs are shown as No valid data and cannot support a recovered
-                result.
+                Key equipment readings show the value, unit, expected range,
+                current status, and how recent the reading is. Outdated,
+                incomplete, or missing readings are labeled No valid data and
+                cannot be used to confirm recovery.
               </p>
             </div>
           </div>
 
           <details className="control-tech-details">
-            <summary>Technical details: Operational command surface scope</summary>
+            <summary>Technical details: Permissions, measurement rules, and scope</summary>
             <div className="control-tech-details-body">
               <p>
                 Infinit-Control gives each role a governed operational command
                 surface for current state, canonical topology, evidence,
                 ownership, work, system participation, authority, return
                 measurements, and verified Outcomes. It is more than a dashboard
-                because it keeps the complete accountable response in view.
+                because it keeps the complete accountable response in view. Every
+                view and action respects tenant, site, and role permissions.
+                Important measurements show a numerical value, engineering unit,
+                expected or reference band, state icon and text, and meaningful
+                trend or freshness. Stale, quarantined, unresolved, or missing
+                inputs are shown as No valid data and cannot support a recovered
+                result.
               </p>
             </div>
           </details>
@@ -348,7 +348,7 @@ export function InfinitControlPage() {
 
           <figure
             className="control-oversight-figure"
-            aria-label="Conceptual illustration of shared operational oversight across conditions, ongoing responses, and outcome evidence"
+            aria-label="Illustration of shared operational oversight across conditions, ongoing responses, and outcome evidence"
           >
             <div className="control-oversight-media">
               <picture>
@@ -364,7 +364,7 @@ export function InfinitControlPage() {
                 />
                 <img
                   src="/images/platform/mission-control-v2.png"
-                  alt="Concept illustration of operations staff reviewing conditions, ongoing responses, and outcome evidence across a shared operational view."
+                  alt="Operations staff reviewing conditions, ongoing responses, and outcome evidence across a shared operational view."
                   width={1672}
                   height={941}
                   loading="eager"
@@ -373,11 +373,10 @@ export function InfinitControlPage() {
               </picture>
             </div>
             <figcaption className="control-oversight-caption">
-              <span>Concept illustration</span>
               <span className="control-oversight-caption-note">
                 Illustration of broader operational oversight across sites and
                 teams. Last Mile delivers software views on your existing
-                workstations, tablets, and operational displays—it does not
+                workstations, tablets, and operational displays; it does not
                 require a dedicated physical control room or proprietary
                 hardware.
               </span>
@@ -413,12 +412,9 @@ export function InfinitControlPage() {
           >
             <div className="control-example-header">
               <div>
-                <span className="control-example-badge">
-                  Synthetic reference example
-                </span>
                 <h3 id="control-example-heading">
                   {coolingReference.identity.system} (
-                  {coolingReference.identity.asset}) — Work status vs. operating
+                  {coolingReference.identity.asset}) · Work status vs. operating
                   evidence
                 </h3>
               </div>
@@ -432,7 +428,7 @@ export function InfinitControlPage() {
             <div
               className="control-example-tabs"
               role="tablist"
-              aria-label="Illustrative outcomes after work order completion"
+              aria-label="Outcomes after work order completion"
             >
               {milestoneStates.map((state, idx) => {
                 const isSelected = idx === selectedIdx;
@@ -494,7 +490,7 @@ export function InfinitControlPage() {
                           ? activeOutcome.label
                           : activeOutcome.key === "failed"
                             ? "Further response needed"
-                            : "No valid data — Insufficient return data"}
+                            : "No valid data · Insufficient return data"}
                     </strong>{" "}
                     <span className="control-summary-meta">
                       (
@@ -510,7 +506,7 @@ export function InfinitControlPage() {
                   <dt>Why:</dt>
                   <dd>
                     {activeOutcome.key === "partial"
-                      ? `Pressure and the required stability window have not met the recovery criteria. ${activeOutcome.reason}`
+                      ? "Pressure and the required stability window have not met the recovery criteria."
                       : activeOutcome.reason}
                   </dd>
                 </div>
@@ -542,12 +538,11 @@ export function InfinitControlPage() {
               </div>
 
               <p className="control-example-disclosure">
-                {referenceDisclosure}{" "}
                 <a
                   href="/use-cases/data-center-cooling"
                   className="text-link control-inline-link"
                 >
-                  Explore the full Cooling Loop B reference use case{" "}
+                  Explore the full Cooling Loop B use case{" "}
                   <ArrowRight size={15} aria-hidden="true" />
                 </a>
               </p>

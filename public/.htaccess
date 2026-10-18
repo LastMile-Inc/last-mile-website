@@ -5,6 +5,11 @@
   RewriteRule ^solutions/?$ /integrations [R=301,L]
   RewriteRule ^about/?$ /company [R=301,L]
 
+  # Withdrawn public resources and downloads (410 Gone)
+  RewriteRule ^resources/(?:architect-reference-center|pmo-implementation-hub)/?$ - [G,L]
+  RewriteRule ^downloads/architect-reference/.*$ - [G,L]
+  RewriteRule ^resources/industrial-concepts/(?:semantic-interoperability|opc-ua|digital-twins|industry-5-0|ot-security|data-spaces|composable-manufacturing|lights-out-operations)/?$ - [G,L]
+
   # Serve a markdown homepage to agents that explicitly ask for it.
   RewriteCond %{REQUEST_URI} ^/?$
   RewriteCond %{HTTP:Accept} text/markdown [NC]
@@ -37,9 +42,10 @@
   RewriteCond %{REQUEST_FILENAME} -d
   RewriteRule ^ - [L]
   
-  # Don't rewrite assets folder
+  # Don't rewrite assets, images, or api folders
   RewriteRule ^assets/ - [L]
   RewriteRule ^images/ - [L]
+  RewriteRule ^api/ - [L]
   
   # Single Page Application routing - only for non-existent files
   RewriteRule ^ index.html [L]

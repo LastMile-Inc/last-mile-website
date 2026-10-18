@@ -100,7 +100,7 @@ export function Root() {
       },
       {
         name: "open_data_center_cooling",
-        description: "Open the Data Center Cooling controlled reference use case.",
+        description: "Open the Data Center Cooling use case.",
         inputSchema: {
           type: "object",
           additionalProperties: false,
@@ -113,7 +113,6 @@ export function Root() {
           return {
             ok: true,
             url,
-            status: "commercial proof being developed",
           };
         },
       },

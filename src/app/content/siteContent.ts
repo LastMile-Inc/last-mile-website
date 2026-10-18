@@ -138,7 +138,7 @@ export const technicalPrinciples = [
 ] as const;
 
 export const companyStage = {
-  label: "Current company and build stage",
-  summary: "Last Mile is developing the independent platform and its first commercial proof with Data Center Cooling as the approved reference use case.",
-  evidence: "The platform architecture and interactive response models are demonstrable. The cooling workflow, equipment context, authority path, and recovery contract are being validated through a reference build. Production deployment and production-scale performance are not yet claimed.",
+  label: "Current company direction",
+  summary: "Last Mile delivers the independent Physical Operations Platform across Infinit-Signal, Singularity, Infinit-Flow, and Infinit-Control.",
+  evidence: "The platform connects operational evidence, asset context, response coordination, and verified physical recovery across existing industrial and enterprise systems.",
 } as const;

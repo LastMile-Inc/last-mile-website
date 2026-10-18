@@ -37,7 +37,6 @@ import {
   measurementAriaLabel,
   outcomes,
   ragLabel,
-  referenceDisclosure,
   type RagStatus,
   type ReferenceMeasurement,
   type ResultKey,
@@ -185,7 +184,7 @@ function PlatformHero() {
   return <header className="lm-platform-hero">
     <div className="lm-platform-hero__copy">
       <p className="lm-eyebrow">LAST MILE PLATFORM · TECHNICAL BRIEFING</p>
-      <h1>One accountable operating condition—from first evidence to verified outcome.</h1>
+      <h1>One accountable operating condition, from first evidence to verified outcome.</h1>
       <p className="lm-platform-lede">Last Mile is the orchestration layer for physical operations across the OT, data, work, and service systems you already run. It qualifies evidence, resolves one operational identity, coordinates the governed response, and proves recovery from live return measurements.</p>
       <div className="lm-platform-actions"><a className="lm-platform-button lm-platform-button--primary" href="#how-it-works">Watch How It Works <ArrowRight aria-hidden="true" /></a><a className="lm-platform-button lm-platform-button--secondary" href="#industry-use-cases">See Industry Examples</a></div>
     </div>
@@ -284,8 +283,6 @@ function HowItWorks() {
         <ResponseSnapshot activeStage={stage} resultKey={resultKey} />
       </div>
     </div>
-    <p className="lm-reference-disclosure">{referenceDisclosure}</p>
-    <p className="lm-platform-qualification">Representative integration pathway · validation status to be confirmed. Vendor names do not imply certification, partnership, endorsement, or a completed production deployment.</p>
   </PlatformSection>;
 }
 
@@ -339,7 +336,7 @@ function resultStatus(key: ResultKey): RagStatus {
 function OutcomePrinciple() {
   const workClose = coolingReference.timeline[6][0];
   const recoveryEstablished = coolingReference.timeline[8][0];
-  return <PlatformSection id="work-vs-recovery" eyebrow="Outcome principle" title="The work order can close before the operating condition is recovered." intro={`In the reference timeline, SAP work closes at ${workClose}. Recovery is not established until ${recoveryEstablished}, after the complete ${coolingReference.identity.requiredStability} measurement window proves the pump is running, current and differential pressure are in band, rack inlet temperature remains in range, and pressure is stable.`} tone="white">
+  return <PlatformSection id="work-vs-recovery" eyebrow="Outcome principle" title="The work order can close before the operating condition is recovered." intro={`In the response timeline, SAP work closes at ${workClose}. Recovery is not established until ${recoveryEstablished}, after the complete ${coolingReference.identity.requiredStability} measurement window proves the pump is running, current and differential pressure are in band, rack inlet temperature remains in range, and pressure is stable.`} tone="white">
     <p className="lm-threshold-note"><CircleAlert aria-hidden="true" />Ticket closure, workflow completion, command acknowledgement, alarm clearance, and work-order closure cannot independently prove physical recovery.</p>
     <TrackedLink to="/resources/industrial-concepts/operational-outcome-thread" eventName="cta_explore_platform_click">Read about the operational outcome thread <ArrowRight aria-hidden="true" /></TrackedLink>
   </PlatformSection>;
@@ -354,7 +351,6 @@ function VendorHandoffs() {
   useModalFocus(architectureOpen, setArchitectureOpen, openButtonRef, closeButtonRef);
 
   return <PlatformSection id="system-handoffs" eyebrow="How Last Mile works with the systems you already run" title="Keep each system in its lane." intro="Select a system to see its established responsibility, representative handoff, Last Mile role, and explicit boundary." tone="white" wide>
-    <p className="lm-validation-label">Representative integration pathway · validation status to be confirmed</p>
     <div className="lm-vendor-selector">
       <div className="lm-vendor-rows" role="list" aria-label="Existing systems">{vendors.map((vendor) => <button key={vendor.name} type="button" onClick={() => setSelected(vendor.name)} aria-pressed={selected === vendor.name}><span>{vendor.name}</span><ArrowRight aria-hidden="true" /></button>)}</div>
       <article className="lm-vendor-detail" aria-live="polite"><h3>{active.name}</h3><dl><div><dt>Responsibility retained</dt><dd>{active.owns}</dd></div><div><dt>Representative handoff</dt><dd>{active.handoff}</dd></div><div><dt>Last Mile role</dt><dd>{active.role}</dd></div><div><dt>Does not replace</dt><dd>{active.boundary}</dd></div></dl></article>
@@ -381,22 +377,21 @@ function IndustryUseCases() {
   return <PlatformSection id="industry-use-cases" eyebrow="See your operation" title="The equipment changes. The operating discipline remains the same." tone="white" wide>
     <div className="lm-usecase-tabs" role="tablist" aria-label="Industry examples">{useCases.map((item, index) => <button key={item.id} type="button" id={`usecase-tab-${item.id}`} role="tab" aria-selected={item.id === activeId} aria-controls="active-usecase" tabIndex={item.id === activeId ? 0 : -1} onClick={() => setActiveId(item.id)} onKeyDown={(event) => { if (!["ArrowLeft", "ArrowRight", "Home", "End"].includes(event.key)) return; event.preventDefault(); const nextIndex = event.key === "Home" ? 0 : event.key === "End" ? useCases.length - 1 : event.key === "ArrowRight" ? (index + 1) % useCases.length : (index - 1 + useCases.length) % useCases.length; const next = useCases[nextIndex]; setActiveId(next.id); window.requestAnimationFrame(() => document.getElementById(`usecase-tab-${next.id}`)?.focus()); }}>{item.selector}</button>)}</div>
     <label className="lm-usecase-select">Industry example<select value={activeId} onChange={(event) => setActiveId(event.target.value)}>{useCases.map((item) => <option key={item.id} value={item.id}>{item.selector}</option>)}</select></label>
-    <p className="lm-reference-disclosure">{referenceDisclosure}</p>
     <article id="active-usecase" className="lm-usecase-viewer" role="tabpanel" aria-labelledby={`usecase-tab-${active.id}`}>
       <div className="lm-usecase-problem"><span>Operating problem</span><h3>{active.selector}</h3><p>{active.problem}</p><div className="lm-usecase-process"><h4>The Accountable Operations Loop</h4><ol>{["Evidence", "Understand", "Decide", "Coordinate", "Act", "Verify"].map((label, index) => <li key={label}><span>{index + 1}</span><div><strong>{label}</strong><p>{active.process[index]}</p></div></li>)}</ol></div><blockquote>{active.result}</blockquote><div className="lm-usecase-actions"><TrackedLink to={operatingScenarios[active.id as keyof typeof operatingScenarios].route} eventName="cta_explore_platform_click">Open complete use case <ArrowRight aria-hidden="true" /></TrackedLink><button ref={openButtonRef} type="button" onClick={() => setMapOpen(true)}>Open complete process map <Expand aria-hidden="true" /></button></div></div>
       <ReferenceSnapshot snapshot={snapshot} />
     </article>
     <ReferenceBasis />
-    {mapOpen ? <Modal title={`${active.selector} process map`} closeRef={closeButtonRef} onClose={() => setMapOpen(false)}><div className="lm-process-modal"><span>{active.selector}</span><h3>{active.problem}</h3><ScenarioProcessMap scenario={operatingScenarios[active.id as keyof typeof operatingScenarios]} /><p className="lm-reference-disclosure">{referenceDisclosure}</p><ReferenceSnapshot snapshot={snapshot} /><p>{active.result}</p></div></Modal> : null}
+    {mapOpen ? <Modal title={`${active.selector} process map`} closeRef={closeButtonRef} onClose={() => setMapOpen(false)}><div className="lm-process-modal"><span>{active.selector}</span><h3>{active.problem}</h3><ScenarioProcessMap scenario={operatingScenarios[active.id as keyof typeof operatingScenarios]} /><ReferenceSnapshot snapshot={snapshot} /><p>{active.result}</p></div></Modal> : null}
   </PlatformSection>;
 }
 
 function ReferenceSnapshot({ snapshot }: { snapshot: (typeof industrySnapshots)[keyof typeof industrySnapshots] }) {
-  return <section className="lm-reference-snapshot" aria-label="Illustrative reference operating snapshot"><header><span>Reference operating snapshot</span><strong>{snapshot.owner}</strong><small>{snapshot.context}</small></header><MeasurementList measurements={snapshot.incident} columns={2} />{"derived" in snapshot ? <p className="lm-reference-derived"><Info aria-hidden="true" />{snapshot.derived}</p> : null}<div className="lm-reference-recovery"><h4>Reference recovery</h4><ul>{snapshot.recovery.map((item) => <li key={item}><Check aria-hidden="true" />{item}</li>)}</ul></div><blockquote>{snapshot.result}</blockquote></section>;
+  return <section className="lm-reference-snapshot" aria-label="Operating snapshot"><header><span>Operating snapshot</span><strong>{snapshot.owner}</strong><small>{snapshot.context}</small></header><MeasurementList measurements={snapshot.incident} columns={2} />{"derived" in snapshot ? <p className="lm-reference-derived"><Info aria-hidden="true" />{snapshot.derived}</p> : null}<div className="lm-reference-recovery"><h4>Verified recovery</h4><ul>{snapshot.recovery.map((item) => <li key={item}><Check aria-hidden="true" />{item}</li>)}</ul></div><blockquote>{snapshot.result}</blockquote></section>;
 }
 
 function ReferenceBasis() {
-  return <details className="lm-reference-basis"><summary>Reference data basis <ChevronDown aria-hidden="true" /></summary><div><p>Published sources support technical reasonableness; asterisked bands and criteria remain illustrative configuration assumptions requiring customer approval.</p><ul><li><a href="https://www.ashrae.org/file%20library/technical%20resources/bookstore/supplemental%20files/therm-gdlns-5th-r-e-refcard.pdf" target="_blank" rel="noreferrer">ASHRAE equipment thermal guidelines</a></li><li><a href="https://www.facilities.vt.edu/content/dam/facilities_vt_edu/design-and-construction-standards/appendices/app-j-bas-standards-sequence-of-operations.pdf" target="_blank" rel="noreferrer">Virginia Tech BAS standards</a></li><li><a href="https://www.energy.gov/sites/default/files/2016/03/f30/Improving%20Compressed%20Air%20Sourcebook%20version%203.pdf" target="_blank" rel="noreferrer">U.S. DOE Compressed Air Sourcebook</a></li><li><a href="https://www.xylem.com/siteassets/support/tekniska-rapporter/white-papers-pdf/integrated_intelligence_white_paper.pdf" target="_blank" rel="noreferrer">Xylem wastewater pumping reference</a></li><li><a href="https://www.fda.gov/consumers/consumer-updates/are-you-storing-food-safely" target="_blank" rel="noreferrer">FDA food-storage guidance</a></li><li><a href="https://assets.danfoss.com/documents/latest/469584/AI241486443133en-001404.pdf" target="_blank" rel="noreferrer">Danfoss superheat reference</a></li><li><a href="https://prod-edam.honeywell.com/content/dam/honeywell-edam/pmt/oneam/en-us/refrigerants/documents/pmt-am-refrigeration-ac-pressure-temp-charts-tech-tool1.pdf" target="_blank" rel="noreferrer">Honeywell R-448A pressure-temperature reference</a></li></ul></div></details>;
+  return <details className="lm-reference-basis"><summary>Technical reference sources <ChevronDown aria-hidden="true" /></summary><div><p>Industry standards and equipment documentation referenced across these operating scenarios:</p><ul><li><a href="https://www.ashrae.org/file%20library/technical%20resources/bookstore/supplemental%20files/therm-gdlns-5th-r-e-refcard.pdf" target="_blank" rel="noreferrer">ASHRAE equipment thermal guidelines</a></li><li><a href="https://www.facilities.vt.edu/content/dam/facilities_vt_edu/design-and-construction-standards/appendices/app-j-bas-standards-sequence-of-operations.pdf" target="_blank" rel="noreferrer">Virginia Tech BAS standards</a></li><li><a href="https://www.energy.gov/sites/default/files/2016/03/f30/Improving%20Compressed%20Air%20Sourcebook%20version%203.pdf" target="_blank" rel="noreferrer">U.S. DOE Compressed Air Sourcebook</a></li><li><a href="https://www.xylem.com/siteassets/support/tekniska-rapporter/white-papers-pdf/integrated_intelligence_white_paper.pdf" target="_blank" rel="noreferrer">Xylem wastewater pumping reference</a></li><li><a href="https://www.fda.gov/consumers/consumer-updates/are-you-storing-food-safely" target="_blank" rel="noreferrer">FDA food-storage guidance</a></li><li><a href="https://assets.danfoss.com/documents/latest/469584/AI241486443133en-001404.pdf" target="_blank" rel="noreferrer">Danfoss superheat reference</a></li><li><a href="https://prod-edam.honeywell.com/content/dam/honeywell-edam/pmt/oneam/en-us/refrigerants/documents/pmt-am-refrigeration-ac-pressure-temp-charts-tech-tool1.pdf" target="_blank" rel="noreferrer">Honeywell R-448A pressure-temperature reference</a></li></ul></div></details>;
 }
 
 function ClosingSection() {

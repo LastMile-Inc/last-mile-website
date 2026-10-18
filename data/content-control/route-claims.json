@@ -69,7 +69,7 @@
         {
           "route": "/how-it-works",
           "sourceFile": "src/app/pages/HowItWorksPage.tsx",
-          "wording": "Follow the work from the first sign of trouble to evidence that the operation has recovered."
+          "wording": "We have developed a structured method to keep your teams in command and control of your complex operations.  We call it the Accountable Operations Loop."
         }
       ]
     },
@@ -113,7 +113,7 @@
         {
           "route": "/use-cases/municipal-wastewater",
           "sourceFile": "src/app/pages/platformReferenceData.ts",
-          "wording": "Pumping capacity restored over three complete wet-well cycles; no overflow occurred in the reference event."
+          "wording": "Pumping capacity restored over three complete wet-well cycles with zero overflow."
         },
         {
           "route": "/use-cases/manufacturing-compressed-air",
@@ -123,7 +123,7 @@
         {
           "route": "/use-cases/cold-storage-refrigeration",
           "sourceFile": "src/app/pages/platformReferenceData.ts",
-          "wording": "Refrigeration and product-protection criteria recover in the reference event. OTIF remains a downstream logistics KPI, not a claimed result of this event."
+          "wording": "Refrigeration and product-protection criteria recover across pull-down, defrost, and the 45-minute stability window."
         },
         {
           "route": "/",
@@ -260,19 +260,13 @@
       "claimId": "CLM-SING-004",
       "approvedMaturity": "designed",
       "allowedRoutes": [
-        "/singularity",
-        "/resources/industrial-concepts/data-spaces"
+        "/singularity"
       ],
       "uses": [
         {
           "route": "/singularity",
           "sourceFile": "src/app/pages/SSOMPage.tsx",
           "wording": "The architecture separates customer operations from cross-site learning. SSOM conformance does not grant contribution rights. Purpose, consent, minimization, transformation, provenance, retention, and model scope remain explicit, and aggregate learning cannot rewrite customer canonical facts."
-        },
-        {
-          "route": "/resources/industrial-concepts/data-spaces",
-          "sourceFile": "src/app/content/industrialConcepts.generated.ts",
-          "wording": "The boundary is essential. SSOM conformance does not grant contribution consent. A customer operational record is not available to a shared model merely because it is technically compatible. Customer operations must continue even when contribution is disabled, revoked, or delayed."
         }
       ]
     },
@@ -297,8 +291,7 @@
       "claimId": "CLM-FLOW-002",
       "approvedMaturity": "designed",
       "allowedRoutes": [
-        "/infinit-flow",
-        "/resources/industrial-concepts/composable-manufacturing"
+        "/infinit-flow"
       ],
       "uses": [
         {
@@ -315,9 +308,7 @@
         "/",
         "/platform",
         "/infinit-flow",
-        "/resources/industrial-concepts/industrial-ai",
-        "/resources/industrial-concepts/industry-5-0",
-        "/resources/industrial-concepts/lights-out-operations"
+        "/resources/industrial-concepts/industrial-ai"
       ],
       "uses": [
         {
@@ -411,55 +402,27 @@
         {
           "route": "/resources/industrial-concepts/uns-and-ssom",
           "sourceFile": "src/app/content/industrialConcepts.generated.ts",
-          "wording": "The result is not a choice between UNS and SSOM. The UNS makes industrial information available. SSOM makes that information portable, interpretable, governable, and accountable across systems and time."
+          "wording": "A reading becomes more useful when your team knows which asset it belongs to, when it was captured, whether it can be trusted, and what needs attention."
         }
       ]
     },
     {
       "claimId": "CLM-CONCEPT-OPCUA",
       "approvedMaturity": "perspective",
-      "allowedRoutes": [
-        "/infinit-signal",
-        "/ecosystem",
-        "/resources/industrial-concepts/opc-ua"
-      ],
-      "uses": [
-        {
-          "route": "/resources/industrial-concepts/opc-ua",
-          "sourceFile": "src/app/content/industrialConcepts.generated.ts",
-          "wording": "The correct architecture is therefore additive: keep OPC UA's source information model; map it through governed profiles; use Singularity/SSOM for cross-system operational continuity. Last Mile should never market SSOM as a reason to discard a customer's Companion Specification investment."
-        }
-      ]
+      "allowedRoutes": [],
+      "uses": []
     },
     {
       "claimId": "CLM-CONCEPT-AAS",
       "approvedMaturity": "perspective",
-      "allowedRoutes": [
-        "/singularity",
-        "/resources/industrial-concepts/digital-twins"
-      ],
-      "uses": [
-        {
-          "route": "/resources/industrial-concepts/digital-twins",
-          "sourceFile": "src/app/content/industrialConcepts.generated.ts",
-          "wording": "That distinction keeps the architecture honest. AAS and other digital-twin models can provide rich asset semantics. Singularity/SSOM provides the time-correct cross-system thread from evidence to verified outcome. Together they are stronger than a claim that one model replaces all others."
-        }
-      ]
+      "allowedRoutes": [],
+      "uses": []
     },
     {
       "claimId": "CLM-CONCEPT-I50",
       "approvedMaturity": "perspective",
-      "allowedRoutes": [
-        "/about",
-        "/resources/industrial-concepts/industry-5-0"
-      ],
-      "uses": [
-        {
-          "route": "/resources/industrial-concepts/industry-5-0",
-          "sourceFile": "src/app/content/industrialConcepts.generated.ts",
-          "wording": "Industry 4.0 helped focus industry on connectivity, cyber-physical systems, data, and automation. The European Commission's Industry 5.0 framing broadens the objective around three priorities: human-centricity, sustainability, and resilience."
-        }
-      ]
+      "allowedRoutes": [],
+      "uses": []
     },
     {
       "claimId": "CLM-CONCEPT-THREAD",
@@ -472,52 +435,27 @@
         {
           "route": "/resources/industrial-concepts/operational-outcome-thread",
           "sourceFile": "src/app/content/industrialConcepts.generated.ts",
-          "wording": "The digital thread commonly connects information across design, manufacturing, quality, and product support. Last Mile contributes a focused operational outcome thread: condition, evidence, decision, authority, work, return measurement, verified result, and recurrence."
+          "wording": "Completing the work and restoring normal operation are two different things. Accountable Operations keeps the response connected until the operating result has been checked."
         }
       ]
     },
     {
       "claimId": "CLM-CONCEPT-OTSEC",
       "approvedMaturity": "perspective",
-      "allowedRoutes": [
-        "/ecosystem",
-        "/resources/industrial-concepts/ot-security"
-      ],
-      "uses": [
-        {
-          "route": "/resources/industrial-concepts/ot-security",
-          "sourceFile": "src/app/content/industrialConcepts.generated.ts",
-          "wording": "Industrial connectivity must preserve the performance, reliability, and safety requirements of OT. Last Mile applies least privilege, identity, segmentation-aware deployment, policy, audit, and bounded action without assuming enterprise IT controls can be copied into plant operations unchanged."
-        }
-      ]
+      "allowedRoutes": [],
+      "uses": []
     },
     {
       "claimId": "CLM-IMPL-001",
       "approvedMaturity": "perspective",
-      "allowedRoutes": [
-        "/resources/pmo-implementation-hub"
-      ],
-      "uses": [
-        {
-          "route": "/resources/pmo-implementation-hub",
-          "sourceFile": "src/app/pages/PmoImplementationHubPage.tsx",
-          "wording": "Reference implementation planning pages may present phased rollout models, staffing estimates, and parallel-run governance as planning aids rather than customer commitments."
-        }
-      ]
+      "allowedRoutes": [],
+      "uses": []
     },
     {
       "claimId": "CLM-IMPL-002",
       "approvedMaturity": "reference_architecture",
-      "allowedRoutes": [
-        "/resources/pmo-implementation-hub"
-      ],
-      "uses": [
-        {
-          "route": "/resources/pmo-implementation-hub",
-          "sourceFile": "src/app/pages/PmoImplementationHubPage.tsx",
-          "wording": "Last Mile Synapse is the implementation label for the open-protocol edge gateway workstream that stages source acquisition for Infinit-Signal during rollout."
-        }
-      ]
+      "allowedRoutes": [],
+      "uses": []
     },
     {
       "claimId": "CLM-CAT-004",
@@ -537,7 +475,7 @@
         {
           "route": "/our-service",
           "sourceFile": "src/app/pages/OurServicePage.tsx",
-          "wording": "As you come online, we\u2019ll assign named Cloud Operations engineers\u2014your operations contacts at Last Mile."
+          "wording": "As you come online, we\u2019ll assign named Cloud Operations engineers, your operations contacts at Last Mile."
         }
       ]
     },

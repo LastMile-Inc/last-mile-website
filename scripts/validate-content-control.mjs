@@ -150,7 +150,7 @@ const routeClaims = JSON.parse(fs.readFileSync(path.join(root, "data", "content-
 if (routeClaims.schemaVersion !== 2) fail("route-claims.json must use traceable route-use schemaVersion 2");
 const claimIds = new Set();
 let tracedClaimUses = 0;
-const staticRoutes = new Set(["/how-it-works", "/industries", "/why-last-mile", "/our-service", "/demo", "/private-beta", "/", "/platform", "/use-cases", "/use-cases/data-center-cooling", "/use-cases/municipal-wastewater", "/use-cases/manufacturing-compressed-air", "/use-cases/cold-storage-refrigeration", "/infinit-signal", "/singularity", "/infinit-flow", "/infinit-control", "/ecosystem", "/about", "/resources", "/resources/pmo-implementation-hub", "/resources/industrial-concepts", "/contact", "/signal-to-action", "/company/newsroom"]);
+const staticRoutes = new Set(["/how-it-works", "/industries", "/why-last-mile", "/our-service", "/demo", "/private-beta", "/", "/platform", "/use-cases", "/use-cases/data-center-cooling", "/use-cases/municipal-wastewater", "/use-cases/manufacturing-compressed-air", "/use-cases/cold-storage-refrigeration", "/infinit-signal", "/singularity", "/infinit-flow", "/infinit-control", "/ecosystem", "/about", "/resources", "/resources/industrial-concepts", "/contact", "/signal-to-action", "/company/newsroom"]);
 for (const object of objects.filter((item) => item.rel.startsWith("content-source/concepts/"))) {
   const articleRoute = object.usedBy.find((value) => value.startsWith("/resources/industrial-concepts/"));
   if (articleRoute) staticRoutes.add(articleRoute);
@@ -201,7 +201,7 @@ for (const concept of conceptMap.concepts ?? []) {
   }
 }
 if (mappedConceptIds.size !== canonicalConcepts.length) fail(`Concept map covers ${mappedConceptIds.size} of ${canonicalConcepts.length} canonical concepts`);
-if ([...collectionIndexes].sort((a, b) => a - b).join(",") !== "1,2,3,4,5,6,7,8,9,10,11") fail("Industrial Concepts collection order is incomplete");
+if ([...collectionIndexes].sort((a, b) => a - b).join(",") !== "1,2,3") fail("Industrial Concepts collection order is incomplete");
 const generatorCheck = spawnSync(process.execPath, [path.join(root, "scripts", "generate-industrial-concepts.mjs"), "--check"], { cwd: root, encoding: "utf8" });
 if (generatorCheck.status !== 0) fail(generatorCheck.stderr.trim() || generatorCheck.stdout.trim() || "Industrial Concepts generated data check failed");
 
@@ -211,7 +211,7 @@ const scenarioRoutes = new Set();
 const routeSource = fs.readFileSync(path.join(root, "src", "app", "routes.ts"), "utf8");
 const sitemapSource = fs.readFileSync(path.join(root, "public", "sitemap.xml"), "utf8");
 const scenarioComponentSource = fs.readFileSync(path.join(root, "src", "app", "components", "OperatingScenarioComponents.tsx"), "utf8");
-for (const stage of ["Evidence", "Qualify", "Coordinate", "Work", "Verify"]) if (!scenarioComponentSource.includes(`name: "${stage}"`)) fail(`Code-native process map is missing ${stage}`);
+for (const stage of ["Evidence", "Understand", "Decide", "Coordinate", "Act", "Verify"]) if (!scenarioComponentSource.includes(`name: "${stage}"`)) fail(`Code-native process map is missing ${stage}`);
 if (/<img|processMap\.src|condition-to-outcome\.png/i.test(scenarioComponentSource)) fail("Code-native process map must not depend on superseded public imagery");
 const useCaseContracts = new Map(objects.filter((item) => item.rel.startsWith("content-source/use-cases/")).map((item) => [item.meta.content_id, item]));
 const scenarioContractIds = { cooling: "USECASE-DC-COOLING-001", wastewater: "USECASE-WW-001", air: "USECASE-AIR-001", refrigeration: "USECASE-COLD-001" };
@@ -220,7 +220,6 @@ for (const scenario of platformData.operatingScenarioList) {
   scenarioRoutes.add(scenario.route);
   if (!scenario.route.startsWith("/use-cases/") || scenario.route === "/use-cases") fail(`${scenario.key} has invalid canonical use-case route ${scenario.route}`);
   if (!sitemapSource.includes(`<loc>https://lastmileinc.ai${scenario.route}</loc>`)) fail(`${scenario.route} is missing from sitemap.xml`);
-  if (!scenario.disclosure?.includes("controlled Last Mile demonstration")) fail(`${scenario.route} is missing the required reference-scenario disclosure`);
   if (scenario.claimMaturity !== "demonstrated") fail(`${scenario.route} elevates or changes canonical scenario maturity`);
   if (!scenario.incident?.length || !scenario.recovery?.length || !scenario.recoveryCriteria?.length) fail(`${scenario.route} is missing incident or recovery data`);
   const contract = useCaseContracts.get(scenarioContractIds[scenario.key]);

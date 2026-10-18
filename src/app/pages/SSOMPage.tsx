@@ -41,28 +41,28 @@ const contextQuestions = [
   {
     question: "What equipment and processes does this issue affect?",
     answer:
-      "Singularity connects equipment records to a shared operational asset identity and maps physical, process, control, location, and dependency relationships—so teams and AI can see upstream and downstream impact across the operation rather than isolated tags.",
-    platformRole: "Shared asset & topology context across the platform",
+      "Singularity gives each piece of equipment a consistent identity across systems and maps how physical, process, and control equipment depend on each other, so teams and AI can see upstream and downstream impact rather than isolated alarms.",
+    platformRole: "Shared equipment & dependency context across the platform",
     icon: GitBranch,
   },
   {
     question: "What conditions and history help explain it?",
     answer:
-      "Qualified observations, events, source alarms, and operating conditions from Infinit-Signal are connected in time order alongside operating history, prior occurrences, and earlier interventions so teams can see what changed and what worked before.",
+      "Checked readings, alarms, and operating conditions from Infinit-Signal are connected in time order alongside operating history, earlier issues, and past repairs so teams can see what changed and what worked before.",
     platformRole: "Connected with Infinit-Signal intake & operating history",
     icon: Clock,
   },
   {
     question: "What work is underway, and who is responsible?",
     answer:
-      "Singularity links the active condition to accountable owners, authorized decisions, and coordinated Infinit-Flow tasks, approvals, work orders, and service dispatches—keeping responsibility and progress visible across teams and systems.",
+      "Singularity links the active issue to the responsible owner, approved decisions, and coordinated Infinit-Flow tasks, work orders, and service dispatches, keeping responsibility and progress visible across teams and systems.",
     platformRole: "Connected with Infinit-Flow response coordination",
     icon: Users,
   },
   {
     question: "What evidence will show whether the response worked?",
     answer:
-      "Each response is checked against post-work operating readings, approved bands, and stability windows—showing whether recovery is established or further action is needed in Infinit-Control rather than treating ticket closure as proof.",
+      "Each response is checked against equipment readings after the work, operating ranges, and required stability windows, showing in Infinit-Control whether recovery is confirmed or further action is needed rather than treating a closed ticket as proof.",
     platformRole: "Connected with Infinit-Control outcome verification",
     icon: ClipboardCheck,
   },
@@ -91,8 +91,7 @@ const platformCards = [
     href: "/infinit-signal",
     current: false,
     badge: "Dependable inputs",
-    description:
-      "Brings in and checks operational data from your existing systems.",
+    description: "Reliable data from your existing systems.",
     cta: "Explore Infinit-Signal",
   },
   {
@@ -100,8 +99,7 @@ const platformCards = [
     href: "/singularity",
     current: true,
     badge: "Current page",
-    description:
-      "Connects equipment, systems, and history into shared context.",
+    description: "Understand your equipment in context.",
     cta: "Viewing Singularity",
   },
   {
@@ -109,7 +107,7 @@ const platformCards = [
     href: "/infinit-flow",
     current: false,
     badge: "Coordinated response",
-    description: "Guides the work from issue to verified resolution.",
+    description: "Keep work moving across teams and systems.",
     cta: "Explore Infinit-Flow",
   },
   {
@@ -117,8 +115,7 @@ const platformCards = [
     href: "/infinit-control",
     current: false,
     badge: "Operational visibility",
-    description:
-      "Gives operators and leaders a clear view of status and outcomes.",
+    description: "See what needs attention and what changed.",
     cta: "Explore Infinit-Control",
   },
 ];
@@ -154,9 +151,10 @@ export function SSOMPage() {
             Give AI and your team the context to act.
           </h1>
           <p className="singularity-hero-lead">
-            Connect assets, conditions, dependencies, history, work, and
-            outcomes in a shared operational world model—so people and AI can
-            understand an issue in the context of the operation.
+            Singularity builds an operational world model, a connected
+            understanding of your equipment, how it relates, what has happened,
+            and what work is underway, so people and AI can understand an issue
+            in context.
           </p>
           <div className="hero-actions">
             <a
@@ -192,7 +190,7 @@ export function SSOMPage() {
               />
               <img
                 src="/images/platform/platform-singularity.png"
-                alt="Concept illustration of water facility engineers reviewing how equipment, systems, and readings relate"
+                alt="Water facility engineers reviewing how equipment, systems, and readings relate"
                 width={1448}
                 height={1086}
                 loading="eager"
@@ -201,9 +199,6 @@ export function SSOMPage() {
               />
             </picture>
           </div>
-          <figcaption className="singularity-figure-caption">
-            Concept illustration
-          </figcaption>
         </figure>
       </section>
 
@@ -230,7 +225,7 @@ export function SSOMPage() {
 
           <figure
             className="singularity-record-figure"
-            aria-label="Conceptual illustration showing source information, connected context, and a shared operating record"
+            aria-label="Diagram showing source information, connected context, and a shared operating record"
           >
             <div className="singularity-record-canvas">
               <picture>
@@ -247,7 +242,7 @@ export function SSOMPage() {
                 <img
                   className="singularity-record-img"
                   src="/images/platform/semantic-operating-record-v3.png"
-                  alt="Conceptual illustration showing six disparate operational sources passing through a connected context layer into one shared operating record."
+                  alt="Diagram showing six disparate operational sources passing through a connected context layer into one shared operating record."
                   width={1672}
                   height={941}
                   loading="eager"
@@ -304,7 +299,6 @@ export function SSOMPage() {
             </div>
 
             <figcaption className="singularity-record-caption">
-              <span>Concept illustration</span>
               <span>
                 Original source identities and timestamps remain attached when
                 records are connected in Singularity.
@@ -339,9 +333,6 @@ export function SSOMPage() {
             className="singularity-editorial-example"
             aria-labelledby="singularity-example-heading"
           >
-            <span className="singularity-example-label">
-              Illustrative example
-            </span>
             <h2 id="singularity-example-heading">
               What does this pump failure put at risk?
             </h2>
@@ -450,7 +441,7 @@ export function SSOMPage() {
 
                 {/* 1. Scoped Source-Identity Crosswalk */}
                 <div className="singularity-tech-block">
-                  <h3>Scoped source-identity crosswalk (illustrative reference)</h3>
+                  <h3>Scoped source-identity crosswalk</h3>
                   <p>
                     Source tags, MQTT topics, OPC UA NodeIds, historian points,
                     SAP equipment, and provider records remain visible as scoped
@@ -577,10 +568,11 @@ export function SSOMPage() {
               aria-label="Related technical concept articles"
             >
               <a
-                href="/resources/industrial-concepts/semantic-interoperability"
+                href="/resources/industrial-concepts/operational-outcome-thread"
                 className="text-link"
               >
-                Semantic interoperability <ArrowRight size={15} aria-hidden="true" />
+                From warning to confirmed result{" "}
+                <ArrowRight size={15} aria-hidden="true" />
               </a>
               <a
                 href="/resources/industrial-concepts/uns-and-ssom"
@@ -589,24 +581,11 @@ export function SSOMPage() {
                 Unified Namespace and SSOM <ArrowRight size={15} aria-hidden="true" />
               </a>
               <a
-                href="/resources/industrial-concepts/digital-twins"
-                className="text-link"
-              >
-                Digital twins and operational memory{" "}
-                <ArrowRight size={15} aria-hidden="true" />
-              </a>
-              <a
                 href="/resources/industrial-concepts/industrial-ai"
                 className="text-link"
               >
-                Industrial AI and authority boundaries{" "}
+                How AI supports operations under your team&apos;s authority{" "}
                 <ArrowRight size={15} aria-hidden="true" />
-              </a>
-              <a
-                href="/resources/industrial-concepts/data-spaces"
-                className="text-link"
-              >
-                Industrial data spaces <ArrowRight size={15} aria-hidden="true" />
               </a>
             </div>
           </div>
