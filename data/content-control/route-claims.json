@@ -31,7 +31,7 @@
         {
           "route": "/platform",
           "sourceFile": "src/app/pages/PlatformPage.tsx",
-          "wording": "Last Mile connects information and work across your existing equipment and business software."
+          "wording": "Last Mile builds on that foundation—connecting your existing systems, preserving the context your team relies on, and making operational information easier to use."
         },
         {
           "route": "/ecosystem",
@@ -128,7 +128,7 @@
         {
           "route": "/",
           "sourceFile": "src/app/pages/HomePage.tsx",
-          "wording": "Check the equipment’s readings after the work to see whether it is running as expected."
+          "wording": "Connect equipment information, understand what needs attention, coordinate the response, and check the result with fresh operating data."
         },
         {
           "route": "/how-it-works",

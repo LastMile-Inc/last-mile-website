@@ -2,7 +2,7 @@
 content_id: PAGE-HOME-001
 status: approved
 owner: Website Product Marketing
-last_reviewed: 2026-10-15
+last_reviewed: 2026-10-19
 claim_maturity: [designed, perspective]
 depends_on: [GOV-DOCTRINE-001, CLAIMS-REGISTRY-001]
 used_by: [/]
@@ -24,29 +24,25 @@ Later on 2026-10-15 the founder accepted the recovered structure and design and 
 
 **Body:** Last Mile brings information from your equipment and business systems into one place. It uses AI to help your team spot problems and decide what to do next. Your team can assign work, automate approved tasks, and check that the equipment is working as expected afterward.
 
-**Primary CTA:** Book a demo — /demo
+**Primary CTA:** Request a demo — /demo
 
 **Secondary CTA:** Explore the platform — /platform
 
 **Visual:** the approved industrial worker portrait card (`chuck.png` -> `/images/home/home-chuck-hero-{400,600,800,1086}.{avif,webp}` and `/images/home/home-chuck-hero.jpg`, native 1086×1448 portrait at 3:4 aspect ratio, superseding `Picture10(1).jpg`, without a caption strip over the portrait, alt `"Chuck wearing a blue hard hat and safety glasses on a factory floor."`). No screenshot placeholders, simulated dashboards, or process tables in the hero.
 
-## 2. Problem and response — why follow-through matters
+## 2. From warning to resolution
 
 **Eyebrow:** FROM WARNING TO RESOLUTION
 
-**Heading:** Seeing a problem is only the start.
+**Heading:** See how the pieces come together.
 
-**Body:** A warning doesn’t fix the problem. Your team still has to piece together what happened, find the right person, and make sure the fix worked. Last Mile helps them manage that work without chasing updates across different systems.
+**Body:** Connect equipment information, understand what needs attention, coordinate the response, and check the result with fresh operating data.
 
-**Response sequence (the only place on the homepage that explains it):**
+**Visual:** Full-width cleaned platform overview illustration (`/images/platform/platform-overview-illustration-{640,800,1024}.{avif,webp}` and `/images/platform/platform-overview-illustration.jpg`, native 1024×470 derived from `last-mile-platform-overview-placemat.jpg`) with one compact HTML caption (`Your existing systems. One connected operating response.`) and a small `Illustrative platform view` label. On narrow screens, present the four intentional detail crops (`Infinit-Signal — Connect and validate.`, `Singularity — Understand in context.`, `Infinit-Flow (Optional) — Coordinate the response.`, `Infinit-Control — See and verify.`).
 
-- Understand the problem. See the warning alongside the equipment’s recent readings and history.
-- Get the right people moving. Assign the next step and get approval when it’s needed.
-- Check that the fix worked. Check the equipment’s readings after the work to see whether it is running as expected.
-
-**Example:** A cooling unit gets too warm. The team checks its recent readings, assigns someone to investigate, and checks the temperature again after the work. This is an example, not a customer result.
-
-**Link:** See how it works — /how-it-works
+**Links:**
+- Explore the platform — /platform
+- See how it works — /how-it-works
 
 ## 3. Industry relevance
 

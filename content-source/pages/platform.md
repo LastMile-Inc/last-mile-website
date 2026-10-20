@@ -2,7 +2,7 @@
 content_id: PAGE-PLATFORM-001
 status: approved
 owner: Platform Product Marketing
-last_reviewed: 2026-10-15
+last_reviewed: 2026-10-19
 claim_maturity: [designed, demonstrated]
 depends_on: [GOV-DOCTRINE-001, CLAIMS-REGISTRY-001]
 used_by: [/platform]
@@ -20,15 +20,15 @@ Write for operators and managers. Product names may appear; explain each immedia
 
 **Eyebrow:** THE LAST MILE PLATFORM
 
-**H1:** We bring your systems and your team together.
+**H1:** Turn operational complexity into proven outcomes.
 
 **Body:** Last Mile brings equipment information, AI assistance, and everyday work into one connected platform. See what needs attention, organize the response, and check the result.
 
-**Primary CTA:** Book a demo — /demo
+**Primary CTA:** Request a demo — /demo
 
 **Secondary CTA:** Explore the four products — #products
 
-**Visual:** 3:2 hero photograph (`/images/platform/platform-inspection-team-{640,960,1280,1536}.{avif,webp}` and `/images/platform/platform-inspection-team.png`, native 1536×1024 from `Industrial Inspection Team at Work.png`) with no text overlaid on the photo, followed by the `THE PRODUCT FAMILY` section (`Each product has a clear job in the loop.`, with cards for `Infinit-Signal`, `Singularity`, `Infinit-Flow`, and `Infinit-Control`).
+**Visual:** Full-width cleaned platform overview illustration (`/images/platform/platform-overview-illustration-{640,800,1024}.{avif,webp}` and `/images/platform/platform-overview-illustration.jpg`, native 1024×470 derived from `last-mile-platform-overview-placemat.jpg`) with printed header, product-caption strip, and navy footer removed. Live HTML captions are aligned beneath the illustrated regions (`Your existing systems` on the left, followed by linked product captions for `Infinit-Signal — Reliable data from your existing systems.`, `Singularity — Understand your equipment in context.`, `Infinit-Flow (Optional) — Keep work moving across teams and systems.`, and `Infinit-Control — See what needs attention and what changed.`, plus the discreet caption `Illustrative platform view.`). On narrow screens, four intentional detail crops (`platform-overview-crop-signal`, `platform-overview-crop-singularity`, `platform-overview-crop-flow`, `platform-overview-crop-control`) are paired with the live HTML product captions and links.
 
 ## 2. Products
 
@@ -56,7 +56,9 @@ A reading means more when you know which equipment it belongs to, what that equi
 
 Link: Explore Singularity — /singularity. Visual: 4:3 illustration (`/images/platform/platform-singularity-{640,960,1280,1448}.{avif,webp}` and `/images/platform/platform-singularity.png`, native 1448×1086 from `Smart Water Treatment Plant Monitoring.png`).
 
-### Infinit-Flow — Turn the next step into organized work.
+### Infinit-Flow (Optional) — Turn the next step into organized work.
+
+Display a small `Optional` product-information label beside the `Infinit-Flow` identifier.
 
 Infinit-Flow helps your team assign work, get approvals, and coordinate tasks across people and systems. Approved tasks can run automatically where configured, while your team stays informed.
 
@@ -76,17 +78,56 @@ Infinit-Control gives each person a view of the issues, work, and equipment that
 
 Link: Explore Infinit-Control — /infinit-control. Visual: 4:3 illustration (`/images/platform/platform-infinit-control-{640,960,1280,1448}.{avif,webp}` and `/images/platform/platform-infinit-control.png`, native 1448×1086 from `Golden-Hour Oilfield Inspection.png`).
 
-## 3. Existing systems
+## 3. Built to fit your operation (`#built-for-your-operation`)
 
-**Heading:** Work with the systems you already use.
+**Eyebrow:** BUILT TO FIT YOUR OPERATION
 
-**Body:** Last Mile connects information and work across your existing equipment and business software. We’ll review your systems with you to confirm the connections and starting scope.
+**Heading:** Your systems. Your standards. We’ve got you.
 
-- Equipment and controls — Readings, operating status, and warnings.
-- Business and maintenance systems — Equipment records, work orders, and updates.
-- People and service teams — Responsibilities, approvals, and progress.
+**Introduction:** You’ve invested in the equipment, software and standards that keep your business running. Last Mile builds on that foundation—connecting your existing systems, preserving the context your team relies on, and making operational information easier to use.
 
-Discreet link: Explore technical details — /resources/architect-reference-center. No vendor lists; do not imply every system or integration is supported or production-ready.
+**Layout:** Four equal-width, equal-height panels in one horizontal row on desktop (`>= 1200px`), two columns on tablet (`768px–1199px`), and one column below `768px`:
+
+### Column 1: We speak your language.
+
+- **Top visual area:** Restrained connection/network line icon (`RadioTower`).
+- **Heading:** We speak your language.
+- **Body:** Your operation runs on technologies chosen for a reason. Last Mile connects to PLCs and industrial systems through supported OPC UA, Modbus and DNP3 connections, bringing equipment information into a shared operational view.
+- **Technology chips:** Compact, lightly tinted text chips (`PLCs`, `OPC UA`, `Modbus`, `DNP3`; `PLCs` treated as an equipment category; `OPC UA` linked to `https://opcfoundation.org/about/opc-technologies/opc-ua/`, `Modbus` linked to `https://www.modbus.org/`, and `DNP3` linked to `https://www.dnp.org/`).
+- **Supporting sentence:** We work with your team to confirm the connection method, any required gateways, and the scope that fits your environment.
+- **Internal link:** Explore Infinit-Signal — `/infinit-signal`
+
+### Column 2: Your names matter. Your context stays.
+
+- **Top visual area:** Restrained hierarchy/data-structure line icon (`Network`).
+- **Heading:** Your names matter. Your context stays.
+- **Body:** Your team has invested time in naming equipment and organizing how your operation fits together. If you already use a Unified Namespace (UNS), Last Mile preserves those names and relationships as it maps your information into an ISA-95-aligned operational model. (Link `ISA-95` to `https://www.isa.org/standards-and-publications/isa-standards/isa-95-standard`.)
+- **Supporting paragraph:** Through supported live connections or imports, we build on the structure you already have. Where appropriate, measurements are normalized to consistent SI units, while original values, units and source references remain traceable.
+- **Closing sentence:** No UNS yet? We can help establish the equipment context your team needs.
+- **Summary list:**
+  - Equipment names preserved.
+  - Existing relationships carried forward.
+  - Measurements made consistent.
+- **Internal link:** Explore Singularity — `/singularity`
+
+### Column 3: Keep work moving with Infinit-Flow.
+
+- **Top visual area:** Official horizontal SVG logo (`/images/platform/logos/n8n-logo-dark.svg` from `https://n8n.io/brandguidelines/`) linked to `https://n8n.io/` (`Visit n8n`), with minimum width `>= 100` CSS px, clear space preserved, and visible `Optional` product-information label.
+- **Heading:** Keep work moving with Infinit-Flow.
+- **Body:** Infinit-Flow uses embedded n8n technology to coordinate work across your people and systems. Add it when you want Last Mile to organize workflows, approvals and automated tasks.
+- **Supporting line:** Infinit-Flow is an optional addition to the Last Mile platform.
+- **Internal link:** Explore Infinit-Flow — `/infinit-flow`
+
+### Column 4: Visibility into the service you rely on.
+
+- **Top visual area:** Official horizontal color SVG logo (`/images/platform/logos/opentelemetry-horizontal-color.svg` from `https://github.com/cncf/artwork` under `projects/opentelemetry/horizontal/color/`) linked to `https://opentelemetry.io/` (`Visit OpenTelemetry`).
+- **Heading:** Visibility into the service you rely on.
+- **Body:** Last Mile uses OpenTelemetry to collect metrics, logs and traces from its cloud services, helping our team monitor performance and investigate problems.
+- **Supporting line:** Platform monitoring is part of how we operate Last Mile.
+
+**Closing transition (below the 4-panel grid):**
+- **Copy:** Bring us your systems list. We’ll help map the right starting point.
+- **Link:** Discuss your setup — `/demo`
 
 ## 4. Final invitation
 
@@ -94,8 +135,15 @@ Discreet link: Explore technical details — /resources/architect-reference-cent
 
 **Body:** Bring one problem your team spends too much time chasing. We’ll walk through the platform and discuss how it could fit your equipment, systems, and people.
 
-**CTA:** Book a demo — /demo
+**CTA:** Request a demo — /demo
 
-## Evidence boundaries
+## Evidence boundaries and pre-release technical/commercial confirmation register
 
-The hero visual is an approved industrial inspection photograph (`platform-inspection-team`), and the four product visuals are approved 4:3 illustrations (`platform-infinit-signal`, `platform-singularity`, `platform-infinit-flow`, `platform-infinit-control`) rather than live product screenshots or customer deployments.
+The hero visual is the cleaned platform overview illustration (`platform-overview-illustration` and its four mobile detail crops, labeled `Illustrative platform view.`), and the four product visuals are approved 4:3 illustrations (`platform-infinit-signal`, `platform-singularity`, `platform-infinit-flow`, `platform-infinit-control`) rather than live product screenshots or customer deployments.
+
+The `#built-for-your-operation` section is built in preview on the review branch (`releaseStatus: UNDER_REVIEW`). Before public production release, the following specific sentences require technical-owner or commercial confirmation and must be withheld from production merge until verified:
+1. `"Last Mile connects to PLCs and industrial systems through supported OPC UA, Modbus and DNP3 connections, bringing equipment information into a shared operational view."` (and `Modbus · DNP3` in the technology strip) — OPC UA source profiles and the open-protocol edge gateway workstream (`Last Mile Synapse`) are documented in architecture (`PROD-SIGNAL-001`, `CLM-SIG-002`, `CLM-IMPL-002`), whereas Modbus and DNP3 adapter/gateway requirements and production support scope await technical owner confirmation.
+2. `"If you already use a Unified Namespace (UNS), Last Mile preserves those names and relationships as it maps your information into an ISA-95-aligned operational model."` — Source-to-SSOM crosswalks and preservation of source names/identifiers/relationships are documented in `PROD-SIGNAL-001` and `PROD-SINGULARITY-001`, whereas specific implemented ISA-95 model alignment rules await technical owner confirmation.
+3. `"Through supported live connections or imports, we build on the structure you already have. Where appropriate, measurements are normalized to consistent SI units, while original values, units and source references remain traceable."` (and `"Measurements made consistent."`) — Minimum COR envelopes include value, unit, quantity kind, and conversion lineage (`PROD-SIGNAL-001`), whereas live structure import tooling and automated SI unit normalization scope await technical owner confirmation.
+4. `"Infinit-Flow uses embedded n8n technology to coordinate work across your people and systems. Add it when you want Last Mile to organize workflows, approvals and automated tasks."` — Current product architecture (`PROD-FLOW-001`) references a durable workflow engine without recording embedded n8n implementation or commercial embedding license clearance in `IP_REGISTER.md`; both technical implementation and commercial rights require confirmation before public release.
+5. `"Last Mile uses OpenTelemetry to collect metrics, logs and traces from its cloud services, helping our team monitor performance and investigate problems."` — Confirm with the technical owner that all three telemetry signals (`metrics, logs and traces`) are actively collected via OpenTelemetry in the cloud services environment before public release.

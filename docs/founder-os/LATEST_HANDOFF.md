@@ -1,6 +1,45 @@
 # Latest handoff
 
-Updated: 2026-10-17
+Updated: 2026-10-19
+
+## Homepage (`/`) and Platform page (`/platform`) platform overview illustration update (2026-10-19)
+
+- **Preserved original attachment**:
+  - `assets/originals/2026-10-approved/last-mile-platform-overview-placemat.jpg` (`1024×625`, `384.5 KB`)
+- **Derived web assets (`public/images/platform/`)**:
+  - Full-width cleaned illustration (`1024×470` native useful resolution with printed `LAST MILE` identifier, headline, supporting sentence, product-caption strip, and navy takeaway/footer band removed):
+    - `platform-overview-illustration-1024.avif` (`1024×470`, `91.3 KB`), `platform-overview-illustration-1024.webp` (`1024×470`, `93.1 KB`)
+    - `platform-overview-illustration-800.avif` (`800×367`, `62.5 KB`), `platform-overview-illustration-800.webp` (`800×367`, `63.0 KB`)
+    - `platform-overview-illustration-640.avif` (`640×294`, `44.7 KB`), `platform-overview-illustration-640.webp` (`640×294`, `45.0 KB`)
+    - `platform-overview-illustration.jpg` (`1024×470` fallback, `144.1 KB`)
+  - Four intentional narrow-screen detail crops:
+    - `platform-overview-crop-signal.{avif,webp,jpg}` (`384×312`, `39.4 KB` / `40.8 KB` / `55.3 KB`) — existing industrial equipment and Infinit-Signal intake/verification.
+    - `platform-overview-crop-singularity.{avif,webp,jpg}` (`300×312`, `22.7 KB` / `23.5 KB` / `34.0 KB`) — Singularity shared operational model.
+    - `platform-overview-crop-flow.{avif,webp,jpg}` (`192×306`, `10.0 KB` / `9.8 KB` / `17.2 KB`) — Infinit-Flow workflow sequence.
+    - `platform-overview-crop-control.{avif,webp,jpg}` (`232×376`, `15.7 KB` / `15.9 KB` / `26.1 KB`) — Infinit-Control operator display and recovery confirmation.
+- **Route updates**:
+  - **`/platform` (`src/app/pages/PlatformPage.tsx`, `src/styles/platform-page.css`)**: Replaced the opening worker-photograph hero and the separate `"Four products. One connected response."` band with a stacked composition (`THE LAST MILE PLATFORM`, `"Turn operational complexity into proven outcomes."`, supporting paragraph, `Request a demo` → `/demo`, `Explore the four products` → `#products`, full-width illustration, and five aligned HTML caption columns for `Your existing systems`, `Infinit-Signal`, `Singularity`, `Infinit-Flow` with `Optional` label, and `Infinit-Control`, plus `Illustrative platform view.`). Preserved the detailed four-product section (`#products`), `#built-for-your-operation` four-column section, and closing demo invitation unchanged.
+  - **`/` (`src/app/pages/HomePage.tsx`, `src/styles/website-review.css`)**: Preserved the Chuck hero unchanged and replaced `"Seeing a problem is only the start."` with `"See how the pieces come together."` (`FROM WARNING TO RESOLUTION`), supporting paragraph, full-width illustration (with the four detail crops on narrow screens), compact caption (`"Your existing systems. One connected operating response."`), `"Illustrative platform view"`, and links `Explore the platform` → `/platform` and `See how it works` → `/how-it-works`.
+
+## `/platform` `#built-for-your-operation` section and Infinit-Flow optionality alignment (2026-10-19)
+
+- **Scope (`src/app/pages/PlatformPage.tsx`, `src/styles/platform-page.css`, `content-source/pages/platform.md`)**:
+  - Replaced `"Work with the systems you already use."` (`section.pf-fit`) with `#built-for-your-operation` (`BUILT TO FIT YOUR OPERATION` / `"Your systems. Your standards. We’ve got you."`) immediately after the four product descriptions and before `"See how Last Mile could work in your operation."`
+  - Arranged the section content into one unified horizontal row of four equal-width, equal-height panels on desktop (`>= 1200px`, two columns from `768px–1199px`, one column below `768px`) over a pale steel-blue background with a subtle radial highlight, white surfaces, fine steel borders, 12px rounded corners, and a 3px Last Mile blue top accent:
+    1. `"We speak your language."` — connection/network line icon (`RadioTower`), industrial technology narrative, compact lightly tinted text chips (`PLCs`, `OPC UA`, `Modbus`, `DNP3`) with `PLCs` treated as an equipment category and external links to official `OPC UA`, `Modbus`, and `DNP3` specifications, connection-scope guidance, and bottom-aligned internal link `Explore Infinit-Signal` → `/infinit-signal`.
+    2. `"Your names matter. Your context stays."` — hierarchy/data-structure line icon (`Network`), Unified Namespace (`UNS`) and `ISA-95`-aligned operational model narrative, traceability and unit-normalization guidance, 3-item summary (`Equipment names preserved.`, `Existing relationships carried forward.`, `Measurements made consistent.`), and bottom-aligned internal link `Explore Singularity` → `/singularity`.
+    3. `"Keep work moving with Infinit-Flow."` — official linked `n8n` logo + `Optional` label, workflow explanation, explicit optional-module statement, and bottom-aligned internal link `Explore Infinit-Flow` → `/infinit-flow`.
+    4. `"Visibility into the service you rely on."` — official linked `OpenTelemetry` logo and platform-monitoring explanation, followed below the grid by discreet trademark attribution and the closing transition (`"Bring us your systems list. We’ll help map the right starting point."` + `Discuss your setup` → `/demo`).
+  - Added the restrained `"Optional"` product-information label beside `Infinit-Flow` in the four-product overview, the `Infinit-Flow` detailed product section, and the `Infinit-Flow` panel in `#built-for-your-operation` on `/platform` only.
+- **Official local logo assets**:
+  - `public/images/platform/logos/n8n-logo-dark.svg` — downloaded from `https://n8n.io/brandguidelines/` (`https://n8n.io/brandguidelines/logo-dark.svg`), rendered at `108px` width (`>= 100px` minimum width) with clear space, linked to `https://n8n.io/`.
+  - `public/images/platform/logos/opentelemetry-horizontal-color.svg` — downloaded from `https://github.com/cncf/artwork` (`projects/opentelemetry/horizontal/color/opentelemetry-horizontal-color.svg`), rendered at `136px` width with clear space, linked to `https://opentelemetry.io/`.
+- **Sentences built in preview awaiting technical or commercial confirmation before public production release**:
+  1. *"Last Mile connects to PLCs and industrial systems through supported OPC UA, Modbus and DNP3 connections, bringing equipment information into a shared operational view."* (and `Modbus · DNP3` in `PLCs · OPC UA · Modbus · DNP3`) — `OPC UA` and the `Last Mile Synapse` edge gateway workstream are recorded in `PROD-SIGNAL-001` and `CLM-IMPL-002`, whereas `Modbus` and `DNP3` connection methods and gateway/adapter requirements are not yet recorded in approved product contracts.
+  2. *"If you already use a Unified Namespace (UNS), Last Mile preserves those names and relationships as it maps your information into an ISA-95-aligned operational model."* — Source-to-SSOM crosswalk preservation of source names and relationships is documented in `PROD-SINGULARITY-001`, `CLM-SING-001`, and `CONCEPT-UNS-001`, whereas specific implemented `ISA-95-aligned` model rules require technical owner confirmation.
+  3. *"Through supported live connections or imports, we build on the structure you already have. Where appropriate, measurements are normalized to consistent SI units, while original values, units and source references remain traceable."* (and summary item *"Measurements made consistent."*) — Configured live subscriptions, batch file imports, and COR conversion lineage fields are documented in `PROD-SIGNAL-001` and `PROD-SINGULARITY-001`, whereas live namespace/equipment structure import behavior and automated normalization of measurements to SI units require technical owner confirmation.
+  4. *"Infinit-Flow uses embedded n8n technology to coordinate work across your people and systems. Add it when you want Last Mile to organize workflows, approvals and automated tasks."* — `PROD-FLOW-001` currently references a durable workflow engine (e.g., Temporal) and does not yet document embedded `n8n` or commercial embedding license clearance in `docs/founder-os/IP_REGISTER.md`.
+  5. *"Last Mile uses OpenTelemetry to collect metrics, logs and traces from its cloud services, helping our team monitor performance and investigate problems."* — Requires technical owner confirmation that all three telemetry types (`metrics, logs and traces`) are actively collected via OpenTelemetry in Last Mile's cloud services.
 
 ## Resources section cleanup and targeted copy/punctuation refinements (2026-10-17)
 

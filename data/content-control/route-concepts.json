@@ -30,7 +30,6 @@
       "articleRoute": "/resources/industrial-concepts/uns-and-ssom",
       "collectionIndex": 3,
       "usages": [
-        { "route": "/platform", "mode": "link_only", "sourceFile": "src/app/pages/PlatformPage.tsx" },
         { "route": "/singularity", "mode": "compact_summary", "sourceFile": "src/app/pages/SSOMPage.tsx" },
         { "route": "/ecosystem", "mode": "compact_summary", "sourceFile": "src/app/pages/EcosystemPage.tsx" }
       ]

@@ -6,10 +6,44 @@ import { ServiceTeaser } from "@/app/components/makeover/SiteShell";
 import { trackEvent } from "@/app/lib/analytics";
 
 const demoUrl = "/demo";
-const responseSteps = [
-  { title: "Understand the problem.", text: "See the warning alongside the equipment’s recent readings and history." },
-  { title: "Get the right people moving.", text: "Assign the next step and get approval when it’s needed." },
-  { title: "Check that the fix worked.", text: "Check the equipment’s readings after the work to see whether it is running as expected." },
+const homeOverviewCrops = [
+  {
+    id: "infinit-signal",
+    name: "Infinit-Signal",
+    description: "Connect and validate.",
+    cropBasename: "platform-overview-crop-signal",
+    width: 384,
+    height: 312,
+    alt: "Existing plant equipment and PLC cabinets sending readings into Infinit-Signal intake and verification.",
+  },
+  {
+    id: "singularity",
+    name: "Singularity",
+    description: "Understand in context.",
+    cropBasename: "platform-overview-crop-singularity",
+    width: 300,
+    height: 312,
+    alt: "Singularity shared operational model connecting equipment, site context, and operating history.",
+  },
+  {
+    id: "infinit-flow",
+    name: "Infinit-Flow",
+    optional: true,
+    description: "Coordinate the response.",
+    cropBasename: "platform-overview-crop-flow",
+    width: 192,
+    height: 306,
+    alt: "Infinit-Flow workflow sequence showing vibration alert, approval required, work order creation, and authorized action.",
+  },
+  {
+    id: "infinit-control",
+    name: "Infinit-Control",
+    description: "See and verify.",
+    cropBasename: "platform-overview-crop-control",
+    width: 232,
+    height: 376,
+    alt: "Operator reviewing P-101 Feed Pump operating measurements and confirmed recovery in Infinit-Control.",
+  },
 ];
 const industries = [
   { name: "Manufacturing", icon: Factory, title: "Keep the line moving.", text: "When a machine shows signs of trouble, help production and maintenance see the same information, agree on the next step, and keep each other informed.", challenge: "Equipment condition · Production uptime · Clear responsibilities" },
@@ -60,19 +94,84 @@ export function HomePage() {
       </section>
 
       <section className="home-response wrap" aria-labelledby="problem-title">
-        <div className="editorial-split">
-          <div>
-            <p className="eyebrow">FROM WARNING TO RESOLUTION</p>
-            <h2 id="problem-title">Seeing a problem is only the start.</h2>
+        <div className="home-response-header">
+          <p className="eyebrow"><span className="little-line" /> FROM WARNING TO RESOLUTION</p>
+          <h2 id="problem-title">See how the pieces come together.</h2>
+          <p className="home-response-lead">Connect equipment information, understand what needs attention, coordinate the response, and check the result with fresh operating data.</p>
+        </div>
+
+        <figure className="home-overview-figure">
+          <div className="home-overview-canvas">
+            <picture>
+              <source
+                type="image/avif"
+                srcSet="/images/platform/platform-overview-illustration-640.avif 640w, /images/platform/platform-overview-illustration-800.avif 800w, /images/platform/platform-overview-illustration-1024.avif 1024w"
+                sizes="(max-width: 1150px) calc(100vw - 72px), 1300px"
+              />
+              <source
+                type="image/webp"
+                srcSet="/images/platform/platform-overview-illustration-640.webp 640w, /images/platform/platform-overview-illustration-800.webp 800w, /images/platform/platform-overview-illustration-1024.webp 1024w"
+                sizes="(max-width: 1150px) calc(100vw - 72px), 1300px"
+              />
+              <img
+                src="/images/platform/platform-overview-illustration.jpg"
+                alt="Illustration of the Last Mile platform connecting existing industrial equipment through Infinit-Signal, Singularity, Infinit-Flow, and Infinit-Control to verify equipment recovery."
+                width={1024}
+                height={470}
+                loading="lazy"
+                decoding="async"
+              />
+            </picture>
           </div>
-          <div>
-            <p className="large-copy">A warning doesn’t fix the problem. Your team still has to piece together what happened, find the right person, and make sure the fix worked. Last Mile helps them manage that work without chasing updates across different systems.</p>
-            <ol className="home-steps">
-              {responseSteps.map((step) => <li key={step.title}><h3>{step.title}</h3><p>{step.text}</p></li>)}
-            </ol>
-            <p className="home-example"><strong>Example:</strong> A cooling unit gets too warm. The team checks its recent readings, assigns someone to investigate, and checks the temperature again after the work.</p>
-            <a href="/how-it-works" className="text-link">See how it works <ArrowRight size={18} aria-hidden="true" /></a>
+          <figcaption className="home-overview-caption-bar">
+            <span className="home-overview-caption-main">Your existing systems. One connected operating response.</span>
+            <span className="home-overview-caption-note">Illustrative platform view</span>
+          </figcaption>
+        </figure>
+
+        <div className="home-overview-mobile-crops" aria-label="Platform overview in four stages">
+          {homeOverviewCrops.map(({ id, name, optional, description, cropBasename, width, height, alt }) => (
+            <article key={id} className="home-overview-crop-card">
+              <div className="home-overview-crop-media">
+                <picture>
+                  <source type="image/avif" srcSet={`/images/platform/${cropBasename}.avif`} />
+                  <source type="image/webp" srcSet={`/images/platform/${cropBasename}.webp`} />
+                  <img
+                    src={`/images/platform/${cropBasename}.jpg`}
+                    alt={alt}
+                    width={width}
+                    height={height}
+                    loading="lazy"
+                    decoding="async"
+                  />
+                </picture>
+              </div>
+              <div className="home-overview-crop-body">
+                <div className="home-overview-crop-heading">
+                  <strong>{name}</strong>
+                  {optional && <span className="home-optional-label">Optional</span>}
+                </div>
+                <p>{description}</p>
+              </div>
+            </article>
+          ))}
+          <div className="home-overview-caption-bar home-overview-caption-mobile">
+            <span className="home-overview-caption-main">Your existing systems. One connected operating response.</span>
+            <span className="home-overview-caption-note">Illustrative platform view</span>
           </div>
+        </div>
+
+        <div className="home-response-links">
+          <a
+            href="/platform"
+            className="text-link"
+            onClick={() => trackEvent("cta_explore_platform_click", { placement: "home_response", destination: "/platform" })}
+          >
+            Explore the platform <ArrowRight size={17} aria-hidden="true" />
+          </a>
+          <a href="/how-it-works" className="text-link">
+            See how it works <ArrowRight size={17} aria-hidden="true" />
+          </a>
         </div>
       </section>
 

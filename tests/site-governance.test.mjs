@@ -85,7 +85,8 @@ test("homepage, platform, and infinit-signal use approved imagery and inventory 
   assert.doesNotMatch(home, /robots="noindex,\s*nofollow"/);
   assert.doesNotMatch(home, /not a product screenshot|24\/7|response-time SLA/i);
   assert.match(home, /<ServiceTeaser/);
-  for (const basename of ["platform-inspection-team", "platform-infinit-signal", "platform-singularity", "platform-infinit-flow", "platform-infinit-control"]) {
+  assert.match(home, /platform-overview-illustration/);
+  for (const basename of ["platform-overview-illustration", "platform-infinit-signal", "platform-singularity", "platform-infinit-flow", "platform-infinit-control"]) {
     assert.ok(platform.includes(basename), `PlatformPage missing ${basename}`);
   }
   assert.match(infinitSignal, /platform-infinit-signal/);
