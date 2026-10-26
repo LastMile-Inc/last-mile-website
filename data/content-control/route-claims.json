@@ -193,13 +193,7 @@
         "/singularity",
         "/infinit-signal"
       ],
-      "uses": [
-        {
-          "route": "/singularity",
-          "sourceFile": "src/app/pages/SSOMPage.tsx",
-          "wording": "Singularity is Last Mile's governed operational-memory and OT world-model product implementing the open SSOM semantic and evidence contract."
-        }
-      ]
+      "uses": []
     },
     {
       "claimId": "CLM-SSOM-001",

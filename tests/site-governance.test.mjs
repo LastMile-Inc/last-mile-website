@@ -98,8 +98,7 @@ test("homepage, platform, and infinit-signal use approved imagery and inventory 
   assert.doesNotMatch(infinitSignal, /Step 1 of 4|COR-DC-04182|NBIRTH|DBIRTH|NDEATH|DDEATH|NodeId|SSOM-conformant CORs|Kubernetes|OpenShift/);
   assert.match(singularity, /platform-singularity/);
   assert.match(singularity, /semantic-operating-record-v3/);
-  assert.match(singularity, /SINGULARITY · THE OPERATIONAL WORLD MODEL/);
-  assert.match(singularity, /Give AI and your team the context to act\./);
+  assert.match(singularity, /Give your team the context they need\./);
   assert.match(singularity, /Different sources\. One connected understanding\./);
   assert.match(infinitFlow, /infinit-flow-control-room/);
   assert.match(infinitFlow, /orchestration-routing-web-v4/);
