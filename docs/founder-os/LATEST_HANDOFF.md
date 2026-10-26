@@ -1,6 +1,13 @@
 # Latest handoff
 
-Updated: 2026-10-19
+Updated: 2026-10-26
+
+## Home and Platform presentation edits (2026-10-26)
+
+- **`/`**: Removed `Illustrative platform view`. The caption `Your existing systems. One connected operating response.` is centered under the platform overview image on desktop and under the narrow-screen crops.
+- **`/platform`**: Removed `Illustrative platform view`. The products heading is two lines (`Four products.` / `One connected operation.`) with no introduction paragraph. `We speak your language.` opens with a centered logo group for OPC UA, Modbus, Rockwell, and DNP3. `Your names matter. Your context stays.` opens with a centered ISA logo linked to ISA-95, and no longer includes the live-import, SI-normalization, summary list, or “No UNS yet” copy. The `Keep work moving with Infinit-Flow.` panel no longer shows `Optional`. The n8n and OpenTelemetry logos are centered. The trademark line and `Bring us your systems list.` transition are removed.
+- **Canonical sources:** `content-source/pages/home.md`, `content-source/pages/platform.md`, and the platform overview caption in `content-source/image-inventory.json`.
+- **Still awaiting confirmation before production release:** Modbus and DNP3 connection scope, the Rockwell logo as a connection claim, ISA-95 model rules, embedded n8n rights, and OpenTelemetry metrics/logs/traces. The removed SI-normalization sentences must not return without technical confirmation.
 
 ## Homepage (`/`) and Platform page (`/platform`) platform overview illustration update (2026-10-19)
 

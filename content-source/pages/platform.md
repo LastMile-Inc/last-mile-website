@@ -2,7 +2,7 @@
 content_id: PAGE-PLATFORM-001
 status: approved
 owner: Platform Product Marketing
-last_reviewed: 2026-10-19
+last_reviewed: 2026-10-26
 claim_maturity: [designed, demonstrated]
 depends_on: [GOV-DOCTRINE-001, CLAIMS-REGISTRY-001]
 used_by: [/platform]
@@ -28,13 +28,13 @@ Write for operators and managers. Product names may appear; explain each immedia
 
 **Secondary CTA:** Explore the four products — #products
 
-**Visual:** Full-width cleaned platform overview illustration (`/images/platform/platform-overview-illustration-{640,800,1024}.{avif,webp}` and `/images/platform/platform-overview-illustration.jpg`, native 1024×470 derived from `last-mile-platform-overview-placemat.jpg`) with printed header, product-caption strip, and navy footer removed. Live HTML captions are aligned beneath the illustrated regions (`Your existing systems` on the left, followed by linked product captions for `Infinit-Signal — Reliable data from your existing systems.`, `Singularity — Understand your equipment in context.`, `Infinit-Flow (Optional) — Keep work moving across teams and systems.`, and `Infinit-Control — See what needs attention and what changed.`, plus the discreet caption `Illustrative platform view.`). On narrow screens, four intentional detail crops (`platform-overview-crop-signal`, `platform-overview-crop-singularity`, `platform-overview-crop-flow`, `platform-overview-crop-control`) are paired with the live HTML product captions and links.
+**Visual:** Full-width cleaned platform overview illustration (`/images/platform/platform-overview-illustration-{640,800,1024}.{avif,webp}` and `/images/platform/platform-overview-illustration.jpg`, native 1024×470 derived from `last-mile-platform-overview-placemat.jpg`) with printed header, product-caption strip, and navy footer removed. Live HTML captions are aligned beneath the illustrated regions (`Your existing systems` on the left, followed by linked product captions for `Infinit-Signal — Reliable data from your existing systems.`, `Singularity — Understand your equipment in context.`, `Infinit-Flow (Optional) — Keep work moving across teams and systems.`, and `Infinit-Control — See what needs attention and what changed.`). On narrow screens, four intentional detail crops (`platform-overview-crop-signal`, `platform-overview-crop-singularity`, `platform-overview-crop-flow`, `platform-overview-crop-control`) are paired with the live HTML product captions and links. Do not show an `Illustrative platform view` label.
 
 ## 2. Products
 
-**Heading:** Four products. One connected operation.
+**Heading:** Four products. / One connected operation.
 
-**Introduction:** Each part has a clear job. Together, they help your team work with the same information and keep the response moving.
+Set the heading on two lines: `Four products.` and `One connected operation.` There is no introduction paragraph under the heading.
 
 ### Infinit-Signal — Bring scattered information together.
 
@@ -90,29 +90,22 @@ Link: Explore Infinit-Control — /infinit-control. Visual: 4:3 illustration (`/
 
 ### Column 1: We speak your language.
 
-- **Top visual area:** Restrained connection/network line icon (`RadioTower`).
+- **Top visual area:** A centered group of linked logos for `OPC UA` (`/images/platform/logos/opc-foundation-logo.jpg`, official OPC Foundation mark, linked to the OPC UA specification), `Modbus` (`/images/platform/logos/modbus-logo.svg`, linked to `https://www.modbus.org/`), `Rockwell` (`/images/platform/logos/rockwell-automation-logo.svg`, linked to `https://www.rockwellautomation.com/`), and `DNP3` (`/images/platform/logos/dnp-logo.jpg`, linked to `https://www.dnp.org/`). Keep each mark’s official colors. Center the group at the top of the panel.
 - **Heading:** We speak your language.
 - **Body:** Your operation runs on technologies chosen for a reason. Last Mile connects to PLCs and industrial systems through supported OPC UA, Modbus and DNP3 connections, bringing equipment information into a shared operational view.
 - **Technology chips:** Compact, lightly tinted text chips (`PLCs`, `OPC UA`, `Modbus`, `DNP3`; `PLCs` treated as an equipment category; `OPC UA` linked to `https://opcfoundation.org/about/opc-technologies/opc-ua/`, `Modbus` linked to `https://www.modbus.org/`, and `DNP3` linked to `https://www.dnp.org/`).
-- **Supporting sentence:** We work with your team to confirm the connection method, any required gateways, and the scope that fits your environment.
 - **Internal link:** Explore Infinit-Signal — `/infinit-signal`
 
 ### Column 2: Your names matter. Your context stays.
 
-- **Top visual area:** Restrained hierarchy/data-structure line icon (`Network`).
+- **Top visual area:** Official International Society of Automation logo (`/images/platform/logos/isa-logo.svg`, taken from the public `isa.org` header mark) centered at the top of the panel and linked to `https://www.isa.org/standards-and-publications/isa-standards/isa-95-standard` as the ISA-95 logo.
 - **Heading:** Your names matter. Your context stays.
 - **Body:** Your team has invested time in naming equipment and organizing how your operation fits together. If you already use a Unified Namespace (UNS), Last Mile preserves those names and relationships as it maps your information into an ISA-95-aligned operational model. (Link `ISA-95` to `https://www.isa.org/standards-and-publications/isa-standards/isa-95-standard`.)
-- **Supporting paragraph:** Through supported live connections or imports, we build on the structure you already have. Where appropriate, measurements are normalized to consistent SI units, while original values, units and source references remain traceable.
-- **Closing sentence:** No UNS yet? We can help establish the equipment context your team needs.
-- **Summary list:**
-  - Equipment names preserved.
-  - Existing relationships carried forward.
-  - Measurements made consistent.
 - **Internal link:** Explore Singularity — `/singularity`
 
 ### Column 3: Keep work moving with Infinit-Flow.
 
-- **Top visual area:** Official horizontal SVG logo (`/images/platform/logos/n8n-logo-dark.svg` from `https://n8n.io/brandguidelines/`) linked to `https://n8n.io/` (`Visit n8n`), with minimum width `>= 100` CSS px, clear space preserved, and visible `Optional` product-information label.
+- **Top visual area:** Official horizontal SVG logo (`/images/platform/logos/n8n-logo-dark.svg` from `https://n8n.io/brandguidelines/`) linked to `https://n8n.io/` (`Visit n8n`), centered in the panel, with minimum width `>= 100` CSS px and clear space preserved. Do not show an `Optional` label in this panel.
 - **Heading:** Keep work moving with Infinit-Flow.
 - **Body:** Infinit-Flow uses embedded n8n technology to coordinate work across your people and systems. Add it when you want Last Mile to organize workflows, approvals and automated tasks.
 - **Supporting line:** Infinit-Flow is an optional addition to the Last Mile platform.
@@ -120,14 +113,12 @@ Link: Explore Infinit-Control — /infinit-control. Visual: 4:3 illustration (`/
 
 ### Column 4: Visibility into the service you rely on.
 
-- **Top visual area:** Official horizontal color SVG logo (`/images/platform/logos/opentelemetry-horizontal-color.svg` from `https://github.com/cncf/artwork` under `projects/opentelemetry/horizontal/color/`) linked to `https://opentelemetry.io/` (`Visit OpenTelemetry`).
+- **Top visual area:** Official horizontal color SVG logo (`/images/platform/logos/opentelemetry-horizontal-color.svg` from `https://github.com/cncf/artwork` under `projects/opentelemetry/horizontal/color/`) linked to `https://opentelemetry.io/` (`Visit OpenTelemetry`) and centered in the panel.
 - **Heading:** Visibility into the service you rely on.
 - **Body:** Last Mile uses OpenTelemetry to collect metrics, logs and traces from its cloud services, helping our team monitor performance and investigate problems.
 - **Supporting line:** Platform monitoring is part of how we operate Last Mile.
 
-**Closing transition (below the 4-panel grid):**
-- **Copy:** Bring us your systems list. We’ll help map the right starting point.
-- **Link:** Discuss your setup — `/demo`
+Do not show a trademark attribution line under the grid, and do not show a closing transition that says `Bring us your systems list. We’ll help map the right starting point.`
 
 ## 4. Final invitation
 
@@ -139,11 +130,12 @@ Link: Explore Infinit-Control — /infinit-control. Visual: 4:3 illustration (`/
 
 ## Evidence boundaries and pre-release technical/commercial confirmation register
 
-The hero visual is the cleaned platform overview illustration (`platform-overview-illustration` and its four mobile detail crops, labeled `Illustrative platform view.`), and the four product visuals are approved 4:3 illustrations (`platform-infinit-signal`, `platform-singularity`, `platform-infinit-flow`, `platform-infinit-control`) rather than live product screenshots or customer deployments.
+The hero visual is the cleaned platform overview illustration (`platform-overview-illustration` and its four mobile detail crops, without an `Illustrative platform view` label), and the four product visuals are approved 4:3 illustrations (`platform-infinit-signal`, `platform-singularity`, `platform-infinit-flow`, `platform-infinit-control`) rather than live product screenshots or customer deployments.
 
 The `#built-for-your-operation` section is built in preview on the review branch (`releaseStatus: UNDER_REVIEW`). Before public production release, the following specific sentences require technical-owner or commercial confirmation and must be withheld from production merge until verified:
 1. `"Last Mile connects to PLCs and industrial systems through supported OPC UA, Modbus and DNP3 connections, bringing equipment information into a shared operational view."` (and `Modbus · DNP3` in the technology strip) — OPC UA source profiles and the open-protocol edge gateway workstream (`Last Mile Synapse`) are documented in architecture (`PROD-SIGNAL-001`, `CLM-SIG-002`, `CLM-IMPL-002`), whereas Modbus and DNP3 adapter/gateway requirements and production support scope await technical owner confirmation.
 2. `"If you already use a Unified Namespace (UNS), Last Mile preserves those names and relationships as it maps your information into an ISA-95-aligned operational model."` — Source-to-SSOM crosswalks and preservation of source names/identifiers/relationships are documented in `PROD-SIGNAL-001` and `PROD-SINGULARITY-001`, whereas specific implemented ISA-95 model alignment rules await technical owner confirmation.
-3. `"Through supported live connections or imports, we build on the structure you already have. Where appropriate, measurements are normalized to consistent SI units, while original values, units and source references remain traceable."` (and `"Measurements made consistent."`) — Minimum COR envelopes include value, unit, quantity kind, and conversion lineage (`PROD-SIGNAL-001`), whereas live structure import tooling and automated SI unit normalization scope await technical owner confirmation.
-4. `"Infinit-Flow uses embedded n8n technology to coordinate work across your people and systems. Add it when you want Last Mile to organize workflows, approvals and automated tasks."` — Current product architecture (`PROD-FLOW-001`) references a durable workflow engine without recording embedded n8n implementation or commercial embedding license clearance in `IP_REGISTER.md`; both technical implementation and commercial rights require confirmation before public release.
-5. `"Last Mile uses OpenTelemetry to collect metrics, logs and traces from its cloud services, helping our team monitor performance and investigate problems."` — Confirm with the technical owner that all three telemetry signals (`metrics, logs and traces`) are actively collected via OpenTelemetry in the cloud services environment before public release.
+3. The live-import and SI-normalization sentences (`"Through supported live connections or imports..."`, `"Equipment names preserved."`, `"Existing relationships carried forward."`, `"Measurements made consistent."`, and `"No UNS yet? We can help establish the equipment context your team needs."`) were removed from this page on 2026-10-26. Do not restore them without technical owner confirmation. Minimum COR envelopes include value, unit, quantity kind, and conversion lineage (`PROD-SIGNAL-001`), whereas live structure import tooling and automated SI unit normalization scope remain unconfirmed.
+4. The `Rockwell` logo in `We speak your language.` identifies Rockwell Automation equipment as a requested compatibility mark. It is not yet a registered connection claim. Do not add supporting Rockwell connection copy until a technical owner confirms the supported scope.
+5. `"Infinit-Flow uses embedded n8n technology to coordinate work across your people and systems. Add it when you want Last Mile to organize workflows, approvals and automated tasks."` — Current product architecture (`PROD-FLOW-001`) references a durable workflow engine without recording embedded n8n implementation or commercial embedding license clearance in `IP_REGISTER.md`; both technical implementation and commercial rights require confirmation before public release.
+6. `"Last Mile uses OpenTelemetry to collect metrics, logs and traces from its cloud services, helping our team monitor performance and investigate problems."` — Confirm with the technical owner that all three telemetry signals (`metrics, logs and traces`) are actively collected via OpenTelemetry in the cloud services environment before public release.

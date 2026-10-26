@@ -28,8 +28,6 @@ body.lm-makeover .lm-platform .pf-hero-caption-cell p{font-size:14px;line-height
 body.lm-makeover .lm-platform .pf-hero-caption-link{display:inline-flex;align-items:center;gap:6px;margin-top:auto;padding-top:10px;font-size:12px;font-weight:600;line-height:1.4;color:var(--lm-blue-dark);transition:color .15s}
 body.lm-makeover .lm-platform .pf-hero-caption-link:hover{color:var(--lm-blue)}
 
-body.lm-makeover .lm-platform .pf-hero-discreet-note{padding:8px 18px 10px;border-top:1px solid var(--lm-wash);background:var(--lm-canvas);font-size:12px;line-height:1.4;color:var(--lm-copy);letter-spacing:.2px}
-
 /* Narrow-screen intentional detail crops */
 body.lm-makeover .lm-platform .pf-hero-mobile-crops{display:none}
 body.lm-makeover .lm-platform .pf-hero-crop-card{display:grid;grid-template-columns:minmax(0,1fr);background:var(--lm-surface);border:1px solid var(--lm-steel);border-radius:12px;overflow:hidden;box-shadow:0 16px 34px -28px color-mix(in srgb,var(--lm-ink) 32%,transparent)}
@@ -46,8 +44,7 @@ body.lm-makeover .lm-platform .pf-optional-label{display:inline-flex;align-items
 /* Products */
 body.lm-makeover .lm-platform .pf-products{background:var(--lm-canvas);padding-block:96px 40px;border-top:1px solid var(--lm-wash)}
 body.lm-makeover .lm-platform .pf-products-header{max-width:720px;margin-bottom:24px}
-body.lm-makeover .lm-platform .pf-products-header h2{text-wrap:balance}
-body.lm-makeover .lm-platform .pf-products-header p{font-size:19px;line-height:1.6;color:var(--lm-copy);margin-top:20px}
+body.lm-makeover .lm-platform .pf-products-header h2{text-wrap:wrap}
 body.lm-makeover .lm-platform .pf-product{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.1fr);gap:72px;align-items:center;padding-block:64px;border-top:1px solid var(--lm-steel)}
 body.lm-makeover .lm-platform .pf-product:first-of-type{border-top:0}
 body.lm-makeover .lm-platform .pf-product>*{min-width:0}
@@ -75,13 +72,20 @@ body.lm-makeover .lm-platform .pf-operation-intro{font-size:18px;line-height:1.6
 body.lm-makeover .lm-platform .pf-operation-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:18px;align-items:stretch}
 body.lm-makeover .lm-platform .pf-op-panel{min-width:0;display:flex;flex-direction:column;align-items:flex-start;padding:22px;background:var(--lm-surface);border:1px solid var(--lm-steel);border-radius:12px;box-shadow:inset 0 3px 0 var(--lm-blue),0 16px 34px -26px color-mix(in srgb,var(--lm-ink) 32%,transparent)}
 
-body.lm-makeover .lm-platform .pf-op-visual{width:100%;height:56px;display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:14px}
-body.lm-makeover .lm-platform .pf-op-icon{display:inline-flex;align-items:center;justify-content:center;width:40px;height:40px;border-radius:8px;background:var(--lm-canvas);border:1px solid var(--lm-wash);color:var(--lm-blue-dark)}
+body.lm-makeover .lm-platform .pf-op-visual{width:100%;min-height:56px;display:flex;align-items:center;justify-content:center;gap:10px;margin-bottom:14px}
+body.lm-makeover .lm-platform .pf-op-visual-logos{height:auto}
 
-body.lm-makeover .lm-platform .pf-tech-logo-link{display:inline-flex;align-items:center;padding:0 4px 0 0}
-body.lm-makeover .lm-platform .pf-tech-logo{display:block;height:auto;max-width:100%}
+body.lm-makeover .lm-platform .pf-logo-row{width:100%;display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:12px 14px}
+body.lm-makeover .lm-platform .pf-tech-logo-link{display:inline-flex;align-items:center;justify-content:center;padding:0}
+body.lm-makeover .lm-platform .pf-tech-logo,body.lm-makeover .lm-platform .pf-partner-logo{display:block;height:auto;max-width:100%;object-fit:contain}
 body.lm-makeover .lm-platform .pf-tech-logo-n8n{width:108px;min-width:100px}
 body.lm-makeover .lm-platform .pf-tech-logo-otel{width:136px}
+body.lm-makeover .lm-platform .pf-partner-logo{width:auto;height:28px}
+body.lm-makeover .lm-platform .pf-partner-logo-opc-ua{height:32px}
+body.lm-makeover .lm-platform .pf-partner-logo-modbus{height:26px}
+body.lm-makeover .lm-platform .pf-partner-logo-rockwell{height:22px}
+body.lm-makeover .lm-platform .pf-partner-logo-dnp3{height:30px}
+body.lm-makeover .lm-platform .pf-partner-logo-isa{height:auto;width:100%;max-height:52px}
 
 body.lm-makeover .lm-platform .pf-op-panel h3{font-size:21px;font-weight:500;line-height:1.22;letter-spacing:-.5px;color:var(--lm-ink);text-wrap:balance}
 body.lm-makeover .lm-platform .pf-op-panel>p{font-size:15px;line-height:1.6;color:var(--lm-copy);margin-top:12px}
@@ -97,16 +101,7 @@ body.lm-makeover .lm-platform .pf-protocol-chip-static{color:var(--lm-ink)}
 body.lm-makeover .lm-platform .pf-protocol-chip-link{color:var(--lm-blue-dark);text-decoration:underline;text-decoration-color:var(--lm-steel);text-underline-offset:2px;transition:color .15s,border-color .15s,background .15s}
 body.lm-makeover .lm-platform .pf-protocol-chip-link:hover{color:var(--lm-blue);border-color:var(--lm-steel);background:var(--lm-wash)}
 
-body.lm-makeover .lm-platform .pf-context-summary{width:100%;list-style:none;margin:12px 0 0;padding:10px 0 0;border-top:1px solid var(--lm-wash);display:grid;gap:6px}
-body.lm-makeover .lm-platform .pf-context-summary li{position:relative;padding-left:12px;font-size:14px;font-weight:500;line-height:1.45;color:var(--lm-ink)}
-body.lm-makeover .lm-platform .pf-context-summary li::before{content:"";position:absolute;left:0;top:.55em;width:4px;height:4px;border-radius:50%;background:var(--lm-blue)}
-
 body.lm-makeover .lm-platform .pf-operation-link{margin-top:auto;padding-top:18px}
-
-body.lm-makeover .lm-platform .pf-trademark-note{margin-top:20px;font-size:12px;line-height:1.55;color:var(--lm-copy);max-width:760px}
-
-body.lm-makeover .lm-platform .pf-operation-transition{display:flex;flex-wrap:wrap;align-items:baseline;justify-content:space-between;gap:12px 28px;margin-top:24px;padding-top:22px;border-top:1px solid var(--lm-steel)}
-body.lm-makeover .lm-platform .pf-operation-transition p{font-size:17px;font-weight:500;line-height:1.5;color:var(--lm-ink)}
 
 /* Closing */
 body.lm-makeover .lm-platform .pf-closing{padding-top:80px;border-top:1px solid var(--lm-steel)}
@@ -137,7 +132,6 @@ body.lm-makeover .lm-platform .pf-actions .button,body.lm-makeover .lm-platform 
 @media(max-width:860px){
   body.lm-makeover .lm-platform .pf-hero-figure{display:none}
   body.lm-makeover .lm-platform .pf-hero-mobile-crops{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
-  body.lm-makeover .lm-platform .pf-hero-mobile-crops>.pf-hero-discreet-note{grid-column:1/-1;padding:0 4px;border:0;background:transparent}
 }
 @media(max-width:800px){
   body.lm-makeover .lm-platform .pf-hero{padding-block:36px 48px}

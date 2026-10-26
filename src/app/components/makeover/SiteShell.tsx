@@ -53,7 +53,6 @@ const primaryNavigation = [
   ["How it works", "/how-it-works"],
   ["Industries", "/industries"],
   ["Why Last Mile", "/why-last-mile"],
-  ["Resources", "/resources"],
 ] as const;
 
 export function Brand() {

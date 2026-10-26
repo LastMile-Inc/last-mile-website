@@ -93,13 +93,12 @@ test("homepage, platform, and infinit-signal use approved imagery and inventory 
   assert.match(infinitSignal, /signal-handoff-web-v3/);
   assert.doesNotMatch(infinitSignal, /ai-ready-handoff-v2/);
   assert.match(infinitSignal, /Make operational data dependable\./);
-  assert.match(infinitSignal, /From incoming signals to usable operational context\./);
+  assert.match(infinitSignal, /From incoming signals to meaningful context\./);
   assert.match(infinitSignal, /alt="Packaging-line cameras and sensors with graphics showing organized operating information\."/);
   assert.doesNotMatch(infinitSignal, /Step 1 of 4|COR-DC-04182|NBIRTH|DBIRTH|NDEATH|DDEATH|NodeId|SSOM-conformant CORs|Kubernetes|OpenShift/);
   assert.match(singularity, /platform-singularity/);
   assert.match(singularity, /semantic-operating-record-v3/);
-  assert.match(singularity, /SINGULARITY · THE OPERATIONAL WORLD MODEL/);
-  assert.match(singularity, /Give AI and your team the context to act\./);
+  assert.match(singularity, /Give your team the context they need\./);
   assert.match(singularity, /Different sources\. One connected understanding\./);
   assert.match(infinitFlow, /infinit-flow-control-room/);
   assert.match(infinitFlow, /orchestration-routing-web-v4/);
@@ -114,7 +113,7 @@ test("homepage, platform, and infinit-signal use approved imagery and inventory 
   assert.match(infinitControl, /mission-control-v2/);
   assert.match(infinitControl, /Know what needs action\. See what changed\./);
   assert.match(infinitControl, /Keep the wider operation in view\./);
-  assert.match(infinitControl, /The work is complete\. Is the operation recovered\?/);
+  assert.match(infinitControl, /The work is complete but, is the operation recovered\?/);
   assert.match(infinitControl, /Completed work is one milestone\. Operating evidence determines\s+whether recovery is established or further response is needed\./);
   const useCasePage = read("src/app/pages/OperatingUseCasePage.tsx");
   assert.match(useCasePage, /manufacturing-compressed-air/);

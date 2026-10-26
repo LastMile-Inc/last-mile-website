@@ -262,13 +262,12 @@ export function InfinitSignalPage() {
               FROM SOURCE TO SHARED CONTEXT
             </p>
             <h2 id="signal-handoff-title">
-              From incoming signals to usable operational context.
+              From incoming signals to meaningful context.
             </h2>
             <p className="signal-section-lead">
-              Infinit-Signal prepares incoming information for use. Singularity
-              connects it to operational context. Infinit-Flow and
-              Infinit-Control use that context to support coordinated work and
-              oversight.
+              You depend on a variety of technologies and vendors to run your
+              operations. Infinit-Signal ingests that signal and prepares it
+              for coordinated work and oversight.
             </p>
           </div>
 
@@ -379,13 +378,6 @@ export function InfinitSignalPage() {
               </div>
             </div>
 
-            <figcaption className="signal-pipeline-caption">
-              <span>
-                Connected software capabilities across the Last Mile platform, not
-                a physical appliance or isolated data silos.
-              </span>
-            </figcaption>
-
             {/* Simple editorial columns below the illustration */}
             <div
               className="signal-regions-breakdown"
@@ -407,9 +399,6 @@ export function InfinitSignalPage() {
                   dependencies, operating history, and ongoing work while
                   retaining their source references.
                 </p>
-                <a href="/singularity" className="text-link">
-                  Explore Singularity <ArrowRight size={16} aria-hidden="true" />
-                </a>
               </div>
 
               <div className="signal-region-column">
@@ -431,12 +420,11 @@ export function InfinitSignalPage() {
             <div className="signal-record-example-header">
               <div>
                 <h3 id="signal-record-example-title">
-                  How Infinit-Signal handles incoming operational records
+                  There is a tidal wave of operational data and it&apos;s messy.
                 </h3>
                 <p>
-                  Select a condition to see how Infinit-Signal preserves the
-                  distinction between when an event occurred at the source
-                  (event time) and when it arrived (arrival time).
+                  Select a scenario below to see how Infinit-Signal handles the
+                  diversity and complexity of incoming data from your operations.
                 </p>
               </div>
             </div>
@@ -586,10 +574,6 @@ export function InfinitSignalPage() {
             </div>
           </div>
 
-          <p className="signal-qualification-note">
-            Connections are configured around your environment and approved
-            during implementation.
-          </p>
         </div>
       </section>
 

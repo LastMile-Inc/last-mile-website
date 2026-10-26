@@ -28,8 +28,8 @@ Answer the buyer question: **"How does Last Mile make operational data dependabl
 ## B. Main Explanatory Illustration
 
 - **Eyebrow:** `FROM SOURCE TO SHARED CONTEXT`
-- **Section headline:** `From incoming signals to usable operational context.`
-- **Supporting copy:** `Infinit-Signal prepares incoming information for use. Singularity connects it to operational context. Infinit-Flow and Infinit-Control use that context to support coordinated work and oversight.`
+- **Section headline:** `From incoming signals to meaningful context.`
+- **Supporting copy:** `You depend on a variety of technologies and vendors to run your operations. Infinit-Signal ingests that signal and prepares it for coordinated work and oversight.`
 - **Explanatory illustration:** `Futuristic Factory-to-AI Data Pipeline.png` (`1672x941`, delivered as `signal-handoff-web-v3`, cleaned replacement for `ai-ready-handoff-v2.png`).
   - **Caption:** `Concept illustration`
 - **Three live region headings aligned to the corresponding regions:**
@@ -46,6 +46,8 @@ Answer the buyer question: **"How does Last Mile make operational data dependabl
 
 ## C. Record-Handling Example
 
+- **Heading:** `There is a tidal wave of operational data and it's messy.`
+- **Supporting copy:** `Select a scenario below to see how Infinit-Signal handles the diversity and complexity of incoming data from your operations.`
 - **Compact selectable example (`Illustrative example`) covering four documented conditions:**
   - **Current information (`Accepted`):** Preserves source identity, event time, and arrival time; checks quality against the configured profile; structures a consistent canonical operational record for Singularity.
   - **Repeated delivery (`Duplicate`):** Recognizes repeated delivery of the same event within the governed deduplication window, records the duplicate and arrival evidence, and prevents the repeated message from being applied a second time to current operational state.
@@ -67,7 +69,6 @@ Answer the buyer question: **"How does Last Mile make operational data dependabl
     - `Checks timing, completeness, and consistency.`
     - `Preserves source details for review.`
     - `Passes reliable information into Singularity.`
-- **Qualification note:** `Connections are configured around your environment and approved during implementation.`
 
 ## E. Connected Platform and Closing CTA
 

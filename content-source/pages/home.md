@@ -2,7 +2,7 @@
 content_id: PAGE-HOME-001
 status: approved
 owner: Website Product Marketing
-last_reviewed: 2026-10-19
+last_reviewed: 2026-10-26
 claim_maturity: [designed, perspective]
 depends_on: [GOV-DOCTRINE-001, CLAIMS-REGISTRY-001]
 used_by: [/]
@@ -38,7 +38,7 @@ Later on 2026-10-15 the founder accepted the recovered structure and design and 
 
 **Body:** Connect equipment information, understand what needs attention, coordinate the response, and check the result with fresh operating data.
 
-**Visual:** Full-width cleaned platform overview illustration (`/images/platform/platform-overview-illustration-{640,800,1024}.{avif,webp}` and `/images/platform/platform-overview-illustration.jpg`, native 1024×470 derived from `last-mile-platform-overview-placemat.jpg`) with one compact HTML caption (`Your existing systems. One connected operating response.`) and a small `Illustrative platform view` label. On narrow screens, present the four intentional detail crops (`Infinit-Signal — Connect and validate.`, `Singularity — Understand in context.`, `Infinit-Flow (Optional) — Coordinate the response.`, `Infinit-Control — See and verify.`).
+**Visual:** Full-width cleaned platform overview illustration (`/images/platform/platform-overview-illustration-{640,800,1024}.{avif,webp}` and `/images/platform/platform-overview-illustration.jpg`, native 1024×470 derived from `last-mile-platform-overview-placemat.jpg`) with one compact HTML caption centered under the image (`Your existing systems. One connected operating response.`). On narrow screens, present the four intentional detail crops (`Infinit-Signal — Connect and validate.`, `Singularity — Understand in context.`, `Infinit-Flow (Optional) — Coordinate the response.`, `Infinit-Control — See and verify.`) and center the same caption beneath them.
 
 **Links:**
 - Explore the platform — /platform

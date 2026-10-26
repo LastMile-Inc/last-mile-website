@@ -14,7 +14,7 @@ import "@/styles/singularity-page.css";
 
 const demoUrl = "/demo";
 const pageDescription =
-  "Singularity is Last Mile's governed operational-memory and OT world-model product implementing the open SSOM semantic and evidence contract.";
+  "From the moment that Last Mile is implemented, Singularity begins understanding your equipment, how it relates, what has happened and the work underway so that your team will always understand an issue in the right context.";
 
 const compositionRegions = [
   {
@@ -145,16 +145,16 @@ export function SSOMPage() {
         <div className="singularity-hero-copy">
           <p className="eyebrow">
             <span className="little-line" />
-            SINGULARITY · THE OPERATIONAL WORLD MODEL
+            Singularity
           </p>
           <h1 id="singularity-hero-title">
-            Give AI and your team the context to act.
+            Give your team the context they need.
           </h1>
           <p className="singularity-hero-lead">
-            Singularity builds an operational world model, a connected
-            understanding of your equipment, how it relates, what has happened,
-            and what work is underway, so people and AI can understand an issue
-            in context.
+            From the moment that Last Mile is implemented, Singularity begins
+            understanding your equipment, how it relates, what has happened and
+            the work underway so that your team will always understand an issue
+            in the right context.
           </p>
           <div className="hero-actions">
             <a
@@ -329,25 +329,6 @@ export function SSOMPage() {
         aria-labelledby="singularity-questions-title"
       >
         <div className="wrap">
-          <div
-            className="singularity-editorial-example"
-            aria-labelledby="singularity-example-heading"
-          >
-            <h2 id="singularity-example-heading">
-              What does this pump failure put at risk?
-            </h2>
-            <p className="singularity-example-copy">
-              An isolated alarm identifies the pump. Operational context
-              connects it to the cooling loop, the area it protects, its
-              redundancy role, recent work, and the team responsible for the
-              response.
-            </p>
-            <p className="singularity-example-followup">
-              That context helps people and AI assess what is affected and what
-              to investigate next.
-            </p>
-          </div>
-
           <div className="singularity-section-header singularity-section-header--wide">
             <p className="eyebrow">
               <span className="little-line" />
@@ -357,9 +338,8 @@ export function SSOMPage() {
               Answer the questions that matter during an operating issue.
             </h2>
             <p className="singularity-section-lead">
-              Singularity connects equipment, conditions, history, ongoing
-              responses, and outcomes across the systems and sites that each see
-              only part of the story.
+              The power of that shared context is most noticeable when mission
+              critical parts of your operation are down.
             </p>
           </div>
 
@@ -401,15 +381,16 @@ export function SSOMPage() {
             <div className="singularity-tech-intro">
               <p className="eyebrow">
                 <span className="little-line" />
-                OPEN SEMANTIC CONTRACT &amp; TECHNICAL REFERENCE
+                Last Mile&apos;s Open Data Standard
               </p>
               <h2 id="singularity-technical-title">
                 Built on the Standardized Semantic Object Model (SSOM).
               </h2>
               <p>
-                Singularity is Last Mile&apos;s governed operational-memory and
-                OT world-model product implementing the open SSOM semantic and
-                evidence contract.
+                At the heart of Singularity is the Standardized Semantic Object
+                Model (SSOM). SSOM offers the structure and meaning that is so
+                important to your operations and does it in a way that conforms
+                with the data standards you already use.
               </p>
             </div>
 
@@ -562,32 +543,6 @@ export function SSOMPage() {
                 </div>
               </div>
             </details>
-
-            <div
-              className="singularity-resource-links"
-              aria-label="Related technical concept articles"
-            >
-              <a
-                href="/resources/industrial-concepts/operational-outcome-thread"
-                className="text-link"
-              >
-                From warning to confirmed result{" "}
-                <ArrowRight size={15} aria-hidden="true" />
-              </a>
-              <a
-                href="/resources/industrial-concepts/uns-and-ssom"
-                className="text-link"
-              >
-                Unified Namespace and SSOM <ArrowRight size={15} aria-hidden="true" />
-              </a>
-              <a
-                href="/resources/industrial-concepts/industrial-ai"
-                className="text-link"
-              >
-                How AI supports operations under your team&apos;s authority{" "}
-                <ArrowRight size={15} aria-hidden="true" />
-              </a>
-            </div>
           </div>
         </div>
       </section>
@@ -649,9 +604,6 @@ export function SSOMPage() {
                 }
               >
                 Request a demo <ArrowUpRight size={16} aria-hidden="true" />
-              </a>
-              <a href="/infinit-flow" className="text-link">
-                Explore Infinit-Flow <ArrowRight size={17} aria-hidden="true" />
               </a>
             </div>
           </div>

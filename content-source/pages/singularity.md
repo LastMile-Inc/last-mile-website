@@ -16,9 +16,9 @@ Explain how Singularity connects equipment, conditions, dependencies, history, w
 
 ## A. Hero
 
-- **Eyebrow:** `SINGULARITY · THE OPERATIONAL WORLD MODEL`
-- **H1:** `Give AI and your team the context to act.`
-- **Supporting copy:** `Connect assets, conditions, dependencies, history, work, and outcomes in a shared operational world model—so people and AI can understand an issue in the context of the operation.`
+- **Eyebrow:** `Singularity`
+- **H1:** `Give your team the context they need.`
+- **Supporting copy:** `From the moment that Last Mile is implemented, Singularity begins understanding your equipment, how it relates, what has happened and the work underway so that your team will always understand an issue in the right context.`
 - **Primary CTA:** `Book a demo` -> `/demo`
 - **Secondary link:** `Explore the platform` -> `/platform`
 - **Hero visual:** Approved Singularity concept asset (`Smart Water Treatment Plant Monitoring(1).png`, delivered as `platform-singularity` in a `4:3` frame, `1448x1086`).
@@ -39,6 +39,8 @@ Explain how Singularity connects equipment, conditions, dependencies, history, w
 
 ## C. Operational Context Questions
 
+The pump-failure example panel is not shown. The section lead is: `The power of that shared context is most noticeable when mission critical parts of your operation are down.`
+
 Concise explanations addressing the four operational questions using canonical Singularity capabilities and showing how Singularity supplies shared context across `Infinit-Signal`, `Singularity`, `Infinit-Flow`, and `Infinit-Control`:
 
 1. **What equipment and processes does this issue affect?**
@@ -52,9 +54,10 @@ Concise explanations addressing the four operational questions using canonical S
 
 ## D. Optional Technical Reference: SSOM, Identity Crosswalk, and Governance Boundaries
 
-- Presented as an optional expandable technical reference section plus links to canonical Industrial Concepts resources (`/resources/industrial-concepts/semantic-interoperability`, `/resources/industrial-concepts/uns-and-ssom`, `/resources/industrial-concepts/digital-twins`, `/resources/industrial-concepts/industrial-ai`, `/resources/industrial-concepts/data-spaces`).
+- Presented as an optional expandable technical reference section. The concept-article links under that section are not shown.
+- **Eyebrow:** `Last Mile's Open Data Standard`
+- **Visible introduction:** `At the heart of Singularity is the Standardized Semantic Object Model (SSOM). SSOM offers the structure and meaning that is so important to your operations and does it in a way that conforms with the data standards you already use.`
 - **SSOM expansion:** `The Standardized Semantic Object Model defines portable operational meaning, identity, relationships, temporal semantics, quality, evidence, provenance, conformance, and profiles.`
-- **Singularity runtime role:** `Singularity is Last Mile's governed operational-memory and OT world-model product implementing the open SSOM semantic and evidence contract.`
 - **Scoped source-identity crosswalk:** Shows how `Source tag`, `MQTT topic`, `OPC UA NodeId`, `Historian point`, `SAP equipment`, and `Provider record` resolve to one canonical operational asset (`Cooling Loop B · CHWP-02`) while preserving every scoped external identity and validity period.
 - **Conformance & Data Trust boundaries:**
   - `SSOM conformance and MQTT/Sparkplug compatibility are separate conformance domains.`
@@ -67,4 +70,3 @@ Concise explanations addressing the four operational questions using canonical S
 - **Closing CTA:**
   - **Heading:** `See how shared operational context guides coordinated action.`
   - **Primary CTA:** `Book a demo` -> `/demo`
-  - **Secondary link:** `Explore Infinit-Flow` -> `/infinit-flow`
