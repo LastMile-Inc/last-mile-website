@@ -166,13 +166,7 @@
         "/infinit-signal",
         "/ecosystem"
       ],
-      "uses": [
-        {
-          "route": "/infinit-signal",
-          "sourceFile": "src/app/pages/InfinitSignalPage.tsx",
-          "wording": "Connections are configured around your environment and approved during implementation."
-        }
-      ]
+      "uses": []
     },
     {
       "claimId": "CLM-SIG-003",

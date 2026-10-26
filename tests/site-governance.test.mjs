@@ -93,7 +93,7 @@ test("homepage, platform, and infinit-signal use approved imagery and inventory 
   assert.match(infinitSignal, /signal-handoff-web-v3/);
   assert.doesNotMatch(infinitSignal, /ai-ready-handoff-v2/);
   assert.match(infinitSignal, /Make operational data dependable\./);
-  assert.match(infinitSignal, /From incoming signals to usable operational context\./);
+  assert.match(infinitSignal, /From incoming signals to meaningful context\./);
   assert.match(infinitSignal, /alt="Packaging-line cameras and sensors with graphics showing organized operating information\."/);
   assert.doesNotMatch(infinitSignal, /Step 1 of 4|COR-DC-04182|NBIRTH|DBIRTH|NDEATH|DDEATH|NodeId|SSOM-conformant CORs|Kubernetes|OpenShift/);
   assert.match(singularity, /platform-singularity/);
