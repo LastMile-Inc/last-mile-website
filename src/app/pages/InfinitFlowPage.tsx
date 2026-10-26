@@ -368,45 +368,6 @@ export function InfinitFlowPage() {
                 ))}
               </dl>
 
-              <details className="flow-tech-details">
-                <summary>
-                  Technical details: Governance, authority, and asset selection
-                </summary>
-                <div className="flow-tech-details-body">
-                  <p>
-                    Infinit-Flow determines what should happen next and creates
-                    one durable Response across operators, work systems,
-                    providers, approvals, evidence, and return measurements. It
-                    executes only the digital steps policy allows and keeps
-                    physical authority where operations require it. Retain
-                    physical-work, safety, LOTO, and control authority under
-                    customer policy.
-                  </p>
-                  <p>
-                    Choose an operational object type and intent. Infinit-Flow
-                    returns only assets compatible with the required SSOM class,
-                    capability, tenant, site, role, quality, and freshness.
-                    Simple controls appear first; expert semantic and lineage
-                    detail remains available when needed.
-                  </p>
-                  <p>
-                    When the field task or work order closes, Infinit-Flow asks
-                    Singularity to evaluate the configured return measurements.
-                    Work-system state is contextual evidence only; it cannot set
-                    the physical result.
-                  </p>
-                </div>
-              </details>
-
-              <p className="flow-editorial-concept-link">
-                <a
-                  href="/resources/industrial-concepts/industrial-ai"
-                  className="text-link"
-                >
-                  Explore how Industrial AI stays bounded by operational
-                  authority <ArrowRight size={16} aria-hidden="true" />
-                </a>
-              </p>
             </div>
 
             {/* Right column: What every handoff preserves */}
@@ -519,10 +480,6 @@ export function InfinitFlowPage() {
                 }
               >
                 Request a demo <ArrowUpRight size={16} aria-hidden="true" />
-              </a>
-              <a href="/infinit-control" className="text-link">
-                Next: Explore Infinit-Control{" "}
-                <ArrowRight size={17} aria-hidden="true" />
               </a>
             </div>
           </div>

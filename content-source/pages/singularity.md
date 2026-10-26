@@ -54,7 +54,7 @@ Concise explanations addressing the four operational questions using canonical S
 
 ## D. Optional Technical Reference: SSOM, Identity Crosswalk, and Governance Boundaries
 
-- Presented as an optional expandable technical reference section plus links to canonical Industrial Concepts resources (`/resources/industrial-concepts/semantic-interoperability`, `/resources/industrial-concepts/uns-and-ssom`, `/resources/industrial-concepts/digital-twins`, `/resources/industrial-concepts/industrial-ai`, `/resources/industrial-concepts/data-spaces`).
+- Presented as an optional expandable technical reference section. The concept-article links under that section are not shown.
 - **Eyebrow:** `Last Mile's Open Data Standard`
 - **Visible introduction:** `At the heart of Singularity is the Standardized Semantic Object Model (SSOM). SSOM offers the structure and meaning that is so important to your operations and does it in a way that conforms with the data standards you already use.`
 - **SSOM expansion:** `The Standardized Semantic Object Model defines portable operational meaning, identity, relationships, temporal semantics, quality, evidence, provenance, conformance, and profiles.`
@@ -70,4 +70,3 @@ Concise explanations addressing the four operational questions using canonical S
 - **Closing CTA:**
   - **Heading:** `See how shared operational context guides coordinated action.`
   - **Primary CTA:** `Book a demo` -> `/demo`
-  - **Secondary link:** `Explore Infinit-Flow` -> `/infinit-flow`

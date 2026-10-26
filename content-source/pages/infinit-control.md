@@ -44,6 +44,10 @@ Present the image as an illustration of broader oversight; do not suggest that L
 
 ## Work status versus operating result
 
+**Heading:** `The work is complete but, is the operation recovered?`
+
+The technical-details disclosure is not shown on this page.
+
 Include a concise illustrative example reusing the approved Cooling Loop B (`CHWP-02` / `SAP WO-18427`) reference scenario to show that:
 - Work status and operating condition are distinct.
 - Completed work may still require additional evidence (in the `Work complete · Stability in progress` state, `Why` states `Pressure and the required stability window have not met the recovery criteria.` without duplicating the `Operating result` summary).

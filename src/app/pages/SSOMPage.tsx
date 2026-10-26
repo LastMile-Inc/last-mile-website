@@ -543,32 +543,6 @@ export function SSOMPage() {
                 </div>
               </div>
             </details>
-
-            <div
-              className="singularity-resource-links"
-              aria-label="Related technical concept articles"
-            >
-              <a
-                href="/resources/industrial-concepts/operational-outcome-thread"
-                className="text-link"
-              >
-                From warning to confirmed result{" "}
-                <ArrowRight size={15} aria-hidden="true" />
-              </a>
-              <a
-                href="/resources/industrial-concepts/uns-and-ssom"
-                className="text-link"
-              >
-                Unified Namespace and SSOM <ArrowRight size={15} aria-hidden="true" />
-              </a>
-              <a
-                href="/resources/industrial-concepts/industrial-ai"
-                className="text-link"
-              >
-                How AI supports operations under your team&apos;s authority{" "}
-                <ArrowRight size={15} aria-hidden="true" />
-              </a>
-            </div>
           </div>
         </div>
       </section>
@@ -630,9 +604,6 @@ export function SSOMPage() {
                 }
               >
                 Request a demo <ArrowUpRight size={16} aria-hidden="true" />
-              </a>
-              <a href="/infinit-flow" className="text-link">
-                Explore Infinit-Flow <ArrowRight size={17} aria-hidden="true" />
               </a>
             </div>
           </div>

@@ -305,24 +305,6 @@ export function InfinitControlPage() {
             </div>
           </div>
 
-          <details className="control-tech-details">
-            <summary>Technical details: Permissions, measurement rules, and scope</summary>
-            <div className="control-tech-details-body">
-              <p>
-                Infinit-Control gives each role a governed operational command
-                surface for current state, canonical topology, evidence,
-                ownership, work, system participation, authority, return
-                measurements, and verified Outcomes. It is more than a dashboard
-                because it keeps the complete accountable response in view. Every
-                view and action respects tenant, site, and role permissions.
-                Important measurements show a numerical value, engineering unit,
-                expected or reference band, state icon and text, and meaningful
-                trend or freshness. Stale, quarantined, unresolved, or missing
-                inputs are shown as No valid data and cannot support a recovered
-                result.
-              </p>
-            </div>
-          </details>
         </div>
       </section>
 
@@ -398,7 +380,7 @@ export function InfinitControlPage() {
               WORK STATUS VS. OPERATING RESULT
             </p>
             <h2 id="control-milestone-title">
-              The work is complete. Is the operation recovered?
+              The work is complete but, is the operation recovered?
             </h2>
             <p className="control-section-lead">
               Completed work is one milestone. Operating evidence determines
@@ -628,10 +610,6 @@ export function InfinitControlPage() {
                 }
               >
                 Request a demo <ArrowUpRight size={16} aria-hidden="true" />
-              </a>
-              <a href="/use-cases" className="text-link">
-                Explore operating use cases{" "}
-                <ArrowRight size={17} aria-hidden="true" />
               </a>
             </div>
           </div>

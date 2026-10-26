@@ -113,7 +113,7 @@ test("homepage, platform, and infinit-signal use approved imagery and inventory 
   assert.match(infinitControl, /mission-control-v2/);
   assert.match(infinitControl, /Know what needs action\. See what changed\./);
   assert.match(infinitControl, /Keep the wider operation in view\./);
-  assert.match(infinitControl, /The work is complete\. Is the operation recovered\?/);
+  assert.match(infinitControl, /The work is complete but, is the operation recovered\?/);
   assert.match(infinitControl, /Completed work is one milestone\. Operating evidence determines\s+whether recovery is established or further response is needed\./);
   const useCasePage = read("src/app/pages/OperatingUseCasePage.tsx");
   assert.match(useCasePage, /manufacturing-compressed-air/);

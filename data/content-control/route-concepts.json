@@ -6,7 +6,6 @@
       "articleRoute": "/resources/industrial-concepts/operational-outcome-thread",
       "collectionIndex": 1,
       "usages": [
-        { "route": "/singularity", "mode": "link_only", "sourceFile": "src/app/pages/SSOMPage.tsx" },
         { "route": "/ecosystem", "mode": "link_only", "sourceFile": "src/app/pages/EcosystemPage.tsx" },
         { "route": "/use-cases/data-center-cooling", "mode": "link_only", "sourceFile": "src/app/pages/OperatingUseCasePage.tsx" },
         { "route": "/use-cases/municipal-wastewater", "mode": "link_only", "sourceFile": "src/app/pages/OperatingUseCasePage.tsx" },
@@ -19,8 +18,6 @@
       "articleRoute": "/resources/industrial-concepts/industrial-ai",
       "collectionIndex": 2,
       "usages": [
-        { "route": "/singularity", "mode": "link_only", "sourceFile": "src/app/pages/SSOMPage.tsx" },
-        { "route": "/infinit-flow", "mode": "link_only", "sourceFile": "src/app/pages/InfinitFlowPage.tsx" },
         { "route": "/ecosystem", "mode": "link_only", "sourceFile": "src/app/pages/EcosystemPage.tsx" },
         { "route": "/about", "mode": "link_only", "sourceFile": "src/app/pages/AboutPage.tsx" }
       ]
@@ -30,7 +27,6 @@
       "articleRoute": "/resources/industrial-concepts/uns-and-ssom",
       "collectionIndex": 3,
       "usages": [
-        { "route": "/singularity", "mode": "compact_summary", "sourceFile": "src/app/pages/SSOMPage.tsx" },
         { "route": "/ecosystem", "mode": "compact_summary", "sourceFile": "src/app/pages/EcosystemPage.tsx" }
       ]
     }

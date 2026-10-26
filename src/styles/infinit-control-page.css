@@ -573,7 +573,9 @@ body.lm-makeover .lm-infinit-control .control-closing-actions {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
+  justify-content: flex-end;
   gap: 20px;
+  margin-left: auto;
 }
 
 /* Responsive Breakpoints */
