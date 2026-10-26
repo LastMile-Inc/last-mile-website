@@ -46,6 +46,8 @@ Answer the buyer question: **"How does Last Mile make operational data dependabl
 
 ## C. Record-Handling Example
 
+- **Heading:** `There is a tidal wave of operational data and it's messy.`
+- **Supporting copy:** `Select a scenario below to see how Infinit-Signal handles the diversity and complexity of incoming data from your operations.`
 - **Compact selectable example (`Illustrative example`) covering four documented conditions:**
   - **Current information (`Accepted`):** Preserves source identity, event time, and arrival time; checks quality against the configured profile; structures a consistent canonical operational record for Singularity.
   - **Repeated delivery (`Duplicate`):** Recognizes repeated delivery of the same event within the governed deduplication window, records the duplicate and arrival evidence, and prevents the repeated message from being applied a second time to current operational state.

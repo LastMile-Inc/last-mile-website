@@ -420,12 +420,11 @@ export function InfinitSignalPage() {
             <div className="signal-record-example-header">
               <div>
                 <h3 id="signal-record-example-title">
-                  How Infinit-Signal handles incoming operational records
+                  There is a tidal wave of operational data and it&apos;s messy.
                 </h3>
                 <p>
-                  Select a condition to see how Infinit-Signal preserves the
-                  distinction between when an event occurred at the source
-                  (event time) and when it arrived (arrival time).
+                  Select a scenario below to see how Infinit-Signal handles the
+                  diversity and complexity of incoming data from your operations.
                 </p>
               </div>
             </div>
