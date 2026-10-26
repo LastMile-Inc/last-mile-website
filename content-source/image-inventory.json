@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "lastUpdated": "2026-10-19",
+  "lastUpdated": "2026-10-26",
   "scope": "Home (/), Platform (/platform), Infinit-Signal (/infinit-signal), Singularity (/singularity), Infinit-Flow (/infinit-flow), Infinit-Control (/infinit-control), and Use Cases (/use-cases/*) approved imagery and reserved supporting-page assets",
   "activeAssets": [
     {
@@ -54,7 +54,7 @@
       ],
       "placement": "Platform hero and Home warning-to-resolution overview",
       "alt": "Illustration of the Last Mile platform connecting existing industrial equipment through Infinit-Signal, Singularity, Infinit-Flow, and Infinit-Control to verify equipment recovery.",
-      "caption": "Illustrative platform view.",
+      "caption": null,
       "deliveryFiles": [
         "public/images/platform/platform-overview-illustration-640.avif",
         "public/images/platform/platform-overview-illustration-640.webp",

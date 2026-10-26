@@ -8,6 +8,41 @@ import "@/styles/platform-page.css";
 const demoUrl = "/demo";
 const description = "Last Mile's four products bring equipment information, AI assistance, and everyday work into one platform, so teams can spot issues, organize the response, and check the result.";
 
+const protocolLogos = [
+  {
+    name: "OPC UA",
+    href: "https://opcfoundation.org/about/opc-technologies/opc-ua/",
+    src: "/images/platform/logos/opc-foundation-logo.jpg",
+    alt: "OPC Foundation",
+    width: 241,
+    height: 88,
+  },
+  {
+    name: "Modbus",
+    href: "https://www.modbus.org/",
+    src: "/images/platform/logos/modbus-logo.svg",
+    alt: "Modbus",
+    width: 653,
+    height: 220,
+  },
+  {
+    name: "Rockwell",
+    href: "https://www.rockwellautomation.com/",
+    src: "/images/platform/logos/rockwell-automation-logo.svg",
+    alt: "Rockwell Automation",
+    width: 1615,
+    height: 378,
+  },
+  {
+    name: "DNP3",
+    href: "https://www.dnp.org/",
+    src: "/images/platform/logos/dnp-logo.jpg",
+    alt: "DNP",
+    width: 270,
+    height: 145,
+  },
+] as const;
+
 type Product = {
   id: string;
   name: string;
@@ -134,8 +169,6 @@ function PlatformHeroIllustration() {
             </div>
           ))}
         </div>
-
-        <figcaption className="pf-hero-discreet-note">Illustrative platform view.</figcaption>
       </figure>
 
       <div className="pf-hero-mobile-crops" aria-label="Platform overview in four stages">
@@ -178,7 +211,6 @@ function PlatformHeroIllustration() {
             </div>
           </article>
         ))}
-        <p className="pf-hero-discreet-note">Illustrative platform view.</p>
       </div>
     </div>
   );
@@ -291,8 +323,10 @@ export function PlatformPage() {
         <section className="pf-products" id="products" aria-labelledby="pf-products-title">
           <div className="wrap">
             <header className="pf-products-header">
-              <h2 id="pf-products-title">Four products. One connected operation.</h2>
-              <p>Each part has a clear job. Together, they help your team work with the same information and keep the response moving.</p>
+              <h2 id="pf-products-title">
+                Four products.<br />
+                One connected operation.
+              </h2>
             </header>
             {products.map(({ id, name, optional, icon: Icon, headline, body, capabilities, href, linkLabel, imageBasename, imageAlt }) => (
               <article key={id} className="pf-product" aria-labelledby={`pf-${id}-title`}>
@@ -327,10 +361,29 @@ export function PlatformPage() {
 
             <div className="pf-operation-grid">
               <article className="pf-op-panel">
-                <div className="pf-op-visual">
-                  <span className="pf-op-icon" aria-hidden="true">
-                    <RadioTower size={22} />
-                  </span>
+                <div className="pf-op-visual pf-op-visual-logos">
+                  <div className="pf-logo-row" aria-label="OPC UA, Modbus, Rockwell, and DNP3">
+                    {protocolLogos.map((logo) => (
+                      <a
+                        key={logo.name}
+                        className="pf-tech-logo-link"
+                        href={logo.href}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        aria-label={`${logo.name} (opens in a new tab)`}
+                      >
+                        <img
+                          className={`pf-partner-logo pf-partner-logo-${logo.name.toLowerCase().replace(/\s+/g, "-")}`}
+                          src={logo.src}
+                          alt={logo.alt}
+                          width={logo.width}
+                          height={logo.height}
+                          loading="lazy"
+                          decoding="async"
+                        />
+                      </a>
+                    ))}
+                  </div>
                 </div>
                 <h3>We speak your language.</h3>
                 <p>
@@ -409,10 +462,24 @@ export function PlatformPage() {
               </article>
 
               <article className="pf-op-panel">
-                <div className="pf-op-visual">
-                  <span className="pf-op-icon" aria-hidden="true">
-                    <Network size={22} />
-                  </span>
+                <div className="pf-op-visual pf-op-visual-logos">
+                  <a
+                    className="pf-tech-logo-link"
+                    href="https://www.isa.org/standards-and-publications/isa-standards/isa-95-standard"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="ISA-95 standard at the International Society of Automation (opens in a new tab)"
+                  >
+                    <img
+                      className="pf-partner-logo pf-partner-logo-isa"
+                      src="/images/platform/logos/isa-logo.svg"
+                      alt="International Society of Automation"
+                      width={565}
+                      height={156}
+                      loading="lazy"
+                      decoding="async"
+                    />
+                  </a>
                 </div>
                 <h3>Your names matter. Your context stays.</h3>
                 <p>
@@ -427,17 +494,6 @@ export function PlatformPage() {
                     ISA-95
                   </a>
                   -aligned operational model.
-                </p>
-                <p className="pf-op-supporting">
-                  Through supported live connections or imports, we build on the structure you already have. Where appropriate, measurements are normalized to consistent SI units, while original values, units and source references remain traceable.
-                </p>
-                <ul className="pf-context-summary">
-                  <li>Equipment names preserved.</li>
-                  <li>Existing relationships carried forward.</li>
-                  <li>Measurements made consistent.</li>
-                </ul>
-                <p className="pf-op-closing-note">
-                  No UNS yet? We can help establish the equipment context your team needs.
                 </p>
                 <a
                   className="text-link pf-operation-link"
@@ -467,7 +523,6 @@ export function PlatformPage() {
                       decoding="async"
                     />
                   </a>
-                  <span className="pf-optional-label">Optional</span>
                 </div>
                 <h3>Keep work moving with Infinit-Flow.</h3>
                 <p>
@@ -513,31 +568,6 @@ export function PlatformPage() {
                   Platform monitoring is part of how we operate Last Mile.
                 </p>
               </article>
-            </div>
-
-            <p className="pf-trademark-note">
-              n8n is a trademark of n8n GmbH. OpenTelemetry is a trademark of The Linux Foundation and is used in accordance with{" "}
-              <a
-                className="pf-inline-link"
-                href="https://www.linuxfoundation.org/legal/trademark-usage"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="The Linux Foundation trademark usage guidelines (opens in a new tab)"
-              >
-                The Linux Foundation’s trademark usage guidelines
-              </a>
-              .
-            </p>
-
-            <div className="pf-operation-transition">
-              <p>Bring us your systems list. We’ll help map the right starting point.</p>
-              <a
-                className="text-link"
-                href={demoUrl}
-                onClick={() => trackEvent("cta_demo_click", { placement: "platform_operation_transition", destination: demoUrl })}
-              >
-                Discuss your setup <ArrowRight size={16} aria-hidden="true" />
-              </a>
             </div>
           </div>
         </section>

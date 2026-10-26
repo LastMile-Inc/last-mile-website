@@ -125,7 +125,6 @@ export function HomePage() {
           </div>
           <figcaption className="home-overview-caption-bar">
             <span className="home-overview-caption-main">Your existing systems. One connected operating response.</span>
-            <span className="home-overview-caption-note">Illustrative platform view</span>
           </figcaption>
         </figure>
 
@@ -157,7 +156,6 @@ export function HomePage() {
           ))}
           <div className="home-overview-caption-bar home-overview-caption-mobile">
             <span className="home-overview-caption-main">Your existing systems. One connected operating response.</span>
-            <span className="home-overview-caption-note">Illustrative platform view</span>
           </div>
         </div>
 
