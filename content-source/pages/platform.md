@@ -94,7 +94,6 @@ Link: Explore Infinit-Control — /infinit-control. Visual: 4:3 illustration (`/
 - **Heading:** We speak your language.
 - **Body:** Your operation runs on technologies chosen for a reason. Last Mile connects to PLCs and industrial systems through supported OPC UA, Modbus and DNP3 connections, bringing equipment information into a shared operational view.
 - **Technology chips:** Compact, lightly tinted text chips (`PLCs`, `OPC UA`, `Modbus`, `DNP3`; `PLCs` treated as an equipment category; `OPC UA` linked to `https://opcfoundation.org/about/opc-technologies/opc-ua/`, `Modbus` linked to `https://www.modbus.org/`, and `DNP3` linked to `https://www.dnp.org/`).
-- **Supporting sentence:** We work with your team to confirm the connection method, any required gateways, and the scope that fits your environment.
 - **Internal link:** Explore Infinit-Signal — `/infinit-signal`
 
 ### Column 2: Your names matter. Your context stays.

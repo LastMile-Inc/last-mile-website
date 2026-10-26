@@ -449,9 +449,6 @@ export function PlatformPage() {
                     DNP3
                   </a>
                 </div>
-                <p className="pf-op-supporting">
-                  We work with your team to confirm the connection method, any required gateways, and the scope that fits your environment.
-                </p>
                 <a
                   className="text-link pf-operation-link"
                   href="/infinit-signal"
@@ -475,7 +472,7 @@ export function PlatformPage() {
                       src="/images/platform/logos/isa-logo.svg"
                       alt="International Society of Automation"
                       width={565}
-                      height={156}
+                      height={76}
                       loading="lazy"
                       decoding="async"
                     />
