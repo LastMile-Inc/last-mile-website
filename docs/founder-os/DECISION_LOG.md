@@ -1,5 +1,18 @@
 # Decision log
 
+## 2026-11-22 — Product screenshots replace conceptual visuals on four routes
+
+Decision (requested by Rodney, 2026-11-22; review branch `cursor/product-screenshot-evidence-1094` only): use the six supplied product screenshots as product evidence on `/`, `/platform`, `/infinit-control`, and `/our-service`, replacing existing visuals instead of adding a gallery.
+- **Source of truth.** Screenshot copy, alt text, audience, and publication status live in `src/app/content/productViews.ts`; page copy lives in the four page contracts under `content-source/pages/`; assets are registered in `content-source/image-inventory.json`. Two claims are registered at `Demonstrated` maturity, scoped to the supplied screenshots with example operating data: `CLM-CTRL-004` (customer product views) and `CLM-SERVICE-007` (Cloud Operations team views), with release-gate entry `LM-WEB-PRODUCTVIEWS-001`. The Home use of `CLM-OUTCOME-001` is removed with the sentence it traced.
+- **Customer and internal views stay separate.** `Ops.png`, `hud.png`, and `Asset_detail.png` are customer-facing (`Product screenshot · Example operating data.`). `cloud_OPS_hud.png` and `cloud_OPS_global.png` are internal (`Last Mile Cloud Operations team view · Example operating data.`) and appear only on `/our-service`. `Ops.png` and `hud.png` are two presentations of one operations overview, not separate products.
+- **Fidelity.** Screenshots are resized only. The two Cloud Operations views are additionally cropped to the top 1692 of 1800 rows to remove the administrative shortcut and shell bar; the enlarged viewer serves the same cropped files and the uncropped originals stay outside `public/`. Nothing is redrawn and no displayed value is changed.
+- **Withheld.** `Asset_Trend.png` is not published: its summary values and reported conditions appear inconsistent. Its entry exists with `published: false`, no delivery file is generated, and no tab or placeholder is rendered. A corrected capture is the one outstanding image.
+- **Example data is not evidence of traction.** Site counts, message totals, names, and the example company in the screenshots are not marketing statistics, benchmarks, customers, or case studies.
+- **Palette.** The dark product interfaces are an explicit exception to the light-palette rule for imagery, limited to the screenshots themselves, framed with an ink border on the existing light surfaces. No dark page sections were introduced.
+- **Superseded.** `field-command-v2` and `mission-control-v2` are no longer displayed. The platform overview illustration moves from Home and the Platform hero into the collapsed Platform section `How the four products work together`.
+
+Not authorized by this decision: merge to `main`, publication or deployment, or release of architecture marked `UNDER_REVIEW`.
+
 ## 2026-10-26 — Home and Platform presentation edits
 
 Decision: update `/` and `/platform` presentation without changing the product set or the remaining operating copy.
