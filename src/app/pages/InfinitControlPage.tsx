@@ -1,6 +1,8 @@
 import { useState, useRef, type KeyboardEvent } from "react";
 import { ArrowRight, ArrowUpRight } from "lucide-react";
+import { ProductViewFigure } from "@/app/components/makeover/ProductViews";
 import { SEO } from "@/app/components/SEO";
+import { productViews } from "@/app/content/productViews";
 import { trackEvent } from "@/app/lib/analytics";
 import {
   createBreadcrumbSchema,
@@ -209,31 +211,11 @@ export function InfinitControlPage() {
           </div>
         </div>
 
-        <figure className="control-hero-figure">
-          <div className="control-hero-media">
-            <picture>
-              <source
-                type="image/avif"
-                srcSet="/images/platform/field-command-v2-640.avif 640w, /images/platform/field-command-v2-960.avif 960w, /images/platform/field-command-v2-1280.avif 1280w, /images/platform/field-command-v2-1536.avif 1536w"
-                sizes="(max-width: 1080px) calc(100vw - 64px), 600px"
-              />
-              <source
-                type="image/webp"
-                srcSet="/images/platform/field-command-v2-640.webp 640w, /images/platform/field-command-v2-960.webp 960w, /images/platform/field-command-v2-1280.webp 1280w, /images/platform/field-command-v2-1536.webp 1536w"
-                sizes="(max-width: 1080px) calc(100vw - 64px), 600px"
-              />
-              <img
-                src="/images/platform/field-command-v2.png"
-                alt="Field technician beside a pump assembly reviewing operating conditions, ownership, work status, and trend data on a tablet."
-                width={1536}
-                height={1024}
-                loading="eager"
-                fetchPriority="high"
-                decoding="async"
-              />
-            </picture>
-          </div>
-        </figure>
+        <ProductViewFigure
+          view={productViews.assetDetail}
+          className="control-hero-shot"
+          priority
+        />
       </section>
 
       {/* B. Role-Based Explanation */}
@@ -308,7 +290,7 @@ export function InfinitControlPage() {
         </div>
       </section>
 
-      {/* C. Supporting Oversight Image (mission-control-v2.png) */}
+      {/* C. Shared oversight: operations overview, map view */}
       <section
         className="control-section"
         aria-labelledby="control-oversight-title"
@@ -323,47 +305,14 @@ export function InfinitControlPage() {
               Keep the wider operation in view.
             </h2>
             <p className="control-section-lead">
-              Bring conditions, ongoing responses, and outcome evidence into a
-              shared view across the operation.
+              See site status across your operation, then bring the selected
+              site’s information and contacts into view. Give your team a
+              shared starting point for understanding where attention is
+              needed.
             </p>
           </div>
 
-          <figure
-            className="control-oversight-figure"
-            aria-label="Illustration of shared operational oversight across conditions, ongoing responses, and outcome evidence"
-          >
-            <div className="control-oversight-media">
-              <picture>
-                <source
-                  type="image/avif"
-                  srcSet="/images/platform/mission-control-v2-640.avif 640w, /images/platform/mission-control-v2-960.avif 960w, /images/platform/mission-control-v2-1280.avif 1280w, /images/platform/mission-control-v2-1672.avif 1672w"
-                  sizes="(max-width: 1320px) calc(100vw - 48px), 1260px"
-                />
-                <source
-                  type="image/webp"
-                  srcSet="/images/platform/mission-control-v2-640.webp 640w, /images/platform/mission-control-v2-960.webp 960w, /images/platform/mission-control-v2-1280.webp 1280w, /images/platform/mission-control-v2-1672.webp 1672w"
-                  sizes="(max-width: 1320px) calc(100vw - 48px), 1260px"
-                />
-                <img
-                  src="/images/platform/mission-control-v2.png"
-                  alt="Operations staff reviewing conditions, ongoing responses, and outcome evidence across a shared operational view."
-                  width={1672}
-                  height={941}
-                  loading="eager"
-                  decoding="async"
-                />
-              </picture>
-            </div>
-            <figcaption className="control-oversight-caption">
-              <span className="control-oversight-caption-note">
-                Illustration of broader operational oversight across sites and
-                teams. Last Mile delivers software views on your existing
-                workstations, tablets, and operational displays; it does not
-                require a dedicated physical control room or proprietary
-                hardware.
-              </span>
-            </figcaption>
-          </figure>
+          <ProductViewFigure view={productViews.operationsOverviewMap} />
         </div>
       </section>
 

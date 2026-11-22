@@ -327,3 +327,37 @@ body.lm-makeover .why-now-closing {
   }
 }
 
+
+/* /our-service: Cloud Operations team views */
+body.lm-makeover .service-views-header {
+  max-width: 780px;
+  margin-bottom: 30px;
+}
+
+body.lm-makeover .service-views-header h2 {
+  margin-top: 19px;
+  text-wrap: balance;
+}
+
+body.lm-makeover .service-views-header > p:not(.eyebrow) {
+  margin-top: 20px;
+  max-width: 700px;
+  font-size: 18px;
+  line-height: 1.6;
+  color: var(--lm-copy);
+}
+
+body.lm-makeover .service-views-header .text-link {
+  margin-top: 22px;
+}
+
+@media (max-width: 580px) {
+  body.lm-makeover .service-views-header h2 {
+    font-size: 36px;
+    letter-spacing: -1.5px;
+  }
+
+  body.lm-makeover .service-views-header > p:not(.eyebrow) {
+    font-size: 17px;
+  }
+}

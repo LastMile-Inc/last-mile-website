@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
-  "lastUpdated": "2026-10-26",
-  "scope": "Home (/), Platform (/platform), Infinit-Signal (/infinit-signal), Singularity (/singularity), Infinit-Flow (/infinit-flow), Infinit-Control (/infinit-control), and Use Cases (/use-cases/*) approved imagery and reserved supporting-page assets",
+  "lastUpdated": "2026-11-22",
+  "scope": "Home (/), Platform (/platform), Infinit-Signal (/infinit-signal), Singularity (/singularity), Infinit-Flow (/infinit-flow), Infinit-Control (/infinit-control), Our Service (/our-service), and Use Cases (/use-cases/*) approved imagery and reserved supporting-page assets",
   "activeAssets": [
     {
       "status": "active",
@@ -47,12 +47,11 @@
       },
       "originalBytes": 393706,
       "originalSha256": "32d1c0e750c637a1",
-      "route": "/platform, /",
+      "route": "/platform",
       "routes": [
-        "/platform",
-        "/"
+        "/platform"
       ],
-      "placement": "Platform hero and Home warning-to-resolution overview",
+      "placement": "Platform collapsed section \"How the four products work together\"",
       "alt": "Illustration of the Last Mile platform connecting existing industrial equipment through Infinit-Signal, Singularity, Infinit-Flow, and Infinit-Control to verify equipment recovery.",
       "caption": null,
       "deliveryFiles": [
@@ -76,7 +75,7 @@
         "public/images/platform/platform-overview-crop-control.webp",
         "public/images/platform/platform-overview-crop-control.jpg"
       ],
-      "notes": "Cleaned 1024x470 central illustration derived from the 1024x625 placemat source (printed header, product-caption strip, and navy footer removed), plus four intentional mobile detail crops."
+      "notes": "Cleaned 1024x470 central illustration derived from the 1024x625 placemat source (printed header, product-caption strip, and navy footer removed), plus four intentional mobile detail crops. From 2026-11-22 the illustration is no longer shown on Home and is lazy-loaded inside the collapsed Platform disclosure."
     },
     {
       "status": "active",
@@ -338,70 +337,6 @@
     },
     {
       "status": "active",
-      "deliveryBasename": "field-command-v2",
-      "sourceFilename": "field-command-v2.png",
-      "canonicalSpecName": "field-command-v2.png",
-      "preservedOriginalPath": "assets/originals/2026-10-approved/field-command-v2.png",
-      "originalDimensions": {
-        "width": 1536,
-        "height": 1024
-      },
-      "originalBytes": 1995983,
-      "originalSha256": "d25b726e8bb286d0",
-      "route": "/infinit-control",
-      "routes": [
-        "/infinit-control"
-      ],
-      "placement": "/infinit-control hero",
-      "alt": "Concept illustration of a field technician beside a pump assembly reviewing operating conditions, ownership, work status, and trend data on a tablet.",
-      "caption": "Concept illustration",
-      "deliveryFiles": [
-        "public/images/platform/field-command-v2-640.avif",
-        "public/images/platform/field-command-v2-640.webp",
-        "public/images/platform/field-command-v2-960.avif",
-        "public/images/platform/field-command-v2-960.webp",
-        "public/images/platform/field-command-v2-1280.avif",
-        "public/images/platform/field-command-v2-1280.webp",
-        "public/images/platform/field-command-v2-1536.avif",
-        "public/images/platform/field-command-v2-1536.webp",
-        "public/images/platform/field-command-v2.png"
-      ],
-      "notes": "3:2 aspect ratio (1536x1024 native). Treated as a conceptual illustration."
-    },
-    {
-      "status": "active",
-      "deliveryBasename": "mission-control-v2",
-      "sourceFilename": "mission-control-v2.png",
-      "canonicalSpecName": "mission-control-v2.png",
-      "preservedOriginalPath": "assets/originals/2026-10-approved/mission-control-v2.png",
-      "originalDimensions": {
-        "width": 1672,
-        "height": 941
-      },
-      "originalBytes": 2009630,
-      "originalSha256": "50578610ee0289be",
-      "route": "/infinit-control",
-      "routes": [
-        "/infinit-control"
-      ],
-      "placement": "/infinit-control supporting oversight illustration",
-      "alt": "Concept illustration of operations staff reviewing conditions, ongoing responses, and outcome evidence across a shared operational view.",
-      "caption": "Concept illustration",
-      "deliveryFiles": [
-        "public/images/platform/mission-control-v2-640.avif",
-        "public/images/platform/mission-control-v2-640.webp",
-        "public/images/platform/mission-control-v2-960.avif",
-        "public/images/platform/mission-control-v2-960.webp",
-        "public/images/platform/mission-control-v2-1280.avif",
-        "public/images/platform/mission-control-v2-1280.webp",
-        "public/images/platform/mission-control-v2-1672.avif",
-        "public/images/platform/mission-control-v2-1672.webp",
-        "public/images/platform/mission-control-v2.png"
-      ],
-      "notes": "16:9 aspect ratio (1672x941 native). Presented as an illustration of broader oversight across the operation."
-    },
-    {
-      "status": "active",
       "deliveryBasename": "manufacturing-compressed-air",
       "sourceFilename": "manufacturing-compressed-air.webp",
       "canonicalSpecName": "manufacturing-compressed-air.webp",
@@ -489,6 +424,178 @@
         "public/images/use-cases/municipal-wastewater.webp"
       ],
       "notes": "16:10 aspect ratio (1024x640 native). Primary introductory visual for the municipal wastewater lift-station use case."
+    },
+    {
+      "status": "active",
+      "deliveryBasename": "operations-overview",
+      "sourceFilename": "Ops.png",
+      "canonicalSpecName": "Ops.png",
+      "preservedOriginalPath": "assets/originals/2026-11-product-screenshots/Ops.png",
+      "originalDimensions": {
+        "width": 2880,
+        "height": 1800
+      },
+      "originalBytes": 1237460,
+      "originalSha256": "946b268c342b1da2",
+      "route": "/, /platform",
+      "routes": [
+        "/",
+        "/platform"
+      ],
+      "placement": "Home product section; Platform product explorer (Operations overview)",
+      "alt": "Last Mile operations overview showing a global site map, site status, selected-site details and contacts.",
+      "caption": "Operations overview: site status, incoming data and selected-site context in one place.",
+      "deliveryFiles": [
+        "public/images/product-views/operations-overview-640.avif",
+        "public/images/product-views/operations-overview-640.webp",
+        "public/images/product-views/operations-overview-960.avif",
+        "public/images/product-views/operations-overview-960.webp",
+        "public/images/product-views/operations-overview-1280.avif",
+        "public/images/product-views/operations-overview-1280.webp",
+        "public/images/product-views/operations-overview-1920.avif",
+        "public/images/product-views/operations-overview-1920.webp",
+        "public/images/product-views/operations-overview-2880.avif",
+        "public/images/product-views/operations-overview-2880.webp",
+        "public/images/product-views/operations-overview.jpg"
+      ],
+      "notes": "Customer-facing product screenshot with example operating data; audience line `Product screenshot · Example operating data.` Resized only (never upscaled); delivered at 640w, 960w, 1280w, 1920w, and 2880w in AVIF/WebP with a 1440w JPEG fallback by scripts/prepare-product-screenshots.py. Example values are not marketing statistics or customer traction."
+    },
+    {
+      "status": "active",
+      "deliveryBasename": "operations-overview-map",
+      "sourceFilename": "hud.png",
+      "canonicalSpecName": "hud.png",
+      "preservedOriginalPath": "assets/originals/2026-11-product-screenshots/hud.png",
+      "originalDimensions": {
+        "width": 2880,
+        "height": 1800
+      },
+      "originalBytes": 989498,
+      "originalSha256": "9062bea5cf54ddf9",
+      "route": "/infinit-control",
+      "routes": [
+        "/infinit-control"
+      ],
+      "placement": "Infinit-Control shared oversight section",
+      "alt": "Last Mile operations overview in map view showing site status across a world map with the selected site’s details and contacts.",
+      "caption": "Operations overview · Map view with selected-site context.",
+      "deliveryFiles": [
+        "public/images/product-views/operations-overview-map-640.avif",
+        "public/images/product-views/operations-overview-map-640.webp",
+        "public/images/product-views/operations-overview-map-960.avif",
+        "public/images/product-views/operations-overview-map-960.webp",
+        "public/images/product-views/operations-overview-map-1280.avif",
+        "public/images/product-views/operations-overview-map-1280.webp",
+        "public/images/product-views/operations-overview-map-1920.avif",
+        "public/images/product-views/operations-overview-map-1920.webp",
+        "public/images/product-views/operations-overview-map-2880.avif",
+        "public/images/product-views/operations-overview-map-2880.webp",
+        "public/images/product-views/operations-overview-map.jpg"
+      ],
+      "notes": "Customer-facing product screenshot with example operating data; audience line `Product screenshot · Example operating data.` Resized only (never upscaled); delivered at 640w, 960w, 1280w, 1920w, and 2880w in AVIF/WebP with a 1440w JPEG fallback by scripts/prepare-product-screenshots.py. Example values are not marketing statistics or customer traction. Alternative presentation of the same operations overview as Ops.png, not a separate product."
+    },
+    {
+      "status": "active",
+      "deliveryBasename": "asset-detail",
+      "sourceFilename": "Asset_detail.png",
+      "canonicalSpecName": "Asset_detail.png",
+      "preservedOriginalPath": "assets/originals/2026-11-product-screenshots/Asset_detail.png",
+      "originalDimensions": {
+        "width": 2880,
+        "height": 1800
+      },
+      "originalBytes": 572092,
+      "originalSha256": "af23f158162e2e46",
+      "route": "/platform, /infinit-control",
+      "routes": [
+        "/platform",
+        "/infinit-control"
+      ],
+      "placement": "Platform product explorer (Asset detail); Infinit-Control hero",
+      "alt": "Last Mile asset detail showing transformer readings, operating conditions, equipment information and replacement history.",
+      "caption": "Current readings, equipment details, active conditions and replacement history—together in the asset view.",
+      "deliveryFiles": [
+        "public/images/product-views/asset-detail-640.avif",
+        "public/images/product-views/asset-detail-640.webp",
+        "public/images/product-views/asset-detail-960.avif",
+        "public/images/product-views/asset-detail-960.webp",
+        "public/images/product-views/asset-detail-1280.avif",
+        "public/images/product-views/asset-detail-1280.webp",
+        "public/images/product-views/asset-detail-1920.avif",
+        "public/images/product-views/asset-detail-1920.webp",
+        "public/images/product-views/asset-detail-2880.avif",
+        "public/images/product-views/asset-detail-2880.webp",
+        "public/images/product-views/asset-detail.jpg"
+      ],
+      "notes": "Customer-facing product screenshot with example operating data; audience line `Product screenshot · Example operating data.` Resized only (never upscaled); delivered at 640w, 960w, 1280w, 1920w, and 2880w in AVIF/WebP with a 1440w JPEG fallback by scripts/prepare-product-screenshots.py. Example values are not marketing statistics or customer traction."
+    },
+    {
+      "status": "active",
+      "deliveryBasename": "cloud-operations-site-context",
+      "sourceFilename": "cloud_OPS_hud.png",
+      "canonicalSpecName": "cloud_OPS_hud.png",
+      "preservedOriginalPath": "assets/originals/2026-11-product-screenshots/cloud_OPS_hud.png",
+      "originalDimensions": {
+        "width": 2880,
+        "height": 1800
+      },
+      "originalBytes": 663707,
+      "originalSha256": "22f191ce94db1c72",
+      "route": "/our-service",
+      "routes": [
+        "/our-service"
+      ],
+      "placement": "Our Service Cloud Operations viewer (Site context, default)",
+      "alt": "Last Mile Cloud Operations view showing one connected site’s connectivity, incoming data, support contacts and recent interactions.",
+      "caption": "Site connectivity, incoming data, named contacts and recent interactions in one working view.",
+      "deliveryFiles": [
+        "public/images/product-views/cloud-operations-site-context-640.avif",
+        "public/images/product-views/cloud-operations-site-context-640.webp",
+        "public/images/product-views/cloud-operations-site-context-960.avif",
+        "public/images/product-views/cloud-operations-site-context-960.webp",
+        "public/images/product-views/cloud-operations-site-context-1280.avif",
+        "public/images/product-views/cloud-operations-site-context-1280.webp",
+        "public/images/product-views/cloud-operations-site-context-1920.avif",
+        "public/images/product-views/cloud-operations-site-context-1920.webp",
+        "public/images/product-views/cloud-operations-site-context-2880.avif",
+        "public/images/product-views/cloud-operations-site-context-2880.webp",
+        "public/images/product-views/cloud-operations-site-context.jpg"
+      ],
+      "notes": "Internal Last Mile Cloud Operations team view with example operating data; audience line `Last Mile Cloud Operations team view · Example operating data.` The public delivery files are cropped to the top 1692 of 1800 rows to remove the administrative shortcut and shell bar; the uncropped original is preserved outside public/ and is never served. The enlarged viewer uses the same cropped files."
+    },
+    {
+      "status": "active",
+      "deliveryBasename": "cloud-operations-connected-sites",
+      "sourceFilename": "cloud_OPS_global.png",
+      "canonicalSpecName": "cloud_OPS_global.png",
+      "preservedOriginalPath": "assets/originals/2026-11-product-screenshots/cloud_OPS_global.png",
+      "originalDimensions": {
+        "width": 2880,
+        "height": 1800
+      },
+      "originalBytes": 959432,
+      "originalSha256": "4f8b47975d1c4fc4",
+      "route": "/our-service",
+      "routes": [
+        "/our-service"
+      ],
+      "placement": "Our Service Cloud Operations viewer (Connected sites)",
+      "alt": "Last Mile Cloud Operations view showing connected-site health, open issues and incoming data.",
+      "caption": "A shared view of connected sites, open issues and platform telemetry.",
+      "deliveryFiles": [
+        "public/images/product-views/cloud-operations-connected-sites-640.avif",
+        "public/images/product-views/cloud-operations-connected-sites-640.webp",
+        "public/images/product-views/cloud-operations-connected-sites-960.avif",
+        "public/images/product-views/cloud-operations-connected-sites-960.webp",
+        "public/images/product-views/cloud-operations-connected-sites-1280.avif",
+        "public/images/product-views/cloud-operations-connected-sites-1280.webp",
+        "public/images/product-views/cloud-operations-connected-sites-1920.avif",
+        "public/images/product-views/cloud-operations-connected-sites-1920.webp",
+        "public/images/product-views/cloud-operations-connected-sites-2880.avif",
+        "public/images/product-views/cloud-operations-connected-sites-2880.webp",
+        "public/images/product-views/cloud-operations-connected-sites.jpg"
+      ],
+      "notes": "Internal Last Mile Cloud Operations team view with example operating data; audience line `Last Mile Cloud Operations team view · Example operating data.` The public delivery files are cropped to the top 1692 of 1800 rows to remove the administrative shortcut and shell bar; the uncropped original is preserved outside public/ and is never served. The enlarged viewer uses the same cropped files."
     }
   ],
   "reservedAssets": [
@@ -569,6 +676,19 @@
       "originalSha256": "616cd17b3f551e51",
       "displayedOn": [],
       "notes": "Reserved for upcoming supporting-page reviews. Do not display on Home, Platform, or Infinit-Signal."
+    },
+    {
+      "status": "reserved",
+      "sourceFilename": "Asset_Trend.png",
+      "preservedOriginalPath": "assets/originals/2026-11-product-screenshots/Asset_Trend.png",
+      "originalDimensions": {
+        "width": 2880,
+        "height": 1800
+      },
+      "originalBytes": 426113,
+      "originalSha256": "bf86ce0c9e58ceef",
+      "displayedOn": [],
+      "notes": "Withheld pending a corrected capture: the supplied trend screenshot's summary values and reported conditions appear inconsistent. Configured as the unpublished `equipmentTrends` entry in src/app/content/productViews.ts (Platform product explorer, third view). No delivery file is generated under public/ and no tab is rendered until the replacement arrives."
     }
   ],
   "supersededAssets": [
@@ -636,6 +756,32 @@
       "originalSha256": "dee0988d5dccb191",
       "displayedOn": [],
       "notes": "Superseded /platform hero photograph; preserved in repository and not displayed on active routes."
+    },
+    {
+      "status": "superseded_not_displayed",
+      "sourceFilename": "field-command-v2.png",
+      "preservedOriginalPath": "assets/originals/2026-10-approved/field-command-v2.png",
+      "originalDimensions": {
+        "width": 1536,
+        "height": 1024
+      },
+      "originalBytes": 1995983,
+      "originalSha256": "d25b726e8bb286d0",
+      "displayedOn": [],
+      "notes": "Superseded on 2026-11-22 on /infinit-control by the product screenshot asset-detail (hero). Delivery files under public/images/platform/field-command-v2* are no longer referenced by any route."
+    },
+    {
+      "status": "superseded_not_displayed",
+      "sourceFilename": "mission-control-v2.png",
+      "preservedOriginalPath": "assets/originals/2026-10-approved/mission-control-v2.png",
+      "originalDimensions": {
+        "width": 1672,
+        "height": 941
+      },
+      "originalBytes": 2009630,
+      "originalSha256": "50578610ee0289be",
+      "displayedOn": [],
+      "notes": "Superseded on 2026-11-22 on /infinit-control by the product screenshot operations-overview-map (shared oversight section). Delivery files under public/images/platform/mission-control-v2* are no longer referenced by any route."
     }
   ]
 }

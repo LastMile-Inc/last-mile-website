@@ -31,7 +31,7 @@
         {
           "route": "/platform",
           "sourceFile": "src/app/pages/PlatformPage.tsx",
-          "wording": "Last Mile builds on that foundation—connecting your existing systems, preserving the context your team relies on, and making operational information easier to use."
+          "wording": "Last Mile builds on that foundation\u2014connecting your existing systems, preserving the context your team relies on, and making operational information easier to use."
         },
         {
           "route": "/ecosystem",
@@ -114,11 +114,6 @@
           "route": "/use-cases/cold-storage-refrigeration",
           "sourceFile": "src/app/pages/platformReferenceData.ts",
           "wording": "Refrigeration and product-protection criteria recover across pull-down, defrost, and the 45-minute stability window."
-        },
-        {
-          "route": "/",
-          "sourceFile": "src/app/pages/HomePage.tsx",
-          "wording": "Connect equipment information, understand what needs attention, coordinate the response, and check the result with fresh operating data."
         },
         {
           "route": "/how-it-works",
@@ -482,6 +477,46 @@
           "route": "/our-service",
           "sourceFile": "src/app/pages/OurServicePage.tsx",
           "wording": "Good Service Remembers... Great Service Anticipates."
+        }
+      ]
+    },
+    {
+      "claimId": "CLM-CTRL-004",
+      "approvedMaturity": "demonstrated",
+      "allowedRoutes": [
+        "/",
+        "/platform",
+        "/infinit-control"
+      ],
+      "uses": [
+        {
+          "route": "/",
+          "sourceFile": "src/app/pages/HomePage.tsx",
+          "wording": "Bring site status, equipment information and the right contacts into one connected view."
+        },
+        {
+          "route": "/platform",
+          "sourceFile": "src/app/pages/PlatformPage.tsx",
+          "wording": "See where attention is needed, bring the equipment into context, and examine how its operating conditions have changed."
+        },
+        {
+          "route": "/infinit-control",
+          "sourceFile": "src/app/pages/InfinitControlPage.tsx",
+          "wording": "See site status across your operation, then bring the selected site\u2019s information and contacts into view."
+        }
+      ]
+    },
+    {
+      "claimId": "CLM-SERVICE-007",
+      "approvedMaturity": "demonstrated",
+      "allowedRoutes": [
+        "/our-service"
+      ],
+      "uses": [
+        {
+          "route": "/our-service",
+          "sourceFile": "src/app/pages/OurServicePage.tsx",
+          "wording": "Our Cloud Operations team can review site connectivity, incoming data and operational issues in one place."
         }
       ]
     }
