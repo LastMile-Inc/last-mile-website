@@ -2,8 +2,8 @@
 content_id: PAGE-HOME-001
 status: approved
 owner: Website Product Marketing
-last_reviewed: 2026-10-26
-claim_maturity: [designed, perspective]
+last_reviewed: 2026-11-22
+claim_maturity: [designed, demonstrated, perspective]
 depends_on: [GOV-DOCTRINE-001, CLAIMS-REGISTRY-001]
 used_by: [/]
 ---
@@ -30,19 +30,27 @@ Later on 2026-10-15 the founder accepted the recovered structure and design and 
 
 **Visual:** the approved industrial worker portrait card (`chuck.png` -> `/images/home/home-chuck-hero-{400,600,800,1086}.{avif,webp}` and `/images/home/home-chuck-hero.jpg`, native 1086×1448 portrait at 3:4 aspect ratio, superseding `Picture10(1).jpg`, without a caption strip over the portrait, alt `"Chuck wearing a blue hard hat and safety glasses on a factory floor."`). No screenshot placeholders, simulated dashboards, or process tables in the hero.
 
-## 2. From warning to resolution
+## 2. Inside Last Mile — show the product
 
-**Eyebrow:** FROM WARNING TO RESOLUTION
+Directed on 2026-11-22: this section replaces the conceptual platform overview illustration (`FROM WARNING TO RESOLUTION` / `See how the pieces come together.`) with a real product screenshot. The platform overview illustration remains on `/platform` inside the collapsed `How the four products work together` section.
 
-**Heading:** See how the pieces come together.
+**Eyebrow:** INSIDE LAST MILE
 
-**Body:** Connect equipment information, understand what needs attention, coordinate the response, and check the result with fresh operating data.
+**Heading:** See the whole operation. Know where to look next.
 
-**Visual:** Full-width cleaned platform overview illustration (`/images/platform/platform-overview-illustration-{640,800,1024}.{avif,webp}` and `/images/platform/platform-overview-illustration.jpg`, native 1024×470 derived from `last-mile-platform-overview-placemat.jpg`) with one compact HTML caption centered under the image (`Your existing systems. One connected operating response.`). On narrow screens, present the four intentional detail crops (`Infinit-Signal — Connect and validate.`, `Singularity — Understand in context.`, `Infinit-Flow (Optional) — Coordinate the response.`, `Infinit-Control — See and verify.`) and center the same caption beneath them.
+**Body:** Bring site status, equipment information and the right contacts into one connected view. Start with the wider operation, then look more closely at the assets that need attention.
+
+**Visual:** `Ops.png` (customer Operations Overview, globe presentation) delivered as `/images/product-views/operations-overview-{640,960,1280,1920,2880}.{avif,webp}` with `/images/product-views/operations-overview.jpg` fallback, shown across the content width at its native 16:10 proportion through the shared `ProductViewFigure` component (`src/app/content/productViews.ts`), lazy-loaded, with an `Enlarge screenshot` control.
+
+**Image caption:** Operations overview: site status, incoming data and selected-site context in one place.
+
+**Audience line:** Product screenshot · Example operating data.
 
 **Links:**
-- Explore the platform — /platform
-- See how it works — /how-it-works
+- Request a demo — /demo
+- Explore the product views — /platform#product-tour
+
+The screenshot is unaltered product imagery with example operating data. Do not reuse its site counts, message totals, or other values as marketing statistics, customer traction, or performance benchmarks, and do not present the example company or sites as customers.
 
 ## 3. Industry relevance
 

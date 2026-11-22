@@ -2,49 +2,13 @@ import { SEO } from "@/app/components/SEO";
 import { useState } from "react";
 import { ArrowUpRight, ArrowRight, Factory, Server, Snowflake } from "lucide-react";
 import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/app/components/ui/tabs";
+import { ProductViewFigure } from "@/app/components/makeover/ProductViews";
 import { ServiceTeaser } from "@/app/components/makeover/SiteShell";
+import { productViews } from "@/app/content/productViews";
 import { trackEvent } from "@/app/lib/analytics";
 
 const demoUrl = "/demo";
-const homeOverviewCrops = [
-  {
-    id: "infinit-signal",
-    name: "Infinit-Signal",
-    description: "Connect and validate.",
-    cropBasename: "platform-overview-crop-signal",
-    width: 384,
-    height: 312,
-    alt: "Existing plant equipment and PLC cabinets sending readings into Infinit-Signal intake and verification.",
-  },
-  {
-    id: "singularity",
-    name: "Singularity",
-    description: "Understand in context.",
-    cropBasename: "platform-overview-crop-singularity",
-    width: 300,
-    height: 312,
-    alt: "Singularity shared operational model connecting equipment, site context, and operating history.",
-  },
-  {
-    id: "infinit-flow",
-    name: "Infinit-Flow",
-    optional: true,
-    description: "Coordinate the response.",
-    cropBasename: "platform-overview-crop-flow",
-    width: 192,
-    height: 306,
-    alt: "Infinit-Flow workflow sequence showing vibration alert, approval required, work order creation, and authorized action.",
-  },
-  {
-    id: "infinit-control",
-    name: "Infinit-Control",
-    description: "See and verify.",
-    cropBasename: "platform-overview-crop-control",
-    width: 232,
-    height: 376,
-    alt: "Operator reviewing P-101 Feed Pump operating measurements and confirmed recovery in Infinit-Control.",
-  },
-];
+const productTourUrl = "/platform#product-tour";
 const industries = [
   { name: "Manufacturing", icon: Factory, title: "Keep the line moving.", text: "When a machine shows signs of trouble, help production and maintenance see the same information, agree on the next step, and keep each other informed.", challenge: "Equipment condition · Production uptime · Clear responsibilities" },
   { name: "Data centers", icon: Server, title: "Keep cooling problems from escalating.", text: "When temperatures rise or cooling equipment needs attention, help the team see what changed, organize the response, and check that temperatures return to the expected range.", challenge: "Cooling performance · Temperature checks · Clear responsibilities" },
@@ -93,82 +57,23 @@ export function HomePage() {
         </div>
       </section>
 
-      <section className="home-response wrap" aria-labelledby="problem-title">
+      <section className="home-response wrap" aria-labelledby="product-title">
         <div className="home-response-header">
-          <p className="eyebrow"><span className="little-line" /> FROM WARNING TO RESOLUTION</p>
-          <h2 id="problem-title">See how the pieces come together.</h2>
-          <p className="home-response-lead">Connect equipment information, understand what needs attention, coordinate the response, and check the result with fresh operating data.</p>
+          <p className="eyebrow"><span className="little-line" /> INSIDE LAST MILE</p>
+          <h2 id="product-title">See the whole operation. Know where to look next.</h2>
+          <p className="home-response-lead">Bring site status, equipment information and the right contacts into one connected view. Start with the wider operation, then look more closely at the assets that need attention.</p>
         </div>
 
-        <figure className="home-overview-figure">
-          <div className="home-overview-canvas">
-            <picture>
-              <source
-                type="image/avif"
-                srcSet="/images/platform/platform-overview-illustration-640.avif 640w, /images/platform/platform-overview-illustration-800.avif 800w, /images/platform/platform-overview-illustration-1024.avif 1024w"
-                sizes="(max-width: 1150px) calc(100vw - 72px), 1300px"
-              />
-              <source
-                type="image/webp"
-                srcSet="/images/platform/platform-overview-illustration-640.webp 640w, /images/platform/platform-overview-illustration-800.webp 800w, /images/platform/platform-overview-illustration-1024.webp 1024w"
-                sizes="(max-width: 1150px) calc(100vw - 72px), 1300px"
-              />
-              <img
-                src="/images/platform/platform-overview-illustration.jpg"
-                alt="Illustration of the Last Mile platform connecting existing industrial equipment through Infinit-Signal, Singularity, Infinit-Flow, and Infinit-Control to verify equipment recovery."
-                width={1024}
-                height={470}
-                loading="lazy"
-                decoding="async"
-              />
-            </picture>
-          </div>
-          <figcaption className="home-overview-caption-bar">
-            <span className="home-overview-caption-main">Your existing systems. One connected operating response.</span>
-          </figcaption>
-        </figure>
-
-        <div className="home-overview-mobile-crops" aria-label="Platform overview in four stages">
-          {homeOverviewCrops.map(({ id, name, optional, description, cropBasename, width, height, alt }) => (
-            <article key={id} className="home-overview-crop-card">
-              <div className="home-overview-crop-media">
-                <picture>
-                  <source type="image/avif" srcSet={`/images/platform/${cropBasename}.avif`} />
-                  <source type="image/webp" srcSet={`/images/platform/${cropBasename}.webp`} />
-                  <img
-                    src={`/images/platform/${cropBasename}.jpg`}
-                    alt={alt}
-                    width={width}
-                    height={height}
-                    loading="lazy"
-                    decoding="async"
-                  />
-                </picture>
-              </div>
-              <div className="home-overview-crop-body">
-                <div className="home-overview-crop-heading">
-                  <strong>{name}</strong>
-                  {optional && <span className="home-optional-label">Optional</span>}
-                </div>
-                <p>{description}</p>
-              </div>
-            </article>
-          ))}
-          <div className="home-overview-caption-bar home-overview-caption-mobile">
-            <span className="home-overview-caption-main">Your existing systems. One connected operating response.</span>
-          </div>
-        </div>
+        <ProductViewFigure view={productViews.operationsOverview} />
 
         <div className="home-response-links">
+          <a className="button" href={demoUrl} onClick={() => trackEvent("cta_demo_click", { placement: "home_product", destination: demoUrl })}>Request a demo <ArrowUpRight size={16} aria-hidden="true" /></a>
           <a
-            href="/platform"
+            href={productTourUrl}
             className="text-link"
-            onClick={() => trackEvent("cta_explore_platform_click", { placement: "home_response", destination: "/platform" })}
+            onClick={() => trackEvent("cta_explore_platform_click", { placement: "home_product", destination: productTourUrl })}
           >
-            Explore the platform <ArrowRight size={17} aria-hidden="true" />
-          </a>
-          <a href="/how-it-works" className="text-link">
-            See how it works <ArrowRight size={17} aria-hidden="true" />
+            Explore the product views <ArrowRight size={17} aria-hidden="true" />
           </a>
         </div>
       </section>

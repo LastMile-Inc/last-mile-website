@@ -2,7 +2,7 @@
 content_id: CLAIMS-REGISTRY-001
 status: approved
 owner: Product and Content Governance
-last_reviewed: 2026-09-25
+last_reviewed: 2026-11-22
 claim_maturity: [implemented, demonstrated, designed, reference_architecture, customer_specific, perspective, do_not_publish]
 depends_on: [GOV-CLAIMS-001]
 used_by: [all]
@@ -91,6 +91,15 @@ The founder authorized this review direction on 2026-09-25. The health-reporting
 | CLM-SERVICE-004 | Regular proactive conversations help Last Mile understand customers’ changing priorities and needs. | Designed | Founder service-model direction, 2026-09-25 | A fixed contact schedule before one is agreed |
 | CLM-SERVICE-005 | Our ambition is to earn the highest customer service ratings in our field. | Perspective | Founder ambition, 2026-09-25 | Existing independent rating, hyperscaler status, or competitor comparison |
 | CLM-SERVICE-006 | Good Service Remembers...Great Service Anticipates. | Perspective | Founder-supplied team service slogan, 2026-09-25 | A guarantee that every issue is anticipated |
+
+## Product views — November 2026
+
+Product screenshots were supplied on 2026-11-22 for the review site. They show example operating data for an example company; none of the values, sites, or names is customer evidence. The screenshots are shown unaltered apart from resizing and, for the two Cloud Operations team views, a bottom crop that removes the administrative shortcut and shell bar. The trend view (`Asset_Trend.png`) is withheld until a corrected capture is supplied.
+
+| Claim ID | Approved language | Maturity | Scope/evidence | Prohibited inference |
+|---|---|---|---|---|
+| CLM-CTRL-004 | Product views bring site status, equipment information, operating conditions, and the right contacts into one connected view, from the wider operation to the individual asset. | Demonstrated | Supplied product screenshots with example operating data, 2026-11-22 (`Ops.png`, `hud.png`, `Asset_detail.png`) | Customer traction or deployments; example values as statistics or benchmarks; a functioning application on the page; completed work, approvals, or verified recovery; separate products for the globe and map presentations |
+| CLM-SERVICE-007 | The Last Mile Cloud Operations team can review site connectivity, incoming data, and operational issues in one place, with site details and named contacts. | Demonstrated | Supplied Cloud Operations team screenshots with example operating data, 2026-11-22 (`cloud_OPS_hud.png`, `cloud_OPS_global.png`) | A view available to every customer role; guaranteed response time; all-hours coverage; unrestricted access to customer systems; automatic equipment control |
 
 ## Explicit do-not-publish claims
 

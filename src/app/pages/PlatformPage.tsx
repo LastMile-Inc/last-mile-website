@@ -1,6 +1,8 @@
 import type { ComponentType } from "react";
-import { ArrowRight, ArrowUpRight, Check, LayoutDashboard, Network, RadioTower, Workflow } from "lucide-react";
+import { ArrowRight, ArrowUpRight, Check, ChevronDown, LayoutDashboard, Network, RadioTower, Workflow } from "lucide-react";
+import { ProductViewExplorer } from "@/app/components/makeover/ProductViews";
 import { SEO } from "@/app/components/SEO";
+import { productViewSets } from "@/app/content/productViews";
 import { trackEvent } from "@/app/lib/analytics";
 import { createBreadcrumbSchema, createProductSchema } from "@/app/lib/structuredData";
 import "@/styles/platform-page.css";
@@ -115,7 +117,7 @@ const overviewProducts: OverviewProductCaption[] = [
   },
 ];
 
-function PlatformHeroIllustration() {
+function PlatformOverviewIllustration() {
   return (
     <div className="pf-hero-showcase">
       <figure className="pf-hero-figure">
@@ -136,8 +138,8 @@ function PlatformHeroIllustration() {
               alt="Illustration of the Last Mile platform connecting existing industrial equipment through Infinit-Signal, Singularity, Infinit-Flow, and Infinit-Control to verify equipment recovery."
               width={1024}
               height={470}
-              loading="eager"
-              fetchPriority="high"
+              loading="lazy"
+              decoding="async"
             />
           </picture>
         </div>
@@ -317,7 +319,29 @@ export function PlatformPage() {
               <a className="text-link" href="#products">Explore the four products <ArrowRight size={17} aria-hidden="true" /></a>
             </div>
           </div>
-          <PlatformHeroIllustration />
+        </section>
+
+        <section className="pf-tour wrap" id="product-tour" aria-labelledby="pf-tour-title">
+          <header className="pf-tour-header">
+            <p className="eyebrow"><span className="little-line" /> EXPLORE THE PRODUCT</p>
+            <h2 id="pf-tour-title">From the whole operation to the individual asset.</h2>
+            <p className="pf-tour-lead">See where attention is needed, bring the equipment into context, and examine how its operating conditions have changed.</p>
+          </header>
+          <ProductViewExplorer views={productViewSets.platformTour} label="Product views" priority />
+        </section>
+
+        <section className="pf-together" aria-label="How the four products work together">
+          <div className="wrap">
+            <details className="pf-together-details">
+              <summary className="pf-together-summary">
+                <span>How the four products work together</span>
+                <ChevronDown size={20} aria-hidden="true" />
+              </summary>
+              <div className="pf-together-body">
+                <PlatformOverviewIllustration />
+              </div>
+            </details>
+          </div>
         </section>
 
         <section className="pf-products" id="products" aria-labelledby="pf-products-title">

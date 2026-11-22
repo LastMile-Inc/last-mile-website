@@ -2,7 +2,7 @@
 content_id: PAGE-PLATFORM-001
 status: approved
 owner: Platform Product Marketing
-last_reviewed: 2026-10-26
+last_reviewed: 2026-11-22
 claim_maturity: [designed, demonstrated]
 depends_on: [GOV-DOCTRINE-001, CLAIMS-REGISTRY-001]
 used_by: [/platform]
@@ -28,7 +28,29 @@ Write for operators and managers. Product names may appear; explain each immedia
 
 **Secondary CTA:** Explore the four products — #products
 
-**Visual:** Full-width cleaned platform overview illustration (`/images/platform/platform-overview-illustration-{640,800,1024}.{avif,webp}` and `/images/platform/platform-overview-illustration.jpg`, native 1024×470 derived from `last-mile-platform-overview-placemat.jpg`) with printed header, product-caption strip, and navy footer removed. Live HTML captions are aligned beneath the illustrated regions (`Your existing systems` on the left, followed by linked product captions for `Infinit-Signal — Reliable data from your existing systems.`, `Singularity — Understand your equipment in context.`, `Infinit-Flow (Optional) — Keep work moving across teams and systems.`, and `Infinit-Control — See what needs attention and what changed.`). On narrow screens, four intentional detail crops (`platform-overview-crop-signal`, `platform-overview-crop-singularity`, `platform-overview-crop-flow`, `platform-overview-crop-control`) are paired with the live HTML product captions and links. Do not show an `Illustrative platform view` label.
+The hero is the stacked introduction only. The product explorer follows it directly.
+
+## 1a. Product explorer (`#product-tour`)
+
+Directed on 2026-11-22: the large platform illustration below the introduction is replaced by a screenshot explorer so the page leads with the actual interface.
+
+**Eyebrow:** EXPLORE THE PRODUCT
+
+**Heading:** From the whole operation to the individual asset.
+
+**Body:** See where attention is needed, bring the equipment into context, and examine how its operating conditions have changed.
+
+Three selectable views are configured in `src/app/content/productViews.ts` (`productViewSets.platformTour`) and rendered by `ProductViewExplorer`. One large screenshot shows at a time. Operations overview is the default. Selection is manual (no automatic rotation); the heading and description sit outside the image; each view has an `Enlarge screenshot` control and the audience line `Product screenshot · Example operating data.`
+
+1. **Operations overview** (`Ops.png` -> `operations-overview`) — **Know where to focus.** See sites, operating conditions and incoming data in a shared view, with site details and contacts close at hand.
+2. **Asset detail** (`Asset_detail.png` -> `asset-detail`) — **Give every reading its context.** Review current readings alongside equipment details, active conditions and replacement history.
+3. **Equipment trends** (`Asset_Trend.png`) — **See what changed over time.** Compare equipment readings with warning limits and events to understand when conditions changed. **Unpublished (`published: false`).** The supplied capture's summary values and reported conditions appear inconsistent, so no delivery file is generated and no tab is rendered until a corrected capture is supplied.
+
+`Ops.png` and `hud.png` are two presentations of the same operations overview. Do not describe them as separate products or imply a workflow between them.
+
+## 1b. How the four products work together (collapsed)
+
+Immediately before the four-product section, a native disclosure titled `How the four products work together` (collapsed on load) contains the platform overview illustration: Full-width cleaned platform overview illustration (`/images/platform/platform-overview-illustration-{640,800,1024}.{avif,webp}` and `/images/platform/platform-overview-illustration.jpg`, native 1024×470 derived from `last-mile-platform-overview-placemat.jpg`) with printed header, product-caption strip, and navy footer removed. Live HTML captions are aligned beneath the illustrated regions (`Your existing systems` on the left, followed by linked product captions for `Infinit-Signal — Reliable data from your existing systems.`, `Singularity — Understand your equipment in context.`, `Infinit-Flow (Optional) — Keep work moving across teams and systems.`, and `Infinit-Control — See what needs attention and what changed.`). On narrow screens, four intentional detail crops (`platform-overview-crop-signal`, `platform-overview-crop-singularity`, `platform-overview-crop-flow`, `platform-overview-crop-control`) are paired with the live HTML product captions and links. Do not show an `Illustrative platform view` label.
 
 ## 2. Products
 
@@ -130,7 +152,7 @@ Do not show a trademark attribution line under the grid, and do not show a closi
 
 ## Evidence boundaries and pre-release technical/commercial confirmation register
 
-The hero visual is the cleaned platform overview illustration (`platform-overview-illustration` and its four mobile detail crops, without an `Illustrative platform view` label), and the four product visuals are approved 4:3 illustrations (`platform-infinit-signal`, `platform-singularity`, `platform-infinit-flow`, `platform-infinit-control`) rather than live product screenshots or customer deployments.
+The product explorer shows founder-supplied product screenshots with example operating data (`CLM-CTRL-004`); the example values are not marketing statistics, customer traction, or performance benchmarks. The cleaned platform overview illustration (`platform-overview-illustration` and its four mobile detail crops, without an `Illustrative platform view` label) sits in the collapsed `How the four products work together` section, and the four product visuals are approved 4:3 illustrations (`platform-infinit-signal`, `platform-singularity`, `platform-infinit-flow`, `platform-infinit-control`) rather than live product screenshots or customer deployments.
 
 The `#built-for-your-operation` section is built in preview on the review branch (`releaseStatus: UNDER_REVIEW`). Before public production release, the following specific sentences require technical-owner or commercial confirmation and must be withheld from production merge until verified:
 1. `"Last Mile connects to PLCs and industrial systems through supported OPC UA, Modbus and DNP3 connections, bringing equipment information into a shared operational view."` (and `Modbus · DNP3` in the technology strip) — OPC UA source profiles and the open-protocol edge gateway workstream (`Last Mile Synapse`) are documented in architecture (`PROD-SIGNAL-001`, `CLM-SIG-002`, `CLM-IMPL-002`), whereas Modbus and DNP3 adapter/gateway requirements and production support scope await technical owner confirmation.

@@ -54,6 +54,11 @@
       "contentId": "LM-WEB-SERVICE-001",
       "status": "approved-for-review-site",
       "claim": "Founder-directed review copy may describe named operations engineers, platform health reporting, direct two-way customer chat, and proactive contact. Service rankings are an ambition to earn, not an achieved rating; detection lead time, coverage, staffing ratios, and response times are not guaranteed."
+    },
+    {
+      "contentId": "LM-WEB-PRODUCTVIEWS-001",
+      "status": "approved-for-review-site",
+      "claim": "Supplied product screenshots with example operating data may show the customer operations overview and asset detail views and, labeled as Last Mile Cloud Operations team views, the internal service views. Example values are not customer traction, marketing statistics, or performance benchmarks, and the trend view is withheld until a corrected capture is supplied."
     }
   ]
 }

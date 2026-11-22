@@ -11,6 +11,8 @@ export type AnalyticsEventName =
   | "form_conversation_type_selected"
   | "podcast_episode_play"
   | "podcast_subscribe_click"
+  | "product_view_enlarge"
+  | "product_view_select"
   | "technical_collaboration_cta_click";
 
 declare global {

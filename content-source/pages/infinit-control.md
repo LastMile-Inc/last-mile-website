@@ -2,7 +2,7 @@
 content_id: PAGE-CONTROL-001
 status: approved
 owner: Infinit-Control Product Marketing
-last_reviewed: 2026-10-17
+last_reviewed: 2026-11-22
 claim_maturity: [designed, demonstrated]
 depends_on: [PROD-CONTROL-001, CLAIMS-REGISTRY-001]
 used_by: [/infinit-control]
@@ -22,7 +22,11 @@ Show how Infinit-Control gives each role a clear, governed view of operating con
 
 **Body:** Give each role a clear view of operating conditions, responsibilities, work, and outcomes—with the context and authority needed to respond.
 
-**Hero visual:** `field-command-v2.png` (`1536×1024`, `3:2` aspect ratio), delivered at `/images/platform/field-command-v2-{640,960,1280,1536}.{avif,webp}` with `.png` fallback and captioned `Concept illustration`.
+**Hero visual (2026-11-22):** `Asset_detail.png` (customer asset detail view) delivered as `/images/product-views/asset-detail-{640,960,1280,1920,2880}.{avif,webp}` with `.jpg` fallback, placed across the content width directly below the introductory text and buttons so the interface stays legible. It supersedes the `field-command-v2.png` concept illustration.
+
+**Hero image caption:** Current readings, equipment details, active conditions and replacement history—together in the asset view.
+
+**Audience line:** Product screenshot · Example operating data.
 
 ## Role-based explanation
 
@@ -32,19 +36,25 @@ Explain the questions each role needs answered using documented capabilities (`C
 - **Shift leads:** `Who owns the response, and where is progress blocked?`
 - **Leaders:** `Where is risk accumulating, and what results have been established?`
 
-## Supporting oversight image (`mission-control-v2`)
+## Shared oversight image (operations overview, map view)
 
-After the role-based explanation, render `mission-control-v2.png` (`1672×941`, `16:9` aspect ratio), delivered at `/images/platform/mission-control-v2-{640,960,1280,1672}.{avif,webp}` with `.png` fallback and captioned `Concept illustration`.
+After the role-based explanation, render `hud.png` (customer Operations Overview, flat-map presentation) delivered as `/images/product-views/operations-overview-map-{640,960,1280,1920,2880}.{avif,webp}` with `.jpg` fallback. It supersedes the `mission-control-v2.png` control-room concept illustration, and the former caption about an illustrative control room and physical hardware is removed because it no longer describes the image.
 
 **Heading:** Keep the wider operation in view.
 
-**Body:** Bring conditions, ongoing responses, and outcome evidence into a shared view across the operation.
+**Body:** See site status across your operation, then bring the selected site’s information and contacts into view. Give your team a shared starting point for understanding where attention is needed.
 
-Present the image as an illustration of broader oversight; do not suggest that Last Mile requires a physical control room or proprietary hardware.
+**Image caption:** Operations overview · Map view with selected-site context.
+
+**Audience line:** Product screenshot · Example operating data.
+
+`hud.png` and `Ops.png` are two presentations of the same operations overview, not separate products.
 
 ## Work status versus operating result
 
 **Heading:** `The work is complete but, is the operation recovered?`
+
+Keep the worked example and its interactive states. The product screenshots on this page show visibility, asset context, and conditions; they do not independently demonstrate completed work, approvals, or verified recovery.
 
 The technical-details disclosure is not shown on this page.
 

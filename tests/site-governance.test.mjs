@@ -3,6 +3,7 @@ import fs from "node:fs";
 import path from "node:path";
 import test from "node:test";
 import { fileURLToPath } from "node:url";
+import { audienceCaptions, productViews, productViewSets } from "../src/app/content/productViews.ts";
 import { coolingReference, operatingScenarioList, operatingScenarios } from "../src/app/pages/platformReferenceData.ts";
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
@@ -85,7 +86,10 @@ test("homepage, platform, and infinit-signal use approved imagery and inventory 
   assert.doesNotMatch(home, /robots="noindex,\s*nofollow"/);
   assert.doesNotMatch(home, /not a product screenshot|24\/7|response-time SLA/i);
   assert.match(home, /<ServiceTeaser/);
-  assert.match(home, /platform-overview-illustration/);
+  assert.match(home, /See the whole operation\. Know where to look next\./);
+  assert.match(home, /<ProductViewFigure view=\{productViews\.operationsOverview\}/);
+  assert.match(home, /href=\{productTourUrl\}/);
+  assert.doesNotMatch(home, /platform-overview-illustration/);
   for (const basename of ["platform-overview-illustration", "platform-infinit-signal", "platform-singularity", "platform-infinit-flow", "platform-infinit-control"]) {
     assert.ok(platform.includes(basename), `PlatformPage missing ${basename}`);
   }
@@ -109,8 +113,9 @@ test("homepage, platform, and infinit-signal use approved imagery and inventory 
   for (const label of ["Operating context", "Rules and approvals", "People and systems", "Progress and evidence"]) {
     assert.ok(infinitFlow.includes(label), `InfinitFlowPage missing ${label}`);
   }
-  assert.match(infinitControl, /field-command-v2/);
-  assert.match(infinitControl, /mission-control-v2/);
+  assert.match(infinitControl, /view=\{productViews\.assetDetail\}/);
+  assert.match(infinitControl, /view=\{productViews\.operationsOverviewMap\}/);
+  assert.doesNotMatch(infinitControl, /field-command-v2|mission-control-v2|control room/i);
   assert.match(infinitControl, /Know what needs action\. See what changed\./);
   assert.match(infinitControl, /Keep the wider operation in view\./);
   assert.match(infinitControl, /The work is complete but, is the operation recovered\?/);
@@ -122,8 +127,8 @@ test("homepage, platform, and infinit-signal use approved imagery and inventory 
   assert.match(useCasePage, /Keep compressed-air issues connected to the response\./);
   assert.match(useCasePage, /Carry refrigeration issues through to verified recovery\./);
   assert.match(useCasePage, /Keep lift-station response coordinated\./);
-  assert.equal(inventory.activeAssets.length, 15);
-  assert.equal(inventory.reservedAssets.length, 6);
+  assert.equal(inventory.activeAssets.length, 18);
+  assert.equal(inventory.reservedAssets.length, 7);
   assert.match(howItWorks, /accountable-operations-loop-v3\.png/);
   assert.match(howItWorks, /Keep evidence, decisions, coordinated work, and verification\s+connected throughout the response\./);
   assert.match(howItWorks, /Completed work is one milestone\. Operating evidence determines\s+whether recovery is established or further response is needed\./);
@@ -182,3 +187,35 @@ test("withdrawn hubs, CSV downloads, and retired concept articles are removed fr
   assert.equal(fs.existsSync(path.join(root, "public/downloads")), false);
 });
 
+test("product screenshots: unpublished views ship nothing, team views stay cropped and labeled, and published files exist", () => {
+  const publicDir = path.join(root, "public");
+  const delivered = fs.readdirSync(path.join(publicDir, "images", "product-views"));
+
+  assert.equal(productViews.equipmentTrends.published, false);
+  assert.ok(!delivered.some((file) => file.startsWith("equipment-trends")), "the withheld trend capture must not be served");
+  assert.deepEqual(productViewSets.platformTour.map((view) => view.id), ["operations-overview", "asset-detail", "equipment-trends"]);
+  assert.deepEqual(productViewSets.cloudOperations.map((view) => view.id), ["cloud-operations-site-context", "cloud-operations-connected-sites"]);
+
+  assert.equal(audienceCaptions.customer, "Product screenshot · Example operating data.");
+  assert.equal(audienceCaptions["internal-team"], "Last Mile Cloud Operations team view · Example operating data.");
+
+  for (const view of Object.values(productViews)) {
+    assert.ok(view.alt.length > 40, `${view.id} needs descriptive alt text`);
+    const internal = view.id.startsWith("cloud-operations-");
+    assert.equal(view.audience, internal ? "internal-team" : "customer");
+    // Team views are served only as the crop that removes the administrative shortcut and shell bar.
+    assert.equal(view.image.height, internal ? 1692 : 1800);
+    if (!view.published) continue;
+    for (const width of view.image.widths) {
+      for (const extension of ["avif", "webp"]) assert.ok(fs.existsSync(path.join(publicDir, `${view.image.basePath}-${width}.${extension}`)), `${view.id} missing ${width}.${extension}`);
+    }
+    assert.ok(fs.existsSync(path.join(publicDir, `${view.image.basePath}.jpg`)), `${view.id} missing fallback`);
+  }
+
+  const ourService = read("src/app/pages/OurServicePage.tsx");
+  assert.match(ourService, /Last Mile Cloud Operations team views/);
+  assert.doesNotMatch(ourService, /24\/7|guaranteed response|response-time SLA/i);
+  for (const page of ["HomePage", "PlatformPage", "InfinitControlPage", "OurServicePage"]) {
+    assert.doesNotMatch(read(`src/app/pages/${page}.tsx`), /Asset_Trend|equipment-trends|coming soon/i);
+  }
+});
