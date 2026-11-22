@@ -1,0 +1,314 @@
+/* Product screenshots (ProductViews.tsx). Shared by every route that shows a product view.
+   The captures are dark interfaces, so the frame uses an ink border and a restrained shadow;
+   everything around them stays on the light Last Mile palette. */
+
+body.lm-makeover .lm-shot {
+  margin: 0;
+  min-width: 0;
+}
+
+body.lm-makeover .lm-shot-frame {
+  width: 100%;
+  overflow: hidden;
+  border: 1px solid var(--lm-ink);
+  border-radius: 10px;
+  background: var(--lm-ink);
+  box-shadow: 0 26px 48px -34px color-mix(in srgb, var(--lm-ink) 55%, transparent);
+}
+
+body.lm-makeover .lm-shot-frame picture,
+body.lm-makeover .lm-shot-frame img {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+body.lm-makeover .lm-shot-meta {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px 28px;
+  margin-top: 14px;
+}
+
+body.lm-makeover .lm-shot-captions {
+  display: grid;
+  gap: 4px;
+  min-width: 0;
+}
+
+body.lm-makeover .lm-shot-caption {
+  font-size: 15px;
+  font-weight: 600;
+  line-height: 1.45;
+  color: var(--lm-ink);
+}
+
+body.lm-makeover .lm-shot-audience {
+  font-size: 13px;
+  line-height: 1.45;
+  color: var(--lm-copy);
+}
+
+body.lm-makeover .lm-shot-enlarge,
+body.lm-makeover .lm-shot-dialog-button {
+  display: inline-flex;
+  flex-shrink: 0;
+  align-items: center;
+  gap: 8px;
+  min-height: 40px;
+  padding: 9px 14px;
+  font-size: 13px;
+  font-weight: 600;
+  line-height: 1.3;
+  white-space: nowrap;
+  color: var(--lm-blue-dark);
+  background: var(--lm-surface);
+  border: 1px solid var(--lm-steel);
+  border-radius: 4px;
+  transition: border-color 0.15s, background-color 0.15s;
+}
+
+body.lm-makeover .lm-shot-enlarge:hover,
+body.lm-makeover .lm-shot-dialog-button:hover {
+  border-color: var(--lm-blue);
+  background: var(--lm-canvas);
+}
+
+body.lm-makeover .lm-shot-enlarge:focus-visible,
+body.lm-makeover .lm-shot-dialog-button:focus-visible,
+body.lm-makeover .lm-shot-tab:focus-visible {
+  outline: 2px solid var(--lm-blue-dark);
+  outline-offset: 2px;
+}
+
+/* Explorer */
+body.lm-makeover .lm-shot-explorer {
+  min-width: 0;
+}
+
+body.lm-makeover .lm-shot-group-label {
+  margin: 0 0 12px;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 1.2px;
+  line-height: 1.5;
+  text-transform: uppercase;
+  color: var(--lm-copy);
+}
+
+body.lm-makeover .lm-shot-tabs {
+  display: inline-flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  max-width: 100%;
+  padding: 4px;
+  background: var(--lm-canvas);
+  border: 1px solid var(--lm-steel);
+  border-radius: 8px;
+}
+
+body.lm-makeover .lm-shot-tab {
+  min-height: 42px;
+  padding: 9px 18px;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1.3;
+  color: var(--lm-copy);
+  background: transparent;
+  border: 1px solid transparent;
+  border-radius: 5px;
+  transition: color 0.15s, background-color 0.15s, border-color 0.15s;
+}
+
+body.lm-makeover .lm-shot-tab:hover {
+  color: var(--lm-blue-dark);
+}
+
+body.lm-makeover .lm-shot-tab[aria-selected="true"] {
+  color: var(--lm-surface);
+  background: var(--lm-blue-dark);
+  border-color: var(--lm-blue-dark);
+}
+
+body.lm-makeover .lm-shot-panel {
+  margin-top: 22px;
+}
+
+body.lm-makeover .lm-shot-copy-stack {
+  display: grid;
+  margin-bottom: 22px;
+}
+
+body.lm-makeover .lm-shot-copy {
+  grid-area: 1 / 1;
+  max-width: 760px;
+}
+
+body.lm-makeover .lm-shot-copy[data-current="false"] {
+  visibility: hidden;
+}
+
+body.lm-makeover .lm-shot-copy h3 {
+  font-size: clamp(24px, 2.3vw, 32px);
+  font-weight: 500;
+  line-height: 1.18;
+  letter-spacing: -0.9px;
+  color: var(--lm-ink);
+}
+
+body.lm-makeover .lm-shot-copy p {
+  margin-top: 10px;
+  font-size: 17px;
+  line-height: 1.6;
+  color: var(--lm-copy);
+}
+
+/* Enlarged viewer */
+body.lm-makeover .lm-shot-overlay[data-slot="dialog-overlay"] {
+  background: color-mix(in srgb, var(--lm-ink) 68%, transparent);
+}
+
+body.lm-makeover .lm-shot-dialog {
+  position: fixed;
+  z-index: 50;
+  top: 50%;
+  left: 50%;
+  display: flex;
+  flex-direction: column;
+  /* Sized so the whole capture fits beneath the bar without scrolling on a desktop. */
+  width: min(1720px, calc(100vw - 32px), max(360px, calc((100dvh - 112px) * var(--lm-shot-ratio, 1.6))));
+  max-height: calc(100dvh - 32px);
+  transform: translate(-50%, -50%);
+  overflow: hidden;
+  color: var(--lm-ink);
+  background: var(--lm-surface);
+  border: 1px solid var(--lm-steel);
+  border-radius: 10px;
+  box-shadow: 0 30px 70px -30px color-mix(in srgb, var(--lm-ink) 70%, transparent);
+}
+
+body.lm-makeover .lm-shot-dialog:focus {
+  outline: none;
+}
+
+body.lm-makeover .lm-shot-dialog-bar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px 20px;
+  padding: 12px 16px;
+  border-bottom: 1px solid var(--lm-wash);
+}
+
+body.lm-makeover .lm-shot-dialog-heading {
+  min-width: 0;
+}
+
+body.lm-makeover .lm-shot-dialog-title {
+  font-size: 17px;
+  font-weight: 600;
+  line-height: 1.3;
+  letter-spacing: -0.2px;
+  color: var(--lm-ink);
+}
+
+body.lm-makeover .lm-shot-dialog-note {
+  margin-top: 2px;
+  font-size: 13px;
+  line-height: 1.45;
+  color: var(--lm-copy);
+}
+
+body.lm-makeover .lm-shot-dialog-actions {
+  display: flex;
+  gap: 8px;
+}
+
+body.lm-makeover .lm-shot-dialog-close {
+  color: var(--lm-surface);
+  background: var(--lm-blue-dark);
+  border-color: var(--lm-blue-dark);
+}
+
+body.lm-makeover .lm-shot-dialog-close:hover {
+  background: var(--lm-blue);
+  border-color: var(--lm-blue);
+}
+
+body.lm-makeover .lm-shot-dialog-scroll {
+  flex: 1 1 auto;
+  min-height: 0;
+  overflow: auto;
+  overscroll-behavior: contain;
+  touch-action: pan-x pan-y pinch-zoom;
+  -webkit-overflow-scrolling: touch;
+  background: var(--lm-ink);
+}
+
+body.lm-makeover .lm-shot-dialog-scroll:focus-visible {
+  outline: 2px solid var(--lm-blue);
+  outline-offset: -2px;
+}
+
+body.lm-makeover .lm-shot-dialog-scroll picture {
+  display: block;
+}
+
+/* Fit: the full width on a desktop; on a phone the capture keeps a readable width and pans. */
+body.lm-makeover .lm-shot-dialog-scroll img {
+  display: block;
+  width: max(100%, 1000px);
+  max-width: none;
+  height: auto;
+}
+
+/* Zoomed: never wider than the capture's own pixels. */
+body.lm-makeover .lm-shot-dialog-scroll[data-zoomed="true"] img {
+  width: min(2880px, max(180%, 1800px));
+}
+
+body.lm-makeover .lm-shot-dialog-hint {
+  display: none;
+  padding: 8px 16px;
+  font-size: 12px;
+  line-height: 1.4;
+  color: var(--lm-copy);
+  border-top: 1px solid var(--lm-wash);
+}
+
+@media (max-width: 1040px) {
+  body.lm-makeover .lm-shot-dialog-hint {
+    display: block;
+  }
+}
+
+@media (max-width: 640px) {
+  body.lm-makeover .lm-shot-frame {
+    border-radius: 7px;
+  }
+
+  body.lm-makeover .lm-shot-meta {
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  body.lm-makeover .lm-shot-tabs {
+    display: flex;
+  }
+
+  body.lm-makeover .lm-shot-tab {
+    flex: 1 1 auto;
+    padding-inline: 12px;
+  }
+
+  body.lm-makeover .lm-shot-copy p {
+    font-size: 16px;
+  }
+
+  body.lm-makeover .lm-shot-dialog {
+    width: min(calc(100vw - 16px), max(360px, calc((100dvh - 112px) * var(--lm-shot-ratio, 1.6))));
+    max-height: calc(100dvh - 16px);
+  }
+}
