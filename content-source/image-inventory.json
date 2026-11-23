@@ -504,8 +504,8 @@
         "width": 2880,
         "height": 1800
       },
-      "originalBytes": 572092,
-      "originalSha256": "af23f158162e2e46",
+      "originalBytes": 575381,
+      "originalSha256": "2185581a34b7cbcc",
       "route": "/platform, /infinit-control",
       "routes": [
         "/platform",
@@ -527,7 +527,7 @@
         "public/images/product-views/asset-detail-2880.webp",
         "public/images/product-views/asset-detail.jpg"
       ],
-      "notes": "Customer-facing product screenshot with example operating data; audience line `Product screenshot · Example operating data.` Resized only (never upscaled); delivered at 640w, 960w, 1280w, 1920w, and 2880w in AVIF/WebP with a 1440w JPEG fallback by scripts/prepare-product-screenshots.py. Example values are not marketing statistics or customer traction."
+      "notes": "Customer-facing product screenshot with example operating data; audience line `Product screenshot · Example operating data.` Resized only (never upscaled); delivered at 640w, 960w, 1280w, 1920w, and 2880w in AVIF/WebP with a 1440w JPEG fallback by scripts/prepare-product-screenshots.py. Example values are not marketing statistics or customer traction. Recaptured later on 2026-11-22 so its readings (16.3 MVA, 60.6 °C, 82.3 °C) match the corrected Asset_Trend.png for the same transformer and time; replaces the first capture (15.0 MVA, 59.6 °C, 79.0 °C)."
     },
     {
       "status": "active",
@@ -561,7 +561,7 @@
         "public/images/product-views/equipment-trends-2880.webp",
         "public/images/product-views/equipment-trends.jpg"
       ],
-      "notes": "Customer-facing product screenshot with example operating data; audience line `Product screenshot · Example operating data.` Resized only (never upscaled); delivered at 640w, 960w, 1280w, 1920w, and 2880w in AVIF/WebP with a 1440w JPEG fallback by scripts/prepare-product-screenshots.py. Example values are not marketing statistics or customer traction. Corrected capture supplied later on 2026-11-22; it replaces the first Asset_Trend.png, which was withheld because its summary values and reported conditions were inconsistent. Its last readings (16.3 MVA, 60.6 °C, 82.3 °C) differ from the Asset_detail.png capture of the same transformer at the same displayed time (15.0 MVA, 59.6 °C, 79.0 °C)."
+      "notes": "Customer-facing product screenshot with example operating data; audience line `Product screenshot · Example operating data.` Resized only (never upscaled); delivered at 640w, 960w, 1280w, 1920w, and 2880w in AVIF/WebP with a 1440w JPEG fallback by scripts/prepare-product-screenshots.py. Example values are not marketing statistics or customer traction. Corrected capture supplied later on 2026-11-22; it replaces the first Asset_Trend.png, which was withheld because its summary values and reported conditions were inconsistent. Its last readings (16.3 MVA, 60.6 °C, 82.3 °C) match the recaptured Asset_detail.png."
     },
     {
       "status": "active",
