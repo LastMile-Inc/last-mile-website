@@ -9,8 +9,8 @@ source is only resized (never upscaled) and, for the two Cloud Operations team
 views, cropped from the bottom to remove the administrative shortcut and shell
 bar. No pixels are redrawn, sharpened, or recoloured.
 
-Only entries marked published are written to public/. An unpublished entry
-(the trend chart awaiting a corrected capture) is skipped, so its file is never
+Only entries marked published are written to public/. An unpublished entry is
+skipped and any earlier delivery files for it are removed, so its file is never
 reachable from the website.
 
 Requires Pillow 11.3+ (built-in AVIF and WebP support).
@@ -39,8 +39,7 @@ SCREENSHOTS = [
     {"source": "Ops.png", "basename": "operations-overview", "published": True},
     {"source": "hud.png", "basename": "operations-overview-map", "published": True},
     {"source": "Asset_detail.png", "basename": "asset-detail", "published": True},
-    # Awaiting a corrected capture: summary values and reported conditions are inconsistent.
-    {"source": "Asset_Trend.png", "basename": "equipment-trends", "published": False},
+    {"source": "Asset_Trend.png", "basename": "equipment-trends", "published": True},
     {
         "source": "cloud_OPS_hud.png",
         "basename": "cloud-operations-site-context",

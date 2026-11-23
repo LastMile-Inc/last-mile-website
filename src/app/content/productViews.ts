@@ -78,9 +78,6 @@ export const productViews = {
     published: true,
     image: { basePath: `${imageRoot}/asset-detail`, width: 2880, height: 1800, widths: deliveredWidths },
   },
-  // Unpublished until a corrected capture arrives: the supplied capture's summary
-  // values and reported conditions are inconsistent. When it does, add the file to
-  // scripts/prepare-product-screenshots.py, run it, and set `published: true`.
   equipmentTrends: {
     id: "equipment-trends",
     label: "Equipment trends",
@@ -88,7 +85,7 @@ export const productViews = {
     description: "Compare equipment readings with warning limits and events to understand when conditions changed.",
     alt: "Last Mile equipment trend chart showing readings over time, warning thresholds and reported conditions.",
     audience: "customer",
-    published: false,
+    published: true,
     image: { basePath: `${imageRoot}/equipment-trends`, width: 2880, height: 1800, widths: deliveredWidths },
   },
   cloudOperationsSiteContext: {
