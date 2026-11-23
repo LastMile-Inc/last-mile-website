@@ -4,7 +4,7 @@ Updated: 2026-11-22
 
 ## Product screenshot update (2026-11-22)
 
-Branch `cursor/product-screenshot-evidence-1094`. Not merged, not deployed.
+Branch `cursor/product-screenshot-evidence-1094` was merged to `main` as PR #21 on 2026-11-22. The corrected trend capture follows on branch `cursor/publish-equipment-trends-1094`, which is not merged. Nothing was deployed by this work.
 
 - **`/`**: The section after the hero is now `INSIDE LAST MILE` / `See the whole operation. Know where to look next.` with `Ops.png` across the content width, the caption `Operations overview: site status, incoming data and selected-site context in one place.`, and the links `Request a demo` -> `/demo` and `Explore the product views` -> `/platform#product-tour`. The platform overview illustration and its four mobile crops no longer appear on Home. Hero, industries, service, and closing sections are unchanged.
 - **`/platform`**: The hero keeps its headline, paragraph, and calls to action. A new `#product-tour` explorer (`EXPLORE THE PRODUCT` / `From the whole operation to the individual asset.`) shows `Operations overview` (default), `Asset detail`, and `Equipment trends`. The platform overview illustration moved into a collapsed disclosure, `How the four products work together`, immediately before `#products`. `#products`, `#built-for-your-operation`, and the closing call to action are unchanged.
