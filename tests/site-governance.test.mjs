@@ -127,8 +127,8 @@ test("homepage, platform, and infinit-signal use approved imagery and inventory 
   assert.match(useCasePage, /Keep compressed-air issues connected to the response\./);
   assert.match(useCasePage, /Carry refrigeration issues through to verified recovery\./);
   assert.match(useCasePage, /Keep lift-station response coordinated\./);
-  assert.equal(inventory.activeAssets.length, 18);
-  assert.equal(inventory.reservedAssets.length, 7);
+  assert.equal(inventory.activeAssets.length, 19);
+  assert.equal(inventory.reservedAssets.length, 6);
   assert.match(howItWorks, /accountable-operations-loop-v3\.png/);
   assert.match(howItWorks, /Keep evidence, decisions, coordinated work, and verification\s+connected throughout the response\./);
   assert.match(howItWorks, /Completed work is one milestone\. Operating evidence determines\s+whether recovery is established or further response is needed\./);
@@ -191,8 +191,10 @@ test("product screenshots: unpublished views ship nothing, team views stay cropp
   const publicDir = path.join(root, "public");
   const delivered = fs.readdirSync(path.join(publicDir, "images", "product-views"));
 
-  assert.equal(productViews.equipmentTrends.published, false);
-  assert.ok(!delivered.some((file) => file.startsWith("equipment-trends")), "the withheld trend capture must not be served");
+  // A view that is switched off must have no delivery file left in public/.
+  for (const view of Object.values(productViews)) {
+    if (!view.published) assert.ok(!delivered.some((file) => file.startsWith(view.id)), `${view.id} is unpublished and must not be served`);
+  }
   assert.deepEqual(productViewSets.platformTour.map((view) => view.id), ["operations-overview", "asset-detail", "equipment-trends"]);
   assert.deepEqual(productViewSets.cloudOperations.map((view) => view.id), ["cloud-operations-site-context", "cloud-operations-connected-sites"]);
 
@@ -216,6 +218,6 @@ test("product screenshots: unpublished views ship nothing, team views stay cropp
   assert.match(ourService, /Last Mile Cloud Operations team views/);
   assert.doesNotMatch(ourService, /24\/7|guaranteed response|response-time SLA/i);
   for (const page of ["HomePage", "PlatformPage", "InfinitControlPage", "OurServicePage"]) {
-    assert.doesNotMatch(read(`src/app/pages/${page}.tsx`), /Asset_Trend|equipment-trends|coming soon/i);
+    assert.doesNotMatch(read(`src/app/pages/${page}.tsx`), /coming soon/i);
   }
 });

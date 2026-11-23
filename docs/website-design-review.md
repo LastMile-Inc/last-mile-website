@@ -39,7 +39,7 @@ The new design covers `/`, `/how-it-works`, `/industries`, `/why-last-mile`, `/o
 
 ## Product screenshots to supply
 
-Update, 2026-11-22: product screenshots for the operations overview, asset detail, and the Cloud Operations team views are now in place through `src/app/content/productViews.ts` and `src/app/components/makeover/ProductViews.tsx`, with delivery files under `public/images/product-views/`. A corrected trend capture is still outstanding. The briefs below are the original September request and are kept for reference.
+Update, 2026-11-22: product screenshots for the operations overview, asset detail, and the Cloud Operations team views are now in place through `src/app/content/productViews.ts` and `src/app/components/makeover/ProductViews.tsx`, with delivery files under `public/images/product-views/`. The briefs below are the original September request and are kept for reference.
 
 1. The big picture: the product's operating overview, for the homepage hero.
 2. Understand the issue: a real issue with equipment context and relevant history.

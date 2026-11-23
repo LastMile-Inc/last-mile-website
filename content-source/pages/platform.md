@@ -44,7 +44,7 @@ Three selectable views are configured in `src/app/content/productViews.ts` (`pro
 
 1. **Operations overview** (`Ops.png` -> `operations-overview`) — **Know where to focus.** See sites, operating conditions and incoming data in a shared view, with site details and contacts close at hand.
 2. **Asset detail** (`Asset_detail.png` -> `asset-detail`) — **Give every reading its context.** Review current readings alongside equipment details, active conditions and replacement history.
-3. **Equipment trends** (`Asset_Trend.png`) — **See what changed over time.** Compare equipment readings with warning limits and events to understand when conditions changed. **Unpublished (`published: false`).** The supplied capture's summary values and reported conditions appear inconsistent, so no delivery file is generated and no tab is rendered until a corrected capture is supplied.
+3. **Equipment trends** (`Asset_Trend.png` -> `equipment-trends`) — **See what changed over time.** Compare equipment readings with warning limits and events to understand when conditions changed. Published on 2026-11-22 with the corrected capture; the first capture was withheld because its summary values and reported conditions were inconsistent.
 
 `Ops.png` and `hud.png` are two presentations of the same operations overview. Do not describe them as separate products or imply a workflow between them.
 

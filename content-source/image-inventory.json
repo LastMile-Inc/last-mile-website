@@ -504,8 +504,8 @@
         "width": 2880,
         "height": 1800
       },
-      "originalBytes": 572092,
-      "originalSha256": "af23f158162e2e46",
+      "originalBytes": 575381,
+      "originalSha256": "2185581a34b7cbcc",
       "route": "/platform, /infinit-control",
       "routes": [
         "/platform",
@@ -527,7 +527,41 @@
         "public/images/product-views/asset-detail-2880.webp",
         "public/images/product-views/asset-detail.jpg"
       ],
-      "notes": "Customer-facing product screenshot with example operating data; audience line `Product screenshot · Example operating data.` Resized only (never upscaled); delivered at 640w, 960w, 1280w, 1920w, and 2880w in AVIF/WebP with a 1440w JPEG fallback by scripts/prepare-product-screenshots.py. Example values are not marketing statistics or customer traction."
+      "notes": "Customer-facing product screenshot with example operating data; audience line `Product screenshot · Example operating data.` Resized only (never upscaled); delivered at 640w, 960w, 1280w, 1920w, and 2880w in AVIF/WebP with a 1440w JPEG fallback by scripts/prepare-product-screenshots.py. Example values are not marketing statistics or customer traction. Recaptured later on 2026-11-22 so its readings (16.3 MVA, 60.6 °C, 82.3 °C) match the corrected Asset_Trend.png for the same transformer and time; replaces the first capture (15.0 MVA, 59.6 °C, 79.0 °C)."
+    },
+    {
+      "status": "active",
+      "deliveryBasename": "equipment-trends",
+      "sourceFilename": "Asset_Trend.png",
+      "canonicalSpecName": "Asset_Trend.png",
+      "preservedOriginalPath": "assets/originals/2026-11-product-screenshots/Asset_Trend.png",
+      "originalDimensions": {
+        "width": 2880,
+        "height": 1800
+      },
+      "originalBytes": 436497,
+      "originalSha256": "ac2ca527dab2934a",
+      "route": "/platform",
+      "routes": [
+        "/platform"
+      ],
+      "placement": "Platform product explorer (Equipment trends)",
+      "alt": "Last Mile equipment trend chart showing readings over time, warning thresholds and reported conditions.",
+      "caption": null,
+      "deliveryFiles": [
+        "public/images/product-views/equipment-trends-640.avif",
+        "public/images/product-views/equipment-trends-640.webp",
+        "public/images/product-views/equipment-trends-960.avif",
+        "public/images/product-views/equipment-trends-960.webp",
+        "public/images/product-views/equipment-trends-1280.avif",
+        "public/images/product-views/equipment-trends-1280.webp",
+        "public/images/product-views/equipment-trends-1920.avif",
+        "public/images/product-views/equipment-trends-1920.webp",
+        "public/images/product-views/equipment-trends-2880.avif",
+        "public/images/product-views/equipment-trends-2880.webp",
+        "public/images/product-views/equipment-trends.jpg"
+      ],
+      "notes": "Customer-facing product screenshot with example operating data; audience line `Product screenshot · Example operating data.` Resized only (never upscaled); delivered at 640w, 960w, 1280w, 1920w, and 2880w in AVIF/WebP with a 1440w JPEG fallback by scripts/prepare-product-screenshots.py. Example values are not marketing statistics or customer traction. Corrected capture supplied later on 2026-11-22; it replaces the first Asset_Trend.png, which was withheld because its summary values and reported conditions were inconsistent. Its last readings (16.3 MVA, 60.6 °C, 82.3 °C) match the recaptured Asset_detail.png."
     },
     {
       "status": "active",
@@ -676,19 +710,6 @@
       "originalSha256": "616cd17b3f551e51",
       "displayedOn": [],
       "notes": "Reserved for upcoming supporting-page reviews. Do not display on Home, Platform, or Infinit-Signal."
-    },
-    {
-      "status": "reserved",
-      "sourceFilename": "Asset_Trend.png",
-      "preservedOriginalPath": "assets/originals/2026-11-product-screenshots/Asset_Trend.png",
-      "originalDimensions": {
-        "width": 2880,
-        "height": 1800
-      },
-      "originalBytes": 426113,
-      "originalSha256": "bf86ce0c9e58ceef",
-      "displayedOn": [],
-      "notes": "Withheld pending a corrected capture: the supplied trend screenshot's summary values and reported conditions appear inconsistent. Configured as the unpublished `equipmentTrends` entry in src/app/content/productViews.ts (Platform product explorer, third view). No delivery file is generated under public/ and no tab is rendered until the replacement arrives."
     }
   ],
   "supersededAssets": [
